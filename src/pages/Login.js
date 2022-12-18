@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormInput, LoginHero, LoginNav } from '../components'
 import { useState } from 'react'
-import { joinusInputs } from '../constants'
+import { signinInputs } from '../constants'
 
 const Login = () => {
 
