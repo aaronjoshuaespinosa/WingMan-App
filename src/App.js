@@ -1,12 +1,13 @@
-import { Router } from 'react-router-dom'
 import { Route, Routes } from 'react-router-dom'
-import { Login } from './pages/Login'
+import Login from './pages/Login'
 import './index.css'
 
 function App() {
   return (
     <>
-      <Login />
+    <Routes>
+      <Route path="/login" element={<Login/>}></Route>
+    </Routes>
     </>
   );
 }

@@ -2,7 +2,18 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'space': ['Space Grotesk'],
+      },
+
+      colors: {
+        'blk': '#1E1E1E',
+        'orng' : '#FC5F1C',
+        'light-orng' : '#FF8A58',
+        'light-gry' : '#838383'
+      }
+    },
   },
   plugins: [],
 }
