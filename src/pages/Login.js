@@ -2,7 +2,7 @@ import React from 'react'
 
 const Login = () => {
   return (
-    <div>login</div>
+    <div class="text-xs text-red-800 mt-10">login</div>
   )
 }
 
