@@ -1,6 +1,7 @@
 import React from 'react'
 import LoginNav from '../components/LoginNav'
 import FormInput from '../components/FormInput'
+import LoginHero from '../components/LoginHero'
 import { useState } from 'react'
 
 const Login = () => {
@@ -35,15 +36,7 @@ const Login = () => {
                 <img src="https://ik.imagekit.io/efpqj5mis/gradient_1_Cu7n0Rq7PR.png?ik-sdk-version=javascript-1.4.3&updatedAt=1671371950247" alt="" className='w-full h-full absolute pointer-events-none select-none top-0 right-0'></img>
                 <div className='max-w-[1600px] h-full mx-auto flex'>
 
-                    <div className='hidden lg:block w-full font-space font-bold text-orng'>
-                        <div className='pl-10'>
-                            <h1 className='text-8xl mt-20'>An assistant</h1>
-                            <p className='text-2xl mt-[-10px]'>for your daily and not-so-daily needs.</p>
-                        </div>
-                        <div className='h-[65%] flex items-center justify-center'>
-                            <img src="https://ik.imagekit.io/efpqj5mis/Woman_nxHldLABo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671378483389" alt="babae" className='w-[35rem] md:w-[40rem] '/>
-                        </div>
-                    </div>
+                    <LoginHero />
 
                     <div className='w-full relative'>
                         <LoginNav isActive="login" />
@@ -64,7 +57,6 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
         </>
     )
