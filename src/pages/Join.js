@@ -23,20 +23,20 @@ const Login = () => {
                     <LoginHero />
 
                     <div className='w-full relative'>
-                        <LoginNav isActive="login" />
+                        <LoginNav isActive="join" />
                         <div className='h-[80%] flex items-center justify-center'>
                             <div className='mainForm w-[60%] mx-auto max-w-[250px] font-space'>
                                 <img src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432" alt="Logo" className='mx-auto m-4 pointer-events-none select-none' />
 
-                                {signinInputs.map(val => {
+                                {joinusInputs.map(val => {
                                     return (
                                         <FormInput key={val.id} {...val} value={val[values.name]} onChange={handleChange} />
                                     )
                                 })}
 
-                                <div className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5'>SIGN IN</div>
+                                <div className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5'>JOIN US</div>
 
-                                <p className='text-sm text-blk text-center cursor-pointer'>I want to have an account</p>
+                                <p className='text-sm text-blk text-center cursor-pointer undeline'>I already have an account</p>
                             </div>
                         </div>
                     </div>
