@@ -1,5 +1,4 @@
 import './index.css';
-import { Route }
 
 function App() {
   return (
