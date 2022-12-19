@@ -1,3 +1,7 @@
+import { MdDashboard, MdShoppingCart, MdOutlineAccessTimeFilled, MdError } from "react-icons/md";
+import { AiFillQuestionCircle } from "react-icons/ai";
+import { IoMegaphoneSharp } from "react-icons/io5";
+
 export const signinInputs = [
     {
         id: 1,
@@ -49,5 +53,41 @@ export const joinusInputs = [
         name: "confPassword",
         type: "password",
         placeholder: "Confirm Password"
+    }
+]
+
+export const navIcons = [
+    <MdDashboard />,
+    <MdShoppingCart />,
+    <MdOutlineAccessTimeFilled />,
+    <IoMegaphoneSharp />,
+    <MdError />,
+    <AiFillQuestionCircle />,
+]
+
+export const navLinks = [
+    {
+        id: 0,
+        name: "Dashboard",
+    },
+    {
+        id: 1,
+        name: "Marketplace",
+    },
+    {
+        id: 2,
+        name: "Appointments",
+    },
+    {
+        id: 3,
+        name: "News & Announcements",
+    },
+    {
+        id: 4,
+        name: "Complaint System",
+    },
+    {
+        id: 5,
+        name: "FAQs",
     }
 ]
