@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { AiOutlineClose } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
-import { navIcons, navLinks } from '../constants'
+import NavLinks from './NavLinks';
 
 const NavBar = () => {
   const [navActive, setNavActive] = useState(false)
@@ -38,20 +38,8 @@ const NavBar = () => {
 
         </div>
 
-        {/* NAV LINKS */}
-        <div className='navLinks'>
-          <div className='px-7 py-5 lg:p-5 h-full'>
-            {navLinks.map(links => {
-              return (
-                <div key={links.id} className='flex flex-column items-center py-5 hover:text-orng transition-all ease-in-out duration-[0.2s] cursor-pointer'>
-                  <div className='pr-3 text-2xl select-none hover:text-orng'>{navIcons[links.id]}</div>
-                  <p {...links} className="font-bold select-none">{links.name}</p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-
+        <NavLinks />
+        
         {/* PROFILE NAV */}
         <div className='profileNav w-full h-28 flex absolute bottom-0'>
           <div className='flex items-center justify-center self-end border-t-2 border-wht w-full h-full'>
