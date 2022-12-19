@@ -1,6 +1,7 @@
 import React from 'react'
-import { FormInput, LoginHero, LoginNav } from '../components'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { FormInput, LoginHero, LoginNav } from '../components'
 import { signinInputs } from '../constants'
 
 const Login = () => {
@@ -12,6 +13,12 @@ const Login = () => {
 
     const handleChange = (e) => {
         setValues(current => ({ ...current, [e.target.name]: e.target.value }))
+    }
+
+    const navigate = useNavigate()
+
+    const joinLink = () => {
+        navigate("/join-us", { replace: true })
     }
 
     return (
@@ -36,7 +43,7 @@ const Login = () => {
 
                                 <div className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5'>SIGN IN</div>
 
-                                <p className='text-sm text-blk text-center cursor-pointer'>I want to have an account</p>
+                                <p className='text-sm text-blk text-center cursor-pointer' onClick={joinLink}>I want to have an account</p>
                             </div>
                         </div>
                     </div>

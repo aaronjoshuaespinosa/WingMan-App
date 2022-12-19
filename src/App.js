@@ -3,6 +3,7 @@ import { Join, Login, Dashboard } from './pages'
 import './index.css'
 
 function App() {
+
   return (
     <>
     <Routes>
