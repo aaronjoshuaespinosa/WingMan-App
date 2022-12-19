@@ -4,7 +4,9 @@ import { NavBar } from '../components'
 const Dashboard = () => {
   return (
     <>
-      <NavBar />
+      <div className='w-full h-screen flex flex-row font-space'>
+        <NavBar />
+      </div>
     </>
   )
 }
