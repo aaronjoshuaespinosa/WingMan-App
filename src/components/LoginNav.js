@@ -21,7 +21,6 @@ const LoginNav = ({ isActive }) => {
         style={isActive === 'login' ? {height: "4px", width: "25px"} : null}></div>
       </div>
 
-
       <div className='relative'>
         <p className='peer hover:text-orng transition-all ease-in-out duration-[0.2s] cursor-pointer'
         style={isActive === 'join' ? {color: "#FC5F1C"} : null} onClick={joinLink}>join us</p>
