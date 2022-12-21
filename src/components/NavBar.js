@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import NavLinks from './NavLinks';
 
-const NavBar = () => {
+const NavBar = ({ onChange }) => {
   const [navActive, setNavActive] = useState(false)
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className='bg-blk w-full lg:w-96 h-full text-wht absolute lg:relative lg:block transition-all ease-in-out duration-[0.2s]' style={navActive ? { transform: "translateX(0%)" } : { transform: "translateX(-100%)" }}>
+      <div className='bg-blk w-full lg:w-96 h-full text-wht absolute lg:relative lg:block transition-all ease-in-out duration-[0.2s] translate-x-[-100%] lg:translate-x-0' style={navActive ? { transform: "translateX(0%)" } : {}}>
         {/* NAV LOGO */}
         <div className='wingman-logo'>
 
@@ -38,8 +38,8 @@ const NavBar = () => {
 
         </div>
 
-        <NavLinks />
-        
+        <NavLinks onChange={ onChange }/>
+
         {/* PROFILE NAV */}
         <div className='profileNav w-full h-28 flex absolute bottom-0'>
           <div className='flex items-center justify-center self-end border-t-2 border-wht w-full h-full'>
@@ -50,7 +50,7 @@ const NavBar = () => {
         </div>
       </div>
 
-      <div className='bg-wht w-full h-full'>
+      <div className='w-full h-full'>
         <div className='border-b-2 border-blk h-16 lg:h-28 flex'>
 
           {/* NAV BUTTON: FOR MOBILE */}
@@ -61,7 +61,7 @@ const NavBar = () => {
           </div>
 
           {/* GREETING */}
-          <div className='my-auto pl-3 lg:pl-10 text-2xl lg:text-5xl font-bold select-none'>Good day, AJ</div>
+          <div className='my-auto pl-3 lg:pl-10 text-2xl lg:text-5xl font-bold select-none'>TITE</div>
         </div>
       </div>
     </>

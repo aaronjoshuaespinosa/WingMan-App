@@ -69,25 +69,31 @@ export const navLinks = [
     {
         id: 0,
         name: "Dashboard",
+        link: "/dashboard"
     },
     {
         id: 1,
         name: "Marketplace",
+        link: "/marketplace"
     },
     {
         id: 2,
         name: "Appointments",
+        link: "/appointments"
     },
     {
         id: 3,
         name: "News & Announcements",
+        link: "/news-and-announcements"
     },
     {
         id: 4,
         name: "Complaint System",
+        link: "/complaint-system"
     },
     {
         id: 5,
         name: "FAQs",
+        link: "/faqs"
     }
 ]

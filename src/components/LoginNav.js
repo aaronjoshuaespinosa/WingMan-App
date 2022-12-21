@@ -5,11 +5,11 @@ const LoginNav = ({ isActive }) => {
   const navigate = useNavigate()
 
   const signLink = () => {
-    navigate("/sign-in", {replace:true})
+    navigate("/sign-in")
   }
 
   const joinLink = () => {
-    navigate("/join-us", {replace:true})
+    navigate("/join-us")
   }
 
   return (
