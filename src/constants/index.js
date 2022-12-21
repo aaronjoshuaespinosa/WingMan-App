@@ -97,3 +97,64 @@ export const navLinks = [
         link: "/faqs"
     }
 ]
+
+export const navHeader = [
+    {
+        id: 0,
+        name: "Good day",
+        link: "/dashboard"
+    },
+    {
+        id: 1,
+        name: "Marketplace",
+        link: "/marketplace"
+    },
+    {
+        id: 2,
+        name: "Appointments",
+        link: "/appointments"
+    },
+    {
+        id: 3,
+        name: "News & Announcements",
+        link: "/news-and-announcements"
+    },
+    {
+        id: 4,
+        name: "Complaint System",
+        link: "/complaint-system"
+    },
+    {
+        id: 5,
+        name: "FAQs",
+        link: "/faqs"
+    },
+]
+
+export const navMenu = [
+    {
+        id: 0,
+        name: "Your Profile",
+        link: "/profile-user"
+    },
+    {
+        id: 1,
+        name: "Your Cart",
+        link: "/cart-user"
+    },
+    {
+        id: 2,
+        name: "Your Appointments",
+        link: "/appointments-user"
+    },
+    {
+        id: 3,
+        name: "Your Questions",
+        link: "/faq-user"
+    },
+    {
+        id: 4,
+        name: "Your Complaints",
+        link: "/complaints-user"
+    }
+]
