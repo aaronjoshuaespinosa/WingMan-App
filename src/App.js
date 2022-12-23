@@ -36,7 +36,7 @@ function App() {
 	}, [toggle])
 
 	const nav = (
-		<div className='flex h-screen w-full font-space'>
+		<div className='flex h-screen w-full font-space relative'>
 			<NavBar onChange={onChange} />
 		</div>
 	)
