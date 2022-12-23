@@ -13,7 +13,7 @@ const NavLinks = ({ onChange, onClick }) => {
 
     return (
         <>
-            <div className='navLinks h-full'>
+            <div className='navLinks h-full w-80'>
                 <div className='px-7 py-5 lg:p-5 h-full select-none'>
                     {navLinks.map(links => {
                         return (

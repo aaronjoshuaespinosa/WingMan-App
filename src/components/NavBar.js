@@ -41,7 +41,7 @@ const NavBar = ({ onChange }) => {
 
 	return (
 		<>
-			<div className='bg-blk w-full lg:w-96 h-full text-wht absolute lg:relative lg:block transition-all ease-in-out duration-[0.2s] translate-x-[-100%] lg:translate-x-0' style={navActive ? { transform: "translateX(0%)" } : {}}>
+			<div className='bg-blk w-full lg:w-80 h-full text-wht absolute lg:relative lg:block transition-all ease-in-out duration-[0.2s] translate-x-[-100%] lg:translate-x-0' style={navActive ? { transform: "translateX(0%)" } : {}}>
 				{/* NAV LOGO */}
 				<div className='wingman-logo'>
 
@@ -86,7 +86,7 @@ const NavBar = ({ onChange }) => {
 				</div>
 			</div>
 
-			<div className='w-full h-full'>
+			<div className='h-16 lg:h-28 w-[100%]'>
 				<div className='border-b-2 border-blk h-16 lg:h-28 flex'>
 
 					{/* NAV BUTTON: FOR MOBILE */}
