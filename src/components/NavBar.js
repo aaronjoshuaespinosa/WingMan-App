@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { AiOutlineClose } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
@@ -10,10 +10,23 @@ const NavBar = ({ onChange }) => {
 	const [navActive, setNavActive] = useState(false)
 	const [menuActive, setMenuActive] = useState(false)
 
-	useEffect(() => {
-		console.log(menuActive)
-	}, [menuActive])
+	const ref = useRef(null)
 
+	useEffect(() => {
+	  document.addEventListener("click", handleOutsideClick, true)
+	}, [])
+
+	const handleOutsideClick = (e) => {
+		if(ref.current.contains(e.target)) {
+			console.log("inside")
+			setMenuActive(current => !current)
+		}
+		else {
+			console.log("outside")
+			setMenuActive(false)
+		}
+	}
+	
 	const navClick = () => {
 		setNavActive(current => !current)
 	}
@@ -59,7 +72,7 @@ const NavBar = ({ onChange }) => {
 					</div>
 
 					{/* NAV MENU */}
-					<div className='bg-wht absolute text-blk font-medium text-sm p-3 flex rounded-[2px] border-blk border-[2px] right-2 lg:right-[-3.9rem] top-[-10.5rem] transition-all ease-in-out duration-[0.2s]' style={menuActive ? {display: "block"} : {display: "none"}}>
+					<div className='bg-wht absolute text-blk font-medium text-sm p-3 flex rounded-[2px] border-blk border-[2px] right-2 lg:right-[-3.9rem] top-[-10.5rem] transition-all ease-in-out duration-[0.2s]' ref={ref} style={menuActive ? {display: "block"} : {display: "none"}}>
 						<div className='h-fit w-fit'>
 							{navMenu.map(menuLinks => {
 								return (
