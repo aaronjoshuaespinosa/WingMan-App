@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { NACard } from '../components'
+import { NACard, FAQCard } from '../components'
 
 const Dashboard = () => {
 	const dispatch = useDispatch()
@@ -13,27 +13,45 @@ const Dashboard = () => {
 	}, [])
 	return (
 		<>
-			<div className='bg-wht absolute top-0 w-full px-[1.25rem] py-20 lg:pl-[22.5rem] lg:pr-[2.5rem] lg:py-32 z-[-1] font-space'>
-				<div className='flex items-center place-content-between w-full py-2'>
-					<p className='text-orng text-lg lg:text-xl font-bold tracking-[0rem] lg:tracking-[0.5rem]'>LATEST NEWS</p>
-					<p className='text-[0.7rem] font-bold'>GO TO NEWS</p>
+			<div className='bg-wht absolute top-0 w-full font-space'>
+				<div className='px-[1.25rem] pt-20 pb-10 lg:pl-[22.5rem] lg:pr-[2.5rem] lg:pt-32 lg:pb-24 z-10'>
+					<div className='flex items-center place-content-between w-full py-2'>
+						<p className='text-orng text-lg lg:text-xl font-bold tracking-[0rem] lg:tracking-[0.5rem]'>LATEST NEWS</p>
+						<p className='text-[0.65rem] font-bold'>GO TO NEWS</p>
+					</div>
+
+					<div className='flex flex-col lg:flex-row place-content-between w-full gap-x-3'>
+						<NACard />
+						<NACard />
+						<NACard />
+					</div>
+
+					<div className='flex items-center place-content-between w-full py-2'>
+						<p className='text-orng text-lg lg:text-xl font-bold tracking-[0rem] lg:tracking-[0.5rem]'>LATEST ANNOUNCEMENTS</p>
+						<p className='text-[0.65rem] font-bold'>GO TO ANNOUNCEMENTS</p>
+					</div>
+
+					<div className='flex flex-col lg:flex-row place-content-between w-full gap-x-3'>
+						<NACard />
+						<NACard />
+						<NACard />
+					</div>
+
+					<h1 className='font-bold text-3xl mt-2'>FAQ Spotlight</h1>
+
+					<div className='w-full h-full flex flex-col lg:flex-row gap-x-3'>
+						<FAQCard />
+						<FAQCard />
+					</div>
 				</div>
-
-				<div className='flex flex-col lg:flex-row place-content-between w-full'>
-					<NACard />
-					<NACard />
-					<NACard />
-				</div>
-
-				<div className='flex items-center place-content-between w-full py-2'>
-					<p className='text-orng text-md lg:text-xl font-bold tracking-[0rem] lg:tracking-[0.5rem]'>LATEST ANNOUNCEMENTS</p>
-					<p className='text-[0.7rem] font-bold'>GO TO ANNOUNCEMENTS</p>
-				</div>
-
-				<NACard />
-				<NACard />
-				<NACard />
-
+				<footer className='flex flex-col justify-center items-center lg:flex-row lg:place-content-between font-black text-sm bg-wht border-t-[2px] border-blk w-full lg:pl-[22.5rem] h-28 px-10'>
+					<p>The Dev Profiles</p>
+					<div className='flex flex-row gap-x-5 z-10'>
+						<p className='cursor-pointer'>Terms and Conditions</p>
+						<p className='cursor-pointer'>Privacy Policy</p>
+						<p className='cursor-pointer'>ⓒ 2022</p>
+					</div>
+				</footer>
 			</div>
 		</>
 	)
