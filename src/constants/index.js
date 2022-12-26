@@ -135,12 +135,12 @@ export const navMenu = [
     {
         id: 0,
         name: "Your Profile",
-        link: "/profile-user"
+        link: "/profile"
     },
     {
         id: 1,
         name: "Your Cart",
-        link: "/cart-user"
+        link: "/cart"
     },
     {
         id: 2,

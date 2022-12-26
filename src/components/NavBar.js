@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { AiOutlineClose } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { MdOutlineKeyboardArrowUp } from "react-icons/md";
+import { MdOutlineKeyboardArrowUp, MdOutlineSearch } from "react-icons/md";
 import NavLinks from './NavLinks';
 import { navHeader, navMenu } from '../constants'
 
@@ -80,7 +80,7 @@ const NavBar = ({ onChange }) => {
 										<p {...menuLinks} key={menuLinks.id} className='py-1 pr-5 cursor-pointer select-none hover:text-light-gry'>{menuLinks.name}</p>
 									)
 								})}
-								<hr className='my-2 border-light-gry'></hr>
+								<hr className='my-2 border-light-gry' />
 								<p className='text-orng cursor-pointer select-none hover:text-light-orng'>Sign out</p>
 							</div>
 						</div>
@@ -92,13 +92,13 @@ const NavBar = ({ onChange }) => {
 
 						{/* NAV BUTTON: FOR MOBILE */}
 						<div className='h-16 w-16 bg-blk lg:hidden'>
-							<div className='text-wht flex items-center justify-center w-full h-full' onClick={navClick}>
+							<div className='text-wht flex items-center justify-center h-full' onClick={navClick}>
 								<GiHamburgerMenu className='text-3xl' />
 							</div>
 						</div>
 
 						{/* GREETING */}
-						<div className='my-auto pl-3 lg:pl-[1.5rem] xl:pl-10 text-2xl lg:text-5xl font-bold select-none w-[100vw]'>
+						<div className='my-auto px-3 lg:px-[1.5rem] xl:px-10 text-2xl lg:text-5xl font-bold select-none w-[100vw] relative'>
 							{navHeader.map(labels => {
 								return (
 									<div {...labels} key={labels.id}>
@@ -106,6 +106,9 @@ const NavBar = ({ onChange }) => {
 									</div>
 								)
 							})}
+							<div>
+								<input type='text' placeholder='Search the market...' className='absolute right-0 mr-3 lg:mr-[1.5rem] xl:mr-10 py-2 px-3 w-64 md:w-72 lg:w-80 xl:w-96 text-base border-blk border-[2px] rounded-[3px] translate-y-[-100%] hidden'></input>
+							</div>
 						</div>
 					</div>
 				</div>

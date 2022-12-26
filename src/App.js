@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
-import { Join, Login, Dashboard, Marketplace, Appointments, News, Complaints, FAQ, ErrorPage } from './pages'
+import { Join, Login, Dashboard, Marketplace, Appointments, News, Complaints, FAQ, ErrorPage, Profile } from './pages'
 import { NavBar } from './components'
 import { setToggle } from './features/navSlice'
 import './index.css'
@@ -14,7 +14,8 @@ function App() {
 		"/appointments",
 		"/news-and-announcements",
 		"/complaint-system",
-		"/faqs"
+		"/faqs",
+		"/profile"
 	]
 
 	const [active, setActive] = useState(false)
@@ -48,6 +49,7 @@ function App() {
 				<Route path="/" element={<Login />}></Route>
 				<Route path="/sign-in" element={<Login />}></Route>
 				<Route path="/join-us" element={<Join />}></Route>
+				<Route path="/profile" element={<Profile />}></Route>
 				<Route path="/dashboard" element={<Dashboard />}></Route>
 				<Route path="/marketplace" element={<Marketplace />}></Route>
 				<Route path="/appointments" element={<Appointments />}></Route>

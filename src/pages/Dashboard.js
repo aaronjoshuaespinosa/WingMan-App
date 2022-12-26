@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { NACard, FAQCard } from '../components'
+import { NACard, FAQCard, Footer } from '../components'
 
 const Dashboard = () => {
 	const dispatch = useDispatch()
@@ -44,14 +44,9 @@ const Dashboard = () => {
 						<FAQCard />
 					</div>
 				</div>
-				<footer className='flex flex-col justify-center items-center lg:flex-row lg:place-content-between font-black text-sm bg-wht border-t-[2px] border-blk w-full lg:pl-[22.5rem] h-28 px-10'>
-					<p className='cursor-pointer hover:text-light-gry'>The Dev Profiles</p>
-					<div className='flex flex-row gap-x-5'>
-						<p className='cursor-pointer hover:text-light-gry'>Terms and Conditions</p>
-						<p className='cursor-pointer hover:text-light-gry'>Privacy Policy</p>
-						<p>ⓒ 2022</p>
-					</div>
-				</footer>
+
+				<Footer />
+
 			</div>
 		</>
 	)

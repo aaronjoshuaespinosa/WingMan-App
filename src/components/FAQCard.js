@@ -11,8 +11,8 @@ const FAQCard = () => {
                     <div className='bg-wht w-full flex gap-2 p-3 lg:p-5 place-content-between'>
                         <div className=''>
                             <div>
-                                <h1 className='font-bold text-lg cursor-pointer hover:underline'>Kim Arada</h1>
-                                <p className='text-light-gry text-sm leading-[0.5rem]'>3 days ago</p>
+                                <h1 className='font-bold text-md cursor-pointer hover:underline'>Kim Arada</h1>
+                                <p className='text-light-gry text-xs leading-[0.5rem]'>3 days ago</p>
                             </div>
                             <div>
                                 <p className='font-bold text-sm mt-3'>Anybody want to commission for an artwork? Hit me up and contact me using the details in my profile.</p>
@@ -20,8 +20,8 @@ const FAQCard = () => {
                             </div>
                         </div>
                         <div className='flex flex-col h-full items-center justify-center gap-5'>
-                            <p className='text-2xl'><ImArrowUp /></p>
-                            <p className='text-2xl'><ImArrowDown /></p>
+                            <p className='text-2xl hover:text-light-gry transition-all ease-in-out duration-[0.2s] cursor-pointer'><ImArrowUp /></p>
+                            <p className='text-2xl hover:text-light-gry transition-all ease-in-out duration-[0.2s] cursor-pointer'><ImArrowDown /></p>
                         </div>
                     </div>
                     <div className='bg-light-lgry  w-full border-t-[2px] border-blk flex flex-row place-content-between items-center px-2 font-bold text-sm'>
