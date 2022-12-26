@@ -10,7 +10,7 @@ const NACard = () => {
                 <div className='bg-light-gry h-2/3 w-full'></div>
                 <div className='bg-wht h-1/3 w-full border-t-[2px] border-blk'>
                     <div className='w-full h-full flex flex-col justify-center px-5'>
-                        <p className='text-orng font-bold text-sm'>STRASUC WEEK DONE!</p>
+                        <p className='text-orng font-bold text-sm hover:underline'>STRASUC WEEK DONE!</p>
                         <p className='text-light-gry text-xs'>18 hrs ago</p>
                     </div>
                 </div>

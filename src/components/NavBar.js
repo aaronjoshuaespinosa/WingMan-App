@@ -41,7 +41,7 @@ const NavBar = ({ onChange }) => {
 
 	return (
 		<>
-			<div className='fixed w-80 flex z-10'>
+			<div className='fixed w-full lg:w-80 flex z-10'>
 				<div className='bg-blk w-full h-screen lg:w-80 text-wht absolute lg:relative top-0 lg:block transition-all ease-in-out duration-[0.2s] translate-x-[-100%] lg:translate-x-0' style={navActive ? { transform: "translateX(0%)" } : {}}>
 					{/* NAV LOGO */}
 					<div className='wingman-logo'>
@@ -98,7 +98,7 @@ const NavBar = ({ onChange }) => {
 						</div>
 
 						{/* GREETING */}
-						<div className='my-auto pl-3 lg:pl-10 text-2xl lg:text-5xl font-bold select-none w-[100vw]'>
+						<div className='my-auto pl-3 lg:pl-[1.5rem] xl:pl-10 text-2xl lg:text-5xl font-bold select-none w-[100vw]'>
 							{navHeader.map(labels => {
 								return (
 									<div {...labels} key={labels.id}>
