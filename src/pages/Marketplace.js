@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { MPService,Footer } from '../components'
+import { MPService, Footer } from '../components'
 
 const Profile = () => {
     const dispatch = useDispatch()
@@ -51,7 +51,7 @@ const Profile = () => {
                         <MPService />
                         <MPService />
                     </div>
-                    
+
                     <div className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-3'>
                         <MPService />
                         <MPService />
