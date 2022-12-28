@@ -71,6 +71,7 @@ const NavBar = ({ onChange }) => {
 							<p className='font-bold w-full px-5 select-none cursor-pointer transition-all ease-in-out duration-[0.2s] hover:text-orng'>Bernard</p>
 							<div className='px-5 text-xl h-full flex items-center cursor-pointer transition-all ease-in-out duration-[0.2s] hover:text-orng' onClick={menuClick}><MdOutlineKeyboardArrowUp /></div>
 						</div>
+						
 
 						{/* NAV MENU */}
 						<div className='bg-wht absolute text-blk font-medium text-sm p-3 flex rounded-[2px] border-blk border-[2px] right-2 lg:right-[-3.9rem] top-[-10.5rem] transition-all ease-in-out duration-[0.2s]' ref={ref} style={menuActive ? { display: "block" } : { display: "none" }}>
