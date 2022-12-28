@@ -68,7 +68,7 @@ const NavBar = ({ onChange }) => {
 					<div className='profileNav w-full h-28 flex absolute bottom-0'>
 						<div className='flex items-center justify-center self-end border-t-2 border-wht w-full h-full'>
 							<img src="" alt="" />
-							<p className='font-bold w-full px-5 select-none cursor-pointer transition-all ease-in-out duration-[0.2s] hover:text-orng'>AJ</p>
+							<p className='font-bold w-full px-5 select-none cursor-pointer transition-all ease-in-out duration-[0.2s] hover:text-orng'>Bernard</p>
 							<div className='px-5 text-xl h-full flex items-center cursor-pointer transition-all ease-in-out duration-[0.2s] hover:text-orng' onClick={menuClick}><MdOutlineKeyboardArrowUp /></div>
 						</div>
 
