@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { AiOutlineClose } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { MdOutlineKeyboardArrowUp, MdOutlineSearch } from "react-icons/md";
+import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import NavLinks from './NavLinks';
 import { navHeader, navMenu } from '../constants'
 
