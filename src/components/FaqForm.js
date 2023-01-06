@@ -7,8 +7,6 @@ const FaqForm = () => {
     const [content, setContent] = useState('')
     const [error, setError] = useState('')
 
-    const [emptyFields, setEmptyFields] = useState([])
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
