@@ -23,13 +23,11 @@ const FaqForm = () => {
 
         if (!response.ok) {
             setError(json.error)
-            setEmptyFields(json.emptyFields)
         }
         if (response.ok) {
             setTitle('')
             setContent('')
             setError(null)
-            setEmptyFields([])
 
             console.log('New question added.', json)
             dispatch({ type: 'CREATE_FAQ', payload: json })

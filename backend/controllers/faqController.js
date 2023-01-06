@@ -19,6 +19,7 @@ const getFAQ = async (req, res) => {
     }
 
     const faq = await FAQ.findById(id);
+    
     //if requested id does not exist
     if (!faq) {
         return res.status(404).json({error: 'No such FAQ'});
@@ -31,21 +32,9 @@ const getFAQ = async (req, res) => {
 //Create (POST) a new FAQ
 const createFAQ = async (req, res) => {
     //add doc to db
-    const { title, content } = req.body;
-
-    let emptyFields = [];
-    if (!title) {
-        emptyFields.push('title');
-    }
-    if (!content) {
-        emptyFields.push('content');
-    }
-    if (emptyFields.length > 0) {
-        return res.status(400).json({ error: 'Please fill in all the fields. ', emptyFields });
-    }
-
+    const { title, content, upvote } = req.body;
     try {
-        const faq = await FAQ.create({ title, content });
+        const faq = await FAQ.create({title, content, upvote});
         res.status(200).json(faq);
     }
     catch (error) {
