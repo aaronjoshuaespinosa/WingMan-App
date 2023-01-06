@@ -11,8 +11,8 @@ const FaqForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-       
-        const faq = {title, content}
+
+        const faq = { title, content }
         const response = await fetch('/api/FAQs', {
             method: 'POST',
             body: JSON.stringify(faq),
@@ -34,34 +34,39 @@ const FaqForm = () => {
             setEmptyFields([])
 
             console.log('New question added.', json)
-            dispatch({type: 'CREATE_FAQ', payload: json})
+            dispatch({ type: 'CREATE_FAQ', payload: json })
         }
 
     }
 
-    return(
-        <form className="create" onSubmit={(handleSubmit)}>
-            <h3>Add a New Question</h3>
-            
-            <label>Thread Title:</label>
-            <input 
-                type="text"
-                onChange={(e) => setTitle(e.target.value)}
-                value={title}
-                className={emptyFields.includes('title') ? 'error' : ''}
-            />
-            
-            <label>Content:</label>
-            <input 
-                type="text"
-                onChange={(e) => setContent(e.target.value)}
-                value={content}
-                className={emptyFields.includes('content') ? 'error' : ''}
-            />
+    return (
+        <div className="w-full border-[2px] border-blk rounded-[3px] p-[12px] bg-light-lgry">
+            <h3 className='font-bold text-2xl pb-2'>Create Question</h3>
 
-            <button>Add Question</button>
+            <div className='flex flex-col gap-y-[12px]'>
+                <input
+                    type="text"
+                    placeholder="Question Title"
+                    onChange={(e) => setTitle(e.target.value)}
+                    value={title}
+                    className= "p-[12px] border-blk border-[2px] rounded-[3px]"
+                />
+
+                <textarea
+                    type="text"
+                    placeholder="Do you have something in mind?"
+                    onChange={(e) => setContent(e.target.value)}
+                    value={content}
+                    className= "resize-y p-[12px] border-blk border-[2px] rounded-[3px]"
+                />
+            </div>
+
+            <div>
+                <button>Clear</button>
+                <button>Post</button>
+            </div>
             {error && <div className="error">{error}</div>}
-        </form>
+        </div>
     )
 }
 
