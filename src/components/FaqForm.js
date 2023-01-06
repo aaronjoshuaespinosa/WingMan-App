@@ -35,7 +35,7 @@ const FaqForm = () => {
     }
 
     return (
-        <div className="w-full border-[2px] border-blk rounded-[3px] p-[12px] bg-light-lgry">
+        <div className="w-full border-[2px] border-blk text-blk rounded-[3px] p-[12px] bg-light-lgry">
             <h3 className='font-bold text-2xl pb-2'>Create Question</h3>
 
             <div className='flex flex-col gap-y-[12px]'>
@@ -56,9 +56,9 @@ const FaqForm = () => {
                 />
             </div>
 
-            <div>
-                <button>Clear</button>
-                <button>Post</button>
+            <div className='flex gap-x-[12px] mt-[12px] w-full justify-end'>
+                <button className='px-5 py-2 font-bold bg-wht border-[2px] border-blk text-blk rounded-[3px] hover:bg-light-lgry transition-all ease-in-out duration-[0.2s]'>Clear</button>
+                <button className='px-5 py-2 font-bold bg-orng border-[2px] border-blk text-blk rounded-[3px] hover:bg-light-orng transition-all ease-in-out duration-[0.2s]'>Post</button>
             </div>
             {error && <div className="error">{error}</div>}
         </div>
