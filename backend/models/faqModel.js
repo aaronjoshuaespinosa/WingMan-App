@@ -10,6 +10,10 @@ const faqSchema = new Schema({
     content: {
         type: String,
         required: true
+    },
+    upvote: {
+        type: Number,
+        required: true
     }
 }, {timestamps: true});
 
