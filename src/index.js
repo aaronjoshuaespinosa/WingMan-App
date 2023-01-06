@@ -6,6 +6,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import App from './App';
 import './index.css';
 import toggleSlice from './features/navSlice'
+import { FaqsContextProvider } from './context/FaqsContext';
+import { AuthContextProvider } from './context/AuthContext'; 
 
 export const store = configureStore({
   reducer: {
@@ -21,9 +23,13 @@ export const store = configureStore({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </BrowserRouter>
+    <AuthContextProvider>
+        <FaqsContextProvider>
+          <BrowserRouter>
+              <Provider store={store}>
+                  <App />
+              </Provider>
+          </BrowserRouter>
+        </FaqsContextProvider>
+    </AuthContextProvider>
 );

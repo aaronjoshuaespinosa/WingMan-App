@@ -2,6 +2,7 @@ import { MdDashboard, MdShoppingCart, MdOutlineAccessTimeFilled, MdError } from 
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { IoMegaphoneSharp } from "react-icons/io5";
 
+
 export const signinInputs = [
     {
         id: 1,
@@ -19,40 +20,46 @@ export const signinInputs = [
 
 export const joinusInputs = [
     {
-        id: 1,
+        id: 0,
         name: "fName",
         type: "text",
         placeholder: "First Name"
     },
     {
-        id: 2,
+        id: 1,
         name: "lName",
         type: "text",
         placeholder: "Last Name"
     },
     {
-        id: 3,
-        name: "uName",
+        id: 2,
+        name: "studentNum",
         type: "text",
-        placeholder: "Username"
+        placeholder: "Student Number"
     },
     {
-        id: 4,
+        id: 3,
         name: "email",
         type: "text",
         placeholder: "CvSU Email"
     },
     {
-        id: 5,
+        id: 4,
         name: "password",
         type: "password",
         placeholder: "Password"
     },
     {
-        id: 6,
+        id: 5,
         name: "confPassword",
         type: "password",
         placeholder: "Confirm Password"
+    },
+    {
+        id: 6,
+        name: "username",
+        type: "text",
+        placeholder: "Username"
     }
 ]
 
