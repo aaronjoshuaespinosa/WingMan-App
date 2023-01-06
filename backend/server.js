@@ -24,6 +24,5 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use('/api/FAQs', faqRoutes);
 
-
 process.env
 

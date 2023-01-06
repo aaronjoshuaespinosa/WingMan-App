@@ -28,7 +28,6 @@ const FaqForm = () => {
             setTitle('')
             setContent('')
             setError(null)
-
             console.log('New question added.', json)
             dispatch({ type: 'CREATE_FAQ', payload: json })
         }

@@ -24,7 +24,6 @@ const getFAQ = async (req, res) => {
     if (!faq) {
         return res.status(404).json({error: 'No such FAQ'});
     }
-
     //if id is valid
     res.status(200).json(faq);
 }

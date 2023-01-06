@@ -10,6 +10,7 @@ const {
     updateFAQ
 } = require('../controllers/faqController');
 
+
 //GET all FAQs
 router.get('/', getFAQs);
 
