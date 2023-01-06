@@ -5,7 +5,6 @@ router.get('/', (req, res) => {
     res.json({mssg: 'GET all FAQs'});
 });
 
-
 //getting single FAQ
 router.get('/:id', (req, res) => {
     res.json({mssg: 'GET single FAQ'});
