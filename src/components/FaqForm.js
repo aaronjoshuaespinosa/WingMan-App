@@ -36,7 +36,6 @@ const FaqForm = () => {
             console.log('New question added.', json)
             dispatch({ type: 'CREATE_FAQ', payload: json })
         }
-
     }
 
     return (
