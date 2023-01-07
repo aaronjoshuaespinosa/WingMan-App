@@ -43,7 +43,7 @@ const FaqForm = () => {
     }
 
     return (
-        <div className="w-full border-[2px] border-blk text-blk rounded-[3px] p-[12px] bg-light-lgry">
+        <div className="w-full border-[2px] border-blk text-blk rounded-[3px] p-[12px] m-[12px] bg-light-lgry">
             <h3 className='font-bold text-2xl pb-2'>Create Question</h3>
 
             {/* FORM INPUTS */}

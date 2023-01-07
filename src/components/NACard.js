@@ -3,7 +3,7 @@ import React from 'react'
 const NACard = () => {
     return (
         <>
-            <div className='w-full h-56 rounded-[3px] border-[2px] border-blk my-3 after: cursor-pointer transition-all ease-in-out duration-[0.2s]'>
+            <div className='w-full h-56 rounded-[3px] border-[2px] border-blk m-[12px] after: cursor-pointer transition-all ease-in-out duration-[0.2s]'>
                 <div className='absolute bg-blk mt-2 ml-2 rounded-full flex flex-col'>
                     <p className='text-wht px-6 py-3 text-xs'>NEW!</p>
                 </div>
