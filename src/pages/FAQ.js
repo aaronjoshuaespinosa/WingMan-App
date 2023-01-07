@@ -44,7 +44,7 @@ const FAQ = () => {
 						</div>
 
 						<div className='w-2/6'>
-							<p className='mx-[12px] w-full bg-orng p-[12px] border-blk border-[2px] rounded-[3px] text-wht font-bold'>SUGGESTED N&A</p>
+							<p className='mx-[12px] w-full bg-orng p-[12px] border-blk border-[2px] rounded-[3px] text-wht text-center font-bold'>SUGGESTED N&A</p>
 							<NACard />
 							<NACard />
 							<NACard />
