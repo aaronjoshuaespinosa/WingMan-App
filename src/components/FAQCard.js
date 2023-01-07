@@ -27,7 +27,6 @@ const FAQCard = () => {
                     <div className='bg-light-lgry  w-full border-t-[2px] border-blk flex flex-row place-content-between items-center px-2 font-bold text-sm'>
                         <div className='flex flex-row gap-2 md:gap-2 lg:gap-1 xl:gap-5 items-center my-2'>
                             <div className='flex flex-row gap-[0.25rem] items-center cursor-pointer text-sm'><ImArrowUp /><p>420</p></div>
-                            <div className='flex flex-row gap-[0.25rem] items-center cursor-pointer text-sm'><ImArrowDown /><p>69</p></div>
                             <div className='flex flex-row gap-[0.25rem] items-center cursor-pointer text-sm'><MdChatBubble /><p>29</p></div>
                         </div>
                         <div className='flex flex-row gap-1 my-2 ml-2'>
