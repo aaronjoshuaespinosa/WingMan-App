@@ -17,6 +17,7 @@ const FaqDetails = ({ faq }) => {
         <div className="FAQ-details">
             <h4>{faq.title}</h4>
             <p>Content: {faq.content}</p>
+            <p>Upvotes: {faq.upvote}</p>
             <p>{formatDistanceToNow(new Date(faq.createdAt), { addSuffix: true })}</p>
             <button onClick={handleClick}>delete</button>
         </div>

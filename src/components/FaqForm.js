@@ -5,12 +5,13 @@ const FaqForm = () => {
     const { dispatch } = useFaqsContext();
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
+    const upvote = 0
     const [error, setError] = useState('')
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const faq = { title, content }
+        const faq = { title, content, upvote }
         const response = await fetch('/api/FAQs', {
             method: 'POST',
             body: JSON.stringify(faq),
@@ -31,6 +32,12 @@ const FaqForm = () => {
             console.log('New question added.', json)
             dispatch({ type: 'CREATE_FAQ', payload: json })
         }
+    }
+
+    const clear = async (e) => {
+        setTitle('')
+        setContent('')
+        setError(null)
     }
 
     return (
@@ -58,8 +65,8 @@ const FaqForm = () => {
 
             //BUTTONS
             <div className='flex gap-x-[12px] mt-[12px] w-full justify-end'>
-                <button className='px-5 py-2 font-bold bg-wht border-[2px] border-blk text-blk rounded-[3px] hover:bg-light-lgry transition-all ease-in-out duration-[0.2s]'>Clear</button>
-                <button className='px-5 py-2 font-bold bg-orng border-[2px] border-blk text-blk rounded-[3px] hover:bg-light-orng transition-all ease-in-out duration-[0.2s]'>Post</button>
+                <button className='px-5 py-2 font-bold bg-wht border-[2px] border-blk text-blk rounded-[3px] hover:bg-light-lgry transition-all ease-in-out duration-[0.2s]' onClick={clear}>Clear</button>
+                <button className='px-5 py-2 font-bold bg-orng border-[2px] border-blk text-blk rounded-[3px] hover:bg-light-orng transition-all ease-in-out duration-[0.2s]' onClick={handleSubmit}>Post</button>
             </div>
             {error && <div className="error">{error}</div>}
         </div>
