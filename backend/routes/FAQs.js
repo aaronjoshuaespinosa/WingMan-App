@@ -1,28 +1,29 @@
 const express = require('express');
+const FAQ = require('../models/faqModel');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.json({mssg: 'GET all FAQs'});
-});
+const {
+    getFAQs,
+    getFAQ,
+    createFAQ,
+    deleteFAQ,
+    updateFAQ
+} = require('../controllers/faqController');
+
+
+//GET all FAQs
+router.get('/', getFAQs);
 
 //getting single FAQ
-router.get('/:id', (req, res) => {
-    res.json({mssg: 'GET single FAQ'});
-});
+router.get('/:id', getFAQ);
 
-//posting a FAQ
-router.post('/', async (req, res) => {
-    res.json({mssg: 'POST a FAQ'});
-});
+//Creating a FAQ
+router.post('/', createFAQ);
 
 //delete a FAQ
-router.delete('/:id', (req, res) => {
-    res.json({mssg: 'DELETE a FAQ'});
-});
+router.delete('/:id', deleteFAQ);
 
 //update a FAQ
-router.patch('/:id', (req, res) => {
-    res.json({mssg: 'FAQ updated'});
-});
+router.patch('/:id', updateFAQ);
 
 module.exports = router;
