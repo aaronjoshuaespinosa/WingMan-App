@@ -11,6 +11,8 @@ const FaqForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        console.log(content)
+
         const faq = { title, content, upvote }
         const response = await fetch('/api/FAQs', {
             method: 'POST',
