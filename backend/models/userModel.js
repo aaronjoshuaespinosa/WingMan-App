@@ -33,7 +33,7 @@ const userSchema = new Schema({
     }
 })
 
-userSchema.statics.signup = async function (username, email, password, studentNumber) {
+userSchema.statics.signup = async function (firstName, lastName, studentNumber, email, username, password) {
 
     //if username is already registered
     const username_exists = await this.findOne({ username });

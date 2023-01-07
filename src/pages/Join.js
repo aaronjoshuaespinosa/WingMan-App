@@ -3,17 +3,19 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FormInput, LoginHero, LoginNav } from '../components'
 import { joinusInputs } from '../constants'
+import { useSignup } from '../hooks/useSignup'
 
 const Join = () => {
 
+    
     const [values, setValues] = useState({
-        fName: null,
-        lName: null,
-        studentNum: null,
-        username: null,
-        email: null,
-        password: null,
-        confPassword: null
+        fName: '',
+        lName: '',
+        studentNum: '',
+        username: '',
+        email: '',
+        password: '',
+        confPassword: ''
     })
 
     const [valuesError, setError] = useState({
@@ -25,6 +27,8 @@ const Join = () => {
         password: null,
         confPassword: null
     })
+
+    const {signup, error, isLoading} = useSignup()
 
     const handleChange = (e) => {
         setValues(current => ({ ...current, [e.target.name]: e.target.value }))
@@ -118,8 +122,11 @@ const Join = () => {
     }
 
     //POST FORM INPUT
-    const handleClick = () => {
+    const handleClick = async(e) => {
+        e.preventDefault()
+        await signup(values.fName, values.lName, values.studentNum, values.email, values.username, values.password)
         console.log(values)
+        {error && <div className="error">{error}</div>}
     }
 
     const navigate = useNavigate()
@@ -147,7 +154,7 @@ const Join = () => {
                                     )
                                 })}
                                 
-                                <button className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5' onClick={handleClick} style={ valuesError.fName === '' && valuesError.lName === '' &&  valuesError.username === '' && valuesError.studentNum === '' && valuesError.email === '' && valuesError.password === '' && valuesError.confPassword === '' ? {pointerEvents: "auto", opacity: "100%"} : {pointerEvents: "none", opacity: "50%"}}>JOIN US</button>
+                                <button className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5' style={ valuesError.fName === '' && valuesError.lName === '' &&  valuesError.username === '' && valuesError.studentNum === '' && valuesError.email === '' && valuesError.password === '' && valuesError.confPassword === '' ? {pointerEvents: "auto", opacity: "100%"} : {pointerEvents: "none", opacity: "50%"}} onClick={handleClick}>JOIN US</button>
                                 <p className='text-sm text-blk text-center cursor-pointer' onClick={signLink}
                                 >I already have an account</p>
                             </div>

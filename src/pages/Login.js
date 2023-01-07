@@ -3,22 +3,23 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FormInput, LoginHero, LoginNav } from '../components'
 import { signinInputs } from '../constants'
+import { useLogin } from '../hooks/useLogin'
 
 
 const Login = () => {
-
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
     const [values, setValues] = useState({
         email: '',
         password: ''
     })
+    const { login, error, isLoading } = useLogin()
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); //prevents reloading page after clicking the button
+        e.preventDefault() //prevents reloading page after clicking the button
 
-        console.log(email, password);
+        console.log(values.email, values.password)
+
+        await login(values.email, values.password)
     };
 
     const handleChange = (e) => {
@@ -45,15 +46,14 @@ const Login = () => {
                             <div className='mainForm w-[60%] mx-auto max-w-[250px] font-space'>
                                 <img src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432" alt="Logo" className='mx-auto m-4 pointer-events-none select-none' />
 
-                                <form onSubmit={handleSubmit}>
                                     {signinInputs.map(val => {
                                         return (
                                             <FormInput key={val.id} {...val} value={val[values.name]} onChange={handleChange} />
                                         )
                                     })}
 
-                                    <button className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5'>SIGN IN</button>
-                                </form>
+                                    <button className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5' onClick={handleSubmit}>SIGN IN</button>
+
 
                                 <p className='text-sm text-blk text-center cursor-pointer' onClick={joinLink}>I want to create an account</p>
                             </div>

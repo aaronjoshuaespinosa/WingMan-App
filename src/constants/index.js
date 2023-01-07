@@ -105,10 +105,11 @@ export const navLinks = [
     }
 ]
 
+
 export const navHeader = [
     {
         id: 0,
-        name: "Good day, Bernard!",
+        name: "Good day, ",
         link: "/dashboard"
     },
     {

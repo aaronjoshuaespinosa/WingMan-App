@@ -5,12 +5,24 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import NavLinks from './NavLinks';
 import { navHeader, navMenu } from '../constants'
+import { useLogout } from '../hooks/useLogout'
+import { useAuthContext } from '../hooks/useAuthContext';
+
+
 
 const NavBar = ({ onChange }) => {
 	const [navActive, setNavActive] = useState(false)
 	const [menuActive, setMenuActive] = useState(false)
 
 	const ref = useRef(null)
+
+	const { user } = useAuthContext()
+
+	const { logout } = useLogout()
+	//signout button
+	const signoutClick = () => {
+		logout()
+	}
 
 	useEffect(() => {
 		document.addEventListener("click", handleOutsideClick, true)
@@ -81,7 +93,7 @@ const NavBar = ({ onChange }) => {
 									)
 								})}
 								<hr className='my-2 border-light-gry' />
-								<p className='text-orng cursor-pointer select-none hover:text-light-orng'>Sign out</p>
+								<button className='text-orng cursor-pointer select-none hover:text-light-orng' onClick={signoutClick}>Sign out</button>
 							</div>
 						</div>
 					</div>
