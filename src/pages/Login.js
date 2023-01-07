@@ -43,7 +43,7 @@ const Login = () => {
         if (values.password === "") {
             setError(data => ({ ...data, 'password': 'Password cannot be empty.' }))
         }
-        else if (values.password.length <= 8) {
+        else if (values.password.length < 8) {
             setError(data => ({ ...data, 'password': 'Invalid Password.' }))
         }
         else {
@@ -91,7 +91,7 @@ const Login = () => {
                                         )
                                     })}
 
-                                    <button className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5' style={valuesError.email === '' && valuesError.password === '' ? {pointerEvents: "auto", opacity: "100%"} : {pointerEvents: "none", opacity: "50%"}}>SIGN IN</button>
+                                    <button className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5' style={valuesError.email === '' && valuesError.password === '' ? {pointerEvents: "auto", opacity: "100%"} : {pointerEvents: "none", opacity: "50%"}} onClick={handleSubmit}>SIGN IN</button>
 
                                 <p className='text-sm text-blk text-center cursor-pointer hover:underline' onClick={joinLink}>I want to create an account</p>
                             </div>
