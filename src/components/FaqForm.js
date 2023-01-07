@@ -59,7 +59,7 @@ const FaqForm = () => {
                     placeholder="Do you have something in mind?"
                     onChange={(e) => setContent(e.target.value)}
                     value={content}
-                    className= "resize-y p-[12px] border-blk border-[2px] rounded-[3px]"
+                    className= "resize-y p-[12px] border-blk border-[2px] rounded-[3px] h-[10rem] lg:h-full"
                 />
             </div>
 
