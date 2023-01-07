@@ -154,8 +154,8 @@ const Join = () => {
                                     )
                                 })}
                                 
-                                <button className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5' style={ valuesError.fName === '' && valuesError.lName === '' &&  valuesError.username === '' && valuesError.studentNum === '' && valuesError.email === '' && valuesError.password === '' && valuesError.confPassword === '' ? {pointerEvents: "auto", opacity: "100%"} : {pointerEvents: "none", opacity: "50%"}} onClick={handleClick}>JOIN US</button>
-                                <p className='text-sm text-blk text-center cursor-pointer' onClick={signLink}
+                                <button className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5' onClick={handleClick} style={ valuesError.fName === '' && valuesError.lName === '' &&  valuesError.username === '' && valuesError.studentNum === '' && valuesError.email === '' && valuesError.password === '' && valuesError.confPassword === '' ? {pointerEvents: "auto", opacity: "100%"} : {pointerEvents: "none", opacity: "50%"}}>JOIN US</button>
+                                <p className='text-sm text-blk text-center cursor-pointer hover:underline' onClick={signLink}
                                 >I already have an account</p>
                             </div>
                             
