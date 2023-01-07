@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFaqsContext } from '../hooks/useFaqsContext'
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 
 const FaqDetails = ({ faq }) => {
     const { dispatch } = useFaqsContext()
@@ -9,16 +9,22 @@ const FaqDetails = ({ faq }) => {
             method: 'DELETE'
         })
         const json = await response.json()
-        if(response.ok) {
-            dispatch({type: 'DELETE_FAQ', payload: json})
+        if (response.ok) {
+            dispatch({ type: 'DELETE_FAQ', payload: json })
         }
     }
     return (
-        <div className="FAQ-details">
-            <h4>{faq.title}</h4>
-            <p>Content: {faq.content}</p>
+        <div className="FAQ-details w-full bg-light-lgry border-blk border-[2px] rounded-[3px] p-[12px] my-[12px]">
+            <div className='flex flex-row gap-2'>
+                <p className='text-blk text-sm hover:underline cursor-pointer'>Simpleng Tao</p>
+                <p className='text-light-gry text-sm'>•</p>
+                <p className='text-light-gry text-sm'>{formatDistanceToNowStrict(new Date(faq.createdAt), { addSuffix: true })}</p>
+            </div>
+            <div className=''>
+                <h4 className='text-2xl font-bold'>{faq.title}</h4>
+                <p className='select-none'>{faq.content}</p>
+            </div>
             <p>Upvotes: {faq.upvote}</p>
-            <p>{formatDistanceToNow(new Date(faq.createdAt), { addSuffix: true })}</p>
             <button onClick={handleClick}>delete</button>
         </div>
     )
