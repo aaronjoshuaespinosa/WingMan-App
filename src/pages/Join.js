@@ -7,13 +7,13 @@ import { joinusInputs } from '../constants'
 const Join = () => {
 
     const [values, setValues] = useState({
-        fName: null,
-        lName: null,
-        studentNum: null,
-        username: null,
-        email: null,
-        password: null,
-        confPassword: null
+        fName: '',
+        lName: '',
+        studentNum: '',
+        username: '',
+        email: '',
+        password: '',
+        confPassword: ''
     })
 
     const [valuesError, setError] = useState({
