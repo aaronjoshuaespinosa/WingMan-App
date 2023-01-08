@@ -2,7 +2,6 @@ import { MdDashboard, MdShoppingCart, MdOutlineAccessTimeFilled, MdError } from 
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { IoMegaphoneSharp } from "react-icons/io5";
 
-
 export const signinInputs = [
     {
         id: 1,
@@ -118,7 +117,7 @@ export const navLinks = [
 export const navHeader = [
     {
         id: 0,
-        name: "Good day, ",
+        name: 'Good day, ',
         link: "/dashboard"
     },
     {

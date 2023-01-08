@@ -17,7 +17,7 @@ const NavBar = ({ onChange }) => {
 	const ref = useRef(null)
 
 	const { user } = useAuthContext()
-
+	
 	const { logout } = useLogout()
 	//signout button
 	const signoutClick = () => {
