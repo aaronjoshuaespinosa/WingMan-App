@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
-import { Join, Login, Dashboard, Marketplace, Appointments, News, Complaints, FAQ, ErrorPage, Profile } from './pages'
+import { Join, Login, Dashboard, Marketplace, Appointments, News, Complaints, FAQ, ErrorPage, Profile, Hero } from './pages'
 import { NavBar } from './components'
 import { setToggle } from './features/navSlice'
 import './index.css'
@@ -46,7 +46,7 @@ function App() {
 		<>
 			{active ? nav : null}
 			<Routes>
-				<Route path="/" element={<Login />}></Route>
+				<Route path="/" element={<Hero />}></Route>
 				<Route path="/sign-in" element={<Login />}></Route>
 				<Route path="/join-us" element={<Join />}></Route>
 				<Route path="/profile" element={<Profile />}></Route>
