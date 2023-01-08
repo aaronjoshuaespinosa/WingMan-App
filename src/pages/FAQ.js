@@ -31,9 +31,9 @@ const FAQ = () => {
 		<>
 			<div className='bg-wht absolute top-0 w-full font-space'>
 				<div className='px-[1.25rem] pt-20 pb-10 lg:pl-[21.5rem] lg:pr-[1.5rem] xl:pl-[22.5rem] xl:pr-[3rem] lg:pt-40 lg:pb-10 z-10'>
-					<div className='flex flex-row gap-x-[12px]'>
-						<div className='w-5/6'>
-							<div className='flex flex-row justify-around mx-[12px] w-full bg-light-lgry border-blk border-[2px] rounded-[3px] text-blk font-bold'>
+					<div className='flex flex-row gap-x-0 lg:gap-x-[12px]'>
+						<div className='w-full lg:w-5/6'>
+							<div className='flex flex-row justify-around mb-[12px] w-full bg-light-lgry border-blk border-[2px] rounded-[3px] text-blk font-bold'>
 								<div className='bg-orng w-full h-full p-[7px] m-[5px] rounded-[3px] justify-center align-center flex cursor-pointer text-wht'><p>LATEST</p></div>
 								<div className='bg-light-lgry w-full h-full p-[7px] m-[5px] rounded-[3px] justify-center align-center flex cursor-pointer'><p>POPULAR</p></div>
 							</div>
@@ -43,12 +43,11 @@ const FAQ = () => {
 							))}
 						</div>
 
-						<div className='w-2/6'>
-							<p className='mx-[12px] w-full bg-orng p-[12px] border-blk border-[2px] rounded-[3px] text-wht text-center font-bold'>SUGGESTED N&A</p>
-							<NACard />
-							<NACard />
-							<NACard />
-							<NACard />
+						<div className='w-2/6 hidden lg:block'>
+							<p className='mb-[12px] w-full bg-orng p-[12px] border-blk border-[2px] rounded-[3px] text-wht text-center font-bold'>SUGGESTED N&A</p>
+							<div className="my-[12px] w-full"><NACard /></div>
+							<div className="my-[12px] w-full"><NACard /></div>
+							<div className="my-[12px] w-full"><NACard /></div>
 						</div>
 					</div>
 				</div>

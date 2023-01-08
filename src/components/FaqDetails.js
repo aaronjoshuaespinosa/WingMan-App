@@ -16,7 +16,7 @@ const FaqDetails = ({ faq }) => {
         }
     }
     return (
-        <div className="FAQ-details w-full bg-light-wht border-blk border-[2px] rounded-[3px] m-[12px] flex flex-row">
+        <div className="FAQ-details w-full bg-light-wht border-blk border-[2px] rounded-[3px] my-[12px] flex flex-row">
             <div className='topFAQ flex flex-col justify-between h-full w-full'>
                 <div className='leftCard flex flex-col'>
                     <div className='nameAndDate flex flex-row gap-2 m-[12px] align-center'>

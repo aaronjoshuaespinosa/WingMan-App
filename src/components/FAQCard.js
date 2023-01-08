@@ -30,9 +30,6 @@ const FAQCard = () => {
                             <div className='flex flex-row gap-[0.25rem] items-center cursor-pointer text-sm'><MdChatBubble /><p>29</p></div>
                         </div>
                         <div className='flex flex-row gap-1 my-2 ml-2'>
-                            <p className='bg-wht border-blk border-[2px] rounded-full px-3 py-[0.1rem] cursor-pointer hover:bg-light-lgry transition-all ease-in-out duration-[0.2s]'>Art</p>
-                            <p className='bg-wht border-blk border-[2px] rounded-full px-3 py-[0.1rem] cursor-pointer hover:bg-light-lgry transition-all ease-in-out duration-[0.2s]'>Freelance</p>
-                            <p className='bg-wht border-blk border-[2px] rounded-full px-1 py-[0.1rem] cursor-pointer hover:bg-light-lgry transition-all ease-in-out duration-[0.2s]'>...</p>
                         </div>
                     </div>
                 </div>
