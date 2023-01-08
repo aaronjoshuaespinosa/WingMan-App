@@ -87,7 +87,7 @@ const Login = () => {
 
                                 {signinInputs.map(val => {
                                     return (
-                                        <FormInput key={val.id} {...val} value={val[values.name]} tooltip={val.tooltip} onChange={handleChange} />
+                                        <FormInput key={val.id} {...val} value={val[values.name]} onChange={handleChange} />
                                     )
                                 })}
 
