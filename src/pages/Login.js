@@ -85,13 +85,13 @@ const Login = () => {
                             <div className='mainForm w-[60%] mx-auto max-w-[250px] font-space'>
                                 <img src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432" alt="Logo" className='mx-auto m-4 pointer-events-none select-none' />
 
-                                    {signinInputs.map(val => {
-                                        return (
-                                            <FormInput key={val.id} {...val} value={val[values.name]} onChange={handleChange} />
-                                        )
-                                    })}
+                                {signinInputs.map(val => {
+                                    return (
+                                        <FormInput key={val.id} {...val} value={val[values.name]} tooltip={val.tooltip} onChange={handleChange} />
+                                    )
+                                })}
 
-                                    <button className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5' style={valuesError.email === '' && valuesError.password === '' ? {pointerEvents: "auto", opacity: "100%"} : {pointerEvents: "none", opacity: "50%"}} onClick={handleSubmit}>SIGN IN</button>
+                                <button className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5' style={valuesError.email === '' && valuesError.password === '' ? { pointerEvents: "auto", opacity: "100%" } : { pointerEvents: "none", opacity: "50%" }} onClick={handleSubmit}>SIGN IN</button>
 
                                 <p className='text-sm text-blk text-center cursor-pointer hover:underline' onClick={joinLink}>I want to create an account</p>
                             </div>

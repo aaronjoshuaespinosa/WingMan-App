@@ -8,13 +8,15 @@ export const signinInputs = [
         id: 1,
         name: "email",
         type: "text",
-        placeholder: "Enter your CvSU Email"
+        placeholder: "Enter your CvSU Email",
+        title: "Email should have \"@cvsu.edu.ph\" on it."
     },
     {
         id: 2,
         name: "password",
         type: "password",
-        placeholder: "Password"
+        placeholder: "Password",
+        title: "Password must be a minimum of 8 characters."
     }
 ]
 
@@ -23,43 +25,50 @@ export const joinusInputs = [
         id: 0,
         name: "fName",
         type: "text",
-        placeholder: "First Name"
+        placeholder: "First Name",
+        title: "Your first name. Ex. Juan"
     },
     {
         id: 1,
         name: "lName",
         type: "text",
-        placeholder: "Last Name"
+        placeholder: "Last Name",
+        title: "Your last name. Ex. Dela Cruz"
     },
     {
         id: 2,
         name: "studentNum",
         type: "text",
-        placeholder: "Student Number"
+        placeholder: "Student Number",
+        title: "Student number must be exactly 9 digits only."
     },
     {
         id: 3,
         name: "email",
         type: "text",
-        placeholder: "CvSU Email"
+        placeholder: "CvSU Email",
+        title: "Email should have \"@cvsu.edu.ph\" on it."
     },
     {
         id: 4,
         name: "password",
         type: "password",
-        placeholder: "Password"
+        placeholder: "Password",
+        title: "Password must be a minimum of 8 characters."
     },
     {
         id: 5,
         name: "confPassword",
         type: "password",
-        placeholder: "Confirm Password"
+        placeholder: "Confirm Password",
+        title: "Must be the same as above."
     },
     {
         id: 6,
         name: "username",
         type: "text",
-        placeholder: "Username"
+        placeholder: "Username",
+        title: "Username must be a minimum of 8 characters."
     }
 ]
 
