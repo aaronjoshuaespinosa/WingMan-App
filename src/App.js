@@ -49,9 +49,9 @@ function App() {
 		<>
 			{active ? nav : null}
 			<Routes>
-				<Route path="/" element={<Hero />}></Route>
-				<Route path="/sign-in" element={<Login />}></Route>
-				<Route path="/join-us" element={<Join />}></Route>
+				<Route path="/" element={!user ? <Hero /> : <Navigate to="/dashboard"/>}></Route>
+				<Route path="/sign-in" element={!user ? <Login /> : <Navigate to="/dashboard"/>}></Route>
+				<Route path="/join-us" element={!user? <Join /> : <Navigate to="/dashboard"/>}></Route>
 				<Route path="/profile" element={user ? <Profile /> : <Navigate to="/"/>}></Route>
 				<Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/"/>}></Route>
 				<Route path="/marketplace" element={user ? <Marketplace /> : <Navigate to="/" />}></Route>

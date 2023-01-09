@@ -34,15 +34,15 @@ const FaqDetails = ({ faq }) => {
                     </div>
 
                     <div className='titleAndContent pt-1 pb-7 mx-[12px]'>
-                        <h4 className='text-2xl font-bold pb-3'>{faq.title}</h4>
-                        <p className=''>{faq.content}</p>
+                        <h4 className='text-2xl font-bold pb-3'>{user && faq.title}</h4>
+                        <p className=''>{user && faq.content}</p>
                     </div>
                 </div>
 
                 <div className='botMenus flex flex-row justify-between bg-light-lgry px-[12px] py-2 border-t-[2px] border-blk'>
                     <div className='flex flex-row align-center justify-center gap-x-1'>
                         <ImArrowUp />
-                        <p className='text-sm'>{faq.upvote}</p>
+                        <p className='text-sm'>{user && faq.upvote}</p>
                     </div>
                     <button onClick={handleClick}><AiTwotoneDelete className='hover:text-red transition-all ease-in-out duration-[0.2s]' /></button>
                 </div>

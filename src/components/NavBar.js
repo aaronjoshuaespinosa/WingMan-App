@@ -93,7 +93,7 @@ const NavBar = ({ onChange }) => {
 									)
 								})}
 								<hr className='my-2 border-light-gry' />
-								<button className='text-orng cursor-pointer select-none hover:text-light-orng' onClick={signoutClick}>Sign out</button>
+								<button className='text-orng cursor-pointer select-none hover:text-light-orng' onClick={signoutClick}><a href="/sign-in" target="_self">Sign out</a></button>
 							</div>
 						</div>
 					</div>
