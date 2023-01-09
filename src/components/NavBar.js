@@ -67,7 +67,7 @@ const NavBar = ({ onChange }) => {
 
 							{/* WINGMAN LOGO */}
 							<div className='h-full w-full flex items-center justify-center ml-16 lg:ml-0'>
-								<img src='https://ik.imagekit.io/xzgmktvzg/logo.png?ik-sdk-version=javascript-1.4.3&updatedAt=1671386953332' alt="wingman-logo" className='h-14 lg:h-24 select-none ' />
+								<img src='https://ik.imagekit.io/xzgmktvzg/logo.png?ik-sdk-version=javascript-1.4.3&updatedAt=1671386953332' alt="wingman-logo" className='h-14 lg:h-24 select-none' />
 							</div>
 
 						</div>
