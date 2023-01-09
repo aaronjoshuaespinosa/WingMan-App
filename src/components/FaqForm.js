@@ -27,7 +27,8 @@ const FaqForm = () => {
             method: 'POST',
             body: JSON.stringify(faq),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
 
