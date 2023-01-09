@@ -9,6 +9,8 @@ import NavBar from "./NavBar"
 import NavLinks from "./NavLinks"
 import AppCard from "./AppCard"
 import AppSelect from "./AppSelect"
+import HeroCard from "./HeroCard"
+import HeroFooter from "./HeroFooter"
 
 export {
     FAQCard,
@@ -22,4 +24,6 @@ export {
     NavLinks,
     AppCard,
     AppSelect,
+    HeroCard,
+    HeroFooter,
 }

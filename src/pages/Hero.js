@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { HeroCard, HeroFooter } from '../components'
 
 const Hero = () => {
     const navigate = useNavigate()
@@ -48,37 +49,12 @@ const Hero = () => {
                 <div className='bg-orng px-5 py-12 lg:py-10 lg:px-56 w-full flex flex-col gap-y-5'>
                     <p className='text-wht font-bold text-5xl lg:text-7xl'>HOW IT FLOCKING WORKS:</p>
                     <div className='flex flex-col lg:flex-row w-full gap-x-4 gap-y-3'>
-                        <div className='bg-wht border-blk border-[2px] rounded-[15px] p-[24px] flex flex-col gap-y-5'>
-                            <div className='flex flex-row w-full items-center gap-x-3'>
-                                <div className='h-16 w-16 text-3xl font-bold text-wht bg-orng rounded-full flex items-center justify-center'>
-                                    <p className=''>1</p>
-                                </div>
-                                <p className='text-blk font-bold text-5xl'>WHAT</p>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu ipsum elit. In hac habitasse platea dictumst. Nam quis elit non ante auctor consequat. Nullam volutpat ullamcorper tempus. Phasellus auctor mi in tempus faucibus. Aliquam ut auctor ex, et suscipit diam. Aenean cursus justo nec metus sollicitudin elementum. Maecenas at ullamcorper lacus, sit amet pharetra magna. </p>
-                        </div>
-
-                        <div className='bg-wht border-blk border-[2px] rounded-[15px] p-[24px] flex flex-col gap-y-5'>
-                            <div className='flex flex-row w-full items-center gap-x-3'>
-                                <div className='h-16 w-16 text-3xl font-bold text-wht bg-orng rounded-full flex items-center justify-center'>
-                                    <p className=''>2</p>
-                                </div>
-                                <p className='text-blk font-bold text-5xl'>THE</p>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu ipsum elit. In hac habitasse platea dictumst. Nam quis elit non ante auctor consequat. Nullam volutpat ullamcorper tempus. Phasellus auctor mi in tempus faucibus. Aliquam ut auctor ex, et suscipit diam. Aenean cursus justo nec metus sollicitudin elementum. Maecenas at ullamcorper lacus, sit amet pharetra magna. </p>
-                        </div>
-
-                        <div className='bg-wht border-blk border-[2px] rounded-[15px] p-[24px] flex flex-col gap-y-5'>
-                            <div className='flex flex-row w-full items-center gap-x-3'>
-                                <div className='h-16 w-16 text-3xl font-bold text-wht bg-orng rounded-full flex items-center justify-center'>
-                                    <p className=''>3</p>
-                                </div>
-                                <p className='text-blk font-bold text-5xl'>FLOCK</p>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu ipsum elit. In hac habitasse platea dictumst. Nam quis elit non ante auctor consequat. Nullam volutpat ullamcorper tempus. Phasellus auctor mi in tempus faucibus. Aliquam ut auctor ex, et suscipit diam. Aenean cursus justo nec metus sollicitudin elementum. Maecenas at ullamcorper lacus, sit amet pharetra magna. </p>
-                        </div>
+                        <HeroCard />
+                        <HeroCard />
+                        <HeroCard />
                     </div>
                 </div>
+                <HeroFooter />
             </div>
         </>
     )

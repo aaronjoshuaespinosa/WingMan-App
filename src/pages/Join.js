@@ -7,7 +7,7 @@ import { useSignup } from '../hooks/useSignup'
 
 const Join = () => {
 
-    
+
     const [values, setValues] = useState({
         fName: '',
         lName: '',
@@ -28,17 +28,17 @@ const Join = () => {
         confPassword: null
     })
 
-    const {signup, error, isLoading} = useSignup()
+    const { signup, error, isLoading } = useSignup()
 
     const handleChange = (e) => {
         setValues(current => ({ ...current, [e.target.name]: e.target.value }))
 
         //FIRST NAME VALIDATION
         if (values.fName === "") {
-            setError(data => ({ ...data, 'fName': 'First name cannot be empty.' }))
+            setError(data => ({ ...data, 'fName': 'Must not be empty' }))
         }
         else if (!(validName(values.fName))) {
-            setError(data => ({ ...data, 'fName': 'Invalid First Name.' }))
+            setError(data => ({ ...data, 'fName': 'invalid' }))
         }
         else {
             setError(data => ({ ...data, 'fName': '' }))
@@ -46,10 +46,10 @@ const Join = () => {
 
         //LAST NAME VALIDATION
         if (values.lName === "") {
-            setError(data => ({ ...data, 'lName': 'Last name cannot be empty.' }))
+            setError(data => ({ ...data, 'lName': 'Must not be empty' }))
         }
         else if (!(validName(values.fName))) {
-            setError(data => ({ ...data, 'lName': 'Invalid Last Name.' }))
+            setError(data => ({ ...data, 'lName': 'invalid' }))
         }
         else {
             setError(data => ({ ...data, 'lName': '' }))
@@ -57,7 +57,10 @@ const Join = () => {
 
         //USERNAME VALIDATION
         if (values.username === "") {
-            setError(data => ({ ...data, 'username': 'Username cannot be empty.' }))
+            setError(data => ({ ...data, 'username': 'Must not be empty' }))
+        }
+        else if (values.username.length <= 8) {
+            setError(data => ({ ...data, 'password': 'invalid' }))
         }
         else {
             setError(data => ({ ...data, 'username': '' }))
@@ -65,37 +68,47 @@ const Join = () => {
 
         //PASSWORD VALIDATION
         if (values.password === "") {
-            setError(data => ({ ...data, 'password': 'Password cannot be empty.' }))
+            setError(data => ({ ...data, 'password': 'Must not be empty' }))
         }
         else if (values.password.length <= 8) {
-            setError(data => ({ ...data, 'password': 'Invalid Password.' }))
+            setError(data => ({ ...data, 'password': 'invalid' }))
         }
         else {
             setError(data => ({ ...data, 'password': '' }))
         }
 
         // CONFIRM PASSWORD VALIDATION
-        if (values.password === values.confPassword) {
+        if (values.confPassword === "") {
+            setError(data => ({ ...data, 'confPassword': 'Must not be empty' }))
+        }
+        else if (values.password.length <= 8) {
+            setError(data => ({ ...data, 'confPassword': 'invalid' }))
+        }
+        else if (values.confPassword === values.password) {
             setError(data => ({ ...data, 'confPassword': '' }))
         }
         else {
-            setError(data => ({ ...data, 'confPassword': 'Password does not match.' }))
+            setError(data => ({ ...data, 'confPassword': 'invalid' }))
         }
 
         //EMAIL VALIDATION
         if (values.email === "") {
-            setError(data => ({ ...data, 'email': 'Email cannot be empty.' }))
+            setError(data => ({ ...data, 'email': 'Must not be empty' }))
         } else if (!(validEmail(values.email))) {
-            setError(data => ({ ...data, 'email': 'Invalid Email.' }))
+            setError(data => ({ ...data, 'email': 'invalid' }))
         } else {
             setError(data => ({ ...data, 'email': '' }))
         }
 
         //STUDENT NUMBER VALIDATION
-        if (validStudentno(values.studentNum)) {
+        if (values.studentNum === "") {
+            setError(data => ({ ...data, 'studentNum': 'Must not be empty' }))
+        }
+        else if (values.studentNum.length !== 9) {
+            setError(data => ({ ...data, 'studentNum': 'invalid' }))
+        }
+        else {
             setError(data => ({ ...data, 'studentNum': '' }))
-        } else {
-            setError(data => ({ ...data, 'studentNum': 'Invalid Student Number.' }))
         }
     }
 
@@ -122,11 +135,11 @@ const Join = () => {
     }
 
     //POST FORM INPUT
-    const handleClick = async(e) => {
+    const handleClick = async (e) => {
         e.preventDefault()
         await signup(values.fName, values.lName, values.studentNum, values.email, values.username, values.password)
         console.log(values)
-        {error && <div className="error">{error}</div>}
+        { error && <div className="error">{error}</div> }
     }
 
     const navigate = useNavigate()
@@ -148,17 +161,18 @@ const Join = () => {
                         <div className='h-[80%] flex items-center justify-center'>
                             <div className='mainForm w-[60%] mx-auto max-w-[250px] font-space'>
                                 <img src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432" alt="Logo" className='mx-auto m-4 pointer-events-none select-none' />
+
                                 {joinusInputs.map(val => {
                                     return (
-                                        <FormInput key={val.id} {...val} value={val[values.name]} onChange={handleChange}/>
+                                        <FormInput key={val.id} {...val} value={val[values.name]} error={valuesError[val.name]} onChange={handleChange} />
                                     )
                                 })}
-                                
-                                <button className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5' onClick={handleClick} style={ valuesError.fName === '' && valuesError.lName === '' &&  valuesError.username === '' && valuesError.studentNum === '' && valuesError.email === '' && valuesError.password === '' && valuesError.confPassword === '' ? {pointerEvents: "auto", opacity: "100%"} : {pointerEvents: "none", opacity: "50%"}}>JOIN US</button>
+
+                                <button className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5 hover:bg-light-orng transition-all ease-in-out duration-[0.2s]' onClick={handleClick} style={valuesError.fName === '' && valuesError.lName === '' && valuesError.username === '' && valuesError.studentNum === '' && valuesError.email === '' && valuesError.password === '' && valuesError.confPassword === '' ? { pointerEvents: "auto", opacity: "100%" } : { pointerEvents: "auto", opacity: "100%" }}>JOIN US</button>
                                 <p className='text-sm text-blk text-center cursor-pointer hover:underline' onClick={signLink}
                                 >I already have an account</p>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
