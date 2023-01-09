@@ -7,7 +7,7 @@ const Dashboard = () => {
 	const dispatch = useDispatch()
 
 	const toggle = useSelector((state) => state.Toggle.toggle.value)
-
+	
 	useEffect(() => {
 		dispatch(setToggle({ value: !toggle }))
 	}, [])

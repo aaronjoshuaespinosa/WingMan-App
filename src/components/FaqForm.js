@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useFaqsContext } from '../hooks/useFaqsContext'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const FaqForm = () => {
     const { dispatch } = useFaqsContext();
@@ -8,12 +9,20 @@ const FaqForm = () => {
     const upvote = 0
     const [error, setError] = useState('')
 
+    const { user } = useAuthContext()
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         console.log(content)
 
         const faq = { title, content, upvote }
+
+        if (!user) {
+            setError('You must be logged in.')
+            return
+        }
+        
         const response = await fetch('/api/FAQs', {
             method: 'POST',
             body: JSON.stringify(faq),

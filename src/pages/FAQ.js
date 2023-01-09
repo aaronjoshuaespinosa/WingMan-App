@@ -5,6 +5,7 @@ import { Footer, NACard } from '../components'
 import FaqDetails from '../components/FaqDetails'
 import FaqForm from '../components/FaqForm'
 import { useFaqsContext } from '../hooks/useFaqsContext'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const FAQ = () => {
 	// const [faqs, setFAQs] = useState(null)
@@ -14,10 +15,16 @@ const FAQ = () => {
 
 	const toggle = useSelector((state) => state.Toggle.toggle.value)
 
+	const { user } = useAuthContext()
+
 	useEffect(() => {
 		dispatch(setToggle({ value: !toggle }))
 		const fetchFAQs = async () => {
-			const response = await fetch('/api/FAQs')
+			const response = await fetch('/api/FAQs', {
+				headers: {
+					'Authorization': `Bearer ${user.token}`
+				}
+			})
 			const json = await response.json();
 
 			if (response.ok) {
@@ -26,7 +33,7 @@ const FAQ = () => {
 			}
 		}
 		fetchFAQs();
-	}, [])
+	}, [dsptch, user])
 	return (
 		<>
 			<div className='bg-wht absolute top-0 w-full font-space'>

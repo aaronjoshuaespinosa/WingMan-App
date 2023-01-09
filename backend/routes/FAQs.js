@@ -10,6 +10,9 @@ const {
     updateFAQ
 } = require('../controllers/faqController');
 
+const requireAuth = require('../middleware/requireAuth');
+
+router.use(requireAuth);
 
 //GET all FAQs
 router.get('/', getFAQs);

@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Redirect } from 'react-router-dom'
 import { Join, Login, Dashboard, Marketplace, Appointments, News, Complaints, FAQ, ErrorPage, Profile, Hero } from './pages'
 import { NavBar } from './components'
 import { setToggle } from './features/navSlice'
 import './index.css'
+import { useAuthContext } from './hooks/useAuthContext'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
 
 	const toggle = useSelector((state) => state.Toggle.toggle.value)
 
+	const { user } = useAuthContext() 
 	const onChange = () => {
 		dispatch(setToggle({ value: !toggle }))
 	}
@@ -49,13 +51,13 @@ function App() {
 				<Route path="/" element={<Hero />}></Route>
 				<Route path="/sign-in" element={<Login />}></Route>
 				<Route path="/join-us" element={<Join />}></Route>
-				<Route path="/profile" element={<Profile />}></Route>
-				<Route path="/dashboard" element={<Dashboard />}></Route>
-				<Route path="/marketplace" element={<Marketplace />}></Route>
-				<Route path="/appointments" element={<Appointments />}></Route>
-				<Route path="/news-and-announcements" element={<News />}></Route>
-				<Route path="/complaint-system" element={<Complaints />}></Route>
-				<Route path="/faqs" element={<FAQ />}></Route>
+				{user && <Route path="/profile" element={<Profile />}></Route>}
+				{user && <Route path="/dashboard" element={<Dashboard />}></Route>}
+				{user && <Route path="/marketplace" element={<Marketplace />}></Route>}
+				{user && <Route path="/appointments" element={<Appointments />}></Route>}
+				{user && <Route path="/news-and-announcements" element={<News />}></Route>}
+				{user && <Route path="/complaint-system" element={<Complaints />}></Route>}
+				{user && <Route path="/faqs" element={<FAQ />}></Route>}
 				<Route path="*" element={<ErrorPage />}></Route>
 			</Routes>
 		</>
