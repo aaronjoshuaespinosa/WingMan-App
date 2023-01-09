@@ -1,14 +1,22 @@
 import React from 'react'
-import { useFaqsContext } from '../hooks/useFaqsContext'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 import { AiTwotoneDelete } from "react-icons/ai";
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
+import { useFaqsContext } from '../hooks/useFaqsContext'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const FaqDetails = ({ faq }) => {
     const { dispatch } = useFaqsContext()
+    const { user } = useAuthContext()
     const handleClick = async () => {
+        if (!user) {
+            return
+        }
         const response = await fetch('/api/FAQs/' + faq._id, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
         })
         const json = await response.json()
         if (response.ok) {

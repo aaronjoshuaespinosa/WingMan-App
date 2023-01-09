@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { Route, Routes, Redirect } from 'react-router-dom'
+import { Route, Routes, Redirect, Navigate } from 'react-router-dom'
 import { Join, Login, Dashboard, Marketplace, Appointments, News, Complaints, FAQ, ErrorPage, Profile, Hero } from './pages'
 import { NavBar } from './components'
 import { setToggle } from './features/navSlice'
 import './index.css'
 import { useAuthContext } from './hooks/useAuthContext'
+
 
 function App() {
 
@@ -51,13 +52,13 @@ function App() {
 				<Route path="/" element={<Hero />}></Route>
 				<Route path="/sign-in" element={<Login />}></Route>
 				<Route path="/join-us" element={<Join />}></Route>
-				{user && <Route path="/profile" element={<Profile />}></Route>}
-				{user && <Route path="/dashboard" element={<Dashboard />}></Route>}
-				{user && <Route path="/marketplace" element={<Marketplace />}></Route>}
-				{user && <Route path="/appointments" element={<Appointments />}></Route>}
-				{user && <Route path="/news-and-announcements" element={<News />}></Route>}
-				{user && <Route path="/complaint-system" element={<Complaints />}></Route>}
-				{user && <Route path="/faqs" element={<FAQ />}></Route>}
+				<Route path="/profile" element={user ? <Profile /> : <Navigate to="/"/>}></Route>
+				<Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/"/>}></Route>
+				<Route path="/marketplace" element={user ? <Marketplace /> : <Navigate to="/" />}></Route>
+				<Route path="/appointments" element={user ? <Appointments /> : <Navigate to="/" /> }></Route>
+				<Route path="/news-and-announcements" element={user? <News />: <Navigate to="/"/>}></Route>
+				<Route path="/complaint-system" element={user ? <Complaints /> : <Navigate to="/" />}></Route>
+				<Route path="/faqs" element={user ? <FAQ /> : <Navigate to="/"/>}></Route>
 				<Route path="*" element={<ErrorPage />}></Route>
 			</Routes>
 		</>
