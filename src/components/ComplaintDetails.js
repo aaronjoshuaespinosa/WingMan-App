@@ -6,7 +6,7 @@ const ComplaintDetails = ({ complaint }) => {
     const { dispatch } = useComplaintsContext()
 
     return (
-        <div>
+        <div className='my-[12px]'>
             <h1>Subject: {complaint.subject}</h1>
             <p>Content: {complaint.content}</p>
             <p>Recipient: {complaint.recipient}</p>

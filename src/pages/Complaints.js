@@ -15,13 +15,13 @@ const Complaints = () => {
 
 	useEffect(() => {
 		dispatch(setToggle({ value: !toggle }))
-		
+
 		const fetchComplaints = async () => {
 			const response = await fetch('/api/complaints')
 			const json = await response.json()
 
 			if (response.ok) {
-				dsptch({type: 'SET_COMPLAINTS', payload: json})
+				dsptch({ type: 'SET_COMPLAINTS', payload: json })
 			}
 		}
 
@@ -30,10 +30,13 @@ const Complaints = () => {
 	return (
 		<>
 			<div className='bg-wht absolute top-0 w-full font-space'>
-				<ComplaintForm />
-				{complaints && complaints.map((complaint) => (
-					<ComplaintDetails key={complaint.id} complaint={complaint} />
-				))}
+				<div className='px-[1.25rem] pt-20 pb-10 lg:pl-[21.5rem] lg:pr-[1.5rem] xl:pl-[22.5rem] xl:pr-[2.5rem] lg:pt-32 lg:pb-24 z-10'>
+					<h1>Are you experiencing an academic invoncenience? Create a Complaint!</h1>
+					<ComplaintForm />
+					{complaints && complaints.map((complaint) => (
+						<ComplaintDetails key={complaint.id} complaint={complaint} />
+					))}
+				</div>
 			</div>
 		</>
 	)
