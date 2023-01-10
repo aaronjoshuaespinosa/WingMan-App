@@ -1,6 +1,6 @@
 import React from 'react'
 import { useComplaintsContext } from '../hooks/useComplaintsContext'
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import { formatDistanceToNowStrict } from 'date-fns'
 
 const ComplaintDetails = ({ complaint }) => {
     const { dispatch } = useComplaintsContext()
@@ -11,7 +11,7 @@ const ComplaintDetails = ({ complaint }) => {
             <p>Content: {complaint.content}</p>
             <p>Recipient: {complaint.recipient}</p>
             <p>Status: {complaint.status}</p>
-            <p>{formatDistanceToNow(new Date(complaint.createdAt), {addSuffix: true})}</p>
+            <p>{formatDistanceToNowStrict(new Date(complaint.createdAt), {addSuffix: true})}</p>
         </div>
     )
 }
