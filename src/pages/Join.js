@@ -7,6 +7,9 @@ import { useSignup } from '../hooks/useSignup'
 
 const Join = () => {
 
+    const { signup, error, isLoading } = useSignup()
+
+    const [showError, setShowError] = useState(false)
 
     const [values, setValues] = useState({
         fName: '',
@@ -28,17 +31,15 @@ const Join = () => {
         confPassword: null
     })
 
-    const { signup, error, isLoading } = useSignup()
-
     const handleChange = (e) => {
         setValues(current => ({ ...current, [e.target.name]: e.target.value }))
 
         //FIRST NAME VALIDATION
         if (values.fName === "") {
-            setError(data => ({ ...data, 'fName': 'Must not be empty' }))
+            setError(data => ({ ...data, 'fName': 'Must not be empty.' }))
         }
         else if (!(validName(values.fName))) {
-            setError(data => ({ ...data, 'fName': 'invalid' }))
+            setError(data => ({ ...data, 'fName': 'Must only contain alphabets.' }))
         }
         else {
             setError(data => ({ ...data, 'fName': '' }))
@@ -46,10 +47,10 @@ const Join = () => {
 
         //LAST NAME VALIDATION
         if (values.lName === "") {
-            setError(data => ({ ...data, 'lName': 'Must not be empty' }))
+            setError(data => ({ ...data, 'lName': 'Must not be empty.' }))
         }
-        else if (!(validName(values.fName))) {
-            setError(data => ({ ...data, 'lName': 'invalid' }))
+        else if (!(validName(values.lName))) {
+            setError(data => ({ ...data, 'lName': 'Must only contain alphabets.' }))
         }
         else {
             setError(data => ({ ...data, 'lName': '' }))
@@ -57,10 +58,10 @@ const Join = () => {
 
         //USERNAME VALIDATION
         if (values.username === "") {
-            setError(data => ({ ...data, 'username': 'Must not be empty' }))
+            setError(data => ({ ...data, 'username': 'Must not be empty.' }))
         }
         else if (values.username.length <= 8) {
-            setError(data => ({ ...data, 'password': 'invalid' }))
+            setError(data => ({ ...data, 'password': 'Must be 8 characters and above.' }))
         }
         else {
             setError(data => ({ ...data, 'username': '' }))
@@ -68,10 +69,10 @@ const Join = () => {
 
         //PASSWORD VALIDATION
         if (values.password === "") {
-            setError(data => ({ ...data, 'password': 'Must not be empty' }))
+            setError(data => ({ ...data, 'password': 'Must not be empty.' }))
         }
         else if (values.password.length <= 8) {
-            setError(data => ({ ...data, 'password': 'invalid' }))
+            setError(data => ({ ...data, 'password': 'Password must be 8 characters and above.' }))
         }
         else {
             setError(data => ({ ...data, 'password': '' }))
@@ -79,33 +80,33 @@ const Join = () => {
 
         // CONFIRM PASSWORD VALIDATION
         if (values.confPassword === "") {
-            setError(data => ({ ...data, 'confPassword': 'Must not be empty' }))
+            setError(data => ({ ...data, 'confPassword': 'Must not be empty.' }))
         }
-        else if (values.password.length <= 8) {
-            setError(data => ({ ...data, 'confPassword': 'invalid' }))
+        else if (values.confPassword.length <= 8) {
+            setError(data => ({ ...data, 'confPassword': 'Password must be 8 characters and above.' }))
         }
         else if (values.confPassword === values.password) {
             setError(data => ({ ...data, 'confPassword': '' }))
         }
         else {
-            setError(data => ({ ...data, 'confPassword': 'invalid' }))
+            setError(data => ({ ...data, 'confPassword': 'Password does not match.' }))
         }
 
         //EMAIL VALIDATION
         if (values.email === "") {
-            setError(data => ({ ...data, 'email': 'Must not be empty' }))
+            setError(data => ({ ...data, 'email': 'Must not be empty.' }))
         } else if (!(validEmail(values.email))) {
-            setError(data => ({ ...data, 'email': 'invalid' }))
+            setError(data => ({ ...data, 'email': 'Must contain \"@cvsu.edu.ph\"' }))
         } else {
             setError(data => ({ ...data, 'email': '' }))
         }
 
         //STUDENT NUMBER VALIDATION
         if (values.studentNum === "") {
-            setError(data => ({ ...data, 'studentNum': 'Must not be empty' }))
+            setError(data => ({ ...data, 'studentNum': 'Must not be empty.' }))
         }
         else if (values.studentNum.length !== 9) {
-            setError(data => ({ ...data, 'studentNum': 'invalid' }))
+            setError(data => ({ ...data, 'studentNum': 'Must be 9 digits.' }))
         }
         else {
             setError(data => ({ ...data, 'studentNum': '' }))
@@ -130,16 +131,14 @@ const Join = () => {
         }
     }
 
-    function validStudentno(str) {
-        return /^[0-9]{9,9}$/.test(str)
-    }
-
     //POST FORM INPUT
     const handleClick = async (e) => {
         e.preventDefault()
         await signup(values.fName, values.lName, values.studentNum, values.email, values.username, values.password)
-        console.log(values)
-        { error && <div className="error">{error}</div> }
+        error && <div className="error">{error}</div>
+
+        setShowError(false)
+        setShowError(current => !current)
     }
 
     const navigate = useNavigate()
@@ -164,7 +163,7 @@ const Join = () => {
 
                                 {joinusInputs.map(val => {
                                     return (
-                                        <FormInput key={val.id} {...val} value={val[values.name]} error={valuesError[val.name]} onChange={handleChange} />
+                                        <FormInput key={val.id} {...val} value={val[values.name]} error={valuesError[val.name]} showError={showError} onChange={handleChange} />
                                     )
                                 })}
 
