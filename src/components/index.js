@@ -11,6 +11,7 @@ import AppCard from "./AppCard"
 import AppSelect from "./AppSelect"
 import HeroCard from "./HeroCard"
 import HeroFooter from "./HeroFooter"
+import AppForm from "./AppForm"
 
 export {
     FAQCard,
@@ -26,4 +27,5 @@ export {
     AppSelect,
     HeroCard,
     HeroFooter,
+    AppForm,
 }
