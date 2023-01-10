@@ -110,7 +110,7 @@ const NavBar = ({ onChange }) => {
 						</div>
 
 						{/* GREETING */}
-						<div className='my-auto px-3 lg:px-[1.5rem] xl:px-10 text-2xl lg:text-5xl text-blk font-bold select-none w-[100vw] relative'>
+						<div className='flex gap-x-[0.05rem] lg:gap-x-[0.15rem] my-auto px-3 lg:px-[1.5rem] xl:px-10 text-2xl lg:text-5xl text-blk font-bold select-none w-[100vw] relative'>
 							{navHeader.map(labels => {
 								return (
 									<div {...labels} key={labels.id}>
