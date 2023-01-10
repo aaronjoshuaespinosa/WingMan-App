@@ -3,7 +3,7 @@ import React from 'react'
 const HeroCard = () => {
     return (
         <>
-            <div className='bg-wht border-blk border-[2px] rounded-[15px] p-[24px] flex flex-col gap-y-5'>
+            <div className='z-10 bg-wht border-blk border-[2px] rounded-[15px] p-[24px] flex flex-col gap-y-5 select-none transition-all ease-in-out duration-[0.1s] hover:drop-shadow-hoverShadow'>
                 <div className='flex flex-row w-full items-center gap-x-3'>
                     <div className='h-16 w-16 text-3xl font-bold text-wht bg-orng rounded-full flex items-center justify-center'>
                         <p className=''>1</p>

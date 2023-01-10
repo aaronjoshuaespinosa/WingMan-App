@@ -16,6 +16,10 @@ module.exports = {
         'light-orng': '#FF8A58',
         'light-gry': '#838383',
         'light-lgry': '#D9D9D9'
+      },
+
+      dropShadow: {
+        'hoverShadow': '3px 3px 0 #1E1E1E',
       }
     },
   },
