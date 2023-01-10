@@ -35,7 +35,7 @@ const FaqForm = () => {
         const json = await response.json();
 
         if (!response.ok) {
-            setError(json.error)
+            setError('Please fill the empty fields')
         }
         if (response.ok) {
             setTitle('')

@@ -13,6 +13,10 @@ const complaintSchema = new Schema({
     recipient: {
         type: String,
         required: true
+    },
+    status: {
+        type: String,
+        requried: true
     }
 }, { timestamps: true });
 
