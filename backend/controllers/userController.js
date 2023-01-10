@@ -4,11 +4,13 @@ const createToken = (_id) => {
 } // "_id" is going to be the part of token payload, the user is logged in for 3 days and the token expires
 
 const User = require('../models/userModel');
-
 const loginUser = async (req, res) => {
+    // let data;
     const {email, password} = req.body;
     try {
         const user = await User.login(email, password);
+        // User.find();
+        // data = await User.findOne({user: {email}});
         const token = createToken(user._id);
         res.status(200).json({email, token});
     } catch (error) {

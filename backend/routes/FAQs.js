@@ -1,5 +1,4 @@
 const express = require('express');
-const FAQ = require('../models/faqModel');
 const router = express.Router();
 
 const {
