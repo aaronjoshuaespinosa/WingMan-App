@@ -80,7 +80,7 @@ const NavBar = ({ onChange }) => {
 					<div className='profileNav w-full h-28 flex absolute bottom-0'>
 						<div className='flex items-center justify-center self-end border-t-2 border-wht w-full h-full'>
 							<img src="" alt="" />
-							<p className='font-bold w-full px-5 select-none cursor-pointer transition-all ease-in-out duration-[0.2s] hover:text-orng'>Bernard</p>
+							<p className='font-bold w-full px-5 select-none cursor-pointer transition-all ease-in-out duration-[0.2s] hover:text-orng'>{user.data.firstName}</p>
 							<div className='px-5 text-xl h-full flex items-center cursor-pointer transition-all ease-in-out duration-[0.2s] hover:text-orng' onClick={menuClick}><MdOutlineKeyboardArrowUp /></div>
 						</div>
 
@@ -116,8 +116,10 @@ const NavBar = ({ onChange }) => {
 									<div {...labels} key={labels.id}>
 										<p>{window.location.pathname === labels.link ? labels.name : null}</p>
 									</div>
+									
 								)
 							})}
+							<p>{window.location.pathname === "/dashboard" ? `${user.data.firstName}!` : null}</p>
 							<div>
 								<input type='text' placeholder='Search the market...' className='absolute right-0 mr-3 lg:mr-[1.5rem] xl:mr-10 py-2 px-3 w-64 md:w-72 lg:w-80 xl:w-96 text-base border-blk border-[2px] rounded-[3px] translate-y-[-100%] hidden'></input>
 							</div>
