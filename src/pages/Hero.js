@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { HeroCard, HeroFooter } from '../components'
+import { FaArrowCircleUp } from 'react-icons/fa';
 
 const Hero = () => {
     const navigate = useNavigate()
@@ -13,9 +14,32 @@ const Hero = () => {
         navigate("/join-us")
     }
 
+    const [visible, setVisible] = useState(false)
+
+    const toggleVisible = () => {
+        const scrolled = document.documentElement.scrollTop;
+        if (scrolled > 300) {
+            setVisible(true)
+        }
+        else if (scrolled <= 300) {
+            setVisible(false)
+        }
+    };
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
+    window.addEventListener('scroll', toggleVisible);
+
     return (
         <>
             <div className='bg-wht w-full h-full font-space'>
+                <p className='fixed bottom-0 right-0 text-5xl hover:text-orng cursor-pointer m-5 z-20 transition-all ease-in-out duration-[0.2s]'><FaArrowCircleUp  onClick={scrollToTop} style={{ opacity: visible ? '100%' : '0%' }} /></p>
+
                 <div className='w-full py-3 px-5 lg:px-56 border-b-blk border-[1px]'>
                     <div className='flex flex-row justify-between items-center h-full'>
                         <div className='h-full w-full flex items-center justify-center lg:justify-start'>
