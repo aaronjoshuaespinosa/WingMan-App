@@ -66,7 +66,7 @@ const Hero = () => {
                             <p className='bg-orng border-blk border-[2px] rounded-full py-2 px-6 font-bold cursor-pointer hover:bg-light-orng transition-all ease-in-out duration-[0.2s]'>Features</p>
                             <p className='bg-wht border-blk border-[2px] rounded-full py-2 px-6 font-bold cursor-pointer hover:bg-light-lgry transition-all ease-in-out duration-[0.2s]' onClick={joinLink}>Get Started</p>
                         </div>
-                        <p className='font-bold text-blk text-xl select-none'>↓ SCROLL ↓</p>
+                        <p className='font-bold text-blk text-xl py-5 select-none'>↓ SCROLL ↓</p>
                     </div>
                 </div>
 

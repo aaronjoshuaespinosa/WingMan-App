@@ -76,14 +76,16 @@ const Login = () => {
             <div className='parent-wrapper w-full h-screen relative'>
                 <img src="https://ik.imagekit.io/efpqj5mis/gradient_1_Cu7n0Rq7PR.png?ik-sdk-version=javascript-1.4.3&updatedAt=1671371950247" alt="" className='w-full h-full absolute pointer-events-none select-none top-0 right-0'></img>
                 <div className='max-w-[1600px] h-full mx-auto flex'>
-
-                    <LoginHero />
+                    <div className='flex justify-center items-center lg:h-full lg:w-full'>
+                        <LoginHero />
+                    </div>
 
                     <div className='w-full relative'>
                         <LoginNav isActive="login" />
                         <div className='h-[80%] flex items-center justify-center'>
-                            <div className='mainForm w-[60%] mx-auto max-w-[250px] font-space'>
-                                <img src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432" alt="Logo" className='mx-auto m-4 pointer-events-none select-none' />
+                            
+                            <div className='w-[60%] mx-auto max-w-[250px] font-space'>
+                                <img src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432" alt="Logo" className='mx-auto m-4 pointer-events-none select-none h-24' />
 
                                 {signinInputs.map(val => {
                                     return (

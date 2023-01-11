@@ -13,7 +13,7 @@ const LoginNav = ({ isActive }) => {
   }
 
   return (
-    <div className='top-buttons flex w-full justify-between text-blk font-space font-bold uppercase px-[5rem] py-5 max-w-[400px] mx-auto'>
+    <div className='top-buttons flex w-full justify-between text-blk font-space font-bold uppercase px-[5rem] py-3 lg:py-5 max-w-[400px] mx-auto'>
       <div className='relative'>
         <p className='peer hover:text-orng transition-all ease-in-out duration-[0.2s] cursor-pointer'
         style={isActive === 'login' ? {color: "#FC5F1C"} : null} onClick={signLink}>sign in</p>

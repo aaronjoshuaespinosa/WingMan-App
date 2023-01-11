@@ -18,6 +18,10 @@ module.exports = {
         'light-lgry': '#D9D9D9'
       },
 
+      screens: {
+        'custom': { 'raw': '(min-height: 640px)'},
+      },
+
       dropShadow: {
         'hoverShadow': '3px 3px 0 #1E1E1E',
       }
