@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { HeroCard, HeroFooter } from '../components'
 import { FaArrowCircleUp } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
     const navigate = useNavigate()
@@ -38,7 +39,7 @@ const Hero = () => {
     return (
         <>
             <div className='bg-wht w-full h-full font-space'>
-                <p className='fixed bottom-0 right-0 text-5xl hover:text-orng cursor-pointer m-5 z-20 transition-all ease-in-out duration-[0.2s]'><FaArrowCircleUp  onClick={scrollToTop} style={{ opacity: visible ? '100%' : '0%' }} /></p>
+                <p className='fixed bottom-0 right-0 text-5xl hover:text-orng cursor-pointer m-5 z-20 transition-all ease-in-out duration-[0.2s]'><FaArrowCircleUp onClick={scrollToTop} style={{ opacity: visible ? '100%' : '0%' }} /></p>
 
                 <div className='w-full py-3 px-5 lg:px-56 border-b-blk border-[1px]'>
                     <div className='flex flex-row justify-between items-center h-full'>
@@ -58,14 +59,17 @@ const Hero = () => {
                         <div className='h-6 w-6 bg-light-orng rounded-full'></div>
                     </div>
 
-                    <div className='w-full flex flex-col justify-center items-center pt-12 lg:pt-24 gap-y-4 lg:gap-y-5'>
-                        <p className='text-orng font-bold text-7xl lg:text-9xl text-center select-none'>FLY INTO MOTION</p>
-                        <p className='text-blk font-bold text-xl lg:text-5xl text-center select-none'>Join the flocking website now!</p>
+                    <div className='w-full flex flex-col justify-center items-center pt-12 lg:pt-24 custom:pt-1 gap-y-4 lg:gap-y-5 custom:gap-y-5'>
+                        <motion.p animate={{ opacity: 100, x: [100, -100, 100], y: [-100, 100, -100] }} transition={{repeat: Infinity}} className='text-orng font-bold text-7xl lg:text-9xl custom:text-8xl text-center select-none'>FLY INTO MOTION</motion.p>
+                        <p className='text-blk font-bold text-xl lg:text-5xl custom:text-4xl text-center select-none'>Join the flocking website now!</p>
                         <p className='text-blk text-base px-12 lg:text-xl text-center select-none'>Be updated on the latest news. Be with the market. </p>
-                        <div className='flex flex-row gap-x-5 py-28 lg:py-32'>
-                            <p className='bg-orng border-blk border-[2px] rounded-full py-2 px-6 font-bold cursor-pointer hover:bg-light-orng transition-all ease-in-out duration-[0.2s]'>Features</p>
-                            <p className='bg-wht border-blk border-[2px] rounded-full py-2 px-6 font-bold cursor-pointer hover:bg-light-lgry transition-all ease-in-out duration-[0.2s]' onClick={joinLink}>Get Started</p>
+
+                        {/* CTA BUTTONS */}
+                        <div className='flex flex-row gap-x-5 py-28 lg:py-32 custom:py-10'>
+                            <p className='bg-orng border-blk border-[2px] rounded-full py-2 px-6 font-bold cursor-pointer hover:drop-shadow-hoverShadow transition-all ease-in-out duration-[0.1s]'>Features</p>
+                            <p className='bg-wht border-blk border-[2px] rounded-full py-2 px-6 font-bold cursor-pointer hover:drop-shadow-hoverShadow transition-all ease-in-out duration-[0.1s]' onClick={joinLink}>Get Started</p>
                         </div>
+
                         <p className='font-bold text-blk text-xl py-5 select-none'>↓ SCROLL ↓</p>
                     </div>
                 </div>
