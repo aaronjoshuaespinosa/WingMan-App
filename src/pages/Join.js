@@ -267,8 +267,8 @@ const Join = () => {
                         <LoginNav isActive="join" />
                         <div className='h-[80%] flex items-center justify-center'>
                             <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 100 }}
+                                initial={{ opacity: 0, y: 15 }}
+                                animate={{ opacity: 100, y: 0 }}
                                 transition={{ duration: 0.5 }}
                                 className='mainForm w-[70%] mx-auto max-w-[250px] font-space'>
                                 <img src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432" alt="Logo" className='mx-auto m-2 pointer-events-none select-none h-24' />
