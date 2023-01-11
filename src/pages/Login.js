@@ -92,7 +92,7 @@ const Login = () => {
                                 })}
 
                                 <button className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5 hover:bg-light-orng transition-all ease-in-out duration-[0.2s]' style={valuesError.email === '' && valuesError.password === '' ? { pointerEvents: "auto", opacity: "100%" } : { pointerEvents: "none", opacity: "50%" }} onClick={handleSubmit}>SIGN IN</button>
-
+                                {error && <div className="error">{error}</div>}
                                 <p className='text-sm text-blk text-center cursor-pointer hover:underline' onClick={joinLink}>I want to create an account</p>
                             </div>
                         </div>

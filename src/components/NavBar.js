@@ -84,7 +84,8 @@ const NavBar = ({ onChange }) => {
 									<img src='https://ik.imagekit.io/xzgmktvzg/wingmanUser.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673428507695' alt='user-image' className='rounded-full' />
 								</div>
 
-								<p className='font-bold select-none cursor-pointer transition-all ease-in-out duration-[0.2s] hover:text-orng'>{user.data.firstName}</p>
+								<p className='font-bold select-none cursor-pointer transition-all ease-in-out duration-[0.2s] hover:text-orng'>
+								{user.data && user.data.firstName}{!user.data && user.firstName}</p>
 							</div>
 
 							<div>
@@ -127,7 +128,8 @@ const NavBar = ({ onChange }) => {
 
 								)
 							})}
-							<p>{window.location.pathname === "/dashboard" ? `${user.data.firstName}!` : null}</p>
+							{user.data && <p>{window.location.pathname === "/dashboard" ? `${user.data.firstName}!` : null}</p>}
+							{!user.data && <p>{window.location.pathname === "/dashboard" ? `${user.firstName}!` : null}</p>}
 							<div>
 								<input type='text' placeholder='Search the market...' className='absolute right-0 mr-3 lg:mr-[1.5rem] xl:mr-10 py-2 px-3 w-64 md:w-72 lg:w-80 xl:w-96 text-base border-blk border-[2px] rounded-[3px] translate-y-[-100%] hidden'></input>
 							</div>
