@@ -59,23 +59,58 @@ const Hero = () => {
 
                 <div className='p-5 lg:py-10 lg:px-56 w-full'>
                     <div className='flex flex-row gap-x-2'>
-                        <div className='h-6 w-6 bg-orng rounded-full'></div>
-                        <div className='h-6 w-6 bg-light-orng rounded-full'></div>
+
+                        <motion.div
+                            animate={{ x: [0, 32, 0] }}
+                            transition={{ repeat: Infinity, duration: 2 }}
+                            className='h-6 w-6 bg-orng/70 rounded-full'>
+                        </motion.div>
+
+                        <motion.div
+                            animate={{ x: [0, -32, 0] }}
+                            transition={{ repeat: Infinity, duration: 2 }}
+                            className='h-6 w-6 bg-orng/70 rounded-full'>
+                        </motion.div>
+
                     </div>
 
                     <div className='w-full flex flex-col justify-center items-center pt-12 lg:pt-24 custom:pt-1 gap-y-4 lg:gap-y-5 custom:gap-y-5'>
 
-                        <p className='text-orng font-bold text-7xl lg:text-9xl custom:text-8xl text-center select-none'>FLY INTO MOTION</p>
-                        <p className='text-blk font-bold text-xl lg:text-5xl custom:text-4xl text-center select-none'>Join the flocking website now!</p>
-                        <p className='text-blk text-base px-12 lg:text-xl text-center select-none'>Be updated on the latest news. Be with the market. </p>
+                        <motion.p
+                            initial={{ y: 1000 }}
+                            animate={{ y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className='text-orng font-bold text-7xl lg:text-9xl custom:text-8xl text-center select-none'>FLY INTO MOTION
+                        </motion.p>
+
+                        <motion.p
+                            initial={{ y: 1000 }}
+                            animate={{ y: 0 }}
+                            transition={{ duration: 0.5, delay: 4 * 0.02 }}
+                            className='text-blk font-bold text-xl lg:text-5xl custom:text-4xl text-center select-none'>Join the flocking website now!
+                        </motion.p>
+
+                        <motion.p
+                            initial={{ y: 1000 }}
+                            animate={{ y: 0 }}
+                            transition={{ duration: 0.5, delay: 8 * 0.02 }}
+                            className='text-blk text-base px-12 lg:text-xl text-center select-none'>Be updated on the latest news. Be with the market.
+                        </motion.p>
 
                         {/* CTA BUTTONS */}
-                        <div className='flex flex-row gap-x-5 py-28 lg:py-32 custom:py-10'>
+                        <motion.div
+                            initial={{ y: 1000 }}
+                            animate={{ y: 0 }}
+                            transition={{ duration: 0.5, delay: 12 * 0.02 }}
+                            className='flex flex-row gap-x-5 py-28 lg:py-32 custom:py-10'>
                             <p className='bg-orng border-blk border-[2px] rounded-full py-2 px-6 font-bold cursor-pointer hover:drop-shadow-hoverShadow transition-all ease-in-out duration-[0.1s]'>Features</p>
                             <p className='bg-wht border-blk border-[2px] rounded-full py-2 px-6 font-bold cursor-pointer hover:drop-shadow-hoverShadow transition-all ease-in-out duration-[0.1s]' onClick={joinLink}>Get Started</p>
-                        </div>
+                        </motion.div>
 
-                        <p className='font-bold text-blk text-xl py-5 select-none'>↓ SCROLL ↓</p>
+                        <motion.p
+                            animate={{ y: [-10, 0, -10] }}
+                            transition={{ repeat: Infinity, duration: 1.5 }}
+                            className='font-bold text-blk text-xl py-5 select-none'>↓ SCROLL ↓</motion.p>
                     </div>
                 </div>
 

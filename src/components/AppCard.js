@@ -18,13 +18,13 @@ const AppCard = () => {
                     <div className='flex flex-col lg:flex-row gap-x-2 lg:pr-[24px] font-bold select-none'>
 
                         {/* APPOINTMENT DATE - PLACEHOLDER MUNA */}
-                        <p>Schedule: 12/12/2022</p>
+                        <p>Schedule: 00/00/0000</p>
 
                         {/* LINE */}
                         <p className='hidden lg:block'>|</p>
 
                         {/* APPOINTMENT TIME - PLACEHOLDER MUNA */}
-                        <p>10:00 AM</p>
+                        <p>00:00 XM</p>
                     </div>
 
                 </div>

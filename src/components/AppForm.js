@@ -17,6 +17,7 @@ const AppForm = (props) => {
 
                     {/* APPOINTMENT DESCRIPTION */}
                     <textarea className="resize-y p-[12px] border-blk border-[2px] rounded-[3px] h-[10rem] lg:h-[10rem]" placeholder="Description" />
+
                 </div>
 
                 <div className='flex flex-row items-center h-full w-full]'>
@@ -31,6 +32,7 @@ const AppForm = (props) => {
 
                         {/* POST BUTTON */}
                         <button className='px-5 py-2 font-bold bg-orng border-[2px] border-blk text-blk rounded-[3px] hover:drop-shadow-hoverShadow hover:bg-light-orng transition-all ease-in-out duration-[0.1s]'>Submit</button>
+                        
                     </div>
 
                 </div>
