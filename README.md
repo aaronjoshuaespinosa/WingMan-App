@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# WingMan Web Application
+An academic platform that provide students (WHATTTT???? WHAT DOES IT PROVIDE????) <br><br>
+This project is developed by three 3rd Year BS Computer Science Students from Cavite State Univaersity - Main Campus as a completion requirement for Software Engineering II.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Click here](https://wingman-beta.vercel.app/) to access the website.
 
-## Available Scripts
+# Features
+### MARKETPLACE
+Platform for students to promote their business or post their comissions to easily find clients that might need the service that a seller can offer to other users in the system.
 
-In the project directory, you can run:
+### APPOINTMENTS
+Helps the student to create an appointment for documents or even school uniforms to avoid long queues in the school vicinity. Long queues will be avoided as there will be a limit for number of appointments per day.
 
-### `npm start`
+### NEWS & ANNOUNCEMENTS
+Will provide students the latest news and announcements from inside the university. In this section, news & announcements are filtered by Department and Courses.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### COMPLAINT SYSTEM
+Nakakatamad na mag-type. Lorem Ipsum muna. Nullam fringilla, sapien eu sagittis dapibus, mi turpis maximus ante, id aliquam massa orci sit amet nunc. Aliquam lacinia magna at volutpat viverra. Etiam eros nisl, venenatis in metus a, dictum interdum tortor. Duis in iaculis massa. Integer nec justo id magna finibus aliquam in in lacus.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### FAQ SYSTEM
+Duis convallis sem dolor, ut efficitur magna laoreet at. Donec a venenatis tortor. In vitae nunc eu elit maximus dictum nec sed erat. Mauris eget ultricies metus. Fusce vel ante quis odio ultricies fringilla. Mauris vitae sagittis tortor. Etiam pharetra tristique sollicitudin. Aenean vehicula a orci vitae sollicitudin.
 
-### `npm test`
+### LOREM IPSUM
+Pellentesque vestibulum fermentum ipsum, eget elementum turpis posuere eu. Nam quis tincidunt eros. Morbi aliquet mauris sed urna gravida finibus. Nam eget faucibus odio. Pellentesque vulputate lorem at massa molestie finibus. Vivamus molestie ante odio, ac elementum turpis venenatis id. Curabitur id leo sodales, cursus nulla ac, ultricies libero. Sed aliquet tellus ac dolor convallis, vel tempus tortor ultrices. Praesent venenatis mi ut blandit malesuada.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Nunc nec diam vitae diam dignissim finibus in id tortor. Cras iaculis elit lectus, sagittis sagittis felis malesuada et. In pulvinar, lacus ut vestibulum auctor, urna est sagittis dui, in mollis massa elit et ex. Suspendisse a lectus hendrerit, facilisis nunc at, pharetra diam. Vestibulum porta ipsum erat, nec malesuada velit rhoncus suscipit. Donec placerat arcu massa, at commodo magna pulvinar vel. Nulla posuere vel magna nec tristique. Ut finibus orci sed urna euismod finibus. Aenean consectetur felis quis arcu sagittis, vel semper ipsum tincidunt. Vivamus mattis risus diam, et placerat ante vehicula id. Vestibulum hendrerit odio et elit euismod auctor. Nulla facilisi.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### This project is developed by:
+[Bernard Sarroca](https://github.com/iamnards) - Backend Developer <br>
+[AJ Espinosa](https://github.com/eyrooonnn) - Frontend Developer <br>
+Charles Camantigue - Documentator
