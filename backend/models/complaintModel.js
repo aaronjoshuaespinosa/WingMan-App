@@ -17,6 +17,10 @@ const complaintSchema = new Schema({
     status: {
         type: String,
         requried: true
+    },
+    user_id : {
+        type: String,
+        required: true
     }
 }, { timestamps: true });
 

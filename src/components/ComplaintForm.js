@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useComplaintsContext } from '../hooks/useComplaintsContext'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const ComplaintForm = () => {
     const { dispatch } = useComplaintsContext()
+    const { user } = useAuthContext()
 
     const [subject, setSubject] = useState('')
     const [content, setContent] = useState('')
@@ -13,13 +15,19 @@ const ComplaintForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        if (!user) {
+            setError('You must be logged in.')
+            return
+        }
+
         const complaint = { subject, content, recipient, status }
 
         const response = await fetch('/api/complaints', {
             method: 'POST',
             body: JSON.stringify(complaint),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json()

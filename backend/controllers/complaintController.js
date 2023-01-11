@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 
 //GET all complaints
 const getComplaints = async (req, res) => {
-    const complaints = await Complaint.find({ }).sort({createdAt: -1});
+    const user_id = req.user._id;
+    const complaints = await Complaint.find({ user_id }).sort({createdAt: -1});
 
     res.status(200).json(complaints);
 };
@@ -32,9 +33,9 @@ const createComplaint = async (req, res) => {
     //add doc to db
     const {subject, content, recipient, status} = req.body;
 
-
     try {
-        const complaint = await Complaint.create({subject, content, recipient, status});
+        const user_id = req.user._id;
+        const complaint = await Complaint.create({subject, content, recipient, status, user_id});
         res.status(200).json(complaint);
     }
     catch (error) {

@@ -1,17 +1,16 @@
 import React from 'react'
-import { useComplaintsContext } from '../hooks/useComplaintsContext'
 import { formatDistanceToNowStrict } from 'date-fns'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const ComplaintDetails = ({ complaint }) => {
-    const { dispatch } = useComplaintsContext()
-
+    const { user } = useAuthContext()
     return (
         <div className='my-[12px]'>
-            <h1>Subject: {complaint.subject}</h1>
-            <p>Content: {complaint.content}</p>
-            <p>Recipient: {complaint.recipient}</p>
-            <p>Status: {complaint.status}</p>
-            <p>{formatDistanceToNowStrict(new Date(complaint.createdAt), {addSuffix: true})}</p>
+            {user && <h1>Subject: {complaint.subject}</h1>}
+            {user && <p>Content: {complaint.content}</p>}
+            {user && <p>Recipient: {complaint.recipient}</p>}
+            {user && <p>Status: {complaint.status}</p>}
+            {user && <p>{formatDistanceToNowStrict(new Date(complaint.createdAt), {addSuffix: true})}</p>}
         </div>
     )
 }

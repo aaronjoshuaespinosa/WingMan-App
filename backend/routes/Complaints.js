@@ -1,6 +1,5 @@
 const express = require('express');
 
-
 const {
     getComplaints,
     getComplaint,
@@ -9,7 +8,11 @@ const {
     updateComplaint
 } = require('../controllers/complaintController')
 
+const requireAuth = require('../middleware/requireAuth');
+
 const router = express.Router();
+
+router.use(requireAuth);
 
 //GET all complaints
 router.get('/', getComplaints);
