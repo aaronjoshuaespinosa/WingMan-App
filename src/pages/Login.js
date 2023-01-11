@@ -89,22 +89,42 @@ const Login = () => {
                         <LoginNav isActive="login" />
                         <div className='h-[80%] flex items-center justify-center'>
 
-                            <motion.div
-                                initial={{ opacity: 0, y: 15 }}
-                                animate={{ opacity: 100, y: 0 }}
-                                transition={{ duration: 0.5 }}
-                                className='w-[60%] mx-auto max-w-[250px] font-space'>
-                                <img src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432" alt="Logo" className='mx-auto m-4 pointer-events-none select-none h-24' />
+                            <motion.div className='w-[60%] mx-auto max-w-[250px] font-space'>
 
-                                {signinInputs.map(val => {
+                                <motion.img
+                                    initial={{ opacity: 0, y: 15 }}
+                                    animate={{ opacity: 100, y: 0 }}
+                                    transition={{ delay: 0.05 }}
+                                    src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432" alt="Logo" className='mx-auto m-4 pointer-events-none select-none h-24' />
+
+                                {signinInputs.map((val, i) => {
                                     return (
-                                        <FormInput key={val.id} {...val} value={val[values.name]} onChange={handleChange} />
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 15 }}
+                                            animate={{ opacity: 100, y: 0 }}
+                                            transition={{ delay: i * 0.05 }}>
+                                            <FormInput key={val.id} {...val} value={val[values.name]} onChange={handleChange} />
+                                        </motion.div>
                                     )
                                 })}
 
-                                <button className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5 hover:bg-light-orng transition-all ease-in-out duration-[0.2s]' style={valuesError.email === '' && valuesError.password === '' ? { pointerEvents: "auto", opacity: "100%" } : { pointerEvents: "none", opacity: "50%" }} onClick={handleSubmit}>SIGN IN</button>
+                                <div>
+                                    <button
+                                        initial={{ opacity: 0, y: 15 }}
+                                        animate={{ opacity: 100, y: 0 }}
+                                        transition={{ delay: 3 * 0.05 }}
+                                        className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5 hover:bg-light-orng transition-all ease-in-out duration-[0.2s]' style={valuesError.email === '' && valuesError.password === '' ? { pointerEvents: "auto", opacity: "100%" } : { pointerEvents: "none", opacity: "50%" }}
+                                        onClick={handleSubmit}>SIGN IN
+                                    </button>
+                                </div>
+
                                 {error && <div className="error">{error}</div>}
-                                <p className='text-sm text-blk text-center cursor-pointer hover:underline' onClick={joinLink}>I want to create an account</p>
+                                <motion.p
+                                    initial={{ opacity: 0, y: 15 }}
+                                    animate={{ opacity: 100, y: 0 }}
+                                    transition={{ delay: 3 * 0.05 }}
+                                    className='text-sm text-blk text-center cursor-pointer hover:underline'
+                                    onClick={joinLink}>I want to create an account</motion.p>
                             </motion.div>
                         </div>
                     </div>

@@ -266,24 +266,46 @@ const Join = () => {
                     <div className='w-full relative'>
                         <LoginNav isActive="join" />
                         <div className='h-[80%] flex items-center justify-center'>
-                            <motion.div
-                                initial={{ opacity: 0, y: 15 }}
-                                animate={{ opacity: 100, y: 0 }}
-                                transition={{ duration: 0.5 }}
-                                className='mainForm w-[70%] mx-auto max-w-[250px] font-space'>
-                                <img src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432" alt="Logo" className='mx-auto m-2 pointer-events-none select-none h-24' />
 
-                                {joinusInputs.map(val => {
+                            <div
+                                className='mainForm w-[70%] mx-auto max-w-[250px] font-space'>
+                                <motion.img
+                                    initial={{ opacity: 0, y: 15 }}
+                                    animate={{ opacity: 100, y: 0 }}
+                                    transition={{ delay: 0.05 }}
+                                    src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432" alt="Logo" className='mx-auto m-2 pointer-events-none select-none h-24' />
+
+                                {joinusInputs.map((val, i) => {
                                     return (
-                                        <FormInput key={val.id} {...val} value={val[values.name]} error={valuesError[val.name]} showError={showError[val.name]} onChange={handleChange} />
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 15 }}
+                                            animate={{ opacity: 100, y: 0 }}
+                                            transition={{ delay: i * 0.05 }}>
+                                            <FormInput key={val.id} {...val} value={val[values.name]} error={valuesError[val.name]} showError={showError[val.name]} onChange={handleChange} />
+                                        </motion.div>
                                     )
                                 })}
 
-                                <button className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5 hover:bg-light-orng transition-all ease-in-out duration-[0.2s]' style={valuesError.email === '' && valuesError.password === '' && valuesError.confPassword === '' && valuesError.fName === '' && valuesError.lName === '' && valuesError.username === '' && valuesError.studentNum === '' ? { pointerEvents: "auto", opacity: "100%" } : { pointerEvents: "none", opacity: "50%" }} onClick={handleClick}>JOIN US</button>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 15 }}
+                                    animate={{ opacity: 100, y: 0 }}
+                                    transition={{ delay: 7 * 0.05 }}>
+                                    <button
+                                        className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5 hover:bg-light-orng transition-all ease-in-out duration-[0.2s]'
+                                        style={valuesError.email === '' && valuesError.password === '' && valuesError.confPassword === '' && valuesError.fName === '' && valuesError.lName === '' && valuesError.username === '' && valuesError.studentNum === '' ? { pointerEvents: "auto", opacity: "100%" } : { pointerEvents: "none", opacity: "50%" }}
+                                        onClick={handleClick}>JOIN US
+                                    </button>
+                                </motion.div>
+
                                 {error && <div className="mb-2 lg:mb-2">{error}</div>}
-                                <p className='text-sm text-blk text-center cursor-pointer hover:underline' onClick={signLink}
-                                >I already have an account</p>
-                            </motion.div>
+                                <motion.p
+                                    initial={{ opacity: 0, y: 15 }}
+                                    animate={{ opacity: 100, y: 0 }}
+                                    transition={{ delay: 8 * 0.05 }}
+                                    className='text-sm text-blk text-center cursor-pointer hover:underline'
+                                    onClick={signLink}
+                                >I already have an account</motion.p>
+                            </div>
 
                         </div>
                     </div>
