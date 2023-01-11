@@ -30,11 +30,9 @@ const NavBar = ({ onChange }) => {
 
 	const handleOutsideClick = (e) => {
 		if (ref.current.contains(e.target)) {
-			console.log("inside")
 			setMenuActive(current => !current)
 		}
 		else {
-			console.log("outside")
 			setMenuActive(false)
 		}
 	}

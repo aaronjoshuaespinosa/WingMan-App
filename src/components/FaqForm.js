@@ -79,8 +79,8 @@ const FaqForm = () => {
             <div className='flex flex-row items-center'>
                 {error && <div className="error w-full mt-[12px]">{error}</div>}
                 <div className='flex gap-x-[12px] mt-[12px] w-full justify-end'>
-                    <button className='px-5 py-2 font-bold bg-wht border-[2px] border-blk text-blk rounded-[3px] hover:bg-light-lgry transition-all ease-in-out duration-[0.2s]' onClick={clear}>Clear</button>
-                    <button className='px-5 py-2 font-bold bg-orng border-[2px] border-blk text-blk rounded-[3px] hover:bg-light-orng transition-all ease-in-out duration-[0.2s]' onClick={handleSubmit}>Post</button>
+                    <button className='px-5 py-2 font-bold bg-wht border-[2px] border-blk text-blk rounded-[3px] hover:bg-light-lgry transition-all ease-in-out duration-[0.1s] hover:drop-shadow-hoverShadow' onClick={clear}>Clear</button>
+                    <button className='px-5 py-2 font-bold bg-orng border-[2px] border-blk text-blk rounded-[3px] hover:bg-light-orng transition-all ease-in-out duration-[0.1s] hover:drop-shadow-hoverShadow' onClick={handleSubmit}>Post</button>
                 </div>
             </div>
         </div>

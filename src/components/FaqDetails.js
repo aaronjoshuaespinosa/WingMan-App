@@ -5,7 +5,10 @@ import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import { useFaqsContext } from '../hooks/useFaqsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 
-const FaqDetails = ({ faq }) => {
+const FaqDetails = ({ faq }, props) => {
+
+    const { onClick } = props
+
     const { dispatch } = useFaqsContext()
     const { user } = useAuthContext()
     const handleClick = async () => {
@@ -34,8 +37,8 @@ const FaqDetails = ({ faq }) => {
                     </div>
 
                     <div className='titleAndContent pt-1 pb-7 mx-[12px]'>
-                        <h4 className='text-2xl font-bold pb-3'>{user && faq.title}</h4>
-                        <p className=''>{user && faq.content}</p>
+                        <h4 className='text-2xl font-bold pb-3 break-words'>{user && faq.title}</h4>
+                        <p className='break-words'>{user && faq.content}</p>
                     </div>
                 </div>
 
@@ -44,7 +47,7 @@ const FaqDetails = ({ faq }) => {
                         <ImArrowUp />
                         <p className='text-sm'>{user && faq.upvote}</p>
                     </div>
-                    <button onClick={handleClick}><AiTwotoneDelete className='hover:text-red transition-all ease-in-out duration-[0.2s]' /></button>
+                    <button onClick={onClick}><AiTwotoneDelete className='hover:text-red transition-all ease-in-out duration-[0.2s]' /></button>
                 </div>
             </div>
 
