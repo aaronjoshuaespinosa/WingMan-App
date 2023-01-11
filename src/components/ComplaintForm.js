@@ -33,7 +33,7 @@ const ComplaintForm = () => {
         const json = await response.json()
 
         if (!response.ok) {
-            setError('Please fill the empty fields')
+            setError('Please fill the empty fields.')
         }
 
         if (response.ok) {
@@ -75,14 +75,13 @@ const ComplaintForm = () => {
                     type="text"
                     onChange={(e) => setContent(e.target.value)}
                     value={content}
-                    className= "resize-y p-[12px] border-blk border-[2px] rounded-[3px] h-[10rem] lg:h-full"
+                    className="resize-y p-[12px] border-blk border-[2px] rounded-[3px] h-[10rem] lg:h-full"
                 />
 
                 <div className='flex gap-x-[12px] mt-[12px] w-full justify-end'>
+                    {error && <div className="error w-full mt-[12px]">{error}</div>}
                     <button className='px-5 py-2 font-bold bg-orng border-[2px] border-blk text-blk rounded-[3px] hover:bg-light-orng transition-all ease-in-out duration-[0.2s]'>Submit</button>
                 </div>
-
-                {error && <div>{error}</div>}
             </form>
         </div>
     )

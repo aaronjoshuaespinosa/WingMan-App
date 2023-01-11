@@ -78,7 +78,12 @@ const NavBar = ({ onChange }) => {
 					<div className='profileNav w-full h-28 flex absolute bottom-0'>
 						<div className='flex items-center px-5 justify-between border-t-2 border-wht w-full h-full'>
 							<div className='flex items-center gap-x-3'>
-								<div className='bg-wht h-8 w-8 rounded-full'></div>
+
+								{/* USER IMAGE */}
+								<div className='bg-wht h-8 w-8 rounded-full cursor-pointer'>
+									<img src='https://ik.imagekit.io/xzgmktvzg/wingmanUser.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673428507695' alt='user-image' className='rounded-full' />
+								</div>
+
 								<p className='font-bold select-none cursor-pointer transition-all ease-in-out duration-[0.2s] hover:text-orng'>{user.data.firstName}</p>
 							</div>
 

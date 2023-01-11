@@ -40,7 +40,7 @@ const Hero = () => {
                         <p className='text-blk text-base px-12 lg:text-xl text-center select-none'>Be updated on the latest news. Be with the market. </p>
                         <div className='flex flex-row gap-x-5 py-28 lg:py-32'>
                             <p className='bg-orng border-blk border-[2px] rounded-full py-2 px-6 font-bold cursor-pointer hover:bg-light-orng transition-all ease-in-out duration-[0.2s]'>Features</p>
-                            <p className='bg-wht border-blk border-[2px] rounded-full py-2 px-6 font-bold cursor-pointer hover:bg-light-lgry transition-all ease-in-out duration-[0.2s]'>Get Started</p>
+                            <p className='bg-wht border-blk border-[2px] rounded-full py-2 px-6 font-bold cursor-pointer hover:bg-light-lgry transition-all ease-in-out duration-[0.2s]' onClick={joinLink}>Get Started</p>
                         </div>
                         <p className='font-bold text-blk text-xl select-none'>↓ SCROLL ↓</p>
                     </div>

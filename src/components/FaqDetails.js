@@ -5,12 +5,14 @@ import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import { useFaqsContext } from '../hooks/useFaqsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 
-const FaqDetails = ({ faq }, props) => {
+const FaqDetails = (props) => {
 
-    const { onClick } = props
+    const { faq, onClick } = props
 
     const { dispatch } = useFaqsContext()
     const { user } = useAuthContext()
+
+    // DELETE FUNCTION
     const handleClick = async () => {
         if (!user) {
             return
@@ -26,6 +28,7 @@ const FaqDetails = ({ faq }, props) => {
             dispatch({ type: 'DELETE_FAQ', payload: json })
         }
     }
+    
     return (
         <div className="FAQ-details w-full bg-light-wht border-blk border-[2px] rounded-[3px] my-[12px] flex flex-row">
             <div className='topFAQ flex flex-col justify-between h-full w-full'>
@@ -37,7 +40,7 @@ const FaqDetails = ({ faq }, props) => {
                     </div>
 
                     <div className='titleAndContent pt-1 pb-7 mx-[12px]'>
-                        <h4 className='text-2xl font-bold pb-3 break-words'>{user && faq.title}</h4>
+                        <h4 className='text-2xl font-bold pb-3'>{user && faq.title}</h4>
                         <p className='break-words'>{user && faq.content}</p>
                     </div>
                 </div>
