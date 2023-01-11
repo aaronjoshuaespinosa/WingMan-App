@@ -1,10 +1,10 @@
-import { data } from 'autoprefixer'
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FormInput, LoginHero, LoginNav } from '../components'
 import { joinusInputs } from '../constants'
 import { useSignup } from '../hooks/useSignup'
+import { motion } from 'framer-motion';
 
 const Join = () => {
 
@@ -254,7 +254,8 @@ const Join = () => {
 
     return (
         <>
-            <div className='parent-wrapper w-full h-screen relative'>
+            <motion.div
+                className='parent-wrapper w-full h-screen relative'>
                 <img src="https://ik.imagekit.io/efpqj5mis/gradient_1_Cu7n0Rq7PR.png?ik-sdk-version=javascript-1.4.3&updatedAt=1671371950247" alt="" className='w-full h-full absolute pointer-events-none select-none top-0 right-0'></img>
                 <div className='max-w-[1600px] h-full mx-auto flex'>
 
@@ -265,7 +266,11 @@ const Join = () => {
                     <div className='w-full relative'>
                         <LoginNav isActive="join" />
                         <div className='h-[80%] flex items-center justify-center'>
-                            <div className='mainForm w-[70%] mx-auto max-w-[250px] font-space'>
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 100 }}
+                                transition={{ duration: 0.5 }}
+                                className='mainForm w-[70%] mx-auto max-w-[250px] font-space'>
                                 <img src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432" alt="Logo" className='mx-auto m-2 pointer-events-none select-none h-24' />
 
                                 {joinusInputs.map(val => {
@@ -278,12 +283,12 @@ const Join = () => {
                                 {error && <div className="mb-2 lg:mb-2">{error}</div>}
                                 <p className='text-sm text-blk text-center cursor-pointer hover:underline' onClick={signLink}
                                 >I already have an account</p>
-                            </div>
+                            </motion.div>
 
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </>
     )
 }
