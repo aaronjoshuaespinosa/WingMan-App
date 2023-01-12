@@ -3,6 +3,7 @@ import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppCard, AppForm, AppSelect, Footer } from '../components'
 import { useAppointmentsContext } from '../hooks/useAppointmentsContext'
+import { useAuthContext } from '../hooks/useAuthContext'
 import { GiFoldedPaper, GiClothes } from "react-icons/gi";
 import { motion } from 'framer-motion'
 
@@ -10,6 +11,7 @@ const Appointments = () => {
 	const dispatch = useDispatch()
 
 	const { appointments, dispatch: dsptch } = useAppointmentsContext()
+	const { user } = useAuthContext()
 
 	const toggle = useSelector((state) => state.Toggle.toggle.value)
 
@@ -37,14 +39,18 @@ const Appointments = () => {
 	useEffect(() => {
 		dispatch(setToggle({ value: !toggle }))
 		const fetchAppointments = async () => {
-			const response = await fetch('/api/appointments')
+			const response = await fetch('/api/appointments', {
+				headers: {
+					'Authorization': `Bearer ${user.token}`
+				}
+			})
 			const json = await response.json()
 			if (response.ok) {
 				dsptch({ type: 'SET_APPOINTMENTS', payload: json })
 			}
 		}
 		fetchAppointments()
-	}, [dsptch])
+	}, [dsptch, user])
 	return (
 		<>
 			<div className='bg-wht absolute top-0 w-full font-space'>
@@ -59,7 +65,7 @@ const Appointments = () => {
 						</motion.div>
 
 						{/* CARDS - DITO MA-STORE YUNG DATA FROM USER */}
-						<motion.div
+						{user && <motion.div
 							initial={{ opacity: 0, y: 15 }}
 							animate={{ opacity: 100, y: 0 }}
 							transition={{ delay: 1 * 0.1 }}
@@ -73,7 +79,7 @@ const Appointments = () => {
 									<AppCard key={appointment.id} appointment={appointment} index={i} />
 								</motion.div>
 							))}
-						</motion.div>
+						</motion.div>}
 
 					</div>
 
@@ -102,7 +108,7 @@ const Appointments = () => {
 									initial={{ opacity: 0 }}
 									whileInView={{ opacity: 1 }}
 									className="w-full">
-									<AppSelect name="Apparel" icon={<GiClothes />} onClick={docClick} />
+									<AppSelect name="Apparel" icon={<GiClothes />} onClick={aprlClick} />
 								</motion.div>
 							</div>
 

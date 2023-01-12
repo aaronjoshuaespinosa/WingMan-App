@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const requireAuth = require('../middleware/requireAuth')
 const {
     getAppointments,
     getAppointment,
@@ -7,6 +8,8 @@ const {
     deleteAppointment,
     updateAppointment
 } = require('../controllers/appointmentController')
+
+router.use(requireAuth);
 
 //GET all appointments
 router.get('/', getAppointments);
