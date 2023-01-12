@@ -102,7 +102,7 @@ const NavBar = ({ onChange }) => {
 								<div className='h-fit w-fit'>
 									{navMenu.map(menuLinks => {
 										return (
-											<p {...menuLinks} key={menuLinks.id} className='py-1 pr-5 cursor-pointer select-none hover:text-light-gry'>{menuLinks.name}</p>
+											<p {...menuLinks} key={menuLinks.id} className='py-1 pr-5 cursor-pointer select-none hover:text-light-gry' onClick={menuClick}>{menuLinks.name}</p>
 										)
 									})}
 									<hr className='my-2 border-light-gry' />

@@ -40,25 +40,40 @@ const Complaints = () => {
 		<>
 			<div className='bg-wht absolute top-0 w-full font-space'>
 				<div className='px-[1.25rem] pt-20 pb-10 lg:pl-[25.5rem] lg:pr-[5.5rem] lg:pt-32 lg:pb-24 xl:pl-[30.5rem] xl:pr-[10.5rem] z-10'>
-					<h1>Are you experiencing an academic invoncenience? Create a Complaint!</h1>
-					<ComplaintForm />
-					{/* DISPLAY COMPLAINTS SUBMITTED BY USER*/}
-					<h1>Your complaints: </h1>
-					{complaints && complaints.map((complaint) => (
-						<ComplaintDetails key={complaint.id} complaint={complaint} />
-					))}
 
-					<div className='w-full flex flex-col justify-center items-center py-5 gap-y-5 text-light-gry'>
+					<motion.h1
+						initial={{ opacity: 0, y: 15 }}
+						animate={{ opacity: 100, y: 0 }}
+					>Are you experiencing an academic invoncenience? Create a Complaint!</motion.h1>
+
+					<motion.div
+						initial={{ opacity: 0, y: 15 }}
+						animate={{ opacity: 100, y: 0 }}
+						transition={{ delay: 1 * 0.1 }}>
+						<ComplaintForm />
+						{/* DISPLAY COMPLAINTS SUBMITTED BY USER*/}
+						<h1>Your complaints: </h1>
+						<motion.div></motion.div>
+						{complaints && complaints.map((complaint) => (
+							<ComplaintDetails key={complaint.id} complaint={complaint} />
+						))}
+					</motion.div>
+
+					<motion.div
+						initial={{ opacity: 0, y: 15 }}
+						animate={{ opacity: 100, y: 0 }}
+						transition={{ delay: 2 * 0.1 }}
+						className='w-full flex flex-col justify-center items-center py-5 gap-y-5 text-light-gry'>
 						<motion.div
-							whileHover={{ y: [10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10]}}
-							transition={{duration: 40}}
+							whileHover={{ y: [10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10] }}
+							transition={{ duration: 40 }}
 							className="cursor-pointer"
 						>
 							<GiHummingbird className='text-9xl hover:text-orng' />
 						</motion.div>
 
 						<p className='text-2xl font-bold'>~Nothing else follows~</p>
-					</div>
+					</motion.div>
 
 				</div>
 				<Footer />

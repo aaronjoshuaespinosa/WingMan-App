@@ -109,7 +109,7 @@ const FAQ = () => {
 							<motion.div
 								initial={{ opacity: 0, y: 15 }}
 								animate={{ opacity: 100, y: 0 }}
-								transition={{ delay: 1 * 0.2 }}>
+								transition={{ delay: 1 * 0.1 }}>
 								<FaqForm />
 							</motion.div>
 
@@ -117,7 +117,7 @@ const FAQ = () => {
 								<motion.div
 									initial={{ opacity: 0, y: 15 }}
 									animate={{ opacity: 100, y: 0 }}
-									transition={{ delay: (i + 2) * 0.2 }}
+									transition={{ delay: (i + 2) * 0.1 }}
 								>
 									<FaqDetails onClick={showDel} key={faq.id} faq={faq} />
 								</motion.div>
