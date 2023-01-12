@@ -7,6 +7,7 @@ import NavLinks from './NavLinks';
 import { navHeader, navMenu } from '../constants'
 import { useLogout } from '../hooks/useLogout'
 import { useAuthContext } from '../hooks/useAuthContext';
+import { motion } from 'framer-motion';
 
 
 
@@ -26,7 +27,7 @@ const NavBar = ({ onChange }) => {
 
 	useEffect(() => {
 		document.addEventListener("click", handleOutsideClick, true)
-	}, [])
+	}, [menuActive])
 
 	const handleOutsideClick = (e) => {
 		if (ref.current.contains(e.target)) {
@@ -85,26 +86,29 @@ const NavBar = ({ onChange }) => {
 								</div>
 
 								<p className='font-bold select-none cursor-pointer transition-all ease-in-out duration-[0.2s] hover:text-orng'>
-								{user.data && user.data.firstName}{!user.data && user.firstName}</p>
+									{user.data && user.data.firstName}{!user.data && user.firstName}</p>
 							</div>
 
 							<div>
-								<div className='text-2xl h-full flex items-center cursor-pointer transition-all ease-in-out duration-[0.2s] hover:text-orng' onClick={menuClick}><MdOutlineKeyboardArrowUp /></div>
+								<div className='text-2xl h-full flex items-center cursor-pointer transition-all ease-in-out duration-[0.2s] hover:text-orng z-20' onClick={menuClick}><MdOutlineKeyboardArrowUp /></div>
 							</div>
 						</div>
 
 						{/* NAV MENU */}
-						<div className='bg-wht absolute text-blk font-medium text-sm p-3 flex rounded-[2px] border-blk border-[2px] right-2 lg:right-[-3.9rem] top-[-10.5rem] transition-all ease-in-out duration-[0.2s]' ref={ref} style={menuActive ? { display: "block" } : { display: "none" }}>
-							<div className='h-fit w-fit'>
-								{navMenu.map(menuLinks => {
-									return (
-										<p {...menuLinks} key={menuLinks.id} className='py-1 pr-5 cursor-pointer select-none hover:text-light-gry'>{menuLinks.name}</p>
-									)
-								})}
-								<hr className='my-2 border-light-gry' />
-								<button className='text-orng cursor-pointer select-none hover:text-light-orng' onClick={signoutClick}><a href="/sign-in" target="_self">Sign out</a></button>
-							</div>
-						</div>
+							<motion.div
+								initial={{ scale: 0, y: 100 }}
+								whileInView={{ scale: 1, y: 0 }}
+								className='bg-wht absolute text-blk font-medium text-sm p-3 flex rounded-[2px] border-blk border-[2px] right-2 lg:right-[-3.9rem] top-[-10.5rem]' ref={ref} style={menuActive ? { display: "block" } : { display: "none" }}>
+								<div className='h-fit w-fit'>
+									{navMenu.map(menuLinks => {
+										return (
+											<p {...menuLinks} key={menuLinks.id} className='py-1 pr-5 cursor-pointer select-none hover:text-light-gry' onClick={menuClick}>{menuLinks.name}</p>
+										)
+									})}
+									<hr className='my-2 border-light-gry' />
+									<button className='text-orng cursor-pointer select-none hover:text-light-orng' onClick={signoutClick}><a href="/sign-in" target="_self">Sign out</a></button>
+								</div>
+							</motion.div>
 					</div>
 				</div>
 
@@ -122,14 +126,23 @@ const NavBar = ({ onChange }) => {
 						<div className='flex gap-x-[0.05rem] lg:gap-x-[0.15rem] my-auto px-3 lg:px-[1.5rem] xl:px-10 text-2xl lg:text-5xl text-blk font-bold select-none w-[100vw] relative'>
 							{navHeader.map(labels => {
 								return (
-									<div {...labels} key={labels.id}>
+									<motion.div
+										{...labels}
+										key={labels.id}
+										initial={{ opacity: 0 }}
+										animate={{ opacity: 1 }}
+									>
 										<p>{window.location.pathname === labels.link ? labels.name : null}</p>
-									</div>
+									</motion.div>
 
 								)
 							})}
-							{user.data && <p>{window.location.pathname === "/dashboard" ? `${user.data.firstName}!` : null}</p>}
-							{!user.data && <p>{window.location.pathname === "/dashboard" ? `${user.firstName}!` : null}</p>}
+							<motion.div
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}>
+								{user.data && <p>{window.location.pathname === "/dashboard" ? `${user.data.firstName}!` : null}</p>}
+								{!user.data && <p>{window.location.pathname === "/dashboard" ? `${user.firstName}!` : null}</p>}
+							</motion.div>
 							<div>
 								<input type='text' placeholder='Search the market...' className='absolute right-0 mr-3 lg:mr-[1.5rem] xl:mr-10 py-2 px-3 w-64 md:w-72 lg:w-80 xl:w-96 text-base border-blk border-[2px] rounded-[3px] translate-y-[-100%] hidden'></input>
 							</div>

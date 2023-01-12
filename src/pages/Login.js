@@ -13,43 +13,55 @@ const Login = () => {
         email: '',
         password: ''
     })
+
     const { login, error, isLoading } = useLogin()
 
     const [valuesError, setError] = useState({
         email: null,
-        password: null,
+        password: null
+    })
+
+    const [showError, setShowError] = useState({
+        email: false,
+        password: false
     })
 
     const handleSubmit = async (e) => {
-        e.preventDefault() //prevents reloading page after clicking the button
-
-        console.log(values.email, values.password)
-
-        await login(values.email, values.password)
-    };
-
-    const handleChange = (e) => {
-        setValues(current => ({ ...current, [e.target.name]: e.target.value }))
 
         //EMAIL VALIDATION
         if (values.email === "") {
             setError(data => ({ ...data, 'email': 'Email cannot be empty.' }))
-        } else if (!(validEmail(values.email))) {
-            setError(data => ({ ...data, 'email': 'Invalid Email.' }))
-        } else {
+            setShowError(data => ({ ...data, 'email': true }))
+        }
+        else if (!(validEmail(values.email))) {
+            setError(data => ({ ...data, 'email': 'Incorrect Email.' }))
+            setShowError(data => ({ ...data, 'email': true }))
+        }
+        else {
             setError(data => ({ ...data, 'email': '' }))
+            setShowError(data => ({ ...data, 'email': false }))
         }
 
         //PASSWORD VALIDATION
         if (values.password === "") {
             setError(data => ({ ...data, 'password': 'Password cannot be empty.' }))
+            setShowError(data => ({ ...data, 'password': true }))
         }
         else if (values.password.length < 8) {
-            setError(data => ({ ...data, 'password': 'Invalid Password.' }))
+            setError(data => ({ ...data, 'password': 'Incorrect Password.' }))
+            setShowError(data => ({ ...data, 'password': true }))
         }
         else {
             setError(data => ({ ...data, 'password': '' }))
+            setShowError(data => ({ ...data, 'password': false }))
         }
+
+        e.preventDefault()
+        await login(values.email, values.password)
+    };
+
+    const handleChange = (e) => {
+        setValues(current => ({ ...current, [e.target.name]: e.target.value }))
     }
 
     function validEmail(email) {
@@ -72,6 +84,10 @@ const Login = () => {
         navigate("/join-us", { replace: true })
     }
 
+    const heroLink = () => {
+        navigate("/", { replace: true })
+    }
+
     return (
         <>
             <div
@@ -79,6 +95,7 @@ const Login = () => {
                 animate={{ opacity: 100 }}
                 transition={{ duration: 1.5 }}
                 className='parent-wrapper w-full h-screen relative'>
+
                 <img src="https://ik.imagekit.io/efpqj5mis/gradient_1_Cu7n0Rq7PR.png?ik-sdk-version=javascript-1.4.3&updatedAt=1671371950247" alt="" className='w-full h-full absolute pointer-events-none select-none top-0 right-0'></img>
                 <div className='max-w-[1600px] h-full mx-auto flex'>
                     <div className='flex justify-center items-center lg:h-full lg:w-full'>
@@ -95,7 +112,10 @@ const Login = () => {
                                     initial={{ opacity: 0, y: 15 }}
                                     animate={{ opacity: 100, y: 0 }}
                                     transition={{ delay: 0.05 }}
-                                    src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432" alt="Logo" className='mx-auto m-4 pointer-events-none select-none h-24' />
+                                    src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432"
+                                    alt="Logo"
+                                    className='mx-auto m-4 cursor-pointer h-24'
+                                    onClick={heroLink}/>
 
                                 {signinInputs.map((val, i) => {
                                     return (
@@ -103,7 +123,7 @@ const Login = () => {
                                             initial={{ opacity: 0, y: 15 }}
                                             animate={{ opacity: 100, y: 0 }}
                                             transition={{ delay: i * 0.05 }}>
-                                            <FormInput key={val.id} {...val} value={val[values.name]} onChange={handleChange} />
+                                            <FormInput key={val.id} {...val} value={val[values.name]} error={valuesError[val.name]} showError={showError[val.name]} onChange={handleChange} />
                                         </motion.div>
                                     )
                                 })}
@@ -113,12 +133,12 @@ const Login = () => {
                                         initial={{ opacity: 0, y: 15 }}
                                         animate={{ opacity: 100, y: 0 }}
                                         transition={{ delay: 3 * 0.05 }}
-                                        className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5 hover:bg-light-orng transition-all ease-in-out duration-[0.2s]' style={valuesError.email === '' && valuesError.password === '' ? { pointerEvents: "auto", opacity: "100%" } : { pointerEvents: "none", opacity: "50%" }}
+                                        className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5 hover:bg-light-orng transition-all ease-in-out duration-[0.2s]'
                                         onClick={handleSubmit}>SIGN IN
                                     </button>
                                 </div>
 
-                                {error && <div className="error">{error}</div>}
+                                {/* {error && <div className="error">{error}</div>} */}
                                 <motion.p
                                     initial={{ opacity: 0, y: 15 }}
                                     animate={{ opacity: 100, y: 0 }}

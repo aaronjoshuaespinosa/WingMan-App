@@ -14,7 +14,13 @@ const Join = () => {
         navigate("/sign-in", { replace: true })
     }
 
+    const heroLink = () => {
+        navigate("/", { replace: true })
+    }
+
     const { signup, error, isLoading } = useSignup()
+
+    const [verified, setVerified] = useState(false)
 
     const [values, setValues] = useState({
         fName: '',
@@ -47,7 +53,7 @@ const Join = () => {
     })
 
     function validName(str) {
-        return /^(?=.*[a-z])(?=.*[A-Z])(?=.{2,25})/.test(str)
+        return /^(?=.*[a-z])(?=.{2,25})/.test(str)
     }
 
     function validEmail(email) {
@@ -66,83 +72,130 @@ const Join = () => {
 
     const handleChange = (e) => {
         setValues(current => ({ ...current, [e.target.name]: e.target.value }))
+    }
 
-        //FIRST NAME VALIDATION
-        if (values.fName === "") {
-            setError(data => ({ ...data, 'fName': 'Must not be empty.' }))
-        }
-        else if (!(validName(values.fName))) {
-            setError(data => ({ ...data, 'fName': 'Must only contain alphabets.' }))
-        }
-        else {
-            setError(data => ({ ...data, 'fName': '' }))
+    // VERIFY INPUTS
+    const confirm = () => {
+        if (valuesError.fName === null &&
+            valuesError.lName === null &&
+            valuesError.email === null &&
+            valuesError.studentNum === null &&
+            valuesError.username === null &&
+            valuesError.password === null &&
+            valuesError.confPassword === null) {
+
+            //FIRST NAME VALIDATION
+            if (values.fName === "") {
+                setError(data => ({ ...data, 'fName': 'Must not be empty.' }))
+                setShowError(data => ({ ...data, 'fName': true }))
+            }
+            else if (!(validName(values.fName))) {
+                setError(data => ({ ...data, 'fName': 'Must only contain alphabets.' }))
+                setShowError(data => ({ ...data, 'fName': true }))
+            }
+            else {
+                setError(data => ({ ...data, 'fName': '' }))
+                setShowError(data => ({ ...data, 'fName': false }))
+            }
+
+            //LAST NAME VALIDATION
+            if (values.lName === "") {
+                setError(data => ({ ...data, 'lName': 'Must not be empty.' }))
+                setShowError(data => ({ ...data, 'lName': true }))
+            }
+            else if (!(validName(values.lName))) {
+                setError(data => ({ ...data, 'lName': 'Must only contain alphabets.' }))
+                setShowError(data => ({ ...data, 'lName': true }))
+            }
+            else {
+                setError(data => ({ ...data, 'lName': '' }))
+                setShowError(data => ({ ...data, 'lName': false }))
+            }
+
+            //USERNAME VALIDATION
+            if (values.username === "") {
+                setError(data => ({ ...data, 'username': 'Must not be empty.' }))
+                setShowError(data => ({ ...data, 'username': true }))
+            }
+            else if (values.username.length <= 8) {
+                setError(data => ({ ...data, 'username': 'Must be 8 characters and above.' }))
+                setShowError(data => ({ ...data, 'username': true }))
+            }
+            else {
+                setError(data => ({ ...data, 'username': '' }))
+                setShowError(data => ({ ...data, 'username': false }))
+            }
+
+            //PASSWORD VALIDATION
+            if (values.password === "") {
+                setError(data => ({ ...data, 'password': 'Must not be empty.' }))
+                setShowError(data => ({ ...data, 'password': true }))
+            }
+            else if (values.password.length <= 8) {
+                setError(data => ({ ...data, 'password': 'Password must be 8 characters and above.' }))
+                setShowError(data => ({ ...data, 'password': true }))
+            }
+            else {
+                setError(data => ({ ...data, 'password': '' }))
+                setShowError(data => ({ ...data, 'password': false }))
+            }
+
+            // CONFIRM PASSWORD VALIDATION
+            if (values.confPassword === "") {
+                setError(data => ({ ...data, 'confPassword': 'Must not be empty.' }))
+                setShowError(data => ({ ...data, 'confPassword': true }))
+            }
+            else if (values.confPassword.length <= 8) {
+                setError(data => ({ ...data, 'confPassword': 'Password must be 8 characters and above.' }))
+                setShowError(data => ({ ...data, 'confPassword': true }))
+            }
+            else if (values.confPassword === values.password) {
+                setError(data => ({ ...data, 'confPassword': '' }))
+                setShowError(data => ({ ...data, 'confPassword': false }))
+            }
+            else if (values.confPassword !== values.password) {
+                setError(data => ({ ...data, 'confPassword': 'Password does not match.' }))
+                setShowError(data => ({ ...data, 'confPassword': true }))
+            }
+
+            //EMAIL VALIDATION
+            if (values.email === "") {
+                setError(data => ({ ...data, 'email': 'Must not be empty.' }))
+                setShowError(data => ({ ...data, 'email': true }))
+            } else if (!(validEmail(values.email))) {
+                setError(data => ({ ...data, 'email': 'Must contain \"@cvsu.edu.ph\"' }))
+                setShowError(data => ({ ...data, 'email': true }))
+            } else {
+                setError(data => ({ ...data, 'email': '' }))
+                setShowError(data => ({ ...data, 'email': false }))
+            }
+
+            //STUDENT NUMBER VALIDATION
+            if (values.studentNum === "") {
+                setError(data => ({ ...data, 'studentNum': 'Must not be empty.' }))
+                setShowError(data => ({ ...data, 'studentNum': true }))
+            }
+            else if (values.studentNum.length !== 9) {
+                setError(data => ({ ...data, 'studentNum': 'Must be 9 digits.' }))
+                setShowError(data => ({ ...data, 'studentNum': true }))
+            }
+            else {
+                setError(data => ({ ...data, 'studentNum': '' }))
+                setShowError(data => ({ ...data, 'studentNum': false }))
+            }
         }
 
-        //LAST NAME VALIDATION
-        if (values.lName === "") {
-            setError(data => ({ ...data, 'lName': 'Must not be empty.' }))
-        }
-        else if (!(validName(values.lName))) {
-            setError(data => ({ ...data, 'lName': 'Must only contain alphabets.' }))
-        }
-        else {
-            setError(data => ({ ...data, 'lName': '' }))
-        }
-
-        //USERNAME VALIDATION
-        if (values.username === "") {
-            setError(data => ({ ...data, 'username': 'Must not be empty.' }))
-        }
-        else if (values.username.length <= 8) {
-            setError(data => ({ ...data, 'username': 'Must be 8 characters and above.' }))
-        }
-        else {
-            setError(data => ({ ...data, 'username': '' }))
-        }
-
-        //PASSWORD VALIDATION
-        if (values.password === "") {
-            setError(data => ({ ...data, 'password': 'Must not be empty.' }))
-        }
-        else if (values.password.length <= 8) {
-            setError(data => ({ ...data, 'password': 'Password must be 8 characters and above.' }))
-        }
-        else {
-            setError(data => ({ ...data, 'password': '' }))
-        }
-
-        // CONFIRM PASSWORD VALIDATION
-        if (values.confPassword === "") {
-            setError(data => ({ ...data, 'confPassword': 'Must not be empty.' }))
-        }
-        else if (values.confPassword.length <= 8) {
-            setError(data => ({ ...data, 'confPassword': 'Password must be 8 characters and above.' }))
-        }
-        else if (values.confPassword === values.password) {
-            setError(data => ({ ...data, 'confPassword': '' }))
-        }
-        else {
-            setError(data => ({ ...data, 'confPassword': 'Password does not match.' }))
-        }
-
-        //EMAIL VALIDATION
-        if (values.email === "") {
-            setError(data => ({ ...data, 'email': 'Must not be empty.' }))
-        } else if (!(validEmail(values.email))) {
-            setError(data => ({ ...data, 'email': 'Must contain \"@cvsu.edu.ph\"' }))
-        } else {
-            setError(data => ({ ...data, 'email': '' }))
-        }
-
-        //STUDENT NUMBER VALIDATION
-        if (values.studentNum === "") {
-            setError(data => ({ ...data, 'studentNum': 'Must not be empty.' }))
-        }
-        else if (values.studentNum.length !== 9) {
-            setError(data => ({ ...data, 'studentNum': 'Must be 9 digits.' }))
-        }
-        else {
-            setError(data => ({ ...data, 'studentNum': '' }))
+        else if (valuesError.fName === "" &&
+            valuesError.lName === "" &&
+            valuesError.email === "" &&
+            valuesError.studentNum === "" &&
+            valuesError.username === "" &&
+            valuesError.password === "" &&
+            valuesError.confPassword === "") {
+            setVerified(true)
+            if (verified === true) {
+                handleClick()
+            }
         }
     }
 
@@ -150,107 +203,6 @@ const Join = () => {
     const handleClick = async (e) => {
         e.preventDefault()
         await signup(values.fName, values.lName, values.studentNum, values.email, values.username, values.password)
-
-        //FIRST NAME VALIDATION
-        if (values.fName === "") {
-            setError(data => ({ ...data, 'fName': 'Must not be empty.' }))
-            setShowError(data => ({ ...data, 'fName': true }))
-        }
-        else if (!(validName(values.fName))) {
-            setError(data => ({ ...data, 'fName': 'Must only contain alphabets.' }))
-            setShowError(data => ({ ...data, 'fName': true }))
-        }
-        else {
-            setError(data => ({ ...data, 'fName': '' }))
-            setShowError(data => ({ ...data, 'fName': false }))
-        }
-
-        //LAST NAME VALIDATION
-        if (values.lName === "") {
-            setError(data => ({ ...data, 'lName': 'Must not be empty.' }))
-            setShowError(data => ({ ...data, 'lName': true }))
-        }
-        else if (!(validName(values.lName))) {
-            setError(data => ({ ...data, 'lName': 'Must only contain alphabets.' }))
-            setShowError(data => ({ ...data, 'lName': true }))
-        }
-        else {
-            setError(data => ({ ...data, 'lName': '' }))
-            setShowError(data => ({ ...data, 'lName': false }))
-        }
-
-        //USERNAME VALIDATION
-        if (values.username === "") {
-            setError(data => ({ ...data, 'username': 'Must not be empty.' }))
-            setShowError(data => ({ ...data, 'username': true }))
-        }
-        else if (values.username.length <= 8) {
-            setError(data => ({ ...data, 'username': 'Must be 8 characters and above.' }))
-            setShowError(data => ({ ...data, 'username': true }))
-        }
-        else {
-            setError(data => ({ ...data, 'username': '' }))
-            setShowError(data => ({ ...data, 'username': false }))
-        }
-
-        //PASSWORD VALIDATION
-        if (values.password === "") {
-            setError(data => ({ ...data, 'password': 'Must not be empty.' }))
-            setShowError(data => ({ ...data, 'password': true }))
-        }
-        else if (values.password.length <= 8) {
-            setError(data => ({ ...data, 'password': 'Password must be 8 characters and above.' }))
-            setShowError(data => ({ ...data, 'password': true }))
-        }
-        else {
-            setError(data => ({ ...data, 'password': '' }))
-            setShowError(data => ({ ...data, 'password': false }))
-        }
-
-        // CONFIRM PASSWORD VALIDATION
-        if (values.confPassword === "") {
-            setError(data => ({ ...data, 'confPassword': 'Must not be empty.' }))
-            setShowError(data => ({ ...data, 'confPassword': true }))
-        }
-        else if (values.confPassword.length <= 8) {
-            setError(data => ({ ...data, 'confPassword': 'Password must be 8 characters and above.' }))
-            setShowError(data => ({ ...data, 'confPassword': true }))
-        }
-        else if (values.confPassword === values.password) {
-            setError(data => ({ ...data, 'confPassword': '' }))
-            setShowError(data => ({ ...data, 'confPassword': false }))
-        }
-        else {
-            setError(data => ({ ...data, 'confPassword': 'Password does not match.' }))
-            setShowError(data => ({ ...data, 'confPassword': true }))
-            throw Error('Password does not match.')
-        }
-
-        //EMAIL VALIDATION
-        if (values.email === "") {
-            setError(data => ({ ...data, 'email': 'Must not be empty.' }))
-            setShowError(data => ({ ...data, 'email': true }))
-        } else if (!(validEmail(values.email))) {
-            setError(data => ({ ...data, 'email': 'Must contain \"@cvsu.edu.ph\"' }))
-            setShowError(data => ({ ...data, 'email': true }))
-        } else {
-            setError(data => ({ ...data, 'email': '' }))
-            setShowError(data => ({ ...data, 'email': false }))
-        }
-
-        //STUDENT NUMBER VALIDATION
-        if (values.studentNum === "") {
-            setError(data => ({ ...data, 'studentNum': 'Must not be empty.' }))
-            setShowError(data => ({ ...data, 'studentNum': true }))
-        }
-        else if (values.studentNum.length !== 9) {
-            setError(data => ({ ...data, 'studentNum': 'Must be 9 digits.' }))
-            setShowError(data => ({ ...data, 'studentNum': true }))
-        }
-        else {
-            setError(data => ({ ...data, 'studentNum': '' }))
-            setShowError(data => ({ ...data, 'studentNum': false }))
-        }
     }
 
     return (
@@ -274,7 +226,10 @@ const Join = () => {
                                     initial={{ opacity: 0, y: 15 }}
                                     animate={{ opacity: 100, y: 0 }}
                                     transition={{ delay: 0.05 }}
-                                    src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432" alt="Logo" className='mx-auto m-2 pointer-events-none select-none h-24' />
+                                    src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432"
+                                    alt="Logo"
+                                    className='mx-auto m-2 cursor-pointer h-24'
+                                    onClick={heroLink}/>
 
                                 {joinusInputs.map((val, i) => {
                                     return (
@@ -293,8 +248,7 @@ const Join = () => {
                                     transition={{ delay: 7 * 0.05 }}>
                                     <button
                                         className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5 hover:bg-light-orng transition-all ease-in-out duration-[0.2s]'
-                                        style={valuesError.email === '' && valuesError.password === '' && valuesError.confPassword === '' && valuesError.fName === '' && valuesError.lName === '' && valuesError.username === '' && valuesError.studentNum === '' ? { pointerEvents: "auto", opacity: "100%" } : { pointerEvents: "none", opacity: "50%" }}
-                                        onClick={handleClick}>JOIN US
+                                        onClick={confirm}>JOIN US
                                     </button>
                                 </motion.div>
 

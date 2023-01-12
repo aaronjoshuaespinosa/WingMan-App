@@ -12,9 +12,7 @@ const FaqForm = () => {
     const { user } = useAuthContext()
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        console.log(content)
+        e.preventDefault()
 
         const faq = { title, content, upvote }
 
@@ -41,7 +39,6 @@ const FaqForm = () => {
             setTitle('')
             setContent('')
             setError(null)
-            console.log('New question added.', json)
             dispatch({ type: 'CREATE_FAQ', payload: json })
         }
     }

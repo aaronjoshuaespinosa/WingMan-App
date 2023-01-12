@@ -12,23 +12,6 @@ const FaqDetails = (props) => {
     const { dispatch } = useFaqsContext()
     const { user } = useAuthContext()
 
-    // DELETE FUNCTION
-    const handleClick = async () => {
-        if (!user) {
-            return
-        }
-        const response = await fetch('/api/FAQs/' + faq._id, {
-            method: 'DELETE',
-            headers: {
-                'Authorization': `Bearer ${user.token}`
-            }
-        })
-        const json = await response.json()
-        if (response.ok) {
-            dispatch({ type: 'DELETE_FAQ', payload: json })
-        }
-    }
-    
     return (
         <div className="FAQ-details w-full bg-light-wht border-blk border-[2px] rounded-[3px] my-[12px] flex flex-row">
             <div className='topFAQ flex flex-col justify-between h-full w-full'>
@@ -50,7 +33,10 @@ const FaqDetails = (props) => {
                         <ImArrowUp />
                         <p className='text-sm'>{user && faq.upvote}</p>
                     </div>
-                    <button onClick={onClick}><AiTwotoneDelete className='hover:text-red transition-all ease-in-out duration-[0.2s]' /></button>
+                    
+                    {/* BASURAHAN */}
+                    <button onClick={() => {onClick(faq._id)}}><AiTwotoneDelete className='hover:text-red transition-all ease-in-out duration-[0.2s]' /></button>
+
                 </div>
             </div>
 
