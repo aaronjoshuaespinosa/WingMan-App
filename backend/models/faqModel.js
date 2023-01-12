@@ -14,6 +14,14 @@ const faqSchema = new Schema({
     upvote: {
         type: Number,
         required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    username: {
+        type: String,
+        required: true
     }
 }, {timestamps: true});
 

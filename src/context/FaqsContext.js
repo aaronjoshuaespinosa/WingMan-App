@@ -16,6 +16,8 @@ export const FaqsReducer = (state, action) => {
             return {
                 faqs: state.faqs.filter((w) => w._id !== action.payload._id)
             }
+        case 'UPDATE_FAQ':
+            return state
         default:
             return state
     }

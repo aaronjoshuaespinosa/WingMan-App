@@ -10,11 +10,13 @@ const FaqForm = () => {
     const [error, setError] = useState('')
 
     const { user } = useAuthContext()
+    const email = `${user.email}`
+    const username = `${user.data.username}`
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
-        const faq = { title, content, upvote }
+        const faq = { title, content, upvote, email, username }
 
         if (!user) {
             setError('You must be logged in.')

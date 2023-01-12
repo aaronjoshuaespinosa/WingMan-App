@@ -19,10 +19,14 @@ const loginUser = async (req, res) => {
 const signupUser = async (req, res) => {
     const { firstName, lastName, studentNumber,  email, username, password } = req.body;
     try {
-        const user = await User.signup(firstName, lastName, studentNumber,  email, username, password);
-
+        const user = await User.signup(firstName, lastName, studentNumber, email, username, password);
+        const data = {
+            username,
+            email,
+            firstName
+        }
         const token = createToken(user._id);
-        res.status(200).json({firstName, lastName, studentNumber,  email, username, password, token});
+        res.status(200).json({firstName, lastName, studentNumber, email, username, password, data, token});
     } catch (error) {
         res.status(400).json({error: error.message});
     }

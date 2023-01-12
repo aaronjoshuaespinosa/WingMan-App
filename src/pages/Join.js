@@ -201,7 +201,6 @@ const Join = () => {
 
     //POST FORM INPUT
     const handleClick = async (e) => {
-        e.preventDefault()
         await signup(values.fName, values.lName, values.studentNum, values.email, values.username, values.password)
     }
 

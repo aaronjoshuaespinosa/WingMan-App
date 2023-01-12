@@ -141,7 +141,6 @@ const NavBar = ({ onChange }) => {
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}>
 								{user.data && <p>{window.location.pathname === "/dashboard" ? `${user.data.firstName}!` : null}</p>}
-								{!user.data && <p>{window.location.pathname === "/dashboard" ? `${user.firstName}!` : null}</p>}
 							</motion.div>
 							<div>
 								<input type='text' placeholder='Search the market...' className='absolute right-0 mr-3 lg:mr-[1.5rem] xl:mr-10 py-2 px-3 w-64 md:w-72 lg:w-80 xl:w-96 text-base border-blk border-[2px] rounded-[3px] translate-y-[-100%] hidden'></input>

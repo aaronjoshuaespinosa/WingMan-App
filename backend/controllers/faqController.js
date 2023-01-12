@@ -31,9 +31,9 @@ const getFAQ = async (req, res) => {
 //Create (POST) a new FAQ
 const createFAQ = async (req, res) => {
     //add doc to db
-    const { title, content, upvote } = req.body;
+    const { title, content, upvote, email, username } = req.body;
     try {
-        const faq = await FAQ.create({title, content, upvote});
+        const faq = await FAQ.create({title, content, upvote, email, username});
         res.status(200).json(faq);
     }
     catch (error) {
@@ -62,6 +62,14 @@ const deleteFAQ = async (req, res) => {
 //Update (PATCH) a FAQ
 const updateFAQ = async (req, res) => {
     const { id } = req.params;
+    /*const { upvote } = req.body;
+    try {
+        const faq = await FAQ.findOneAndUpdate({upvote});
+        res.status(200).json(faq);
+    }
+    catch (error) {
+        res.status(400).json({error: error.message});
+    }*/
     //if requested id is not valid
     if(!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: 'No such FAQ'});

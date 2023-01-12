@@ -11,13 +11,31 @@ const FaqDetails = (props) => {
 
     const { dispatch } = useFaqsContext()
     const { user } = useAuthContext()
+    /*let upvote = `${faq.upvote}`
+
+    const upClick = async() => {
+        upvote += 1
+        const faq = { upvote }
+        const response = await fetch('/api/FAQs/' + faq._id, {
+            method: 'PATCH',
+            body: JSON.stringify(faq),
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
+        })
+
+        const json = await response.json();
+        if (response.ok) {
+            dispatch({ type: 'SET_FAQS', payload: json })
+        }
+    } */
 
     return (
         <div className="FAQ-details w-full bg-light-wht border-blk border-[2px] rounded-[3px] my-[12px] flex flex-row">
             <div className='topFAQ flex flex-col justify-between h-full w-full'>
                 <div className='leftCard flex flex-col p-[24px]'>
                     <div className='nameAndDate flex flex-row gap-2 align-center'>
-                        <p className='text-blk text-sm hover:underline cursor-pointer'>Simpleng Tao</p>
+                        <p className='text-blk text-sm hover:underline cursor-pointer'>{faq.username}</p>
                         <p className='text-light-gry text-sm'>•</p>
                         <p className='text-light-gry text-xs place-self-center'>{formatDistanceToNowStrict(new Date(faq.createdAt), { addSuffix: true })}</p>
                     </div>
@@ -35,7 +53,7 @@ const FaqDetails = (props) => {
                     </div>
                     
                     {/* BASURAHAN */}
-                    <button onClick={() => {onClick(faq._id)}}><AiTwotoneDelete className='hover:text-red transition-all ease-in-out duration-[0.2s]' /></button>
+                    {faq.username === user.data.username && <button onClick={() => {onClick(faq._id)}}><AiTwotoneDelete className='hover:text-red transition-all ease-in-out duration-[0.2s]' /></button>}
 
                 </div>
             </div>
