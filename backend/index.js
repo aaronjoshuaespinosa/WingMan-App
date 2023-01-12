@@ -16,10 +16,30 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('https://wingman-app-api.vercel.app//api/FAQs', faqRoutes);
-app.use('https://wingman-app-api.vercel.app//api/Complaints', complaintRoutes);
-app.use('https://wingman-app-api.vercel.app//api/Appointments', appointmentRoutes);
-app.use('https://wingman-app-api.vercel.app//api/user/', userRoutes);
+// Add headers before the routes are defined
+app.use(function (req, res, next) {
+
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', 'http://wingman-app-api.vercel.app');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
+    next();
+});
+
+app.use('https://wingman-app-api.vercel.app/api/FAQs', faqRoutes);
+app.use('https://wingman-app-api.vercel.app/api/Complaints', complaintRoutes);
+app.use('https://wingman-app-api.vercel.app/api/Appointments', appointmentRoutes);
+app.use('https://wingman-app-api.vercel.app/api/user/', userRoutes);
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
