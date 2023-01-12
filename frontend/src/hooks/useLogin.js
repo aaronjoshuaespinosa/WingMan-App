@@ -12,9 +12,9 @@ export const useLogin = () => {
 
         const response = await fetch('https://wingman-app-api.vercel.app/api/user/login', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
-        }); 
+        });
         //no need to insert localhost since there is already a proxy on package.json
 
         const json = await response.json();
@@ -27,7 +27,7 @@ export const useLogin = () => {
             localStorage.setItem('user', JSON.stringify(json));
 
             //updating the auth context
-            dispatch({type: 'LOGIN', payload: json});
+            dispatch({ type: 'LOGIN', payload: json });
             setIsLoading(false);
         }
     };
