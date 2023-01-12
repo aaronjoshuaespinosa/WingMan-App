@@ -35,6 +35,31 @@ const userSchema = new Schema({
 
 userSchema.statics.signup = async function (firstName, lastName, studentNumber, email, username, password) {
 
+    //if first name is invalid
+    if (!(/^[a-zA-Z]+$/.test(firstName))) {
+        throw Error('First name must contain only letters.');
+    }
+
+    //if last name is invalid
+    if (!(/^[a-zA-Z]+$/.test(lastName))) {
+        throw Error('Last name must contain only letters.');
+    }
+
+    //empty fields
+    if (!firstName || !lastName || !studentNumber || !email || !username || !password) {
+        throw Error('All fields must be filled.');
+    }
+
+    //if email is not valid
+    if (!(/@cvsu.edu.ph\s*$/.test(email))) {
+        throw Error('Email is not valid, must contain "@cvsu.edu.ph" at the end.');
+    }
+
+    //if student number is not valid /^\d+$/.test(studentNumber)
+    if (!(/^[0-9]{9,}$/.test(studentNumber))){
+        throw Error('Invalid student number, must contain only 9 numbers.');
+    }
+
     //if username is already registered
     const username_exists = await this.findOne({ username });
     if (username_exists) {

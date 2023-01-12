@@ -223,6 +223,7 @@ const Join = () => {
         else {
             setError(data => ({ ...data, 'confPassword': 'Password does not match.' }))
             setShowError(data => ({ ...data, 'confPassword': true }))
+            throw Error('Password does not match.')
         }
 
         //EMAIL VALIDATION
