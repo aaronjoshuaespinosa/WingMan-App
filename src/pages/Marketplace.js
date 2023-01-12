@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { MPService, Footer } from '../components'
+import { motion } from 'framer-motion'
 
 const Profile = () => {
     const dispatch = useDispatch()
@@ -31,38 +32,58 @@ const Profile = () => {
             <div className='bg-wht absolute top-0 w-full font-space'>
                 <div className='px-[1.25rem] pt-20 pb-10 lg:pl-[21.5rem] lg:pr-[1.5rem] xl:pl-[22.5rem] xl:pr-[2.5rem] lg:pt-32 lg:pb-24 z-10'>
                     <div className='w-full flex flex-row place-content-between px-10 py-5'>
-                        {mpCategory.map(category => {
+                        {mpCategory.map((category, i) => {
                             return (
-                                <div key={category.id}>
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: i * 0.02 }}
+                                    key={category.id}>
                                     <p {...category} className='font-bold hover:text-orng transition-all ease-in-out duration-[0.2s] cursor-pointer'>{category.name}</p>
-                                </div>
+                                </motion.div>
                             )
                         })}
                     </div>
 
-                    <div className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-5'>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1 * 0.2 }}
+                        className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-5'>
                         <MPService />
                         <MPService />
                         <MPService />
-                    </div>
+                    </motion.div>
 
-                    <div className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-3'>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 2 * 0.2 }}
+                        className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-5'>
                         <MPService />
                         <MPService />
                         <MPService />
-                    </div>
+                    </motion.div>
 
-                    <div className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-3'>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 3 * 0.2 }}
+                        className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-5'>
                         <MPService />
                         <MPService />
                         <MPService />
-                    </div>
+                    </motion.div>
 
-                    <div className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-3'>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 4 * 0.2 }}
+                        className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-5'>
                         <MPService />
                         <MPService />
                         <MPService />
-                    </div>
+                    </motion.div>
                 </div>
 
                 <Footer />

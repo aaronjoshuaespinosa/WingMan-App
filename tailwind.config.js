@@ -19,12 +19,13 @@ module.exports = {
       },
 
       screens: {
-        'custom': [{ 'raw': '(max-height: 640px)' }, { 'max': '1279px'}],
+        'custom': [{ 'raw': '(max-height: 640px)' }, { 'max': '1279px' }],
         'lgmd': { 'max': '1279px' },
       },
 
       dropShadow: {
         'hoverShadow': '3px 3px 0 #1E1E1E',
+        'stroke': '0px 0px 0 5px #1E1E1E'
       }
     },
   },

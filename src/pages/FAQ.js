@@ -76,7 +76,7 @@ const FAQ = () => {
 
 					<motion.div
 						initial={{ scale: 0 }}
-						whileInView={{scale: 1}}
+						whileInView={{ scale: 1 }}
 						className='fixed w-full'>
 						<div className='flex justify-center items-center h-[100vh] w-full'>
 							<div className='flex flex-col bg-wht p-[24px] rounded-[5px] border-blk border-[2px] justify-center items-center'>
@@ -116,8 +116,8 @@ const FAQ = () => {
 							{faqs && faqs.map((faq, i) => (
 								<motion.div
 									initial={{ opacity: 0, y: 15 }}
-									animate={{ opacity: 100, y: 0 }}
 									transition={{ delay: (i + 2) * 0.1 }}
+									whileInView={{ opacity: 100, y: 0 }}
 								>
 									<FaqDetails onClick={showDel} key={faq.id} faq={faq} />
 								</motion.div>

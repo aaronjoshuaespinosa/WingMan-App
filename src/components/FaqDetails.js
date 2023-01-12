@@ -15,14 +15,14 @@ const FaqDetails = (props) => {
     return (
         <div className="FAQ-details w-full bg-light-wht border-blk border-[2px] rounded-[3px] my-[12px] flex flex-row">
             <div className='topFAQ flex flex-col justify-between h-full w-full'>
-                <div className='leftCard flex flex-col'>
-                    <div className='nameAndDate flex flex-row gap-2 m-[12px] align-center'>
+                <div className='leftCard flex flex-col p-[24px]'>
+                    <div className='nameAndDate flex flex-row gap-2 align-center'>
                         <p className='text-blk text-sm hover:underline cursor-pointer'>Simpleng Tao</p>
                         <p className='text-light-gry text-sm'>•</p>
                         <p className='text-light-gry text-xs place-self-center'>{formatDistanceToNowStrict(new Date(faq.createdAt), { addSuffix: true })}</p>
                     </div>
 
-                    <div className='titleAndContent pt-1 pb-7 mx-[12px]'>
+                    <div className='titleAndContent pt-1 pb-7'>
                         <h4 className='text-2xl font-bold pb-3'>{user && faq.title}</h4>
                         <p className='break-words'>{user && faq.content}</p>
                     </div>

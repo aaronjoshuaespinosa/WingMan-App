@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
-const AppCard = ({ appointment }) => {
+const AppCard = (props) => {
+
+    const {appointment, index} = props
 
 
     return (
@@ -9,7 +11,7 @@ const AppCard = ({ appointment }) => {
 
                 <div className='flex justify-center items-center pr-3 lg:pr-5'>
                     {/* INDEX NUNG ENTRY, KUNG PANG-ILAN NA APPOINTMENT */}
-                    <p className='text-orng font-bold text-3xl'>01</p>
+                    <p className='text-orng font-bold text-3xl'>0{index+1}</p>
                 </div>
 
                 <div className='flex flex-col lg:flex-row bg-light-lgry border-l-orng border-l-[5px] w-full justify-start lg:justify-between items-start py-[3rem] pl-3 lg:pl-[24px] cursor-pointer'>
