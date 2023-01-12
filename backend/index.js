@@ -25,7 +25,7 @@ app.use('api/Complaints', complaintRoutes);
 app.use('api/Appointments', appointmentRoutes);
 app.use('api/user/', userRoutes);
 
-app.get("/aj", (req, res) => {
+app.get("/debug", (req, res) => {
     res.send({msg: "HI"})
 })
 
