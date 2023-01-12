@@ -25,7 +25,7 @@ export const joinusInputs = [
         name: "fName",
         type: "text",
         placeholder: "First Name",
-        maxlength: 25,
+        maxLength: 25,
         title: "Your first name. Ex. Juan"
     },
     {
@@ -33,7 +33,7 @@ export const joinusInputs = [
         name: "lName",
         type: "text",
         placeholder: "Last Name",
-        maxlength: 25,
+        maxLength: 25,
         title: "Your last name. Ex. Dela Cruz"
     },
     {
@@ -41,7 +41,7 @@ export const joinusInputs = [
         name: "studentNum",
         type: "text",
         placeholder: "Student Number",
-        maxlength: 9,
+        maxLength: 9,
         title: "Student number must be exactly 9 digits only."
     },
     {
@@ -49,7 +49,7 @@ export const joinusInputs = [
         name: "email",
         type: "text",
         placeholder: "CvSU Email",
-        maxlength: 255,
+        maxLength: 255,
         title: "Email should have \"@cvsu.edu.ph\" on it."
     },
     {
@@ -57,7 +57,7 @@ export const joinusInputs = [
         name: "password",
         type: "password",
         placeholder: "Password",
-        maxlength: 255,
+        maxLength: 255,
         title: "Password must be a minimum of 8 characters."
     },
     {
@@ -65,7 +65,7 @@ export const joinusInputs = [
         name: "confPassword",
         type: "password",
         placeholder: "Confirm Password",
-        maxlength: 255,
+        maxLength: 255,
         title: "Must be the same as above."
     },
     {
@@ -73,7 +73,7 @@ export const joinusInputs = [
         name: "username",
         type: "text",
         placeholder: "Username",
-        maxlength: 255,
+        maxLength: 255,
         title: "Username must be a minimum of 8 characters."
     }
 ]

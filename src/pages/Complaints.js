@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useComplaintsContext } from '../hooks/useComplaintsContext'
@@ -6,6 +6,8 @@ import ComplaintDetails from '../components/ComplaintDetails'
 import ComplaintForm from '../components/ComplaintForm'
 import { Footer } from '../components'
 import { useAuthContext } from '../hooks/useAuthContext'
+import { GiHummingbird } from "react-icons/gi";
+import { motion } from 'framer-motion'
 
 const Complaints = () => {
 
@@ -45,6 +47,19 @@ const Complaints = () => {
 					{complaints && complaints.map((complaint) => (
 						<ComplaintDetails key={complaint.id} complaint={complaint} />
 					))}
+
+					<div className='w-full flex flex-col justify-center items-center py-5 gap-y-5 text-light-gry'>
+						<motion.div
+							whileHover={{ y: [10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10]}}
+							transition={{duration: 40}}
+							className="cursor-pointer"
+						>
+							<GiHummingbird className='text-9xl hover:text-orng' />
+						</motion.div>
+
+						<p className='text-2xl font-bold'>~Nothing else follows~</p>
+					</div>
+
 				</div>
 				<Footer />
 			</div>

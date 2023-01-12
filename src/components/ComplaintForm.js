@@ -80,7 +80,7 @@ const ComplaintForm = () => {
 
                 <div className='flex gap-x-[12px] mt-[12px] w-full justify-end'>
                     {error && <div className="error w-full mt-[12px]">{error}</div>}
-                    <button className='px-5 py-2 font-bold bg-orng border-[2px] border-blk text-blk rounded-[3px] hover:bg-light-orng transition-all ease-in-out duration-[0.2s]'>Submit</button>
+                    <button className='px-5 py-2 font-bold bg-orng border-[2px] border-blk text-blk rounded-[3px] transition-all ease-in-out duration-[0.1s] hover:drop-shadow-hoverShadow'>Submit</button>
                 </div>
             </form>
         </div>
