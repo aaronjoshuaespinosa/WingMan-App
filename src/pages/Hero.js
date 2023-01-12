@@ -63,13 +63,17 @@ const Hero = () => {
                         <motion.div
                             animate={{ x: [0, 32, 0] }}
                             transition={{ repeat: Infinity, duration: 2 }}
-                            className='h-6 w-6 bg-orng/70 rounded-full'>
+                            drag
+                            whileDrag={{}}
+                            className='h-6 w-6 bg-orng/70 rounded-full z-20'>
                         </motion.div>
 
                         <motion.div
                             animate={{ x: [0, -32, 0] }}
                             transition={{ repeat: Infinity, duration: 2 }}
-                            className='h-6 w-6 bg-orng/70 rounded-full'>
+                            drag
+                            whileDrag={{}}
+                            className='h-6 w-6 bg-orng/70 rounded-full z-20'>
                         </motion.div>
 
                     </div>
@@ -115,14 +119,31 @@ const Hero = () => {
                 </div>
 
                 <div className='bg-orng px-5 py-12 lg:py-10 lg:px-56 w-full flex flex-col gap-y-5'>
-                    <p className='text-wht font-bold text-5xl lg:text-7xl select-none'>HOW IT FLOCKING WORKS:</p>
-                    <div className='flex flex-col lg:flex-row w-full gap-x-4 gap-y-3'>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 100, y: 0 }}
+                        transition={{ delay: 0 * 0.03 }}
+                        className='text-wht font-bold text-5xl lg:text-7xl select-none'>HOW IT FLOCKING WORKS:
+                    </motion.p>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 100, y: 0 }}
+                        transition={{ delay: 1 * 0.3 }}
+                        className='flex flex-col lg:flex-row w-full gap-x-4 gap-y-3'>
                         <HeroCard />
                         <HeroCard />
                         <HeroCard />
-                    </div>
+                    </motion.div>
                 </div>
-                <HeroFooter />
+
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 100 }}
+                    transition={{ delay: 0.07 }}>
+                    <HeroFooter />
+                </motion.div>
+
             </motion.div>
         </>
     )

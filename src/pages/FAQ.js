@@ -8,11 +8,16 @@ import { useAuthContext } from '../hooks/useAuthContext'
 const FAQ = () => {
 
 	const [delFAQ, setDel] = useState(false)
+	const [verDel, setVerDel] = useState(false)
+	const [id, setID] = useState()
 
-	const showDel = () => {
+	const showDel = (idValue) => {
 		setDel(current => !current)
-		console.log(delFAQ)
+		setID(idValue)
 	}
+
+	useEffect(() => {
+	}, [id])
 
 	// const [faqs, setFAQs] = useState(null)
 	const { faqs, dispatch: dsptch } = useFaqsContext()
@@ -23,6 +28,26 @@ const FAQ = () => {
 
 	const { user } = useAuthContext()
 
+	// DELETE FUNCTION
+	const handleClick = async () => {
+		if (!user) {
+			return
+		}
+		const response = await fetch('/api/FAQs/' + id, {
+			method: 'DELETE',
+			headers: {
+				'Authorization': `Bearer ${user.token}`
+			}
+		})
+		const json = await response.json()
+		if (response.ok) {
+			dispatch({ type: 'DELETE_FAQ', payload: json })
+			setVerDel(current => !current)
+		}
+		setDel(current => !current)
+	}
+
+	// GET FAQ
 	useEffect(() => {
 		dispatch(setToggle({ value: !toggle }))
 		const fetchFAQs = async () => {
@@ -39,13 +64,14 @@ const FAQ = () => {
 			}
 		}
 		fetchFAQs();
-	}, [dsptch, user])
+	}, [dsptch, user, verDel])
+	
 	return (
 		<>
 			<div className='bg-wht absolute top-0 w-full font-space'>
 
 				{/* CONFIRM DELETE MODAL */}
-				<div className='absolute z-20 w-full h-full bg-blk/50' style={delFAQ ? {display: "block"} : {display: "none"}}>
+				<div className='absolute z-20 w-full h-full bg-blk/50' style={delFAQ ? { display: "block" } : { display: "none" }}>
 
 					<div className='fixed w-full'>
 						<div className='flex justify-center items-center h-[100vh] w-full'>
@@ -56,7 +82,7 @@ const FAQ = () => {
 								{/* MODAL BUTTONS */}
 								<div className='flex gap-x-[12px] mt-5'>
 									<p className='px-4 py-2 bg-light-lgry border-blk border-[2px] rounded-[3px] cursor-pointer transition-all ease-int-out duration-[0.1s] hover:drop-shadow-hoverShadow' onClick={showDel}>Cancel</p>
-									<p className='px-4 py-2 bg-red border-blk border-[2px] rounded-[3px] cursor-pointer transition-all ease-int-out duration-[0.1s] hover:drop-shadow-hoverShadow'>Delete</p>
+									<p className='px-4 py-2 bg-red border-blk border-[2px] rounded-[3px] cursor-pointer transition-all ease-int-out duration-[0.1s] hover:drop-shadow-hoverShadow' onClick={handleClick}>Delete</p>
 								</div>
 							</div>
 						</div>
@@ -72,9 +98,11 @@ const FAQ = () => {
 								<div className='bg-light-lgry w-full h-full p-[7px] mr-[6px] my-[6px] rounded-[3px] justify-center align-center flex cursor-pointer hover:bg-wht transition-all ease-in-out duration-[0.1s]'><p>POPULAR</p></div>
 							</div>
 							<FaqForm />
+
 							{faqs && faqs.map((faq) => (
 								<FaqDetails onClick={showDel} key={faq.id} faq={faq} />
 							))}
+
 						</div>
 
 						<div className='w-2/6 hidden lg:block'>
