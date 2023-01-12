@@ -16,10 +16,10 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/api/FAQs', faqRoutes);
-app.use('/api/Complaints', complaintRoutes);
-app.use('/api/Appointments', appointmentRoutes);
-app.use('/api/user/', userRoutes);
+app.use('https://wingman-app-api.vercel.app//api/FAQs', faqRoutes);
+app.use('https://wingman-app-api.vercel.app//api/Complaints', complaintRoutes);
+app.use('https://wingman-app-api.vercel.app//api/Appointments', appointmentRoutes);
+app.use('https://wingman-app-api.vercel.app//api/user/', userRoutes);
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
