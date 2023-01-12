@@ -98,13 +98,13 @@ const FAQ = () => {
 					<div className='flex flex-row gap-x-0 lg:gap-x-[12px]'>
 						<div className='w-full lg:w-5/6'>
 
-							<motion.div
+							{/* <motion.div
 								initial={{ opacity: 0, y: 15 }}
 								animate={{ opacity: 100, y: 0 }}
 								className='flex flex-row justify-around mb-[12px] w-full bg-light-lgry border-blk border-[2px] rounded-[3px] text-blk font-bold gap-x-[6px]'>
 								<div className='bg-orng w-full h-full p-[7px] ml-[6px] my-[6px] rounded-[3px] justify-center align-center flex cursor-pointer text-wht transition-all ease-in-out duration-[0.1s]'><p>LATEST</p></div>
 								<div className='bg-light-lgry w-full h-full p-[7px] mr-[6px] my-[6px] rounded-[3px] justify-center align-center flex cursor-pointer hover:bg-wht transition-all ease-in-out duration-[0.1s]'><p>POPULAR</p></div>
-							</motion.div>
+							</motion.div> */}
 
 							<motion.div
 								initial={{ opacity: 0, y: 15 }}
