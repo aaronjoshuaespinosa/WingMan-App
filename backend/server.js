@@ -20,6 +20,10 @@ app.use('/api/Complaints', complaintRoutes);
 app.use('/api/Appointments', appointmentRoutes);
 app.use('/api/user/', userRoutes);
 
+app.get("/aj", (req, res) => {
+    res.send({msg: "HI"})
+} )
+
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         app.listen(process.env.PORT, () => {
