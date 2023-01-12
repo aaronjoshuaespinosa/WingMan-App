@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const getAppointments = async (req, res) => {
     const user_id = req.user._id;
     const appointments = await Appointment.find({ user_id }).sort({createdAt: 1});
-    res.status(200).json(appointments);
+    res.status(200).json(appointments, {message: "hello"});
 };
 
 //GET a single appointment
