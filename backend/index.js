@@ -7,7 +7,7 @@ const complaintRoutes = require('./routes/Complaints');
 const appointmentRoutes = require('./routes/Appointments')
 const userRoutes = require('./routes/user');
 const app = express();
-mongoose.set('strictQuery', true);
+mongoose.set('strictQuery', false);
 
 //middleware
 app.use(express.json());
