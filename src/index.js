@@ -8,6 +8,7 @@ import './index.css';
 import toggleSlice from './features/navSlice'
 import { FaqsContextProvider } from './context/FaqsContext';
 import { ComplaintsContextProvider } from './context/ComplaintContext'
+import { AppointmentsContextProvider } from './context/AppointmentContext'
 import { AuthContextProvider } from './context/AuthContext'; 
 
 export const store = configureStore({
@@ -25,14 +26,16 @@ export const store = configureStore({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <AuthContextProvider>
-      <ComplaintsContextProvider>
-        <FaqsContextProvider>
-          <BrowserRouter>
-              <Provider store={store}>
-                  <App />
-              </Provider>
-          </BrowserRouter>
-        </FaqsContextProvider>
-      </ComplaintsContextProvider>
+      <AppointmentsContextProvider>
+        <ComplaintsContextProvider>
+          <FaqsContextProvider>
+            <BrowserRouter>
+                <Provider store={store}>
+                    <App />
+                </Provider>
+            </BrowserRouter>
+          </FaqsContextProvider>
+        </ComplaintsContextProvider>
+      </AppointmentsContextProvider>
     </AuthContextProvider>
 );

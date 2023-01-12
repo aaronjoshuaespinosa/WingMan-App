@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const AppCard = () => {
+const AppCard = ({ appointment }) => {
+
+
     return (
         <>
             <div className='flex flex-row'>
@@ -13,24 +15,24 @@ const AppCard = () => {
                 <div className='flex flex-col lg:flex-row bg-light-lgry border-l-orng border-l-[5px] w-full justify-start lg:justify-between items-start py-[3rem] pl-3 lg:pl-[24px] cursor-pointer'>
 
                     {/* APPOINTMENT TYPE + APPOINTMENT TITLE */}
-                    <p className='underline font-bold cursor-pointer hover:text-orng transition-all ease-in-out duration-[0.2s]'>DOCUMENT: Certificate of Grades</p>
+                    <p className='underline font-bold cursor-pointer hover:text-orng transition-all ease-in-out duration-[0.2s]'>{appointment.title}</p>
 
                     <div className='flex flex-col lg:flex-row gap-x-2 lg:pr-[24px] font-bold select-none'>
 
                         {/* APPOINTMENT DATE - PLACEHOLDER MUNA */}
-                        <p>Schedule: 00/00/0000</p>
+                        <p>Status: {appointment.status}</p>
 
                         {/* LINE */}
                         <p className='hidden lg:block'>|</p>
 
                         {/* APPOINTMENT TIME - PLACEHOLDER MUNA */}
-                        <p>00:00 XM</p>
+                        <p>Type: {appointment.type}</p>
                     </div>
 
                 </div>
 
                 {/* KAHIT DITO MO MUNA STORE YUNG APPOINTMENT DESCRIPTION - NASA LABAS TALAGA S'YA NG CARD AS OF NOW, AKO NA MAG-AYOS NG STYLES KAPAG NAFE-FETCH NA S'YA */}
-                <p></p>
+                <p>{appointment.description}</p>
 
             </div>
         </>

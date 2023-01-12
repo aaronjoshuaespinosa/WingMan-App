@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppCard, AppForm, AppSelect, Footer } from '../components'
+import { useAppointmentsContext } from '../hooks/useAppointmentsContext'
 
 const Appointments = () => {
 	const dispatch = useDispatch()
+	
+	const { appointments, dispatch: dsptch } = useAppointmentsContext()
 
 	const toggle = useSelector((state) => state.Toggle.toggle.value)
 
@@ -31,7 +34,15 @@ const Appointments = () => {
 
 	useEffect(() => {
 		dispatch(setToggle({ value: !toggle }))
-	}, [])
+		const fetchAppointments = async () => {
+			const response = await fetch('/api/appointments')
+			const json = await response.json()
+			if (response.ok) {
+				dsptch({type: 'SET_APPOINTMENTS', payload: json})
+			}
+		}
+		fetchAppointments()
+	}, [dsptch])
 	return (
 		<>
 			<div className='bg-wht absolute top-0 w-full font-space'>
@@ -44,7 +55,9 @@ const Appointments = () => {
 
 						{/* CARDS - DITO MA-STORE YUNG DATA FROM USER */}
 						<div className='flex flex-col gap-y-3'>
-							<AppCard />
+							{appointments && appointments.map((appointment) => (
+								<AppCard key={appointment.id} appointment={appointment}/>
+							))}
 						</div>
 
 					</div>
