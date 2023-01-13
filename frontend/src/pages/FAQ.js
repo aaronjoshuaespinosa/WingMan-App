@@ -72,7 +72,7 @@ const FAQ = () => {
 			<div className='bg-wht absolute top-0 w-full font-space'>
 
 				{/* CONFIRM DELETE MODAL */}
-				<div className='absolute z-20 w-full h-full bg-blk/50' style={delFAQ ? { display: "block" } : { display: "none" }}>
+				<div className='absolute z-20 w-full h-full bg-blk/90' style={delFAQ ? { display: "block" } : { display: "none" }}>
 
 					<motion.div
 						initial={{ scale: 0 }}

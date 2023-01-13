@@ -50,13 +50,21 @@ const Profile = () => {
             <div className='bg-wht absolute top-0 w-full font-space'>
 
                 {/* MARKETPLACE FORM*/}
-                <div className='absolute z-20 w-full h-full bg-blk/50' style={market ? { display: "block" } : { display: "none" }}>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    className='absolute z-20 w-full h-full bg-blk/90' style={market ? { display: "block" } : { display: "none" }}>
                     <div className='fixed w-full'>
-                        <div className='flex justify-center items-center h-[100vh] w-full'>
-                            <MarketForm onClick={clickMarket} />
+                        <div className='flex justify-center'>
+                            <motion.div
+                                initial={{ scale: 0 }}
+                                whileInView={{ scale: 1 }}
+                                className='flex justify-center items-center h-[100vh] w-[90%]'>
+                                <MarketForm onClick={clickMarket} />
+                            </motion.div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
                 <div className='px-[1.25rem] pt-20 pb-10 lg:pl-[21.5rem] lg:pr-[1.5rem] xl:pl-[22.5rem] xl:pr-[2.5rem] lg:pt-32 lg:pb-24 z-10'>
 
