@@ -23,7 +23,7 @@ const FaqForm = () => {
             return
         }
 
-        const response = await fetch('/api/FAQs', {
+        const response = await fetch('https://wingman-app-api.vercel.app/api/FAQs', {
             method: 'POST',
             body: JSON.stringify(faq),
             headers: {

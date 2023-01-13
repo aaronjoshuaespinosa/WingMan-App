@@ -23,7 +23,7 @@ const ComplaintForm = () => {
 
         const complaint = { subject, content, recipient, status, email }
 
-        const response = await fetch('/api/complaints', {
+        const response = await fetch('https://wingman-app-api.vercel.app/api/complaints', {
             method: 'POST',
             body: JSON.stringify(complaint),
             headers: {

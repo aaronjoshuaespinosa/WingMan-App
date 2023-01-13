@@ -10,10 +10,10 @@ export const useSignup = () => {
         setIsLoading(true)
         setError(null)
 
-        const response = await fetch('/api/user/signup', {
+        const response = await fetch('https://wingman-app-api.vercel.app/api/user/signup', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({firstName, lastName, studentNumber, email, username, password})
+            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+            body: JSON.stringify({ firstName, lastName, studentNumber, email, username, password })
         })
 
         const json = await response.json()
@@ -26,10 +26,10 @@ export const useSignup = () => {
             localStorage.setItem('user', JSON.stringify(json))
 
             //updating auth context
-            dispatch({type: 'LOGIN', payload: json})
+            dispatch({ type: 'LOGIN', payload: json })
             setIsLoading(false)
         }
     }
 
-    return { signup, isLoading, error}
+    return { signup, isLoading, error }
 }

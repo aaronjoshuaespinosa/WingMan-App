@@ -23,7 +23,7 @@ const AppForm = (props) => {
         }
 
         const appointment = { title, description, status, type, email }
-        const response = await fetch('/api/appointments', {
+        const response = await fetch('https://wingman-app-api.vercel.app/api/appointments', {
             method: 'POST',
             body: JSON.stringify(appointment),
             headers: {
