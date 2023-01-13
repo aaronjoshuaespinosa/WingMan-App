@@ -21,7 +21,7 @@ const MPService = ({ market }) => {
                 <div className='bg-light-lgry h-5/6 w-full border-x-[2px] border-t-[2px] border-blk rounded-t-[3px]'>
                     <p>Description: {market.description}</p>
                     <p>Contact Details:</p>
-                    <p>Facebook Link: {market.fbLink}</p>
+                    <p>Facebook Link: <a href={market.fbLink}>{market.fbLink}</a></p>
                     <p>Email: {market.email}</p>
                     <p>Contact Number: {market.contactNumber}{!market.contactNumber && <p>Not provided</p>}</p>
 
