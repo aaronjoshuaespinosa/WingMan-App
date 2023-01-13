@@ -17,10 +17,12 @@ const AppCard = (props) => {
                 <div className='flex flex-col lg:flex-col bg-light-lgry border-r-blk border-r-[2px] border-l-orng border-l-[5px] border-t-blk border-t-[2px] border-b-blk border-b-[2px] w-full cursor-pointer'>
 
                     <div className='flex justify-between items-center w-full p-[12px]'>
+
                         {/* APPOINTMENT TYPE + APPOINTMENT TITLE */}
                         <p className='w-[50%] lg:w-auto underline font-bold cursor-pointer uppercase hover:text-orng transition-all ease-in-out duration-[0.2s]'>{appointment.title}</p>
 
-                        <div className='w-[50%] lg:w-auto flex flex-col lg:flex-row gap-x-2 font-bold select-none'>
+                        {/* STATUS */}
+                        <div className='w-[50%] lg:w-auto flex flex-col lg:flex-row gap-x-2 font-bold select-none text-right lg:text-auto'>
 
                             {/* APPOINTMENT DATE - PLACEHOLDER MUNA */}
                             <p>Type: {appointment.type}</p>
@@ -31,6 +33,7 @@ const AppCard = (props) => {
                             {/* APPOINTMENT TIME - PLACEHOLDER MUNA */}
                             <p>Status: {appointment.status}</p>
                         </div>
+
                     </div>
 
                     {/* DESCRIPTION */}

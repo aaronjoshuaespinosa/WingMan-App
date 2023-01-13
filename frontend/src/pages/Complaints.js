@@ -49,14 +49,25 @@ const Complaints = () => {
 					<motion.div
 						initial={{ opacity: 0, y: 15 }}
 						animate={{ opacity: 100, y: 0 }}
-						transition={{ delay: 1 * 0.1 }}>
+						transition={{ delay: 1 * 0.1 }}
+						className="flex flex-col gap-y-4">
+
 						<ComplaintForm />
+
 						{/* DISPLAY COMPLAINTS SUBMITTED BY USER*/}
 						<p className='text-orng font-bold pt-3 text-lg lg:text-xl'>YOUR COMPLAINTS</p>
-						<motion.div></motion.div>
-						{complaints && complaints.map((complaint) => (
-							<ComplaintDetails key={complaint.id} complaint={complaint} />
-						))}
+						<motion.div
+							className='flex flex-col gap-y-3'>
+							{complaints && complaints.map((complaint, i) => (
+								<motion.div
+									initial={{ opacity: 0, y: 15 }}
+									animate={{ opacity: 100, y: 0 }}
+									transition={{ delay: i * 0.1 }}
+								>
+									<ComplaintDetails key={complaint.id} complaint={complaint} index={i} />
+								</motion.div>
+							))}
+						</motion.div>
 					</motion.div>
 
 					<Nothing />
