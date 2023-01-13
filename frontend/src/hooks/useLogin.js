@@ -15,6 +15,7 @@ export const useLogin = () => {
             headers: { 'Content-Type': 'application/json', "Access-Control-Allow-Origin": "*" },
             body: JSON.stringify({ email, password })
         });
+        
         //no need to insert localhost since there is already a proxy on package.json
 
         const json = await response.json();
