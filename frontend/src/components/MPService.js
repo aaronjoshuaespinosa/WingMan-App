@@ -19,6 +19,7 @@ const MPService = ({ market }) => {
         <>
             <div className='flex flex-col w-full h-80 hover:drop-shadow-hoverShadow transition-drop-shadow ease-in-out duration-[0.1s] cursor-pointer'>
                 <div className='bg-light-lgry h-5/6 w-full border-x-[2px] border-t-[2px] border-blk rounded-t-[3px]'>
+                    <p>Offer Type: {market.type}</p>
                     <p>Description: {market.description}</p>
                     <p>Contact Details:</p>
                     <p>Facebook Link: <a href={market.fbLink}>{market.fbLink}</a></p>
