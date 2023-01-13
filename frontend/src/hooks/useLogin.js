@@ -12,7 +12,7 @@ export const useLogin = () => {
 
         const response = await fetch('/api/user/login', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
             body: JSON.stringify({ email, password })
         });
         //no need to insert localhost since there is already a proxy on package.json
