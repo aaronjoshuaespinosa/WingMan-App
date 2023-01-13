@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { Footer } from '../components'
+import { Footer, Nothing } from '../components'
 import MPService from '../components/MPService'
 import { motion } from 'framer-motion'
 import MarketForm from '../components/MarketForm'
@@ -9,6 +9,12 @@ import { useMarketsContext } from '../hooks/useMarketsContext'
 
 const Profile = () => {
     const dispatch = useDispatch()
+
+    const [market, setMarket] = useState(false)
+
+    const clickMarket = () => {
+        setMarket(current => !current)
+    }
 
     const { markets, dispatch: dsptch } = useMarketsContext()
     const toggle = useSelector((state) => state.Toggle.toggle.value)
@@ -19,7 +25,7 @@ const Profile = () => {
             const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/marketplace`)
             const json = await response.json()
             if (response.ok) {
-                dsptch({type: 'SET_OFFERS', payload: json})
+                dsptch({ type: 'SET_OFFERS', payload: json })
             }
         }
         fetchMarkets()
@@ -42,6 +48,16 @@ const Profile = () => {
     return (
         <>
             <div className='bg-wht absolute top-0 w-full font-space'>
+
+                {/* MARKETPLACE FORM*/}
+                <div className='absolute z-20 w-full h-full bg-blk/50' style={market ? { display: "block" } : { display: "none" }}>
+                    <div className='fixed w-full'>
+                        <div className='flex justify-center items-center h-[100vh] w-full'>
+                            <MarketForm onClick={clickMarket} />
+                        </div>
+                    </div>
+                </div>
+
                 <div className='px-[1.25rem] pt-20 pb-10 lg:pl-[21.5rem] lg:pr-[1.5rem] xl:pl-[22.5rem] xl:pr-[2.5rem] lg:pt-32 lg:pb-24 z-10'>
 
                     {/* CATEGORIES - TEMPORARILY REPLACED */}
@@ -64,22 +80,29 @@ const Profile = () => {
                         animate={{ opacity: 1, y: 0 }}
                         className='flex flex-row justify-between items-center w-full p-[12px] border-blk border-[2px] rounded-[3px]'>
                         <p className='font-bold text-lg'>Wanna sell something?</p>
-                        <p className='px-9 py-3 bg-orng border-blk border-[2px] rounded-[3px] text-wht font-bold text-xl hover:drop-shadow-hoverShadow transition-all ease-in-out duration-[0.1s] cursor-pointer'>+</p>
+                        <p className='px-9 py-3 bg-orng border-blk border-[2px] rounded-[3px] text-wht font-bold text-xl hover:drop-shadow-hoverShadow transition-all ease-in-out duration-[0.1s] cursor-pointer' onClick={clickMarket}>+</p>
                     </motion.div>
-                    
-                    {/* MARKETPLACE FORM*/}
-                    <MarketForm/>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1 * 0.1 }}
+                        className='text-orng font-bold pt-3 text-lg lg:text-xl'>TRANSACTIONS IN THE MARKET</motion.p>
 
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1 * 0.1 }}
+                        transition={{ delay: 2 * 0.1 }}
                         className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-5'>
-                        <h1>Available transactions in the market:</h1>
+
                         {markets && markets.map((market) => (
-                            <MPService key={market.id} market={market}/>
+                            <MPService key={market.id} market={market} />
                         ))}
                     </motion.div>
+
+                    <div className='py-20'>
+                        <Nothing />
+                    </div>
 
                     {/* Ginawa ko munang comments, di gumagana pag ginagamit ulit yung MPService kailangan naka-map na katulad sa taas
                     <motion.div
