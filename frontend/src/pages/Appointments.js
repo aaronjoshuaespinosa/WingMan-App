@@ -39,7 +39,7 @@ const Appointments = () => {
 	useEffect(() => {
 		dispatch(setToggle({ value: !toggle }))
 		const fetchAppointments = async () => {
-			const response = await fetch('https://wingman-app-api.vercel.app/api/appointments', {
+			const response = await fetch('/api/appointments', {
 				headers: {
 					'Authorization': `Bearer ${user.token}`
 				}

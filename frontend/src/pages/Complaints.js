@@ -22,7 +22,7 @@ const Complaints = () => {
 		dispatch(setToggle({ value: !toggle }))
 
 		const fetchComplaints = async () => {
-			const response = await fetch('https://wingman-app-api.vercel.app/api/complaints', {
+			const response = await fetch('/api/complaints', {
 				headers: {
 					'Authorization': `Bearer ${user.token}`
 				}

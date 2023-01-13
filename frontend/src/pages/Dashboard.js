@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { NACard, FAQCard, Footer } from '../components'
@@ -6,6 +6,8 @@ import { motion } from 'framer-motion'
 
 const Dashboard = () => {
 	const dispatch = useDispatch()
+
+	console.log(window.location.host)
 
 	const toggle = useSelector((state) => state.Toggle.toggle.value)
 

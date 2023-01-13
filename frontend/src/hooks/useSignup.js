@@ -10,7 +10,7 @@ export const useSignup = () => {
         setIsLoading(true)
         setError(null)
 
-        const response = await fetch('https://wingman-app-api.vercel.app/api/user/signup', {
+        const response = await fetch('/api/user/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
             body: JSON.stringify({ firstName, lastName, studentNumber, email, username, password })
