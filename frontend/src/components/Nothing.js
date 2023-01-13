@@ -18,7 +18,7 @@ const Nothing = () => {
                     <GiHummingbird className='text-9xl hover:text-orng' />
                 </motion.div>
 
-                <p className='text-2xl font-bold'>~Nothing else follows~</p>
+                <p className='text-2xl font-bold'>~nothing else follows~</p>
             </motion.div>
         </>
     )

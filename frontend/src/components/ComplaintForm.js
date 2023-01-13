@@ -23,7 +23,7 @@ const ComplaintForm = () => {
 
         const complaint = { subject, content, recipient, status, email }
 
-        const response = await fetch(`${process.env.REACT_APP_BASEURL}api/complaints`, {
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/complaints`, {
             method: 'POST',
             body: JSON.stringify(complaint),
             headers: {
