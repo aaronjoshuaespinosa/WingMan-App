@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { Footer, FaqDetails, FaqForm, NACard } from '../components'
+import { Footer, FaqDetails, FaqForm, NACard, Nothing } from '../components'
 import { useFaqsContext } from '../hooks/useFaqsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { motion } from 'framer-motion'
@@ -94,7 +94,7 @@ const FAQ = () => {
 
 				</div>
 
-				<div className='relative px-[1.25rem] pt-20 pb-10 lg:pl-[21.5rem] lg:pr-[1.5rem] xl:pl-[22.5rem] xl:pr-[3rem] lg:pt-40 lg:pb-10 z-10'>
+				<div className='relative px-[1.25rem] pt-20 pb-10 lg:pl-[21.5rem] lg:pr-[1.5rem] xl:pl-[22.5rem] xl:pr-[3rem] lg:pt-36 lg:pb-10 z-10'>
 					<div className='flex flex-row gap-x-0 lg:gap-x-[12px]'>
 						<div className='w-full lg:w-5/6'>
 
@@ -122,7 +122,8 @@ const FAQ = () => {
 									<FaqDetails onClick={showDel} key={faq.id} faq={faq} />
 								</motion.div>
 							))}
-
+							
+							<Nothing />
 						</div>
 
 						<div className='w-2/6 hidden lg:block'>

@@ -4,9 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useComplaintsContext } from '../hooks/useComplaintsContext'
 import ComplaintDetails from '../components/ComplaintDetails'
 import ComplaintForm from '../components/ComplaintForm'
-import { Footer } from '../components'
+import { Footer, Nothing } from '../components'
 import { useAuthContext } from '../hooks/useAuthContext'
-import { GiHummingbird } from "react-icons/gi";
 import { motion } from 'framer-motion'
 
 const Complaints = () => {
@@ -39,12 +38,13 @@ const Complaints = () => {
 	return (
 		<>
 			<div className='bg-wht absolute top-0 w-full font-space'>
-				<div className='px-[1.25rem] pt-20 pb-10 lg:pl-[25.5rem] lg:pr-[5.5rem] lg:pt-32 lg:pb-24 xl:pl-[30.5rem] xl:pr-[10.5rem] z-10'>
+				<div className='px-[1.25rem] pt-20 pb-10 lg:pt-32 lg:pb-24 lg:pl-[22.5rem] lg:pr-[2.5rem] z-10'>
 
-					<motion.h1
+					<motion.p
 						initial={{ opacity: 0, y: 15 }}
 						animate={{ opacity: 100, y: 0 }}
-					>Are you experiencing an academic invoncenience? Create a Complaint!</motion.h1>
+						className='text-blk text-4xl lg:text-5xl font-bold pb-[12px] lg:pb-[24px]'
+					>Experiencing an academic inconvenience?</motion.p>
 
 					<motion.div
 						initial={{ opacity: 0, y: 15 }}
@@ -52,28 +52,14 @@ const Complaints = () => {
 						transition={{ delay: 1 * 0.1 }}>
 						<ComplaintForm />
 						{/* DISPLAY COMPLAINTS SUBMITTED BY USER*/}
-						<h1>Your complaints: </h1>
+						<p className='text-orng font-bold pt-3 text-lg lg:text-xl'>YOUR COMPLAINTS</p>
 						<motion.div></motion.div>
 						{complaints && complaints.map((complaint) => (
 							<ComplaintDetails key={complaint.id} complaint={complaint} />
 						))}
 					</motion.div>
 
-					<motion.div
-						initial={{ opacity: 0, y: 15 }}
-						animate={{ opacity: 100, y: 0 }}
-						transition={{ delay: 2 * 0.1 }}
-						className='w-full flex flex-col justify-center items-center py-5 gap-y-5 text-light-gry'>
-						<motion.div
-							whileHover={{ y: [10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10] }}
-							transition={{ duration: 40 }}
-							className="cursor-pointer"
-						>
-							<GiHummingbird className='text-9xl hover:text-orng' />
-						</motion.div>
-
-						<p className='text-2xl font-bold'>~Nothing else follows~</p>
-					</motion.div>
+					<Nothing />
 
 				</div>
 				<Footer />

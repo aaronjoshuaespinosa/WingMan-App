@@ -21,7 +21,7 @@ const News = () => {
 						animate={{ opacity: 100, y: 0 }}
 						className='flex items-center place-content-between w-full py-2'>
 						<p className='text-orng text-lg lg:text-xl font-bold tracking-[0rem] lg:tracking-[0.5rem]'>LATEST NEWS</p>
-						<p className='text-[0.65rem] font-bold lg:text-sm hover:underline cursor-pointer'>GO TO NEWS</p>
+						{/* <p className='text-[0.65rem] font-bold lg:text-sm hover:underline cursor-pointer'>GO TO NEWS</p> */}
 					</motion.div>
 
 					<div className='flex flex-col place-content-between w-full gap-x-3'>
@@ -52,7 +52,7 @@ const News = () => {
 						transition={{ delay: 3 * 0.1 }}
 						className='flex items-center place-content-between w-full py-2'>
 						<p className='text-orng text-lg lg:text-xl font-bold tracking-[0rem] lg:tracking-[0.5rem]'>LATEST ANNOUNCEMENTS</p>
-						<p className='text-[0.65rem] font-bold lg:text-sm hover:underline cursor-pointer'>GO TO ANNOUNCEMENTS</p>
+						{/* <p className='text-[0.65rem] font-bold lg:text-sm hover:underline cursor-pointer'>GO TO ANNOUNCEMENTS</p> */}
 					</motion.div>
 
 					<div className='flex flex-col place-content-between w-full gap-x-3'>

@@ -100,24 +100,24 @@ export const navLinks = [
     },
     {
         id: 2,
-        name: "Appointments",
-        link: "/appointments"
-    },
-    {
-        id: 3,
         name: "News & Announcements",
         link: "/news-and-announcements"
     },
     {
+        id: 3,
+        name: "FAQs",
+        link: "/faqs"
+    },
+    {
         id: 4,
-        name: "Complaint System",
-        link: "/complaint-system"
+        name: "Appointments",
+        link: "/appointments"
     },
     {
         id: 5,
-        name: "FAQs",
-        link: "/faqs"
-    }
+        name: "Complaint System",
+        link: "/complaint-system"
+    },
 ]
 
 

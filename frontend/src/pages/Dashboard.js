@@ -22,8 +22,8 @@ const Dashboard = () => {
 						initial={{ opacity: 0, y: 15 }}
 						animate={{ opacity: 100, y: 0 }}
 						className='flex items-center place-content-between w-full py-2'>
-						<p className='text-orng text-lg lg:text-xl font-bold tracking-[0rem] lg:tracking-[0.5rem]'>LATEST NEWS</p>
-						<p className='text-[0.65rem] font-bold lg:text-sm hover:underline cursor-pointer'>GO TO NEWS</p>
+						<p className='text-orng text-lg lg:text-xl font-bold'>LATEST NEWS</p>
+						{/* <p className='text-[0.65rem] font-bold lg:text-sm hover:underline cursor-pointer'>GO TO NEWS</p> */}
 					</motion.div>
 
 					<motion.div
@@ -41,8 +41,8 @@ const Dashboard = () => {
 						animate={{ opacity: 100, y: 0 }}
 						transition={{ delay: 2 * 0.1 }}
 						className='flex items-center place-content-between w-full py-2'>
-						<p className='text-orng text-lg lg:text-xl font-bold tracking-[0rem] lg:tracking-[0.5rem]'>LATEST ANNOUNCEMENTS</p>
-						<p className='text-[0.65rem] font-bold lg:text-sm hover:underline cursor-pointer'>GO TO ANNOUNCEMENTS</p>
+						<p className='text-orng text-lg lg:text-xl font-bold'>LATEST ANNOUNCEMENTS</p>
+						{/* <p className='text-[0.65rem] font-bold lg:text-sm hover:underline cursor-pointer'>GO TO ANNOUNCEMENTS</p> */}
 					</motion.div>
 
 					<motion.div

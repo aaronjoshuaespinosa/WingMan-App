@@ -47,43 +47,46 @@ const ComplaintForm = () => {
         }
     }
     return (
-        <div className='bg-light-lgry flex p-5 border-blk border-[2px] rounded-[3px] my-[12px]'>
-            <form onSubmit={(handleSubmit)} className="flex flex-col w-full">
-                <div className='flex w-full gap-x-[12px]'>
-                    <div className='w-full'>
-                        <label>Complaint Subject:</label>
-                        <input
-                            type="text"
-                            onChange={(e) => setSubject(e.target.value)}
-                            value={subject}
-                            className="w-full p-[12px] border-blk border-[2px] rounded-[3px]"
-                        />
+        <div className='bg-light-lgry flex flex-col p-5 border-blk border-[2px] rounded-[3px] my-[12px]'>
+            <h3 className='font-bold text-2xl pb-2'>Create Complaint</h3>
+            <div>
+                <form onSubmit={(handleSubmit)} className="flex flex-col gap-y-[12px] w-full">
+                    <div className='flex w-full gap-x-[12px]'>
+                        <div className='w-full'>
+                            <input
+                                type="text"
+                                onChange={(e) => setSubject(e.target.value)}
+                                value={subject}
+                                className="w-full p-[12px] border-blk border-[2px] rounded-[3px]"
+                                placeholder='Complaint Subject'
+                            />
+                        </div>
+
+                        <div className='w-full'>
+                            <input
+                                type="text"
+                                onChange={(e) => setRecipient(e.target.value)}
+                                value={recipient}
+                                className="w-full p-[12px] border-blk border-[2px] rounded-[3px]"
+                                placeholder='Recipient'
+                            />
+                        </div>
                     </div>
 
-                    <div className='w-full'>
-                        <label>Recipient: </label>
-                        <input
-                            type="text"
-                            onChange={(e) => setRecipient(e.target.value)}
-                            value={recipient}
-                            className="w-full p-[12px] border-blk border-[2px] rounded-[3px]"
-                        />
+                    <textarea
+                        type="text"
+                        onChange={(e) => setContent(e.target.value)}
+                        value={content}
+                        className="resize-y p-[12px] border-blk border-[2px] rounded-[3px] h-[10rem] lg:h-full"
+                        placeholder='Complaint Description'
+                    />
+
+                    <div className='flex w-full justify-end'>
+                        {error && <div className="error w-full mt-[12px]">{error}</div>}
+                        <button className='px-5 py-2 font-bold bg-orng border-[2px] border-blk text-blk rounded-[3px] transition-all ease-in-out duration-[0.1s] hover:drop-shadow-hoverShadow'>Submit</button>
                     </div>
-                </div>
-
-                <label>Complaint Description:</label>
-                <textarea
-                    type="text"
-                    onChange={(e) => setContent(e.target.value)}
-                    value={content}
-                    className="resize-y p-[12px] border-blk border-[2px] rounded-[3px] h-[10rem] lg:h-full"
-                />
-
-                <div className='flex gap-x-[12px] mt-[12px] w-full justify-end'>
-                    {error && <div className="error w-full mt-[12px]">{error}</div>}
-                    <button className='px-5 py-2 font-bold bg-orng border-[2px] border-blk text-blk rounded-[3px] transition-all ease-in-out duration-[0.1s] hover:drop-shadow-hoverShadow'>Submit</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     )
 }

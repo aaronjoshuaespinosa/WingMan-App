@@ -13,25 +13,27 @@ const Profile = () => {
         dispatch(setToggle({ value: !toggle }))
     }, [])
 
-    const mpCategory = [
-        { id: '0', name: 'All' },
-        { id: '1', name: '3D' },
-        { id: '2', name: 'Art' },
-        { id: '3', name: 'Books' },
-        { id: '4', name: 'Clothing' },
-        { id: '5', name: 'Design' },
-        { id: '6', name: 'Education' },
-        { id: '7', name: 'Singing' },
-        { id: '8', name: 'Typing' },
-        { id: '9', name: 'Uniform' },
-        { id: '10', name: 'More' },
-    ]
+    // const mpCategory = [
+    //     { id: '0', name: 'All' },
+    //     { id: '1', name: '3D' },
+    //     { id: '2', name: 'Art' },
+    //     { id: '3', name: 'Books' },
+    //     { id: '4', name: 'Clothing' },
+    //     { id: '5', name: 'Design' },
+    //     { id: '6', name: 'Education' },
+    //     { id: '7', name: 'Singing' },
+    //     { id: '8', name: 'Typing' },
+    //     { id: '9', name: 'Uniform' },
+    //     { id: '10', name: 'More' },
+    // ]
 
     return (
         <>
             <div className='bg-wht absolute top-0 w-full font-space'>
                 <div className='px-[1.25rem] pt-20 pb-10 lg:pl-[21.5rem] lg:pr-[1.5rem] xl:pl-[22.5rem] xl:pr-[2.5rem] lg:pt-32 lg:pb-24 z-10'>
-                    <div className='w-full flex flex-row place-content-between px-10 py-5'>
+
+                    {/* CATEGORIES - TEMPORARILY REPLACED */}
+                    {/* <div className='w-full flex flex-row place-content-between px-10 py-5'>
                         {mpCategory.map((category, i) => {
                             return (
                                 <motion.div
@@ -43,12 +45,20 @@ const Profile = () => {
                                 </motion.div>
                             )
                         })}
-                    </div>
+                    </div> */}
 
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1 * 0.2 }}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className='flex flex-row justify-between items-center w-full p-[12px] border-blk border-[2px] rounded-[3px]'>
+                        <p className='font-bold text-lg'>Wanna sell something?</p>
+                        <p className='px-9 py-3 bg-orng border-blk border-[2px] rounded-[3px] text-wht font-bold text-xl hover:drop-shadow-hoverShadow transition-all ease-in-out duration-[0.1s] cursor-pointer'>+</p>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1 * 0.1 }}
                         className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-5'>
                         <MPService />
                         <MPService />
@@ -56,9 +66,9 @@ const Profile = () => {
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 2 * 0.2 }}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 2 * 0.1 }}
                         className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-5'>
                         <MPService />
                         <MPService />
@@ -66,9 +76,9 @@ const Profile = () => {
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 3 * 0.2 }}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 3 * 0.1 }}
                         className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-5'>
                         <MPService />
                         <MPService />
@@ -76,9 +86,9 @@ const Profile = () => {
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 4 * 0.2 }}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 4 * 0.1 }}
                         className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-5'>
                         <MPService />
                         <MPService />

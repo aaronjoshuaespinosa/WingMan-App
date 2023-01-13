@@ -14,6 +14,7 @@ import HeroFooter from "./HeroFooter"
 import AppForm from "./AppForm"
 import FaqDetails from "./FaqDetails"
 import FaqForm from "./FaqForm"
+import Nothing from "./Nothing"
 
 export {
     FAQCard,
@@ -32,4 +33,5 @@ export {
     AppForm,
     FaqDetails,
     FaqForm,
+    Nothing,
 }

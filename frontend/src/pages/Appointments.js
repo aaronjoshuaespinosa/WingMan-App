@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { AppCard, AppForm, AppSelect, Footer } from '../components'
+import { AppCard, AppForm, AppSelect, Footer, Nothing } from '../components'
 import { useAppointmentsContext } from '../hooks/useAppointmentsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { GiFoldedPaper, GiClothes } from "react-icons/gi";
@@ -54,47 +54,19 @@ const Appointments = () => {
 	return (
 		<>
 			<div className='bg-wht absolute top-0 w-full font-space'>
-				<div className='px-[1.25rem] pt-20 pb-10 lg:pl-[21.5rem] lg:pr-[1.5rem] xl:pl-[22.5rem] xl:pr-[3rem] lg:pt-40 lg:pb-10 z-10'>
-					<div className='flex flex-col gap-y-4'>
-						{/* TITLE */}
-						<motion.div
-							initial={{ opacity: 0, y: 15 }}
-							animate={{ opacity: 100, y: 0 }}
-							className='flex flex-row items-center w-full'>
-							<p className='text-orng font-bold text-lg lg:text-xl'>YOUR APPOINTMENTS</p>
-						</motion.div>
-
-						{/* CARDS - DITO MA-STORE YUNG DATA FROM USER */}
-						{user && <motion.div
-							initial={{ opacity: 0, y: 15 }}
-							animate={{ opacity: 100, y: 0 }}
-							transition={{ delay: 1 * 0.1 }}
-							className='flex flex-col gap-y-3'>
-							{appointments && appointments.map((appointment, i) => (
-								<motion.div
-									initial={{ opacity: 0, y: 15 }}
-									transition={{ delay: i * 0.1 }}
-									whileInView={{ opacity: 100, y: 0 }}
-								>
-									<AppCard key={appointment.id} appointment={appointment} index={i} />
-								</motion.div>
-							))}
-						</motion.div>}
-
-					</div>
+			<div className='px-[1.25rem] pt-20 pb-10 lg:pt-32 lg:pb-24 lg:pl-[22.5rem] lg:pr-[2.5rem] z-10'>
 
 					<div className='w-full'>
 						<motion.p
 							initial={{ opacity: 0, y: 15 }}
 							animate={{ opacity: 100, y: 0 }}
-							transition={{ delay: 2 * 0.1 }}
-							className='text-blk text-4xl lg:text-5xl font-bold pt-[48px] pb-[12px] lg:pb-[24px]'>Wanted to set an appointment?</motion.p>
+							className='text-blk text-4xl lg:text-5xl font-bold pb-[12px] lg:pb-[24px]'>Wanted to set an appointment?</motion.p>
 
 						{/* APPOINTMENT FORM */}
 						<motion.div
 							initial={{ opacity: 0, y: 15 }}
 							animate={{ opacity: 100, y: 0 }}
-							transition={{ delay: 3 * 0.1 }}>
+							transition={{ delay: 1 * 0.1 }}>
 							{/* DOCUMENT OR APPAREL CHOICE */}
 							<div className='flex flex-col lg:flex-row gap-x-[24px] w-full h-fit' style={doc || aprl ? { display: "none" } : { display: "flex" }}>
 								<motion.div
@@ -129,6 +101,36 @@ const Appointments = () => {
 							</motion.div>
 						</motion.div>
 
+					</div>
+
+					<div className='flex flex-col gap-y-4'>
+						{/* TITLE */}
+						<motion.div
+							initial={{ opacity: 0, y: 15 }}
+							animate={{ opacity: 100, y: 0 }}
+							transition={{ delay: 2 * 0.1 }}
+							className='flex flex-row items-center w-full'>
+							<p className='text-orng font-bold pt-3 text-lg lg:text-xl'>YOUR APPOINTMENTS</p>
+						</motion.div>
+
+						{/* CARDS - DITO MA-STORE YUNG DATA FROM USER */}
+						{user && <motion.div
+							initial={{ opacity: 0, y: 15 }}
+							animate={{ opacity: 100, y: 0 }}
+							transition={{ delay: 3 * 0.1 }}
+							className='flex flex-col gap-y-3'>
+							{appointments && appointments.map((appointment, i) => (
+								<motion.div
+									initial={{ opacity: 0, y: 15 }}
+									transition={{ delay: i * 0.1 }}
+									whileInView={{ opacity: 100, y: 0 }}
+								>
+									<AppCard key={appointment.id} appointment={appointment} index={i} />
+								</motion.div>
+							))}
+						</motion.div>}
+
+						<Nothing />
 					</div>
 				</div>
 				<Footer />

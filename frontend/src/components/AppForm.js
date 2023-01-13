@@ -63,7 +63,7 @@ const AppForm = (props) => {
                     <input className="w-full p-[12px] border-blk border-[2px] rounded-[3px]" placeholder="Appointment Title" type="text" onChange={(e) => setTitle(e.target.value)} value={title}/>
 
                     {/* APPOINTMENT DESCRIPTION */}
-                    <textarea className="resize-y p-[12px] border-blk border-[2px] rounded-[3px] h-[10rem] lg:h-[10rem]" placeholder="Description"  type="text" onChange={(e) => setDescription(e.target.value)} value={description}/>
+                    <textarea className="resize-y p-[12px] border-blk border-[2px] rounded-[3px] h-[12.75rem] lg:h-[12.75rem]" placeholder="Description"  type="text" onChange={(e) => setDescription(e.target.value)} value={description}/>
 
                 </div>
 
