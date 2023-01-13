@@ -39,7 +39,7 @@ const Appointments = () => {
 	useEffect(() => {
 		dispatch(setToggle({ value: !toggle }))
 		const fetchAppointments = async () => {
-			const response = await fetch('/api/appointments', {
+			const response = await fetch(`${process.env.REACT_APP_BASEURL}api/appointments`, {
 				headers: {
 					'Authorization': `Bearer ${user.token}`
 				}

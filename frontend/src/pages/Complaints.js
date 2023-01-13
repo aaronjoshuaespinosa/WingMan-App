@@ -21,7 +21,7 @@ const Complaints = () => {
 		dispatch(setToggle({ value: !toggle }))
 
 		const fetchComplaints = async () => {
-			const response = await fetch('/api/complaints', {
+			const response = await fetch(`${process.env.REACT_APP_BASEURL}api/complaints`, {
 				headers: {
 					'Authorization': `Bearer ${user.token}`
 				}

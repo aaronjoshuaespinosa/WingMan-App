@@ -23,7 +23,7 @@ const FaqForm = () => {
             return
         }
 
-        const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/FAQs`, {
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}api/FAQs`, {
             method: 'POST',
             body: JSON.stringify(faq),
             headers: {
