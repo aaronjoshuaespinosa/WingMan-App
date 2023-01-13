@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 const Dashboard = () => {
 	const dispatch = useDispatch()
 
-	console.log(window.location.host)
+	console.log(process.env.REACT_APP_BASEURL)
 
 	const toggle = useSelector((state) => state.Toggle.toggle.value)
 
