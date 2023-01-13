@@ -20,12 +20,12 @@ app.use((req, res, next) => {
 
 app.use(cors({origin: '*'}));
 
-app.use('api/FAQs', faqRoutes);
-app.use('api/Complaints', complaintRoutes);
-app.use('api/Appointments', appointmentRoutes);
-app.use('api/user/', userRoutes);
+app.use('/api/FAQs', faqRoutes);
+app.use('/api/Complaints', complaintRoutes);
+app.use('/api/Appointments', appointmentRoutes);
+app.use('/api/user/', userRoutes);
 
-app.get("/debug", (req, res) => {
+app.use('/debug', (req, res) => {
     res.send({msg: "HI"})
 })
 
