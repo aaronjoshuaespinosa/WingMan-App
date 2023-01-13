@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { HeroCard, HeroFooter } from '../components'
+import { HeroCard, HeroFooter, HeroNav } from '../components'
 import { FaArrowCircleUp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
     const navigate = useNavigate()
-
-    const signLink = () => {
-        navigate("/sign-in")
-    }
 
     const joinLink = () => {
         navigate("/join-us")
@@ -45,17 +41,7 @@ const Hero = () => {
                 className='bg-wht w-full h-full font-space'>
                 <p className='fixed bottom-0 right-0 text-5xl hover:text-orng cursor-pointer m-5 z-20 transition-all ease-in-out duration-[0.2s]'><FaArrowCircleUp onClick={scrollToTop} style={{ opacity: visible ? '100%' : '0%' }} /></p>
 
-                <div className='w-full py-3 px-5 lg:px-56 border-b-blk border-[1px]'>
-                    <div className='flex flex-row justify-between items-center h-full'>
-                        <div className='h-full w-full flex items-center justify-center lg:justify-start'>
-                            <img src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432" alt="Logo" className='h-20 pointer-events-none select-none' />
-                        </div>
-                        <div className='hidden lg:flex flex-row w-full h-full justify-end items-center gap-x-5 font-bold text-blk'>
-                            <p className='bg-orng py-2 px-5 border-blk border-[2px] rounded-[4px] transition-all ease-in-out duration-[0.1s] hover:drop-shadow-hoverShadow cursor-pointer' onClick={signLink}>SIGN IN</p>
-                            <p className='bg-orng py-2 px-5 border-blk border-[2px] rounded-[4px] transition-all ease-in-out duration-[0.1s] hover:drop-shadow-hoverShadow cursor-pointer' onClick={joinLink}>JOIN US</p>
-                        </div>
-                    </div>
-                </div>
+                <HeroNav />
 
                 <div className='p-5 lg:py-10 lg:px-56 w-full'>
                     <div className='flex flex-row gap-x-2'>

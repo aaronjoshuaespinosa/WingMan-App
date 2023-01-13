@@ -15,6 +15,8 @@ import AppForm from "./AppForm"
 import FaqDetails from "./FaqDetails"
 import FaqForm from "./FaqForm"
 import Nothing from "./Nothing"
+import HeroNav from "./HeroNav"
+import ProfileCard from "./ProfileCard"
 
 export {
     FAQCard,
@@ -34,4 +36,6 @@ export {
     FaqDetails,
     FaqForm,
     Nothing,
+    HeroNav,
+    ProfileCard,
 }

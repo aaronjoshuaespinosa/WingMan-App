@@ -9,6 +9,7 @@ import Complaints from "./Complaints"
 import FAQ from "./FAQ"
 import ErrorPage from "./ErrorPage"
 import Hero from "./Hero"
+import Devs from "./Devs"
 
 export {
     Join,
@@ -21,5 +22,6 @@ export {
     Complaints,
     FAQ,
     ErrorPage,
-    Hero
+    Hero,
+    Devs,
 }

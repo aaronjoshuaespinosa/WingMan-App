@@ -1,4 +1,5 @@
 import { MdDashboard, MdShoppingCart, MdOutlineAccessTimeFilled, MdError } from "react-icons/md";
+import { BsFacebook, BsTwitter, BsInstagram, BsGithub } from "react-icons/bs";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { IoMegaphoneSharp } from "react-icons/io5";
 
@@ -180,4 +181,64 @@ export const navMenu = [
         name: "Your Complaints",
         link: "/complaints-user"
     }
+]
+
+export const devs = [
+    {
+        id: 0,
+        img: "https://ik.imagekit.io/xzgmktvzg/aj.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673631439113",
+        name: "AJ Espinosa",
+        role1: "Frontend Web Developer",
+        role2: "UX/UI Designer",
+        twtrIcon: <BsTwitter/>,
+        twtrLink: "https://twitter.com/_eyrooonnn",
+        twtrState: true,
+        fbIcon: <BsFacebook/>,
+        fbLink: "https://www.facebook.com/eyrooonnn",
+        fbState: true,
+        igIcon: <BsInstagram/>,
+        igLink: "https://www.instagram.com/_eyrooonnn/",
+        igState: true,
+        ghIcon: <BsGithub/>,
+        ghLink: "https://github.com/eyrooonnn",
+        ghState: true,
+    },
+    {
+        id: 1,
+        img: "https://ik.imagekit.io/xzgmktvzg/bernard.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673631437937",
+        name: "Bernard Sarroca",
+        role1: "Backend Web Developer",
+        role2: "Database Administrator",
+        twtrIcon: <BsTwitter/>,
+        twtrLink: "",
+        twtrState: false,
+        fbIcon: <BsFacebook/>,
+        fbLink: "https://www.facebook.com/bernarddddd",
+        fbState: true,
+        igIcon: <BsInstagram/>,
+        igLink: "https://www.instagram.com/i.am.nards/",
+        igState: true,
+        ghIcon: <BsGithub/>,
+        ghLink: "https://github.com/iamnards",
+        ghState: true,
+    },
+    {
+        id: 2,
+        img: "https://ik.imagekit.io/xzgmktvzg/charles.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673631437848",
+        name: "Charles Camantigue",
+        role1: "Project Manager",
+        role2: "Quality Assurance Manager",
+        twtrIcon: <BsTwitter/>,
+        twtrLink: "",
+        twtrState: false,
+        fbIcon: <BsFacebook/>,
+        fbLink: "https://www.facebook.com/Charles.Hiei",
+        fbState: true,
+        igIcon: <BsInstagram/>,
+        igLink: "https://www.instagram.com/chrls.hiei/",
+        igState: true,
+        ghIcon: <BsGithub/>,
+        ghLink: "",
+        ghState: false,
+    },
 ]

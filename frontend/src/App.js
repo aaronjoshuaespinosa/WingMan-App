@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes, Redirect, Navigate } from 'react-router-dom'
-import { Join, Login, Dashboard, Marketplace, Appointments, News, Complaints, FAQ, ErrorPage, Profile, Hero } from './pages'
+import { Join, Login, Dashboard, Marketplace, Appointments, News, Complaints, FAQ, ErrorPage, Profile, Hero, Devs } from './pages'
 import { NavBar } from './components'
 import { setToggle } from './features/navSlice'
 import './index.css'
@@ -59,6 +59,7 @@ function App() {
 				<Route path="/news-and-announcements" element={user? <News />: <Navigate to="/"/>}></Route>
 				<Route path="/complaint-system" element={user ? <Complaints /> : <Navigate to="/" />}></Route>
 				<Route path="/faqs" element={user ? <FAQ /> : <Navigate to="/"/>}></Route>
+				<Route path="/devs" element={!user ? <Devs /> : <Navigate to="/"/>}></Route>
 				<Route path="*" element={<ErrorPage />}></Route>
 			</Routes>
 		</>

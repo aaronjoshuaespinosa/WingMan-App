@@ -90,11 +90,7 @@ const Login = () => {
 
     return (
         <>
-            <div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 100 }}
-                transition={{ duration: 1.5 }}
-                className='parent-wrapper w-full h-screen relative'>
+            <div className='parent-wrapper w-full h-screen relative'>
 
                 <img src="https://ik.imagekit.io/efpqj5mis/gradient_1_Cu7n0Rq7PR.png?ik-sdk-version=javascript-1.4.3&updatedAt=1671371950247" alt="" className='w-full h-full absolute pointer-events-none select-none top-0 right-0'></img>
                 <div className='max-w-[1600px] h-full mx-auto flex'>
