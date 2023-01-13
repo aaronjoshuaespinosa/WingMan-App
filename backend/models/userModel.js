@@ -36,12 +36,12 @@ const userSchema = new Schema({
 userSchema.statics.signup = async function (firstName, lastName, studentNumber, email, username, password) {
 
     //if first name is invalid
-    if (!(/^[a-zA-Z]+$/.test(firstName))) {
+    if (!(/^[a-zA-Z ]+$/.test(firstName))) {
         throw Error('First name must contain only letters.');
     }
 
     //if last name is invalid
-    if (!(/^[a-zA-Z]+$/.test(lastName))) {
+    if (!(/^[a-zA-Z ]+$/.test(lastName))) {
         throw Error('Last name must contain only letters.');
     }
 
@@ -52,7 +52,7 @@ userSchema.statics.signup = async function (firstName, lastName, studentNumber, 
 
     //if email is not valid
     if (!(/@cvsu.edu.ph\s*$/.test(email))) {
-        throw Error('Email is not valid, must contain "@cvsu.edu.ph" at the end.');
+        throw Error('Email is not valid, must contain "@cvsu.edu.ph" at the end. (no spaces)');
     }
 
     //if student number is not valid /^\d+$/.test(studentNumber)
