@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 
 app.use(cors({ origin: '*' }));
 
-res.set({
+app.set({
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
 });
