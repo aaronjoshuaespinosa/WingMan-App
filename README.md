@@ -1,6 +1,6 @@
 # WingMan Web Application
 An academic platform that provide students (WHATTTT???? WHAT DOES IT PROVIDE????) <br><br>
-This project is developed by three 3rd Year BS Computer Science Students from Cavite State Univaersity - Don Severino Delas Alas Campus as a completion requirement for Software Engineering II.
+This project is developed by three 3rd Year BS Computer Science Students from Cavite State University - Don Severino Delas Alas Campus as a completion requirement for Software Engineering II.
 
 [Click here](https://wingman-beta.vercel.app/) to access the website.
 
