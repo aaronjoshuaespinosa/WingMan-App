@@ -18,7 +18,12 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(cors({origin: '*'}));
+app.use(cors({ origin: '*' }));
+
+res.set({
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+});
 
 app.use('/api/FAQs', faqRoutes);
 app.use('/api/Complaints', complaintRoutes);
@@ -26,7 +31,7 @@ app.use('/api/Appointments', appointmentRoutes);
 app.use('/api/user/', userRoutes);
 
 app.use('/debug', (req, res) => {
-    res.send({msg: "HI"})
+    res.send({ msg: "HI" })
 })
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -35,7 +40,7 @@ mongoose.connect(process.env.MONGODB_URI)
             console.log('listening on port', process.env.PORT);
         });
     })
-    .catch ((error) => {
+    .catch((error) => {
         console.log(error);
     })
 
