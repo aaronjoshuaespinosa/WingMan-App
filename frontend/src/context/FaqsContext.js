@@ -27,7 +27,7 @@ export const FaqsContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(FaqsReducer, {
         faqs: null
     })
-    // dispatch({type: 'SET_WORKOUTS', payload: [{}, {}]});
+    // dispatch({type: 'SET_FAQS', payload: [{}, {}]});
     return (
         <FaqsContext.Provider value={{...state, dispatch}}>
             { children }

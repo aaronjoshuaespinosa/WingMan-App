@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const faqRoutes = require('./routes/FAQs');
 const complaintRoutes = require('./routes/Complaints');
 const appointmentRoutes = require('./routes/Appointments')
+const marketplaceRoutes = require('./routes/Marketplace')
 const userRoutes = require('./routes/user');
 const app = express();
 mongoose.set('strictQuery', false);
@@ -28,6 +29,7 @@ app.set({
 app.use('/api/FAQs', faqRoutes);
 app.use('/api/Complaints', complaintRoutes);
 app.use('/api/Appointments', appointmentRoutes);
+app.use('/api/Marketplace', marketplaceRoutes);
 app.use('/api/user/', userRoutes);
 
 app.use('/debug', (req, res) => {
