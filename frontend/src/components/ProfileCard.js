@@ -35,7 +35,9 @@ const ProfileCard = (props) => {
                 </div>
 
                 {/* NAME */}
-                <p className='font-bold text-2xl'>{name}</p>
+                <motion.p
+                    whileHover={{ color: '#FC5F1C', scale: 1.05, y: -3, rotate: -1.5 }}
+                    className='font-bold text-2xl'>{name}</motion.p>
 
                 {/* TITLES */}
                 <div className='flex flex-col items-center text-sm'>
@@ -49,25 +51,25 @@ const ProfileCard = (props) => {
                     {/* GITHUB ICON */}
                     <p
                         className='hover:text-orng transition-all ease-in-out duration-[0.2s]'
-                        style={ghState ? { display: 'block' } : { display: 'none' }}>{ghIcon}
+                        style={ghState ? { display: 'block' } : { display: 'none' }}><a href={ghLink}>{ghIcon}</a>
                     </p>
 
                     {/* FACEBOOK ICON */}
                     <p
                         className='hover:text-orng transition-all ease-in-out duration-[0.2s]'
-                        style={fbState ? { display: 'block' } : { display: 'none' }}>{fbIcon}
+                        style={fbState ? { display: 'block' } : { display: 'none' }}><a href={fbLink}>{fbIcon}</a>
                     </p>
 
                     {/* TWITTER ICON */}
                     <p
                         className='hover:text-orng transition-all ease-in-out duration-[0.2s]'
-                        style={twtrState ? { display: 'block' } : { display: 'none' }}>{twtrIcon}
+                        style={twtrState ? { display: 'block' } : { display: 'none' }}><a href={twtrLink}>{twtrIcon}</a>
                     </p>
 
                     {/* INSTAGRAM ICON */}
                     <p
                         className='hover:text-orng transition-all ease-in-out duration-[0.2s]'
-                        style={igState ? { display: 'block' } : { display: 'none' }}>{igIcon}
+                        style={igState ? { display: 'block' } : { display: 'none' }}><a href={igLink}>{igIcon}</a>
                     </p>
 
                 </div>

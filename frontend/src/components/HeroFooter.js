@@ -6,7 +6,7 @@ const HeroFooter = () => {
   const navigate = useNavigate()
 
   const devLink = () => {
-    navigate("/devs")
+    navigate("/devs", { replace: true })
   }
 
   const signLink = () => {

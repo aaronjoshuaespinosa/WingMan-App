@@ -17,6 +17,7 @@ import FaqForm from "./FaqForm"
 import Nothing from "./Nothing"
 import HeroNav from "./HeroNav"
 import ProfileCard from "./ProfileCard"
+import ScrollToTop from "./ScrollToTop"
 
 export {
     FAQCard,
@@ -38,4 +39,5 @@ export {
     Nothing,
     HeroNav,
     ProfileCard,
+    ScrollToTop,
 }
