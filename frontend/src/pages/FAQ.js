@@ -34,7 +34,7 @@ const FAQ = () => {
 		if (!user) {
 			return
 		}
-		const response = await fetch('/api/FAQs/' + id, {
+		const response = await fetch('https://wingman-app-api.vercel.app/api/FAQs/' + id, {
 			method: 'DELETE',
 			headers: {
 				'Authorization': `Bearer ${user.token}`
@@ -52,7 +52,7 @@ const FAQ = () => {
 	useEffect(() => {
 		dispatch(setToggle({ value: !toggle }))
 		const fetchFAQs = async () => {
-			const response = await fetch('/api/FAQs', {
+			const response = await fetch('https://wingman-app-api.vercel.app/api/FAQs', {
 				headers: {
 					'Authorization': `Bearer ${user.token}`
 				}
