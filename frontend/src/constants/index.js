@@ -156,28 +156,28 @@ export const navHeader = [
 ]
 
 export const navMenu = [
+    // {
+    //     id: 0,
+    //     name: "Your Profile",
+    //     link: "/profile"
+    // },
+    // {
+    //     id: 1,
+    //     name: "Your Cart",
+    //     link: "/cart"
+    // },
     {
         id: 0,
-        name: "Your Profile",
-        link: "/profile"
-    },
-    {
-        id: 1,
-        name: "Your Cart",
-        link: "/cart"
-    },
-    {
-        id: 2,
         name: "Your Appointments",
         link: "/appointments-user"
     },
     {
-        id: 3,
+        id: 1,
         name: "Your Questions",
         link: "/faq-user"
     },
     {
-        id: 4,
+        id: 2,
         name: "Your Complaints",
         link: "/complaints-user"
     }
