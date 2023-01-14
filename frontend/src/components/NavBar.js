@@ -98,7 +98,7 @@ const NavBar = ({ onChange }) => {
 							<motion.div
 								initial={{ scale: 0, y: 100 }}
 								whileInView={{ scale: 1, y: 0 }}
-								className='bg-wht absolute text-blk font-medium text-sm p-3 flex rounded-[2px] border-blk border-[2px] right-2 lg:right-[-3.9rem] top-[-10.5rem]' ref={ref} style={menuActive ? { display: "block" } : { display: "none" }}>
+								className='bg-wht absolute text-blk font-medium text-sm p-3 flex rounded-[2px] border-blk border-[2px] right-2 lg:right-[-3.9rem] top-[-6.5rem]' ref={ref} style={menuActive ? { display: "block" } : { display: "none" }}>
 								<div className='h-fit w-fit'>
 									{navMenu.map(menuLinks => {
 										return (
