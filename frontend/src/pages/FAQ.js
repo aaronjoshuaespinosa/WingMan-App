@@ -5,7 +5,7 @@ import { Footer, FaqDetails, FaqForm, NACard, Nothing } from '../components'
 import { useFaqsContext } from '../hooks/useFaqsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { motion } from 'framer-motion'
-import { firstAnnouncements } from '../constants'
+import { announcements } from '../constants'
 
 const FAQ = () => {
 
@@ -141,9 +141,9 @@ const FAQ = () => {
 									animate={{ opacity: 100, y: 0 }}
 									transition={{ delay: 1 * 0.1 }}
 									className='gap-y-2 flex flex-col w-full'>
-									{firstAnnouncements.map((announcements) => (
+									{announcements.map((announcements) => (
 										<div>
-											<NACard key={announcements.id} name={announcements.name} author={announcements.author} link={announcements.link} bool={announcements.new} />
+											<NACard key={announcements.id} name={announcements.name} author={announcements.author} link={announcements.link} img={announcements.img} bool={announcements.new} />
 										</div>
 									))}
 								</motion.div>
