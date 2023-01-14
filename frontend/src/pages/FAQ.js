@@ -22,7 +22,7 @@ const FAQ = () => {
 
 	// const [faqs, setFAQs] = useState(null)
 	const { faqs, dispatch: dsptch } = useFaqsContext()
-
+	
 	const dispatch = useDispatch()
 
 	const toggle = useSelector((state) => state.Toggle.toggle.value)
@@ -112,7 +112,7 @@ const FAQ = () => {
 								transition={{ delay: 1 * 0.1 }}>
 								<FaqForm />
 							</motion.div>
-
+							
 							{faqs && faqs.map((faq, i) => (
 								<motion.div
 									initial={{ opacity: 0, y: 15 }}

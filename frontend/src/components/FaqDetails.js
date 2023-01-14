@@ -43,27 +43,27 @@ const FaqDetails = (props) => {
         if (response.ok) {
             setDescription('')
             setError(null)
-            dispatch({ type: 'UPDATE_FAQ', payload: json })
+            dispatch({ type: '', payload: json })
         }
     }
     /*let upvote = `${faq.upvote}`
-
-    const upClick = async() => {
-        upvote += 1
-        const faq = { upvote }
-        const response = await fetch('/api/FAQs/' + faq._id, {
-            method: 'PATCH',
-            body: JSON.stringify(faq),
-            headers: {
-                'Authorization': `Bearer ${user.token}`
+    
+        const upClick = async() => {
+            upvote += 1
+            const faq = { upvote }
+            const response = await fetch('/api/FAQs/' + faq._id, {
+                method: 'PATCH',
+                body: JSON.stringify(faq),
+                headers: {
+                    'Authorization': `Bearer ${user.token}`
+                }
+            })
+    
+            const json = await response.json();
+            if (response.ok) {
+                dispatch({ type: 'SET_FAQS', payload: json })
             }
-        })
-
-        const json = await response.json();
-        if (response.ok) {
-            dispatch({ type: 'SET_FAQS', payload: json })
-        }
-    } */
+        } */
 
     return (
         <div className="FAQ-details w-full bg-light-wht border-blk border-[2px] rounded-[3px] my-[12px] flex flex-row">
@@ -95,7 +95,7 @@ const FaqDetails = (props) => {
                             />
                             <button>Submit comment</button>
                         </form>
-                       {error && <div>{error}</div>}
+                        {error && <div>{error}</div>}
                     </div>
 
                     {/* BASURAHAN */}
@@ -106,11 +106,11 @@ const FaqDetails = (props) => {
                 {/*COMMENT SECTION*/}
                 <p>Comments:</p>
                 <p>
-                    {faq.comments.map(({username, description}) => (
+                    {faq.comments.map(({ username, description }) => (
                         <p key={username}>{username}: {description}</p>
                     ))}
                 </p>
-                
+
             </div>
 
             <div className='rightCard flex justify-center align-center px-[8px] pt-[12px] bg-light-lgry border-l-[2px] border-blk'>
