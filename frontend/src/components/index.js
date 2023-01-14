@@ -20,6 +20,7 @@ import ProfileCard from "./ProfileCard"
 import ScrollToTop from "./ScrollToTop"
 import AdminNav from "./AdminNav"
 import FeatureCard from "./FeatureCard"
+import FeatureCardRev from "./FeatureCardRev"
 
 export {
     FAQCard,
@@ -44,4 +45,5 @@ export {
     ScrollToTop,
     AdminNav,
     FeatureCard,
+    FeatureCardRev,
 }
