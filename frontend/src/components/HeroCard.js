@@ -13,7 +13,7 @@ const HeroCard = (props) => {
                     </div>
                     <p className='text-blk font-bold text-5xl'>{title}</p>
                 </div>
-                <p>{desc}</p>
+                <p className='text-sm'>{desc}</p>
             </div>
         </>
     )
