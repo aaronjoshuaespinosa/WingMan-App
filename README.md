@@ -2,7 +2,7 @@
 
 Baby thesis for COSC75A (Software Engineering II)
 
-- **Framework**: [Next.js](https://reactjs.org/)
+- **Framework**: [ReactJS](https://reactjs.org/)
 - **Database**: [MongoDB](https://www.mongodb.com/)
 - **Authentication**: [JWT](https://jwt.io/introduction)
 - **Deployment**: [Vercel](https://vercel.com)
