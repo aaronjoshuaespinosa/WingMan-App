@@ -67,7 +67,7 @@ const MarketForm = (props) => {
                     type="text"
                     onChange={(e) => setDescription(e.target.value)}
                     value={description}
-                    className="resize-y p-[12px] border-blk border-[2px] rounded-[3px] h-[10rem] lg:h-full"
+                    className="resize-y p-[12px] border-blk border-[2px] rounded-[3px] h-auto min-h-[3.2rem] max-h-[7rem] lg:max-h-48 lg:h-full"
                     placeholder='Description'
                 />
 
@@ -135,9 +135,10 @@ const MarketForm = (props) => {
                 </div>
 
                 {/* BUTTON & ERROR MSSG */}
-                <div className='flex w-full justify-end'>
+                <div className='flex w-full justify-center items-center lg:justify-end'>
                     {error && <div className="error">{error}</div>}
-                    <button className='px-5 py-2 font-bold bg-orng border-[2px] border-blk text-blk rounded-[3px] transition-all ease-in-out duration-[0.1s] hover:drop-shadow-hoverShadow'>Submit</button>
+                    <button
+                        className='px-5 py-2 font-bold bg-orng border-[2px] border-blk text-blk rounded-[3px] transition-all ease-in-out duration-[0.1s] hover:drop-shadow-hoverShadow w-full lg:w-auto'>Submit</button>
                 </div>
 
             </form>
