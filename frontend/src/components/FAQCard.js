@@ -1,40 +1,32 @@
-import React from 'react'
-import { ImArrowUp, ImArrowDown } from "react-icons/im";
-import { MdChatBubble } from "react-icons/md";
+import React, { useState } from 'react'
 
-const FAQCard = () => {
+const FAQCard = (props) => {
+
+    const { user, time, title, content } = props
+
     return (
-        <>
-            <div className='flex flex-col'>
-                <p className='text-orng text-lg lg:text-xl font-bold tracking-[0rem] lg:tracking-[0.5rem] w-full leading-[0.5rem] mt-3'>MOST POPULAR</p>
-                <div className=' flex flex-col w-full rounded-[3px] border-[2px] border-blk my-3'>
-                    <div className='bg-wht w-full flex gap-2 p-3 lg:p-5 place-content-between'>
-                        <div className=''>
-                            <div>
-                                <h1 className='font-bold text-md cursor-pointer hover:underline'>Kim Arada</h1>
-                                <p className='text-light-gry text-xs leading-[0.5rem]'>3 days ago</p>
-                            </div>
-                            <div>
-                                <p className='font-bold text-sm mt-3'>Anybody want to commission for an artwork? Hit me up and contact me using the details in my profile.</p>
-                                <p className='font-bold text-sm text-light-orng mt-4 cursor-pointer hover:underline'>#FreelanceArtist</p>
-                            </div>
-                        </div>
-                        <div className='flex flex-col h-full items-center justify-center gap-5'>
-                            <p className='text-2xl hover:text-light-gry transition-all ease-in-out duration-[0.2s] cursor-pointer'><ImArrowUp /></p>
-                            <p className='text-2xl hover:text-light-gry transition-all ease-in-out duration-[0.2s] cursor-pointer'><ImArrowDown /></p>
-                        </div>
-                    </div>
-                    <div className='bg-light-lgry  w-full border-t-[2px] border-blk flex flex-row place-content-between items-center px-2 font-bold text-sm'>
-                        <div className='flex flex-row gap-2 md:gap-2 lg:gap-1 xl:gap-5 items-center my-2'>
-                            <div className='flex flex-row gap-[0.25rem] items-center cursor-pointer text-sm'><ImArrowUp /><p>420</p></div>
-                            <div className='flex flex-row gap-[0.25rem] items-center cursor-pointer text-sm'><MdChatBubble /><p>29</p></div>
-                        </div>
-                        <div className='flex flex-row gap-1 my-2 ml-2'>
-                        </div>
+        <div className="FAQ-details w-full bg-light-wht border-blk border-[2px] rounded-[3px] my-[12px] flex flex-row">
+            <div className='topFAQ flex flex-col justify-between h-full w-full'>
+                <div className='leftCard flex flex-col p-[24px]'>
+                    <div className='nameAndDate flex flex-row gap-2 align-center'>
+                        <p className='text-blk text-sm hover:underline cursor-pointer'>{user}</p>
+                        <p className='text-light-gry text-sm'>•</p>
+                        <p className='text-light-gry text-xs place-self-center'>{time}</p>
                     </div>
                 </div>
+
+                <div className='titleAndContent pt-1 pb-7'>
+                    <h4 className='text-2xl font-bold pb-3 px-[24px]'>{title}</h4>
+                    <p className='break-words px-[24px]'>{content}</p>
+                </div>
+
+                <div className='botMenus flex flex-row justify-between gap-x-7 bg-light-lgry px-[24px] py-3 border-t-[2px] border-blk w-full'>
+
+                </div>
+
             </div>
-        </>
+
+        </div>
     )
 }
 

@@ -49,7 +49,7 @@ const Profile = () => {
         <>
             <div className='bg-wht absolute top-0 w-full font-space'>
 
-                {/* MARKETPLACE FORM*/}
+                {/* MARKETPLACE FORM MODAL */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}

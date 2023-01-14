@@ -16,6 +16,7 @@ const FAQ = () => {
 	const showDel = (idValue) => {
 		setDel(current => !current)
 		setID(idValue)
+		console.log(id)
 	}
 
 	// const [faqs, setFAQs] = useState(null)
@@ -26,10 +27,6 @@ const FAQ = () => {
 	const toggle = useSelector((state) => state.Toggle.toggle.value)
 
 	const { user } = useAuthContext()
-
-	useEffect(() => {
-		console.log(faqs)
-	}, [id, faqs])
 
 	// DELETE FUNCTION
 	const handleClick = async () => {
