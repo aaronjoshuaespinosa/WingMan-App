@@ -1,7 +1,7 @@
 //user mdoel and schema
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const bcrypt =  require('bcrypt');
+const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
     firstName: {
@@ -56,8 +56,13 @@ userSchema.statics.signup = async function (firstName, lastName, studentNumber, 
     }
 
     //if student number is not valid /^\d+$/.test(studentNumber)
-    if (!(/^[0-9]{9,}$/.test(studentNumber))){
+    if (!(/^[0-9]{9,}$/.test(studentNumber))) {
         throw Error('Invalid student number, must contain only 9 numbers.');
+    }
+
+    // if username has spaces
+    if (!(/^[a-zA-Z]+$/.test(username))) {
+        throw Error('Username must not comtain spaces.');
     }
 
     //if username is already registered
@@ -81,23 +86,23 @@ userSchema.statics.signup = async function (firstName, lastName, studentNumber, 
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
 
-    const user = await this.create({ firstName, lastName, studentNumber,  email, username, password: hash,  });
+    const user = await this.create({ firstName, lastName, studentNumber, email, username, password: hash, });
     return user;
 };
 
-userSchema.statics.login = async function(email, password) {
+userSchema.statics.login = async function (email, password) {
 
     //if the user logging in exists but email is incorrect
     const user = await this.findOne({ email });
     if (!user) {
         throw Error('Incorrect email.');
     }
-    
+
     //from bcrypt
     const match = await bcrypt.compare(password, user.password); //compares password and hash password
     //if not match
     if (!match) {
-       throw Error('Incorrect password.');
+        throw Error('Incorrect password.');
     }
     return user;
 
