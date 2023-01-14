@@ -31,10 +31,14 @@ const Dashboard = () => {
 							animate={{ opacity: 100, y: 0 }}
 							transition={{ delay: 1 * 0.1 }}
 							className='lg:gap-x-0 pt-5 flex flex-col lg:flex-row lg:flex-wrap w-full'>
-							{firstNews.map((news) => (
-								<div className='basis-1/3 p-1'>
-									<NACard key={news.id} name={news.name} author={news.author} link={news.link} bool={news.new} />
-								</div>
+							{firstNews.map((news, i) => (
+								<motion.div
+									initial={{ opacity: 0, y: 15 }}
+									animate={{ opacity: 100, y: 0 }}
+									transition={{ delay: i * 0.1 }}
+									className='basis-1/3 p-1'>
+									<NACard key={news.id} name={news.name} author={news.author} link={news.link} img={news.img} bool={news.new} />
+								</motion.div>
 							))}
 						</motion.div>
 					</div>
@@ -52,12 +56,16 @@ const Dashboard = () => {
 						<motion.div
 							initial={{ opacity: 0, y: 15 }}
 							animate={{ opacity: 100, y: 0 }}
-							transition={{ delay: 1 * 0.1 }}
+							transition={{ delay: 3 * 0.1 }}
 							className='lg:gap-x-0 pt-5 flex flex-col lg:flex-row lg:flex-wrap w-full'>
-							{firstAnnouncements.map((announcements) => (
-								<div className='basis-1/3 p-1'>
-									<NACard key={announcements.id} name={announcements.name} author={announcements.author} link={announcements.link} bool={announcements.new} />
-								</div>
+							{firstAnnouncements.map((announcements, i) => (
+								<motion.div
+									initial={{ opacity: 0, y: 15 }}
+									animate={{ opacity: 100, y: 0 }}
+									transition={{ delay: i * 0.1 }}
+									className='basis-1/3 p-1'>
+									<NACard key={announcements.id} name={announcements.name} author={announcements.author} link={announcements.link} img={announcements.img} bool={announcements.new} />
+								</motion.div>
 							))}
 						</motion.div>
 					</div>

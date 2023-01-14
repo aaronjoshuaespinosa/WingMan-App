@@ -55,7 +55,7 @@ const NavBar = ({ onChange }) => {
 			<div className='fixed w-full lg:w-80 flex z-20'>
 				<div className='bg-blk w-full h-screen lg:w-80 text-wht absolute lg:relative top-0 lg:block transition-all ease-in-out duration-[0.2s] translate-x-[-100%] lg:translate-x-0' style={navActive ? { transform: "translateX(0%)" } : {}}>
 					{/* NAV LOGO */}
-					<div className='wingman-logo'>
+					<div className='wingman-logo z-50'>
 
 						<div className='flex lg:items-center lg:justify-center border-b-2 border-wht h-16 lg:h-28 relative'>
 
@@ -65,8 +65,8 @@ const NavBar = ({ onChange }) => {
 							</div>
 
 							{/* WINGMAN LOGO */}
-							<div className='h-full w-full flex items-center justify-center ml-16 lg:ml-0'>
-								<img src='https://ik.imagekit.io/xzgmktvzg/logo.png?ik-sdk-version=javascript-1.4.3&updatedAt=1671386953332' alt="wingman-logo" className='h-14 lg:h-24 select-none' />
+							<div className='h-full w-full flex items-center justify-center ml-16 lg:ml-0 z-50'>
+								<img src='https://ik.imagekit.io/xzgmktvzg/logo.png?ik-sdk-version=javascript-1.4.3&updatedAt=1671386953332' alt="wingman-logo" className='h-14 lg:h-24 z-50 select-none' />
 							</div>
 
 						</div>
@@ -123,7 +123,7 @@ const NavBar = ({ onChange }) => {
 						</div>
 
 						{/* GREETING */}
-						<div className='flex gap-x-[0.05rem] lg:gap-x-[0.15rem] my-auto px-3 lg:px-[1.5rem] xl:px-10 text-2xl lg:text-5xl text-blk font-bold select-none w-[100vw] relative'>
+						<div className='flex gap-x-[0.05rem] lg:gap-x-[0.15rem] my-auto px-3 lg:px-[1.5rem] xl:px-10 text-2xl lg:text-5xl text-blk font-bold select-none w-[100vw] relative z-0'>
 							{navHeader.map(labels => {
 								return (
 									<motion.div

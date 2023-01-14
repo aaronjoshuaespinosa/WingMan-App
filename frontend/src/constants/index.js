@@ -291,7 +291,7 @@ export const news = [
         author: "CvSU",
         link: "https://cvsu.edu.ph/2022/12/29/weeklong-strasuc-olympics-2022-officially-ends/",
         new: true,
-        img: "",
+        img: "https://ik.imagekit.io/xzgmktvzg/n1.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673708715712",
     },
     {
         id: 1,
@@ -299,7 +299,7 @@ export const news = [
         author: "CvSU",
         link: "https://cvsu.edu.ph/2022/12/29/cvsu-receives-recognition-from-partner-agencies/",
         new: false,
-        img: "",
+        img: "https://ik.imagekit.io/xzgmktvzg/n2.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708715312",
     },
     {
         id: 2,
@@ -307,7 +307,7 @@ export const news = [
         author: "CvSU",
         link: "https://cvsu.edu.ph/2022/12/29/cvsu-officials-participate-in-regional-futures-consortium-workshop/",
         new: false,
-        img: "",
+        img: "https://ik.imagekit.io/xzgmktvzg/n3.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708715624",
     },
     {
         id: 3,
@@ -315,7 +315,7 @@ export const news = [
         author: "CvSU",
         link: "https://cvsu.edu.ph/2022/12/29/cvsu-hosts-2nd-seacec/",
         new: false,
-        img: "",
+        img: "https://ik.imagekit.io/xzgmktvzg/n4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708715165",
     },
     {
         id: 4,
@@ -323,7 +323,7 @@ export const news = [
         author: "CvSU",
         link: "https://cvsu.edu.ph/2022/03/09/college-of-nursing-starts-limited-f2f-classes/",
         new: false,
-        img: "",
+        img: "https://ik.imagekit.io/xzgmktvzg/n5.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708715529",
     },
     {
         id: 5,
@@ -331,7 +331,7 @@ export const news = [
         author: "CvSU",
         link: "https://cvsu.edu.ph/2021/10/29/cvsu-wins-4-medals-in-national-karate-tournament/",
         new: false,
-        img: "",
+        img: "https://ik.imagekit.io/xzgmktvzg/n6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708715683",
     },
 ]
 
@@ -342,7 +342,7 @@ export const firstNews = [
         author: "CvSU",
         link: "https://cvsu.edu.ph/2022/12/29/weeklong-strasuc-olympics-2022-officially-ends/",
         new: true,
-        img: "",
+        img: "https://ik.imagekit.io/xzgmktvzg/n1.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673708715712",
     },
     {
         id: 1,
@@ -350,7 +350,7 @@ export const firstNews = [
         author: "CvSU",
         link: "https://cvsu.edu.ph/2022/12/29/cvsu-receives-recognition-from-partner-agencies/",
         new: false,
-        img: "",
+        img: "https://ik.imagekit.io/xzgmktvzg/n2.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708715312",
     },
     {
         id: 2,
@@ -358,7 +358,7 @@ export const firstNews = [
         author: "CvSU",
         link: "https://cvsu.edu.ph/2022/12/29/cvsu-officials-participate-in-regional-futures-consortium-workshop/",
         new: false,
-        img: "",
+        img: "https://ik.imagekit.io/xzgmktvzg/n3.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708715624",
     },
 ]
 
@@ -369,7 +369,7 @@ export const announcements = [
         author: "CEIT-SC",
         link: "https://www.facebook.com/ceitsc.cvsumain/posts/pfbid02aRfqngEKG5Mx2i8WtmMtWzo4a8DrJPtrw7gZE5jJVKEvbqJEcvFfy4hFVQevRmxMl",
         new: true,
-        img: ""
+        img: "https://ik.imagekit.io/xzgmktvzg/a6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708719389"
     },
     {
         id: 1,
@@ -377,7 +377,7 @@ export const announcements = [
         author: "CvSU Registrar",
         link: "https://www.facebook.com/photo/?fbid=643095704281568&set=a.565284382062701",
         new: true,
-        img: ""
+        img: "https://ik.imagekit.io/xzgmktvzg/a5.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708718310"
     },
     {
         id: 2,
@@ -385,7 +385,7 @@ export const announcements = [
         author: "CSG",
         link: "https://www.facebook.com/cvsu.csgmain/photos/a.2088723401169486/8612303998811361/",
         new: false,
-        img: ""
+        img: "https://ik.imagekit.io/xzgmktvzg/a1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708715626"
     },
     {
         id: 3,
@@ -393,7 +393,7 @@ export const announcements = [
         author: "CSG",
         link: "https://www.facebook.com/cvsu.csgmain/posts/pfbid0bi9qmMVsgPTjBFYKsuXpnTPDy29NrMnDnprX535djGiEjSDK2U47Zc2wpxhTsRfAl",
         new: false,
-        img: ""
+        img: "https://ik.imagekit.io/xzgmktvzg/a2.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708715515"
     },
     {
         id: 4,
@@ -401,7 +401,7 @@ export const announcements = [
         author: "CSSO",
         link: "https://www.facebook.com/CSSO2016/posts/pfbid0AiPX2wPhaKcgGoyXusHDjVWWdGTVBvo2SqP5pyVizp3TyAxmccW6hFsJK4bJDrBFl",
         new: false,
-        img: ""
+        img: "https://ik.imagekit.io/xzgmktvzg/a3.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708716031"
     },
     {
         id: 5,
@@ -409,7 +409,7 @@ export const announcements = [
         author: "CSSO",
         link: "https://www.facebook.com/CSSO2016/posts/pfbid02EqmzfxsX8SZTocgaXnzGfQ7AW2Z4gysSrQgxRFmfFPrqCNK2GKwgqQHBNx6Qwo8el",
         new: false,
-        img: ""
+        img: "https://ik.imagekit.io/xzgmktvzg/a4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708715620"
     },
 ]
 
@@ -420,7 +420,7 @@ export const firstAnnouncements = [
         author: "CEIT-SC",
         link: "https://www.facebook.com/ceitsc.cvsumain/posts/pfbid02aRfqngEKG5Mx2i8WtmMtWzo4a8DrJPtrw7gZE5jJVKEvbqJEcvFfy4hFVQevRmxMl",
         new: true,
-        img: ""
+        img: "https://ik.imagekit.io/xzgmktvzg/a6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708719389"
     },
     {
         id: 1,
@@ -428,7 +428,7 @@ export const firstAnnouncements = [
         author: "CvSU Registrar",
         link: "https://www.facebook.com/photo/?fbid=643095704281568&set=a.565284382062701",
         new: true,
-        img: ""
+        img: "https://ik.imagekit.io/xzgmktvzg/a5.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708718310"
     },
     {
         id: 2,
@@ -436,6 +436,6 @@ export const firstAnnouncements = [
         author: "CSG",
         link: "https://www.facebook.com/cvsu.csgmain/photos/a.2088723401169486/8612303998811361/",
         new: false,
-        img: ""
+        img: "https://ik.imagekit.io/xzgmktvzg/a1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708715626"
     },
 ]

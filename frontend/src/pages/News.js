@@ -32,10 +32,14 @@ const News = () => {
 							animate={{ opacity: 100, y: 0 }}
 							transition={{ delay: 1 * 0.1 }}
 							className='lg:gap-x-0 pt-5 flex flex-col lg:flex-row lg:flex-wrap w-full'>
-							{news.map((news) => (
-								<div className='basis-1/3 p-1'>
-									<NACard key={news.id} name={news.name} author={news.author} link={news.link} bool={news.new} />
-								</div>
+							{news.map((news, i) => (
+								<motion.div
+									initial={{ opacity: 0, y: 15 }}
+									animate={{ opacity: 100, y: 0 }}
+									transition={{ delay: i * 0.1 }}
+									className='basis-1/3 p-1'>
+									<NACard key={news.id} name={news.name} author={news.author} link={news.link} img={news.img} bool={news.new} />
+								</motion.div>
 							))}
 						</motion.div>
 					</div>
@@ -43,7 +47,7 @@ const News = () => {
 					<motion.div
 						initial={{ opacity: 0, y: 15 }}
 						animate={{ opacity: 100, y: 0 }}
-						transition={{ delay: 3 * 0.1 }}
+						transition={{ delay: 2 * 0.1 }}
 						className='flex items-center place-content-between w-full py-2'>
 						<p className='text-orng text-lg lg:text-xl font-bold tracking-[0rem] lg:tracking-[0.5rem]'>LATEST ANNOUNCEMENTS</p>
 						{/* <p className='text-[0.65rem] font-bold lg:text-sm hover:underline cursor-pointer'>GO TO ANNOUNCEMENTS</p> */}
@@ -53,12 +57,16 @@ const News = () => {
 						<motion.div
 							initial={{ opacity: 0, y: 15 }}
 							animate={{ opacity: 100, y: 0 }}
-							transition={{ delay: 1 * 0.1 }}
+							transition={{ delay: 3 * 0.1 }}
 							className='lg:gap-x-0 pt-5 flex flex-col lg:flex-row lg:flex-wrap w-full'>
-							{announcements.map((announcements) => (
-								<div className='basis-1/3 p-1'>
-									<NACard key={announcements.id} name={announcements.name} author={announcements.author} link={announcements.link} bool={announcements.new} />
-								</div>
+							{announcements.map((announcements, i) => (
+								<motion.div
+									initial={{ opacity: 0, y: 15 }}
+									animate={{ opacity: 100, y: 0 }}
+									transition={{ delay: i * 0.1 }}
+									className='basis-1/3 p-1'>
+									<NACard key={announcements.id} name={announcements.name} author={announcements.author} link={announcements.link} img={announcements.img} bool={announcements.new} />
+								</motion.div>
 							))}
 						</motion.div>
 					</div>
