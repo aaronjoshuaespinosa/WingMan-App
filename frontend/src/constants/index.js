@@ -439,3 +439,31 @@ export const firstAnnouncements = [
         img: "https://ik.imagekit.io/xzgmktvzg/a1.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1673708715626"
     },
 ]
+
+export const features = [
+    {
+        id: 0,
+        name: "MARKETPLACE",
+        desc: "Are you searching for an item or a service that you need or are you looking forward to sell an item or a service in order to gain profit? Whether which one of you are in these two, the marketplace is the place for you.",
+    },
+    {
+        id: 1,
+        name: "NEWS",
+        desc: "Looking for a reliable source of news and announcements inside the campus? WingMan's got you covered!  With news straight from the university and announcements coming from different various school organizations, you can now be informed and updated while also being assured that the information you are getting is verified and true.",
+    },
+    {
+        id: 2,
+        name: "FAQs",
+        desc: "Do you want to ask something from your fellow schoolmates but you don't have the confidence to do it personally? With this feature it is now possible for you to do it. Just post your question and  you shall receive different answers from your fellow CvSUenos",
+    },
+    {
+        id: 3,
+        name: "APPOINTMENTS",
+        desc: "A slow transaction consumes a lot of your time and energy, right? That's why this feature allows you to make your own appointment whenever you needed something from the university. So you can have a faster transaction.",
+    },
+    {
+        id: 4,
+        name: "COMPLAINTS",
+        desc: "Did you have a negative experience at the university? This feature will serve as your platform to let your voice out and also to be heard.",
+    },
+]
