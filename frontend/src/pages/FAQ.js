@@ -44,7 +44,7 @@ const FAQ = () => {
 		})
 		const json = await response.json()
 		if (response.ok) {
-			dispatch({ type: 'DELETE_FAQ', payload: json })
+			dsptch({ type: 'DELETE_FAQ', payload: json })
 			setVerDel(current => !current)
 		}
 		setDel(current => !current)

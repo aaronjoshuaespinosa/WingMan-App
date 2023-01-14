@@ -6,7 +6,7 @@ const {
     getAppointment,
     createAppointment,
     deleteAppointment,
-    updateAppointment
+    updateAppointment,
 } = require('../controllers/appointmentController')
 
 router.use(requireAuth);

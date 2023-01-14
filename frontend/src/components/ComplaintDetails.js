@@ -39,6 +39,8 @@ const ComplaintDetails = (props) => {
                     {/* CONTENT */}
                     <div className='bg-wht p-[12px]'>
                         {user && <p>{complaint.content}</p>}
+                        <p>{user.data.email === "cvsu.admin@wingman.com" && 
+                        <p>Submited by: {complaint.fullName} {complaint.studentNumber} {complaint.email}</p>}</p>
                     </div>
 
                 </div>

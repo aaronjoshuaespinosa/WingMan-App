@@ -12,6 +12,9 @@ const ComplaintForm = () => {
     const [error, setError] = useState('')
     const status = "Pending"
     const email = `${user.email}`
+    const fullName = `${user.data.firstName}` + ` ` + `${user.data.lastName}`
+    const username = `${user.data.username}`
+    const studentNumber = `${user.data.studentNumber}`
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -21,7 +24,7 @@ const ComplaintForm = () => {
             return
         }
 
-        const complaint = { subject, content, recipient, status, email }
+        const complaint = { subject, content, recipient, status, email, fullName, username, studentNumber }
 
         const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/complaints`, {
             method: 'POST',

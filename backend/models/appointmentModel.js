@@ -22,6 +22,18 @@ const appointmentSchema = new Schema({
         type: String,
         required: true,
     },
+    fullName: {
+        type: String,
+        required: true
+    },
+    username: {
+        type: String,
+        required: true
+    },
+    studentNumber: {
+        type: Number,
+        required: true
+    },
     user_id: {
         type: String,
         required: true

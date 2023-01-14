@@ -26,19 +26,21 @@ export const store = configureStore({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <AuthContextProvider>
-      <MarketsContextProvider>
-        <AppointmentsContextProvider>
-          <ComplaintsContextProvider>
-            <FaqsContextProvider>
-              <BrowserRouter>
-                  <Provider store={store}>
-                      <App />
-                  </Provider>
-              </BrowserRouter>
-            </FaqsContextProvider>
-          </ComplaintsContextProvider>
-        </AppointmentsContextProvider>
-      </MarketsContextProvider>
-    </AuthContextProvider>
+  <React.StrictMode>
+    <BrowserRouter>
+      <AuthContextProvider>
+        <MarketsContextProvider>
+          <AppointmentsContextProvider>
+            <ComplaintsContextProvider>
+              <FaqsContextProvider>
+                <Provider store={store}>
+                  <App />
+                </Provider>
+              </FaqsContextProvider>
+            </ComplaintsContextProvider>
+          </AppointmentsContextProvider>
+        </MarketsContextProvider>
+      </AuthContextProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );

@@ -19,8 +19,16 @@ const faqSchema = new Schema({
         type: String,
         required: true
     },
+    fullName: {
+        type: String,
+        required: true
+    },
     username: {
         type: String,
+        required: true
+    },
+    studentNumber: {
+        type: Number,
         required: true
     },
     user_id: {

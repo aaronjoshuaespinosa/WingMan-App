@@ -31,11 +31,11 @@ const getComplaint = async (req, res) => {
 //POST new complaint
 const createComplaint = async (req, res) => {
     //add doc to db
-    const {subject, content, recipient, status, email} = req.body;
+    const {subject, content, recipient, status, email, fullName, username, studentNumber} = req.body;
 
     try {
         const user_id = req.user._id;
-        const complaint = await Complaint.create({subject, content, recipient, status, user_id, email});
+        const complaint = await Complaint.create({subject, content, recipient, status, user_id, email, fullName, username, studentNumber});
         res.status(200).json(complaint);
     }
     catch (error) {

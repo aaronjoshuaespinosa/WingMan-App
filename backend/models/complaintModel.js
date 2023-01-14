@@ -18,6 +18,18 @@ const complaintSchema = new Schema({
         type: String,
         requried: true
     },
+    fullName: {
+        type: String,
+        required: true
+    },
+    username: {
+        type: String,
+        required: true
+    },
+    studentNumber: {
+        type: Number,
+        required: true
+    },
     user_id : {
         type: String,
         required: true

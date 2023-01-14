@@ -24,7 +24,7 @@ const AdminNav = () => {
 
     return (
         <>
-            <div className='w-full h-auto bg-blk font-space text-wht fixed'>
+            <div className='w-full h-auto bg-blk font-space text-wht fixed z-50'>
                 <nav className='flex flex-row w-full justify-between items-center px-40 font-bold'>
                     <p className="cursor-pointer hover:text-orng text-xl py-3" onClick={adminDash}>WINGMAN ADMIN</p>
 

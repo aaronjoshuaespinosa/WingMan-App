@@ -11,12 +11,14 @@ const FaqForm = () => {
 
     const { user } = useAuthContext()
     const email = `${user.email}`
+    const fullName = `${user.data.firstName}` + ` ` + `${user.data.lastName}`
     const username = `${user.data.username}`
+    const studentNumber = `${user.data.studentNumber}`
 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const faq = { title, content, upvote, email, username }
+        const faq = { title, content, upvote, email, fullName, username, studentNumber }
 
         if (!user) {
             setError('You must be logged in.')
@@ -41,7 +43,7 @@ const FaqForm = () => {
             setTitle('')
             setContent('')
             setError(null)
-            dispatch({ type: 'CREATE_FAQS', payload: json })
+            dispatch({ type: 'CREATE_FAQ', payload: json })
         }
     }
 

@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const AppCard = (props) => {
 
     const { appointment, index } = props
-
+    const { user } = useAuthContext()
 
     return (
         <>
@@ -39,6 +40,9 @@ const AppCard = (props) => {
                     {/* DESCRIPTION */}
                     <div className='py-3 bg-wht p-[12px]'>
                         <p>{appointment.description}</p>
+
+                        <p>{user.data.email === "cvsu.admin@wingman.com" && 
+                        <p>Requested by: {appointment.fullName} {appointment.studentNumber} {appointment.email}</p>}</p>
                     </div>
 
                 </div>
