@@ -61,7 +61,7 @@ function App() {
 					<Route path="/complaint-system" element={user ? <Complaints /> : <Navigate to="/" />}></Route>
 					<Route path="/faqs" element={user ? <FAQ /> : <Navigate to="/" />}></Route>
 					<Route path="/devs" element={!user ? <Devs /> : <Navigate to="/" />}></Route>
-					<Route path="/admin" element={!user ? <Admin /> : <Navigate to="/" />}></Route>
+					<Route path="/admin/dashboard" element={!user ? <Admin /> : <Navigate to="/" />}></Route>
 					<Route path="/admin/faqs" element={!user ? <AdminFAQ /> : <Navigate to="/" />}></Route>
 					<Route path="/admin/appointments" element={!user ? <AdminApp /> : <Navigate to="/" />}></Route>
 					<Route path="/admin/complaints" element={!user ? <AdminComp /> : <Navigate to="/" />}></Route>

@@ -1,12 +1,17 @@
 import React from 'react'
-import AdminNav from '../components/AdminNav'
+import { AdminNav } from '../components'
 
 
 const Admin = () => {
     console.log(window.location.pathname)
     return (
         <>
-            <AdminNav />
+            <div className='w-full h-auto font-space text-blk'>
+                <AdminNav />
+                <div className='pt-12 px-40'>
+                    <p>DASHBOARD</p>
+                </div>
+            </div>
         </>
     )
 }
