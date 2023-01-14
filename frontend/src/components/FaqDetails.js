@@ -88,7 +88,7 @@ const FaqDetails = (props) => {
                     <div className='flex flex-row align-center justify-center gap-x-1'>
                         <ImArrowUp />
                         <p className='text-sm'>{user && faq.upvote}</p>
-                        <form onSubmit={(handleSubmit)}>
+                        {user.data.email !== "cvsu.admin@wingman.com" && <form onSubmit={(handleSubmit)}>
                             <input
                                 type="text"
                                 placeholder="Want to add a comment?"
@@ -97,7 +97,7 @@ const FaqDetails = (props) => {
                                 value={description}
                             />
                             <button>Submit comment</button>
-                        </form>
+                        </form>}
                         {error && <div>{error}</div>}
                     </div>
 

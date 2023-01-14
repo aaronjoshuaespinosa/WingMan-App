@@ -59,13 +59,14 @@ const deleteAppointment = async (req, res) => {
 //UPDATE an appointment
 const updateAppointment = async (req, res) => {
     const { id } = req.params;
+    const { status } = req.body;
     //if requested id is not valid
     if(!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: 'No such appointment.'});
     }
 
     const appointment = await Appointment.findOneAndUpdate({_id: id}, {
-        ...req.body
+        $set: {status: status}
     });
     
     if (!appointment) {
