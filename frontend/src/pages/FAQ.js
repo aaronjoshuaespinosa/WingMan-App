@@ -5,6 +5,7 @@ import { Footer, FaqDetails, FaqForm, NACard, Nothing } from '../components'
 import { useFaqsContext } from '../hooks/useFaqsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { motion } from 'framer-motion'
+import { firstAnnouncements } from '../constants'
 
 const FAQ = () => {
 
@@ -19,7 +20,7 @@ const FAQ = () => {
 
 	// const [faqs, setFAQs] = useState(null)
 	const { faqs, dispatch: dsptch } = useFaqsContext()
-	
+
 	const dispatch = useDispatch()
 
 	const toggle = useSelector((state) => state.Toggle.toggle.value)
@@ -113,7 +114,7 @@ const FAQ = () => {
 								transition={{ delay: 1 * 0.1 }}>
 								<FaqForm />
 							</motion.div>
-							
+
 							{faqs && faqs.map((faq, i) => (
 								<motion.div
 									initial={{ opacity: 0, y: 15 }}
@@ -134,26 +135,19 @@ const FAQ = () => {
 								className='mb-[12px] w-full bg-orng p-[12px] border-blk border-[2px] rounded-[3px] text-wht text-center font-bold'>SUGGESTED N&A
 							</motion.p>
 
-							<motion.div
-								initial={{ opacity: 0, y: 15 }}
-								animate={{ opacity: 100, y: 0 }}
-								transition={{ delay: 1 * 0.2 }}
-								className="my-[12px] w-full"><NACard />
-							</motion.div>
-
-							<motion.div
-								initial={{ opacity: 0, y: 15 }}
-								animate={{ opacity: 100, y: 0 }}
-								transition={{ delay: 2 * 0.2 }}
-								className="my-[12px] w-full"><NACard />
-							</motion.div>
-
-							<motion.div
-								initial={{ opacity: 0, y: 15 }}
-								animate={{ opacity: 100, y: 0 }}
-								transition={{ delay: 3 * 0.2 }}
-								className="my-[12px] w-full"><NACard />
-							</motion.div>
+							<div className='flex w-full'>
+								<motion.div
+									initial={{ opacity: 0, y: 15 }}
+									animate={{ opacity: 100, y: 0 }}
+									transition={{ delay: 1 * 0.1 }}
+									className='gap-y-2 flex flex-col w-full'>
+									{firstAnnouncements.map((announcements) => (
+										<div>
+											<NACard key={announcements.id} name={announcements.name} author={announcements.author} link={announcements.link} bool={announcements.new} />
+										</div>
+									))}
+								</motion.div>
+							</div>
 
 						</div>
 					</div>
