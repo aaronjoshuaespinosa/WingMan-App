@@ -13,6 +13,9 @@ const AppForm = (props) => {
     const { dispatch } = useAppointmentsContext()
     const { user } = useAuthContext()
     const email = `${user.email}`
+    const fullName = `${user.data.firstName}` + ` ` + `${user.data.lastName}`
+    const username = `${user.data.username}`
+    const studentNumber = `${user.data.studentNumber}`
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -22,7 +25,7 @@ const AppForm = (props) => {
             return
         }
 
-        const appointment = { title, description, status, type, email }
+        const appointment = { title, description, status, type, email, fullName, username, studentNumber }
         const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/appointments`, {
             method: 'POST',
             body: JSON.stringify(appointment),

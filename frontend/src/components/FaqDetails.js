@@ -79,6 +79,8 @@ const FaqDetails = (props) => {
                     <div className='titleAndContent pt-1 pb-7'>
                         <h4 className='text-2xl font-bold pb-3'>{user && faq.title}</h4>
                         <p className='break-words'>{user && faq.content}</p>
+                        <p>{user.data.email === "cvsu.admin@wingman.com" && 
+                        <p>Posted by: {faq.fullName} {faq.studentNumber} {faq.email}</p>}</p>
                     </div>
                 </div>
 

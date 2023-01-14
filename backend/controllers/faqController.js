@@ -31,10 +31,10 @@ const getFAQ = async (req, res) => {
 //Create (POST) a new FAQ
 const createFAQ = async (req, res) => {
     //add doc to db
-    const { title, content, upvote, email, username, comments } = req.body;
+    const { title, content, upvote, email, fullName, username, studentNumber, comments } = req.body;
     try {
         const user_id = req.user._id;
-        const faq = await FAQ.create({title, content, upvote, email, username, user_id, comments});
+        const faq = await FAQ.create({title, content, upvote, email, fullName, username, studentNumber, user_id, comments});
         res.status(200).json(faq);
     }
     catch (error) {

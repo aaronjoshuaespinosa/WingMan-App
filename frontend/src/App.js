@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { Route, Routes, Redirect, Navigate } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import { Join, Login, Dashboard, Marketplace, Appointments, News, Complaints, FAQ, ErrorPage, Profile, Hero, Devs, Admin, AdminComp, AdminApp, AdminFAQ } from './pages'
 import { NavBar, ScrollToTop } from './components'
 import { setToggle } from './features/navSlice'
@@ -27,6 +27,7 @@ function App() {
 	const toggle = useSelector((state) => state.Toggle.toggle.value)
 
 	const { user } = useAuthContext()
+
 	const onChange = () => {
 		dispatch(setToggle({ value: !toggle }))
 	}
@@ -48,26 +49,28 @@ function App() {
 	return (
 		<>
 			{active ? nav : null}
+
 			<ScrollToTop>
-				<Routes>
-					<Route path="/" element={!user ? <Hero /> : <Navigate to="/dashboard" />}></Route>
-					<Route path="/sign-in" element={!user ? <Login /> : <Navigate to="/dashboard" />}></Route>
-					<Route path="/join-us" element={!user ? <Join /> : <Navigate to="/dashboard" />}></Route>
-					<Route path="/profile" element={user ? <Profile /> : <Navigate to="/" />}></Route>
-					<Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/" />}></Route>
-					<Route path="/marketplace" element={user ? <Marketplace /> : <Navigate to="/" />}></Route>
-					<Route path="/appointments" element={user ? <Appointments /> : <Navigate to="/" />}></Route>
-					<Route path="/news-and-announcements" element={user ? <News /> : <Navigate to="/" />}></Route>
-					<Route path="/complaint-system" element={user ? <Complaints /> : <Navigate to="/" />}></Route>
-					<Route path="/faqs" element={user ? <FAQ /> : <Navigate to="/" />}></Route>
-					<Route path="/devs" element={!user ? <Devs /> : <Navigate to="/" />}></Route>
-					<Route path="/admin/dashboard" element={!user ? <Admin /> : <Navigate to="/" />}></Route>
-					<Route path="/admin/faqs" element={!user ? <AdminFAQ /> : <Navigate to="/" />}></Route>
-					<Route path="/admin/appointments" element={!user ? <AdminApp /> : <Navigate to="/" />}></Route>
-					<Route path="/admin/complaints" element={!user ? <AdminComp /> : <Navigate to="/" />}></Route>
-					<Route path="*" element={<ErrorPage />}></Route>
-				</Routes>
+					<Routes>
+						<Route path="/" element={!user ? <Hero /> : <Navigate to="/dashboard" />}></Route>
+						<Route path="/sign-in" element={!user ? <Login /> : <Navigate to="/dashboard" />}></Route>
+						<Route path="/join-us" element={!user ? <Join /> : <Navigate to="/dashboard" />}></Route>
+						<Route path="/profile" element={user ? <Profile /> : <Navigate to="/" />}></Route>
+						<Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/" />}></Route>
+						<Route path="/marketplace" element={user ? <Marketplace /> : <Navigate to="/" />}></Route>
+						<Route path="/appointments" element={user ? <Appointments /> : <Navigate to="/" />}></Route>
+						<Route path="/news-and-announcements" element={user ? <News /> : <Navigate to="/" />}></Route>
+						<Route path="/complaint-system" element={user ? <Complaints /> : <Navigate to="/" />}></Route>
+						<Route path="/faqs" element={user ? <FAQ /> : <Navigate to="/" />}></Route>
+						<Route path="/devs" element={!user ? <Devs /> : <Navigate to="/" />}></Route>
+						<Route path="/admin/dashboard" element={<Admin />}></Route>
+						<Route path="/admin/faqs" element={<AdminFAQ />}></Route>
+						<Route path="/admin/appointments" element={<AdminApp />}></Route>
+						<Route path="/admin/complaints" element={<AdminComp />}></Route>
+						<Route path="*" element={<ErrorPage />}></Route>
+					</Routes>
 			</ScrollToTop>
+
 		</>
 	);
 }

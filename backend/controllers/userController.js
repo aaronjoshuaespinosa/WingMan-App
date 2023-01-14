@@ -24,7 +24,8 @@ const signupUser = async (req, res) => {
             username,
             email,
             firstName,
-            lastName
+            lastName,
+            studentNumber
         }
         const token = createToken(user._id);
         res.status(200).json({firstName, lastName, studentNumber, email, username, password, data, token});
