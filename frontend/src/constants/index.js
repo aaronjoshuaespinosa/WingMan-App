@@ -242,3 +242,44 @@ export const devs = [
         ghState: false,
     },
 ]
+
+export const landingWorks = [
+    {
+        id: 0,
+        title: "JOIN US",
+        desc: "Make your own WingMan account by filling out required credentials in the form. It is important to take note that you must use your CvSU Account provided by the university.",
+    },
+    {
+        id: 1,
+        title: "SIGN IN",
+        desc: "After successfully creating your WingMan account, you can now input your correct email and password in order to enter the website.",
+    },
+    {
+        id: 2,
+        title: "EXPLORE",
+        desc: "Now that you've already logged-in, you can now view and use the different features offered by WingMan.",
+    },
+]
+
+export const adminNav = [
+    {
+        id: 0,
+        name: "Dashboard",
+        link: "/admin",
+    },
+    {
+        id: 1,
+        name: "FAQs",
+        link: "/admin/faqs",
+    },
+    {
+        id: 2,
+        name: "Appointments",
+        link: "/admin/appointments",
+    },
+    {
+        id: 3,
+        name: "Complaints",
+        link: "/admin/complaints",
+    },
+]

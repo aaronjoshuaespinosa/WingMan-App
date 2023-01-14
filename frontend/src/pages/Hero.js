@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { HeroCard, HeroFooter, HeroNav } from '../components'
 import { FaArrowCircleUp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { landingWorks } from '../constants';
 
 const Hero = () => {
     const navigate = useNavigate()
@@ -70,21 +71,21 @@ const Hero = () => {
                             initial={{ y: 1000 }}
                             animate={{ y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className='text-orng font-bold text-7xl lg:text-9xl custom:text-8xl text-center select-none'>FLY INTO MOTION
+                            className='text-orng font-bold text-7xl lg:text-9xl custom:text-8xl text-center select-none'>Welcome to WingMan
                         </motion.p>
 
                         <motion.p
                             initial={{ y: 1000 }}
                             animate={{ y: 0 }}
                             transition={{ duration: 0.5, delay: 4 * 0.02 }}
-                            className='text-blk font-bold text-xl lg:text-5xl custom:text-4xl text-center select-none'>Join the flocking website now!
+                            className='text-blk font-bold text-xl lg:text-6xl custom:text-4xl text-center select-none'>"FLY INTO MOTION"
                         </motion.p>
 
                         <motion.p
                             initial={{ y: 1000 }}
                             animate={{ y: 0 }}
                             transition={{ duration: 0.5, delay: 8 * 0.02 }}
-                            className='text-blk text-base px-12 lg:text-xl text-center select-none'>Be updated on the latest news. Be with the market.
+                            className='text-blk text-base px-12 lg:text-xl text-center select-none'>An Online Assistant Platform for CEIT Students at Cavite State University - Don Severino Delas Alas Campus
                         </motion.p>
 
                         {/* CTA BUTTONS */}
@@ -109,7 +110,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 100, y: 0 }}
                         transition={{ delay: 0 * 0.03 }}
-                        className='text-wht font-bold text-5xl lg:text-7xl select-none'>HOW IT FLOCKING WORKS:
+                        className='text-wht font-bold text-5xl lg:text-7xl select-none'>HOW IT WORKS:
                     </motion.p>
 
                     <motion.div
@@ -117,11 +118,26 @@ const Hero = () => {
                         whileInView={{ opacity: 100, y: 0 }}
                         transition={{ delay: 1 * 0.3 }}
                         className='flex flex-col lg:flex-row w-full gap-x-4 gap-y-3'>
-                        <HeroCard />
-                        <HeroCard />
-                        <HeroCard />
+
+                        {landingWorks.map((work) => (
+                            <HeroCard key={work.id} index={work.id} title={work.title} desc={work.desc} />
+                        ))}
+
                     </motion.div>
                 </div>
+
+                {/* FEATURES */}
+                <div className='bg-wht px-5 py-12 lg:py-10 lg:px-56 w-full flex flex-col gap-y-5'>
+                    <p className='text-blk font-bold text-5xl lg:text-7xl select-none text-center'>FEATURES</p>
+                </div>
+
+                {/* TO DEVS */}
+                <div className='bg-orng px-5 py-12 lg:py-10 lg:px-56 w-full flex flex-col gap-y-5'>
+                    <p className='text-blk font-bold text-5xl lg:text-7xl select-none'>meet the devs</p>
+                </div>
+
+                {/* CTA */}
+                <div className='bg-wht px-5 py-12 lg:py-10 lg:px-56 w-full flex flex-col gap-y-5'></div>
 
                 <motion.div
                     initial={{ opacity: 0 }}

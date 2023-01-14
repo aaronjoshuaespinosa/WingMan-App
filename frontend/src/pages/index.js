@@ -10,6 +10,10 @@ import FAQ from "./FAQ"
 import ErrorPage from "./ErrorPage"
 import Hero from "./Hero"
 import Devs from "./Devs"
+import Admin from "./Admin"
+import AdminApp from "./AdminApp"
+import AdminComp from "./AdminComp"
+import AdminFAQ from "./AdminFAQ"
 
 export {
     Join,
@@ -24,4 +28,8 @@ export {
     ErrorPage,
     Hero,
     Devs,
+    Admin,
+    AdminApp,
+    AdminComp,
+    AdminFAQ,
 }
