@@ -206,7 +206,7 @@ const Hero = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                         className='py-20 flex flex-col justify-center items-center gap-y-9'>
-                        <p className='text-blk font-bold text-9xl lg:text-[10rem] select-none text-center'>interested?</p>
+                        <p className='text-blk font-bold text-6xl lg:text-[10rem] select-none text-center'>interested?</p>
                         <p className='bg-wht text-xl border-blk border-[2px] rounded-[5px] py-3 px-6 font-bold cursor-pointer hover:drop-shadow-hoverShadow hover:bg-orng transition-all ease-in-out duration-[0.1s]' onClick={joinLink}>JOIN NOW</p>
                     </motion.div>
                 </div>
