@@ -46,6 +46,7 @@ const FaqDetails = (props) => {
             dispatch({ type: 'UPDATE_FAQ', payload: json })
         }
     }
+    
     /*let upvote = `${faq.upvote}`
 
     const upClick = async() => {

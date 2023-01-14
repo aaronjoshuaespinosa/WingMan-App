@@ -17,9 +17,6 @@ const FAQ = () => {
 		setID(idValue)
 	}
 
-	useEffect(() => {
-	}, [id])
-
 	// const [faqs, setFAQs] = useState(null)
 	const { faqs, dispatch: dsptch } = useFaqsContext()
 
@@ -28,6 +25,10 @@ const FAQ = () => {
 	const toggle = useSelector((state) => state.Toggle.toggle.value)
 
 	const { user } = useAuthContext()
+
+	useEffect(() => {
+		console.log(faqs)
+	}, [id, faqs])
 
 	// DELETE FUNCTION
 	const handleClick = async () => {
@@ -122,7 +123,7 @@ const FAQ = () => {
 									<FaqDetails onClick={showDel} key={faq.id} faq={faq} />
 								</motion.div>
 							))}
-							
+
 							<Nothing />
 						</div>
 
