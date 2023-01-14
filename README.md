@@ -1,6 +1,6 @@
 # [WingMan](https://wingman-app.vercel.app/) - An Online Assistant Platform for CEIT Students at Cavite State University - Don Severino Delas Alas Campus
 
-Baby thesis for COSC75A (Software Engineering) 80% Done
+Baby thesis for COSC75A (Software Engineering II)
 
 - **Framework**: [Next.js](https://reactjs.org/)
 - **Database**: [MongoDB](https://www.mongodb.com/)
@@ -8,7 +8,7 @@ Baby thesis for COSC75A (Software Engineering) 80% Done
 - **Deployment**: [Vercel](https://vercel.com)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com//)
 
-### Creators:
+## Creators:
 [Bernard Sarroca](https://github.com/iamnards) - Backend Developer, Database Administrator <br>
 [AJ Espinosa](https://github.com/eyrooonnn) - Frontend Developer, UX/UI Designer <br>
 Charles Camantigue - Project Manager, QA Manager
