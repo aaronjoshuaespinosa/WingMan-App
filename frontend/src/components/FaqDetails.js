@@ -14,10 +14,10 @@ const FaqDetails = (props) => {
     const email = `${user.email}`
     const username = `${user.data.username}`
     const [description, setDescription] = useState('')
-    const comments = [{username, email, description}]
+    const comments = [{ username, email, description }]
     const [error, setError] = useState('')
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const faqs = { comments }
 
@@ -46,7 +46,7 @@ const FaqDetails = (props) => {
             dispatch({ type: '', payload: json })
         }
     }
-    
+
     /*let upvote = `${faq.upvote}`
     
         const upClick = async() => {

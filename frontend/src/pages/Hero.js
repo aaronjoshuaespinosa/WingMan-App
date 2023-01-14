@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { HeroCard, HeroFooter, HeroNav } from '../components'
+import { FeatureCard, HeroCard, HeroFooter, HeroNav } from '../components'
 import { FaArrowCircleUp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { landingWorks } from '../constants';
+import { BsFillCartCheckFill, BsExclamationOctagonFill } from "react-icons/bs";
+import { ImNewspaper } from "react-icons/im";
+import { IoIosMegaphone } from "react-icons/io";
+import { AiFillSchedule } from "react-icons/ai";
 
 const Hero = () => {
     const navigate = useNavigate()
@@ -105,7 +109,7 @@ const Hero = () => {
                     </div>
                 </div>
 
-                <div className='bg-orng px-5 py-12 lg:py-10 lg:px-56 w-full flex flex-col gap-y-5'>
+                <div className='bg-orng px-5 py-12 lg:py-20 lg:px-56 w-full flex flex-col gap-y-5'>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 100, y: 0 }}
@@ -128,7 +132,44 @@ const Hero = () => {
 
                 {/* FEATURES */}
                 <div className='bg-wht px-5 py-12 lg:py-10 lg:px-56 w-full flex flex-col gap-y-5'>
-                    <p className='text-blk font-bold text-5xl lg:text-7xl select-none text-center'>FEATURES</p>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className='text-blk font-bold text-5xl lg:text-7xl select-none text-center'>~FEATURES~</motion.p>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}>
+                        <FeatureCard name="MARKETPLACE" desc="Are you searching for an item or a service that you need or are you looking forward to sell an item or a service in order to gain profit? Whether which one of you are in these two, the marketplace is the place for you." icon=<BsFillCartCheckFill /> reverse="false" />
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1 * 0.1 }}>
+                        <FeatureCard name="NEWS" desc="Looking for a reliable source of news and announcements inside the campus? WingMan's got you covered!  With news straight from the university and announcements coming from different various school organizations, you can now be informed and updated while also being assured that the information you are getting is verified and true." icon=<ImNewspaper /> reverse="true" />
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 2 * 0.1 }}>
+                        <FeatureCard name="FAQs" desc="Do you want to ask something from your fellow schoolmates but you don't have the confidence to do it personally? With this feature it is now possible for you to do it. Just post your question and  you shall receive different answers from your fellow CvSUenos" icon=<IoIosMegaphone /> reverse="false" />
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 3 * 0.1 }}>
+                        <FeatureCard name="APPOINTMENTS" desc="A slow transaction consumes a lot of your time and energy, right? That's why this feature allows you to make your own appointment whenever you needed something from the university. So you can have a faster transaction." icon=<AiFillSchedule /> reverse="true" />
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 4 * 0.1 }}>
+                        <FeatureCard name="COMPLAINTS" desc="Did you have a negative experience at the university? This feature will serve as your platform to let your voice out and also to be heard." icon=<BsExclamationOctagonFill /> reverse="false" />
+                    </motion.div>
                 </div>
 
                 {/* TO DEVS */}

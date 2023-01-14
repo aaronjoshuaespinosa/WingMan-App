@@ -15,7 +15,7 @@ const Devs = () => {
 
     return (
         <>
-            <div className='w-full h-auto font-space'>
+            <div className='w-full h-auto font-space z-50'>
                 {/* NAR BAR */}
                 <motion.div
                     initial={{ opacity: 0 }}

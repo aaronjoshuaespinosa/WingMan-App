@@ -3,6 +3,7 @@ import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { NACard, FAQCard, Footer } from '../components'
 import { motion } from 'framer-motion'
+import { firstAnnouncements, firstNews } from '../constants'
 
 const Dashboard = () => {
 	const dispatch = useDispatch()
@@ -24,15 +25,23 @@ const Dashboard = () => {
 						{/* <p className='text-[0.65rem] font-bold lg:text-sm hover:underline cursor-pointer'>GO TO NEWS</p> */}
 					</motion.div>
 
-					<motion.div
-						initial={{ opacity: 0, y: 15 }}
-						animate={{ opacity: 100, y: 0 }}
-						transition={{ delay: 1 * 0.1 }}
-						className='flex flex-col lg:flex-row place-content-between w-full gap-x-3'>
-						<NACard />
-						<NACard />
-						<NACard />
-					</motion.div>
+					<div className='flex w-full'>
+						<motion.div
+							initial={{ opacity: 0, y: 15 }}
+							animate={{ opacity: 100, y: 0 }}
+							transition={{ delay: 1 * 0.1 }}
+							className='lg:gap-x-0 pt-5 flex flex-col lg:flex-row lg:flex-wrap w-full'>
+							{firstNews.map((news, i) => (
+								<motion.div
+									initial={{ opacity: 0, y: 15 }}
+									animate={{ opacity: 100, y: 0 }}
+									transition={{ delay: i * 0.1 }}
+									className='basis-1/3 p-1'>
+									<NACard key={news.id} name={news.name} author={news.author} link={news.link} img={news.img} bool={news.new} />
+								</motion.div>
+							))}
+						</motion.div>
+					</div>
 
 					<motion.div
 						initial={{ opacity: 0, y: 15 }}
@@ -43,15 +52,23 @@ const Dashboard = () => {
 						{/* <p className='text-[0.65rem] font-bold lg:text-sm hover:underline cursor-pointer'>GO TO ANNOUNCEMENTS</p> */}
 					</motion.div>
 
-					<motion.div
-						initial={{ opacity: 0, y: 15 }}
-						animate={{ opacity: 100, y: 0 }}
-						transition={{ delay: 3 * 0.1 }}
-						className='flex flex-col lg:flex-row place-content-between w-full gap-x-3'>
-						<NACard />
-						<NACard />
-						<NACard />
-					</motion.div>
+					<div className='flex w-full'>
+						<motion.div
+							initial={{ opacity: 0, y: 15 }}
+							animate={{ opacity: 100, y: 0 }}
+							transition={{ delay: 3 * 0.1 }}
+							className='lg:gap-x-0 pt-5 flex flex-col lg:flex-row lg:flex-wrap w-full'>
+							{firstAnnouncements.map((announcements, i) => (
+								<motion.div
+									initial={{ opacity: 0, y: 15 }}
+									animate={{ opacity: 100, y: 0 }}
+									transition={{ delay: i * 0.1 }}
+									className='basis-1/3 p-1'>
+									<NACard key={announcements.id} name={announcements.name} author={announcements.author} link={announcements.link} img={announcements.img} bool={announcements.new} />
+								</motion.div>
+							))}
+						</motion.div>
+					</div>
 
 					<motion.h1
 						initial={{ opacity: 0, y: 15 }}

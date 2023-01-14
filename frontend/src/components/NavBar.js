@@ -65,8 +65,8 @@ const NavBar = ({ onChange }) => {
 							</div>
 
 							{/* WINGMAN LOGO */}
-							<div className='h-full w-full flex items-center justify-center ml-16 lg:ml-0'>
-								<img src='https://ik.imagekit.io/xzgmktvzg/logo.png?ik-sdk-version=javascript-1.4.3&updatedAt=1671386953332' alt="wingman-logo" className='h-14 lg:h-24 select-none' />
+							<div className='h-full w-full flex items-center justify-center ml-16 lg:ml-0 z-50'>
+								<img src='https://ik.imagekit.io/xzgmktvzg/logo.png?ik-sdk-version=javascript-1.4.3&updatedAt=1671386953332' alt="wingman-logo" className='h-14 lg:h-24 z-50 select-none' />
 							</div>
 
 						</div>
@@ -95,20 +95,20 @@ const NavBar = ({ onChange }) => {
 						</div>
 
 						{/* NAV MENU */}
-							<motion.div
-								initial={{ scale: 0, y: 100 }}
-								whileInView={{ scale: 1, y: 0 }}
-								className='bg-wht absolute text-blk font-medium text-sm p-3 flex rounded-[2px] border-blk border-[2px] right-2 lg:right-[-3.9rem] top-[-10.5rem]' ref={ref} style={menuActive ? { display: "block" } : { display: "none" }}>
-								<div className='h-fit w-fit'>
-									{navMenu.map(menuLinks => {
-										return (
-											<p {...menuLinks} key={menuLinks.id} className='py-1 pr-5 cursor-pointer select-none hover:text-light-gry' onClick={menuClick}>{menuLinks.name}</p>
-										)
-									})}
-									<hr className='my-2 border-light-gry' />
-									<button className='text-orng cursor-pointer select-none hover:text-light-orng' onClick={signoutClick}><a href="/sign-in" target="_self">Sign out</a></button>
-								</div>
-							</motion.div>
+						<motion.div
+							initial={{ scale: 0, y: 100 }}
+							whileInView={{ scale: 1, y: 0 }}
+							className='bg-wht absolute text-blk font-medium text-sm p-3 flex rounded-[2px] border-blk border-[2px] right-2 lg:right-[-3.9rem] top-[-6.5rem]' ref={ref} style={menuActive ? { display: "block" } : { display: "none" }}>
+							<div className='h-fit w-fit'>
+								{navMenu.map(menuLinks => {
+									return (
+										<p {...menuLinks} key={menuLinks.id} className='py-1 pr-5 cursor-pointer select-none hover:text-light-gry' onClick={menuClick}>{menuLinks.name}</p>
+									)
+								})}
+								<hr className='my-2 border-light-gry' />
+								<button className='text-orng cursor-pointer select-none hover:text-light-orng' onClick={signoutClick}><a href="/sign-in" target="_self">Sign out</a></button>
+							</div>
+						</motion.div>
 					</div>
 				</div>
 
@@ -123,7 +123,7 @@ const NavBar = ({ onChange }) => {
 						</div>
 
 						{/* GREETING */}
-						<div className='flex gap-x-[0.05rem] lg:gap-x-[0.15rem] my-auto px-3 lg:px-[1.5rem] xl:px-10 text-2xl lg:text-5xl text-blk font-bold select-none w-[100vw] relative'>
+						<div className='flex gap-x-[0.05rem] lg:gap-x-[0.15rem] my-auto px-3 lg:px-[1.5rem] xl:px-10 text-2xl lg:text-5xl text-blk font-bold select-none w-[100vw] relative z-0'>
 							{navHeader.map(labels => {
 								return (
 									<motion.div
