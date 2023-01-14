@@ -22,7 +22,16 @@ const faqSchema = new Schema({
     username: {
         type: String,
         required: true
-    }
+    },
+    user_id: {
+        type: String,
+        required: true
+    },
+    comments: [{
+        username: String,
+        email: String,
+        description: String
+    }]
 }, {timestamps: true});
 
 module.exports = mongoose.model('FAQs', faqSchema);

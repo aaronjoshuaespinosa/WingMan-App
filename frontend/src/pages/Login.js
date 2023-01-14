@@ -134,7 +134,7 @@ const Login = () => {
                                     </button>
                                 </div>
 
-                                {/* {error && <div className="error">{error}</div>} */}
+                                {error && <div className="error">{error}</div>}
                                 <motion.p
                                     initial={{ opacity: 0, y: 15 }}
                                     animate={{ opacity: 100, y: 0 }}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 import { AiTwotoneDelete } from "react-icons/ai";
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
@@ -11,6 +11,41 @@ const FaqDetails = (props) => {
 
     const { dispatch } = useFaqsContext()
     const { user } = useAuthContext()
+    const email = `${user.email}`
+    const username = `${user.data.username}`
+    const [description, setDescription] = useState('')
+    const comments = [{username, email, description}]
+    const [error, setError] = useState('')
+
+    const handleSubmit = async(e) => {
+        e.preventDefault()
+        const faqs = { comments }
+
+        if (!user) {
+            setError('You must be logged in.')
+            return
+        }
+
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/FAQs/` + faq._id, {
+            method: 'PATCH',
+            body: JSON.stringify(faqs),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
+            }
+        })
+
+        const json = await response.json();
+
+        if (!response.ok) {
+            setError('Please fill the empty fields.')
+        }
+        if (response.ok) {
+            setDescription('')
+            setError(null)
+            dispatch({ type: 'UPDATE_FAQ', payload: json })
+        }
+    }
     /*let upvote = `${faq.upvote}`
 
     const upClick = async() => {
@@ -50,12 +85,32 @@ const FaqDetails = (props) => {
                     <div className='flex flex-row align-center justify-center gap-x-1'>
                         <ImArrowUp />
                         <p className='text-sm'>{user && faq.upvote}</p>
+                        <form onSubmit={(handleSubmit)}>
+                            <input
+                                type="text"
+                                placeholder="Want to add a comment?"
+                                onChange={(e) => setDescription(e.target.value)}
+                                required
+                                value={description}
+                            />
+                            <button>Submit comment</button>
+                        </form>
+                       {error && <div>{error}</div>}
                     </div>
-                    
+
                     {/* BASURAHAN */}
-                    {faq.username === user.data.username && <button onClick={() => {onClick(faq._id)}}><AiTwotoneDelete className='hover:text-red transition-all ease-in-out duration-[0.2s]' /></button>}
+                    {faq.username === user.data.username && <button onClick={() => { onClick(faq._id) }}><AiTwotoneDelete className='hover:text-red transition-all ease-in-out duration-[0.2s]' /></button>}
 
                 </div>
+
+                {/*COMMENT SECTION*/}
+                <p>Comments:</p>
+                <p>
+                    {faq.comments.map(({username, description}) => (
+                        <p key={username}>{username}: {description}</p>
+                    ))}
+                </p>
+                
             </div>
 
             <div className='rightCard flex justify-center align-center px-[8px] pt-[12px] bg-light-lgry border-l-[2px] border-blk'>
