@@ -41,7 +41,7 @@ const FaqForm = () => {
             setTitle('')
             setContent('')
             setError(null)
-            dispatch({ type: 'CREATE_FAQ', payload: json })
+            dispatch({ type: 'SET_FAQS', payload: json })
         }
     }
 
