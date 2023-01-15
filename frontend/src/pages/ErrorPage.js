@@ -2,7 +2,7 @@ import React from 'react'
 
 const ErrorPage = () => {
   return (
-    <div>NAWAWALA</div>
+    <div>Whoops! Seems you landed nowhere, perhaps the link you've requested was invalid! (404 Error)</div>
   )
 }
 
