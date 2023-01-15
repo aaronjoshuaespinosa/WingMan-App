@@ -87,8 +87,8 @@ const Dashboard = () => {
 						animate={{ opacity: 100, y: 0 }}
 						transition={{ delay: 6 * 0.1 }}
 						className='w-full h-full flex flex-col items-start lg:flex-row gap-x-3 px-1'>
-						<FAQCard user={"donnalyn.bartolome"} time={"1 week ago"} title={"My Statement"} content={"hustling 😤😤ako after nun takbo ako from Timog to Novaliches 🏃‍♀️💨para sa TV 📺show na nasungkit ko 🎣🛶umextra maghost 👻Siksikan lagi sa pagcommute 👨‍👩‍👧‍👦🚌minsan good experience ✅..minsan bad.. ❌di ako nagdwell honestly. 💪🤛Different days lang to napicturean 📸🤳pero magkasabay ang DJ 💿raket 🚀at hosting raket. 💁‍♀️💁‍♀️Pataasan ng heels, 🗻👠tayo dito, 🧍‍♀️sayaw dito, 💃👯‍♀️kulitan."} />
-						<FAQCard user={"mccoy.deleon"} time={"1 week ago"} title={"Ikaw lang, Amen."} content={"IKAW lang ang nakakaalam. IKAW lang ang makakaintindi sa akin. IKAW lang ang maaasahan ko. IKAW lang nag rason kaya ako nabubuhay. IKAW lang ang lahat lahat ko. Sana pagtanda mo wag magbago tingin kay daddy ha pasensya na lang kung hindi lang talaga nakaya ni daddy. sana maikwento ko sayo pagtanda mo. Dont worry masasaya naman ikekwento ko."}/>
+						<FAQCard user={"beth.harmon"} time={"1 week ago"} title={"Thesis Help!"} content={"How did you choose your thesis topic? What would be possible titles for the first three PhD thesis projects in your research group?"} />
+						<FAQCard user={"james.mcavoy"} time={"1 week ago"} title={"Academic advise"} content={"If you start having difficulty juggling the combination of research, teaching, advising, and proposal-writing, what would you do to fix the problem?"}/>
 					</motion.div>
 				</div>
 
