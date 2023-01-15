@@ -61,7 +61,7 @@ userSchema.statics.signup = async function (firstName, lastName, studentNumber, 
     }
 
     // if username has spaces
-    if (!(/^[a-zA-Z-_.]+$/.test(username))) {
+    if (!(/^[A-Za-z0-9_.]+$/.test(username))) {
         throw Error('Username must not comtain spaces.');
     }
 
