@@ -238,7 +238,7 @@ const Join = () => {
                                     </button>
                                 </motion.div>
 
-                                {error && <div className="mb-2 lg:mb-2">{error}</div>}
+                                {error && <div className="error text-center flex justify-center items-center w-full text-sm text-red font-bold mb-5">{error}</div>}
                                 <motion.p
                                     initial={{ opacity: 0, y: 15 }}
                                     animate={{ opacity: 100, y: 0 }}
