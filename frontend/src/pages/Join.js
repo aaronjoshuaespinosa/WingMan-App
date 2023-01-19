@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FormInput, LoginHero, LoginNav } from '../components'
+import { FormInput, HeroNav, LoginHero, LoginNav } from '../components'
 import { joinusInputs } from '../constants'
 import { useSignup } from '../hooks/useSignup'
 import { motion } from 'framer-motion';
@@ -194,8 +194,9 @@ const Join = () => {
     return (
         <>
             <motion.div
-                className='parent-wrapper w-full h-screen relative'>
+                className='parent-wrapper w-full h-screen relative font-space'>
                 <img src="https://ik.imagekit.io/efpqj5mis/gradient_1_Cu7n0Rq7PR.png?ik-sdk-version=javascript-1.4.3&updatedAt=1671371950247" alt="" className='w-full h-full absolute pointer-events-none select-none top-0 right-0'></img>
+                <div className='absolute top-0 w-full'><HeroNav /></div>
                 <div className='max-w-[1600px] h-full mx-auto flex'>
 
                     <div className='flex justify-center items-center lg:h-full lg:w-full'>
@@ -203,7 +204,8 @@ const Join = () => {
                     </div>
 
                     <div className='w-full relative'>
-                        <LoginNav isActive="join" />
+
+                        {/* <LoginNav isActive="join" /> */}
                         <div className='h-[80%] flex items-center justify-center'>
 
                             <div
