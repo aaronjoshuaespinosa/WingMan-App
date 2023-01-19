@@ -114,10 +114,11 @@ const FaqDetails = (props) => {
 
                 {/*COMMENT SECTION*/}
                 <div className='px-[24px] py-[12px] bg-light-lgry border-t-light-gry border-t-[1px]'>
-                    <p className='font-bold text-lg'>COMMENTS</p>
+                    <p className='font-bold text-sm'>COMMENTS</p>
+                    <hr className='h-[2px] bg-light-gry my-2' />
                     <div>
                         {faq.comments.map(({ username, description }) => (
-                            <p key={username} className="text-light-gry cursor-default"><span className='font-bold cursor-default hover:underline'>{username}</span>&nbsp;&nbsp;{description}</p>
+                            <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username}:</span>&nbsp;&nbsp;{description}</p>
                         ))}
                     </div>
                 </div>
