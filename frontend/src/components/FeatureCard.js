@@ -7,15 +7,13 @@ const FeatureCard = (props) => {
 
     return (
         <>
-            <div className='px-0 lg:px-40'>
-                <div className='bg-light-lgry rounded-[5px] p-[24px] flex flex-col lg:flex-row w-full gap-y-5 lg:gap-y-0'>
-                    <div className='lg:p-[24px] w-full lg:w-1/2'>
-                        <motion.p
-                            whileHover={{ scale: 1.05, rotate: 1, y: -3, color: "#FC5F1C" }}
-                            className='font-bold text-4xl cursor-default text-blk text-center lg:text-left'>{name}</motion.p>
-                        <p className='cursor-default text-light-gry text-center lg:text-left text-sm'>{desc}</p>
+            <div className=''>
+                <div className='bg-light-lgry rounded-[5px] p-[24px] flex flex-col w-full h-fit gap-y-5 lg:gap-y-0'>
+                    <div className=' pb-[24px] w-full'>
+                        <p className='font-bold text-4xl cursor-default text-blk text-center lg:text-left hover:text-orng transition-text duration-[0.2s] ease-in-out'>{name}</p>
+                        <p className='cursor-default text-blk text-center lg:text-left text-sm'>{desc}</p>
                     </div>
-                    <div className='bg-orng rounded-[10px] p-[48px] w-full lg:w-1/2 flex justify-center items-center'>
+                    <div className='bg-orng rounded-[10px] p-[48px] w-full flex justify-center items-center'>
                         <motion.div
                             whileHover={{ scale: 1.15, rotate: 1.9 }}
                             className='text-[8rem] text-wht drop'>

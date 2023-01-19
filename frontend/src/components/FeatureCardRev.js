@@ -11,9 +11,9 @@ const FeatureCard = (props) => {
                 <div className='bg-light-lgry rounded-[5px] p-[24px] flex flex-col lg:flex-row-reverse w-full gap-y-5 lg:gap-y-0'>
                     <div className='lg:p-[24px] w-full lg:w-1/2'>
                         <motion.p
-                            whileHover={{ scale: 1.05, rotate: 1, y: -3, color: "#FC5F1C" }}
+                            whileHover={{ color: "#FC5F1C" }}
                             className='font-bold text-4xl cursor-default text-blk text-center lg:text-right'>{name}</motion.p>
-                        <p className='cursor-default text-light-gry text-center lg:text-right text-sm'>{desc}</p>
+                        <p className='cursor-default text-blk text-center lg:text-right text-sm'>{desc}</p>
                     </div>
                     <div className='bg-orng rounded-[10px] p-[48px] w-full lg:w-1/2 flex justify-center items-center'>
                         <motion.div
