@@ -224,7 +224,6 @@ const Hero = () => {
                             className='bg-orng text-xl border-blk border-[2px] rounded-[5px] py-3 px-6 font-bold cursor-pointer hover:drop-shadow-hoverShadow hover:bg-orng transition-all ease-in-out duration-[0.1s] relative'
                             onClick={joinLink}>
                             JOIN NOW
-                            <p className='bg-wht text-xl border-[0px] rounded-[0px]'>JOIN NOW</p>
                         </motion.div>
                     </motion.div>
                 </div>
