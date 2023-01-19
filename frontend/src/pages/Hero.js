@@ -143,40 +143,50 @@ const Hero = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         className='text-blk font-bold text-5xl lg:text-7xl select-none text-center'>~FEATURES~</motion.p>
 
-                    <div className='w-full flex flex-row lg:flex-wrap py-10 gap-y-5 gap-x-5'>
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}>
-                            <FeatureCard name="MARKETPLACE" desc="Are you searching for an item or a service that you need or are you looking forward to sell an item or a service in order to gain profit? Whether which one of you are in these two, the marketplace is the place for you." icon=<BsFillCartCheckFill /> />
-                        </motion.div>
+                    <div className='w-full flex flex-col lg:flex-row lg:flex-wrap py-10 justify-center'>
+                        <div className='basis-1/3 py-2 lg:p-5'>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}>
+                                <FeatureCard name="MARKETPLACE" desc="Are you searching for an item or a service that you need or are you looking forward to sell an item or a service in order to gain profit? Whether which one of you are in these two, the marketplace is the place for you." icon=<BsFillCartCheckFill /> />
+                            </motion.div>
+                        </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 1 * 0.1 }}>
-                            <FeatureCard name="NEWS" desc="Looking for a reliable source of news and announcements inside the campus? WingMan's got you covered!  With news straight from the university and announcements coming from various school organizations, you can now be informed and updated while also being assured that the information you are getting is verified and true." icon=<ImNewspaper /> />
-                        </motion.div>
+                        <div className='basis-1/3 py-2 lg:p-5'>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 1 * 0.1 }}>
+                                <FeatureCard name="NEWS" desc="Looking for a reliable source of news and announcements inside the campus? WingMan's got you covered!  With news straight from the university and announcements coming from various school organizations, you can now be informed and updated while also being assured that the information you are getting is verified and true." icon=<ImNewspaper /> />
+                            </motion.div>
+                        </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 2 * 0.1 }}>
-                            <FeatureCard name="FAQs" desc="Do you want to ask something from your fellow schoolmates but you don't have the confidence to do it personally? With this feature it is now possible for you to do it. Just post your question and  you shall receive different answers from your fellow CvSUenos." icon=<IoIosMegaphone /> />
-                        </motion.div>
+                        <div className='basis-1/3 py-2 lg:p-5'>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 2 * 0.1 }}>
+                                <FeatureCard name="FAQs" desc="Do you want to ask something from your fellow schoolmates but you don't have the confidence to do it personally? With this feature it is now possible for you to do it. Just post your question and  you shall receive different answers from your fellow CvSUenos." icon=<IoIosMegaphone /> />
+                            </motion.div>
+                        </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 3 * 0.1 }}>
-                            <FeatureCard name="APPOINTMENTS" desc="A slow transaction consumes a lot of your time and energy, right? That's why this feature allows you to make your own appointment whenever you needed something from the university. So you can have a faster transaction." icon=<AiFillSchedule /> />
-                        </motion.div>
+                        <div className='basis-1/3 py-2 lg:p-5'>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 3 * 0.1 }}>
+                                <FeatureCard name="APPOINTMENTS" desc="A slow transaction consumes a lot of your time and energy, right? That's why this feature allows you to make your own appointment whenever you needed something from the university. So you can have a faster transaction." icon=<AiFillSchedule /> />
+                            </motion.div>
+                        </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 4 * 0.1 }}>
-                            <FeatureCard name="COMPLAINTS" desc="Did you have a negative experience at the university? This feature will serve as your platform to let your voice out and also to be heard." icon=<BsExclamationOctagonFill /> />
-                        </motion.div>
+                        <div className='basis-1/3 py-2 lg:p-5'>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 4 * 0.1 }}>
+                                <FeatureCard name="COMPLAINTS" desc="Did you have a negative experience at the university? This feature will serve as your platform to let your voice out and also to be heard." icon=<BsExclamationOctagonFill /> />
+                            </motion.div>
+                        </div>
                     </div>
                 </div>
 
@@ -210,7 +220,12 @@ const Hero = () => {
                         transition={{ delay: 0.2 }}
                         className='py-20 flex flex-col justify-center items-center gap-y-9'>
                         <p className='text-blk font-bold text-6xl lg:text-[10rem] select-none text-center'>interested?</p>
-                        <p className='bg-wht text-xl border-blk border-[2px] rounded-[5px] py-3 px-6 font-bold cursor-pointer hover:drop-shadow-hoverShadow hover:bg-orng transition-all ease-in-out duration-[0.1s]' onClick={joinLink}>JOIN NOW</p>
+                        <motion.div
+                            className='bg-orng text-xl border-blk border-[2px] rounded-[5px] py-3 px-6 font-bold cursor-pointer hover:drop-shadow-hoverShadow hover:bg-orng transition-all ease-in-out duration-[0.1s] relative'
+                            onClick={joinLink}>
+                            JOIN NOW
+                            <p className='bg-wht text-xl border-[0px] rounded-[0px]'>JOIN NOW</p>
+                        </motion.div>
                     </motion.div>
                 </div>
 
