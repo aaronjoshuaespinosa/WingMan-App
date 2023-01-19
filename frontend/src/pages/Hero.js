@@ -13,10 +13,15 @@ import { MdDoubleArrow } from "react-icons/md";
 const Hero = () => {
 
     const ref = useRef(null)
+    const refHIW = useRef(null)
     const navigate = useNavigate()
 
     const featureClick = () => {
         ref.current.scrollIntoView({ behavior: 'smooth' })
+    }
+
+    const discClick = () => {
+        refHIW.current.scrollIntoView({ behavior: 'smooth' })
     }
 
     const joinLink = () => {
@@ -111,11 +116,11 @@ const Hero = () => {
                             <p className='bg-wht border-blk border-[2px] rounded-full py-2 px-6 font-bold cursor-pointer hover:drop-shadow-hoverShadow transition-all ease-in-out duration-[0.1s]' onClick={joinLink}>Get Started</p>
                         </motion.div>
 
-                        <p className='font-bold text-blk text-xl py-5 select-none'>↓ DISCOVER MORE BELOW ↓</p>
+                        <p className='font-bold text-blk text-xl py-5 select-none cursor-pointer' onClick={discClick}>↓ DISCOVER MORE BELOW ↓</p>
                     </div>
                 </div>
 
-                <div className='bg-orng px-5 py-12 lg:py-20 lg:px-56 w-full flex flex-col gap-y-5'>
+                <div className='bg-orng px-5 py-12 lg:py-20 lg:px-56 w-full flex flex-col gap-y-5' ref={refHIW}>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 100, y: 0 }}
