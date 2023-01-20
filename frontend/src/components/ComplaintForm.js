@@ -71,7 +71,7 @@ const ComplaintForm = () => {
                                 onChange={(e) => setRecipient(e.target.value)}
                                 value={recipient}
                                 className="w-full p-[12px] border-blk border-[2px] rounded-[3px]"
-                                placeholder='Recipient'
+                                placeholder='Recipient (Ex. CEIT)'
                             />
                         </div>
                     </div>

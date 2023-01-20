@@ -60,7 +60,7 @@ const Appointments = () => {
 						<motion.p
 							initial={{ opacity: 0, y: 15 }}
 							animate={{ opacity: 100, y: 0 }}
-							className='text-blk text-4xl lg:text-5xl font-bold pb-[12px] lg:pb-[24px]'>Wanted to set an appointment?</motion.p>
+							className='text-orng text-4xl lg:text-5xl font-bold pb-[12px] uppercase'>set an appointment</motion.p>
 
 						{/* APPOINTMENT FORM */}
 						<motion.div

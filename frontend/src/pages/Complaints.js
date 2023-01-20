@@ -43,8 +43,8 @@ const Complaints = () => {
 					<motion.p
 						initial={{ opacity: 0, y: 15 }}
 						animate={{ opacity: 100, y: 0 }}
-						className='text-blk text-4xl lg:text-5xl font-bold pb-[12px] lg:pb-[24px]'
-					>Experiencing an academic inconvenience?</motion.p>
+						className='text-orng text-4xl lg:text-5xl font-bold pb-[12px] uppercase'
+					>send a complaint</motion.p>
 
 					<motion.div
 						initial={{ opacity: 0, y: 15 }}
