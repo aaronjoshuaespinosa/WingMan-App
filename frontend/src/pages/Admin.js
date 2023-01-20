@@ -3,7 +3,6 @@ import { AdminNav } from '../components'
 
 
 const Admin = () => {
-    console.log(window.location.pathname)
     return (
         <>
             <div className='w-full h-auto font-space text-blk'>

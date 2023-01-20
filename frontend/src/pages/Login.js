@@ -88,6 +88,13 @@ const Login = () => {
         navigate("/", { replace: true })
     }
 
+    const handleKeypress = e => {
+        if (e.key === 'Enter') {
+            handleSubmit();
+            console.log("true")
+        }
+    }
+
     return (
         <>
             <div className='parent-wrapper w-full h-screen relative font-space'>
@@ -129,9 +136,9 @@ const Login = () => {
                                         initial={{ opacity: 0, y: 15 }}
                                         animate={{ opacity: 100, y: 0 }}
                                         transition={{ delay: 3 * 0.05 }}
-                                        type="submit"
                                         className='bg-orng w-full h-[40px] text-center text-blk flex items-center justify-center text-sm font-bold rounded-[2px] border-[2px] border-blk select-none cursor-pointer mb-2 lg:mb-5 hover:bg-light-orng transition-all ease-in-out duration-[0.2s]'
-                                        onClick={this.handleSubmit}>SIGN IN
+                                        onClick={handleSubmit}
+                                        onKeyDown={handleKeypress}>SIGN IN
                                     </button>
                                 </div>
 
