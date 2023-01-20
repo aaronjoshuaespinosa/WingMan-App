@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FormInput, HeroNav, LoginHero, LoginNav } from '../components'
+import { FormInput, HeroNav, LoginHero } from '../components'
 import { joinusInputs } from '../constants'
 import { useSignup } from '../hooks/useSignup'
 import { motion } from 'framer-motion';
@@ -204,8 +204,7 @@ const Join = () => {
                     </div>
 
                     <div className='w-full relative'>
-                        <div className='h-[100%] flex items-center justify-center lg:justify-end'>
-
+                        <div className='h-[100%] flex flex-col items-center justify-center lg:justify-end'>
                             <div
                                 className='mainForm w-[80%] max-w-[300px] font-space'>
                                 <motion.div

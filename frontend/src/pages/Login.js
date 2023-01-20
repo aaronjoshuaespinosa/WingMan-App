@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FormInput, LoginHero, LoginNav, HeroNav } from '../components'
+import { FormInput, LoginHero, HeroNav } from '../components'
 import { signinInputs } from '../constants'
 import { useLogin } from '../hooks/useLogin'
 import { motion } from 'framer-motion';
@@ -14,7 +14,7 @@ const Login = () => {
         password: ''
     })
 
-    const { login, error, isLoading } = useLogin()
+    const { login, error } = useLogin()
 
     const [valuesError, setError] = useState({
         email: null,
@@ -82,10 +82,6 @@ const Login = () => {
 
     const joinLink = () => {
         navigate("/join-us", { replace: true })
-    }
-
-    const heroLink = () => {
-        navigate("/", { replace: true })
     }
 
     const handleKeypress = e => {
