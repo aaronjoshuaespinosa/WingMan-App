@@ -8,6 +8,7 @@ import NACard from "./NACard"
 import NavBar from "./NavBar"
 import NavLinks from "./NavLinks"
 import AppCard from "./AppCard"
+import AppACard from "./AppACard"
 import AppSelect from "./AppSelect"
 import HeroCard from "./HeroCard"
 import HeroFooter from "./HeroFooter"
@@ -46,4 +47,5 @@ export {
     AdminNav,
     FeatureCard,
     FeatureCardRev,
+    AppACard,
 }

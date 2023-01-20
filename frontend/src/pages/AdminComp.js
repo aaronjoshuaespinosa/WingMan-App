@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { AdminNav } from '../components'
 import { useComplaintsContext } from '../hooks/useComplaintsContext'
-import ComplaintDetails from '../components/ComplaintDetails'
+import ComplaintADetails from '../components/ComplaintADetails'
 import { useAuthContext } from '../hooks/useAuthContext'
 
 const AdminComp = () => {
@@ -35,7 +35,7 @@ const AdminComp = () => {
 						className='flex flex-col gap-y-3'>
 						{complaints && complaints.map((complaint, i) => (
 							<div>
-								<ComplaintDetails key={complaint.id} complaint={complaint} index={i} />
+								<ComplaintADetails key={complaint.id} complaint={complaint} index={i} />
 							</div>
 						))}
 					</div>

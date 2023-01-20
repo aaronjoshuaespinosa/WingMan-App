@@ -70,6 +70,8 @@ const AppCard = (props) => {
 
                     {/* DESCRIPTION */}
                     <div className='py-3 bg-wht p-[12px]'>
+                        {user.data.email === "cvsu.admin@wingman.com" &&
+                            <p className='font-bold'>Requested by: {appointment.fullName} | {appointment.studentNumber} | {appointment.email}</p>}
                         <p>{appointment.description}</p>
                         <p>{formatDistanceToNowStrict(new Date(appointment.createdAt), { addSuffix: true })}</p>
                         {user.data.email === "cvsu.admin@wingman.com" && <button onClick={handleClick}>Approve</button>}

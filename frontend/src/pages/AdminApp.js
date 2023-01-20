@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { AppCard, Nothing } from '../components'
+import { AppACard, Nothing } from '../components'
 import { useAppointmentsContext } from '../hooks/useAppointmentsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { AdminNav } from '../components'
@@ -37,7 +37,7 @@ const AdminApp = () => {
 					{user && <div className='flex flex-col gap-y-3'>
 						{appointments && appointments.map((appointment, i) => (
 							<di>
-								<AppCard key={appointment.id} appointment={appointment} index={i} />
+								<AppACard key={appointment.id} appointment={appointment} index={i} />
 							</di>
 						))}
 					</div>}
