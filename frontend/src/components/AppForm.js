@@ -113,7 +113,7 @@ const AppForm = (props) => {
 
 
                     {/* APPOINTMENT DESCRIPTION */}
-                    <textarea className="resize-y p-[12px] border-blk border-[2px] rounded-[3px] h-[12.75rem] lg:h-[6.75rem]" placeholder="Description (Include date and time of appointment for approval)" type="text" onChange={(e) => setDescription(e.target.value)} value={description} />
+                    <textarea className="resize-y p-[12px] border-blk border-[2px] rounded-[3px] h-[12.75rem] lg:h-[6.75rem]" placeholder="Description (Reason of appointment)" type="text" onChange={(e) => setDescription(e.target.value)} value={description} />
 
                 </div>
 
