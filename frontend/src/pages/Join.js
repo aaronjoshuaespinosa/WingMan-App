@@ -18,7 +18,7 @@ const Join = () => {
         navigate("/", { replace: true })
     }
 
-    const { signup, error, isLoading } = useSignup()
+    const { signup, error } = useSignup()
 
     const [values, setValues] = useState({
         fName: '',
@@ -204,9 +204,8 @@ const Join = () => {
                     </div>
 
                     <div className='w-full relative'>
-                        <div className='h-[100%] flex flex-col items-center justify-center lg:justify-end'>
-                            <div
-                                className='mainForm w-[80%] max-w-[300px] font-space'>
+                        <div className='h-[100%] flex items-center justify-center lg:justify-end'>
+                            <div className='mainForm w-[80%] max-w-[300px] font-space'>
                                 <motion.div
                                     initial={{ opacity: 0, y: 15 }}
                                     animate={{ opacity: 100, y: 0 }}
