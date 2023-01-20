@@ -103,7 +103,7 @@ const Appointments = () => {
 
 					</div>
 
-					<div className='flex flex-col gap-y-4 z-[-1] relative'>
+					<div className='flex flex-col gap-y-4'>
 						{/* TITLE */}
 						<motion.div
 							initial={{ opacity: 0, y: 15 }}

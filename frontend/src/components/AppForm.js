@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import Calendar from 'react-calendar'
 import { useAppointmentsContext } from '../hooks/useAppointmentsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 
@@ -11,14 +10,27 @@ const AppForm = (props) => {
     const [startDate, setStartDate] = useState(new Date());
     const status = "Pending"
     const { name, onClick } = props
-    const type = `${name}`
-
     const { dispatch } = useAppointmentsContext()
     const { user } = useAuthContext()
+    const type = `${name}`
     const email = `${user.email}`
     const fullName = `${user.data.firstName}` + ` ` + `${user.data.lastName}`
     const username = `${user.data.username}`
     const studentNumber = `${user.data.studentNumber}`
+    const today = new Date()
+    const yyyy = today.getFullYear()
+    let mm = today.getMonth() + 1
+    let dd = today.getDate()
+
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+
+    let dateToday = yyyy + '-' + mm + '-' + dd
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -74,16 +86,35 @@ const AppForm = (props) => {
                         </div>}
 
                     {/* APPOINTMENT TITLE */}
-                    <input className="w-full p-[12px] border-blk border-[2px] rounded-[3px]" placeholder="Appointment Title (Ex. Certificate of Grades)" type="text" onChange={(e) => setTitle(e.target.value)} value={title} />
+                    <div className='flex flex-row gap-x-[12px]'>
+                        <input
+                            className="w-full p-[12px] border-blk border-[2px] rounded-[3px]"
+                            placeholder="Appointment Title (Ex. Certificate of Grades)"
+                            type="text"
+                            onChange={(e) => setTitle(e.target.value)}
+                            value={title} />
+
+                        <div className='flex flex-row gap-x-[12px]'>
+                            <input
+                                type="date"
+                                min={dateToday}
+                                value={dateToday}
+                                required
+                                className="w-full p-[12px] border-blk border-[2px] rounded-[3px]" />
+
+                            <input
+                                type="time"
+                                min="10:00"
+                                max="16:00"
+                                value="10:00"
+                                required
+                                className="w-full p-[12px] border-blk border-[2px] rounded-[3px]"></input>
+                        </div>
+                    </div>
+
 
                     {/* APPOINTMENT DESCRIPTION */}
                     <textarea className="resize-y p-[12px] border-blk border-[2px] rounded-[3px] h-[12.75rem] lg:h-[6.75rem]" placeholder="Description (Include date and time of appointment for approval)" type="text" onChange={(e) => setDescription(e.target.value)} value={description} />
-
-                    <DatePicker
-                        selected={startDate}
-                        onChange={(date) => setStartDate(date)}
-                        minDate={new Date()}
-                        className="w-full p-[12px] border-blk border-[2px] rounded-[3px] relative z-50"/>
 
                 </div>
 
