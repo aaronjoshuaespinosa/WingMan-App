@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { useAppointmentsContext } from '../hooks/useAppointmentsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 
@@ -6,6 +8,7 @@ const AppForm = (props) => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [error, setError] = useState('')
+    const [startDate, setStartDate] = useState(new Date());
     const status = "Pending"
     const { name, onClick } = props
     const type = `${name}`
@@ -16,8 +19,6 @@ const AppForm = (props) => {
     const fullName = `${user.data.firstName}` + ` ` + `${user.data.lastName}`
     const username = `${user.data.username}`
     const studentNumber = `${user.data.studentNumber}`
-
-    console.log(user)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -58,11 +59,11 @@ const AppForm = (props) => {
 
     return (
         <>
-            <div className='bg-light-lgry w-full h-full border-[2px] border-blk rounded-[3px] p-[24px]'>
+            <div className='bg-light-lgry w-full h-full border-[2px] border-blk rounded-[3px] p-[24px] relative'>
 
                 {/* TITLE */}
                 <p className='text-blk font-bold text-3xl mb-[12px]'>Make an appointment: <span className='uppercase'>{name}</span></p>
-                <div className='flex flex-col gap-y-[12px]'>
+                <div className='flex flex-col gap-y-[12px] relative'>
 
                     {user &&
                         <div>
@@ -77,6 +78,12 @@ const AppForm = (props) => {
 
                     {/* APPOINTMENT DESCRIPTION */}
                     <textarea className="resize-y p-[12px] border-blk border-[2px] rounded-[3px] h-[12.75rem] lg:h-[6.75rem]" placeholder="Description (Include date and time of appointment for approval)" type="text" onChange={(e) => setDescription(e.target.value)} value={description} />
+
+                    <DatePicker
+                        selected={startDate}
+                        onChange={(date) => setStartDate(date)}
+                        minDate={new Date()}
+                        className="w-full p-[12px] border-blk border-[2px] rounded-[3px] relative z-50"/>
 
                 </div>
 
