@@ -17,6 +17,8 @@ const AppForm = (props) => {
     const username = `${user.data.username}`
     const studentNumber = `${user.data.studentNumber}`
 
+    console.log(user)
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -45,7 +47,7 @@ const AppForm = (props) => {
             setTitle('')
             setDescription('')
             setError(null)
-            dispatch({type: 'CREATE_APPOINTMENT', payload: json})
+            dispatch({ type: 'CREATE_APPOINTMENT', payload: json })
         }
     }
 
@@ -59,14 +61,22 @@ const AppForm = (props) => {
             <div className='bg-light-lgry w-full h-full border-[2px] border-blk rounded-[3px] p-[24px]'>
 
                 {/* TITLE */}
-                <p className='text-blk font-bold text-3xl mb-[12px]'>Make an appointment: {name}</p>
+                <p className='text-blk font-bold text-3xl mb-[12px]'>Make an appointment: <span className='uppercase'>{name}</span></p>
                 <div className='flex flex-col gap-y-[12px]'>
 
+                    {user &&
+                        <div>
+                            <p className='font-bold uppercase'>create an appointment for</p>
+                            <p className='text-sm truncate'>Full Name: {user.data.firstName} {user.data.lastName}</p>
+                            <p className='text-sm'>Student Number: {user.data.studentNumber}</p>
+                            <p className='text-sm truncate'> CvSU Email: {user.email}</p>
+                        </div>}
+
                     {/* APPOINTMENT TITLE */}
-                    <input className="w-full p-[12px] border-blk border-[2px] rounded-[3px]" placeholder="Appointment Title" type="text" onChange={(e) => setTitle(e.target.value)} value={title}/>
+                    <input className="w-full p-[12px] border-blk border-[2px] rounded-[3px]" placeholder="Appointment Title (Ex. Certificate of Grades)" type="text" onChange={(e) => setTitle(e.target.value)} value={title} />
 
                     {/* APPOINTMENT DESCRIPTION */}
-                    <textarea className="resize-y p-[12px] border-blk border-[2px] rounded-[3px] h-[12.75rem] lg:h-[12.75rem]" placeholder="Description"  type="text" onChange={(e) => setDescription(e.target.value)} value={description}/>
+                    <textarea className="resize-y p-[12px] border-blk border-[2px] rounded-[3px] h-[12.75rem] lg:h-[6.75rem]" placeholder="Description (Include date and time of appointment for approval)" type="text" onChange={(e) => setDescription(e.target.value)} value={description} />
 
                 </div>
 
@@ -82,11 +92,11 @@ const AppForm = (props) => {
 
                         {/* POST BUTTON */}
                         <button className='px-5 py-2 font-bold bg-orng border-[2px] border-blk text-blk rounded-[3px] hover:drop-shadow-hoverShadow hover:bg-light-orng transition-all ease-in-out duration-[0.1s]' onClick={handleSubmit}>Submit</button>
-                        
+
                     </div>
 
                 </div>
-            {error && <div>{error}</div>}
+                {error && <div>{error}</div>}
             </div>
         </>
     )

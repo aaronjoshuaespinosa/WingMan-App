@@ -3,7 +3,7 @@ import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 import { useAppointmentsContext } from '../hooks/useAppointmentsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 
-const AppCard = (props) => {
+const AppACard = (props) => {
 
     const { appointment, index } = props
     const { appointments, dispatch } = useAppointmentsContext()
@@ -86,4 +86,4 @@ const AppCard = (props) => {
     )
 }
 
-export default AppCard
+export default AppACard
