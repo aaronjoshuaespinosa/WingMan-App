@@ -10,7 +10,6 @@ const AppCard = (props) => {
     const { user } = useAuthContext()
     const [error, setError] = useState('')
     const status = "Approved"
-    console.log(`${appointments.id}`)
 
     const handleClick = async (e) => {
         const appointment = { status }

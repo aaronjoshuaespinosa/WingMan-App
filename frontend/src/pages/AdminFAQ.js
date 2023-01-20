@@ -18,7 +18,6 @@ const AdminFAQ = () => {
 	const { user } = useAuthContext()
 
 	useEffect(() => {
-		console.log(faqs)
 	}, [id, faqs])
 
     // GET FAQ
