@@ -196,8 +196,8 @@ const Join = () => {
             <motion.div
                 className='parent-wrapper w-full h-screen relative font-space'>
                 <img src="https://ik.imagekit.io/efpqj5mis/gradient_1_Cu7n0Rq7PR.png?ik-sdk-version=javascript-1.4.3&updatedAt=1671371950247" alt="" className='w-full h-full absolute pointer-events-none select-none top-0 right-0'></img>
-                <div className='absolute top-0 w-full'><HeroNav /></div>
-                <div className='max-w-[1600px] h-full mx-auto flex'>
+                <div className='absolute top-0 w-full z-20'><HeroNav /></div>
+                <div className=' h-full mx-auto flex px-5 lg:px-56'>
 
                     <div className='flex justify-center items-center lg:h-full lg:w-full'>
                         <LoginHero />
@@ -206,18 +206,22 @@ const Join = () => {
                     <div className='w-full relative'>
 
                         {/* <LoginNav isActive="join" /> */}
-                        <div className='h-[80%] flex items-center justify-center'>
+                        <div className='h-[100%] flex items-center justify-center lg:justify-end'>
 
                             <div
-                                className='mainForm w-[70%] mx-auto max-w-[250px] font-space'>
-                                <motion.img
+                                className='mainForm w-[80%] max-w-[300px] font-space'>
+                                <div className='py-5'>
+                                    <p className='text-3xl text-blk font-bold'>Create an Account</p>
+                                    <p className='text-sm'>Connect with your fellow CvSUeños!</p>
+                                </div>
+                                {/* <motion.img
                                     initial={{ opacity: 0, y: 15 }}
                                     animate={{ opacity: 100, y: 0 }}
                                     transition={{ delay: 0.05 }}
                                     src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432"
                                     alt="Logo"
                                     className='mx-auto m-2 cursor-pointer h-24'
-                                    onClick={heroLink} />
+                                    onClick={heroLink} /> */}
 
                                 {joinusInputs.map((val, i) => {
                                     return (

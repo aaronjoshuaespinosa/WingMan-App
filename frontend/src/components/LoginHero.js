@@ -3,7 +3,7 @@ import React from 'react'
 const LoginHero = () => {
     return (
         <div className='hidden lg:block w-full font-space font-bold text-orng '>
-            <div className='pl-10'>
+            <div>
                 <h1 className='xl:text-8xl lgmd:text-7xl'>An assistant</h1>
                 <p className='text-2xl mt-[-10px]'>for your daily and not-so-daily needs.</p>
             </div>
