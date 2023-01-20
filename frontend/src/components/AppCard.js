@@ -72,8 +72,8 @@ const AppCard = (props) => {
                     <div className='py-3 bg-wht p-[12px]'>
                         <p>{appointment.description}</p>
 
-                        <p>{user.data.email === "cvsu.admin@wingman.com" && 
-                        <p>Requested by: {appointment.fullName} {appointment.studentNumber} {appointment.email}</p>}</p>
+                        <p>{user.data.email === "cvsu.admin@wingman.com" &&
+                            <p>Requested by: {appointment.fullName} {appointment.studentNumber} {appointment.email}</p>}</p>
                         <p>{formatDistanceToNowStrict(new Date(appointment.createdAt), { addSuffix: true })}</p>
                         {user.data.email === "cvsu.admin@wingman.com" && <button onClick={handleClick}>Approve</button>}
                     </div>

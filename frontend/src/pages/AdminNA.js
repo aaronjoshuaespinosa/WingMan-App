@@ -1,9 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { AdminNav } from '../components'
-import { useComplaintsContext } from '../hooks/useComplaintsContext'
-import ComplaintDetails from '../components/ComplaintDetails'
-import { useAuthContext } from '../hooks/useAuthContext'
-import { motion } from 'framer-motion'
 
 const AdminNA = () => {
     return (
