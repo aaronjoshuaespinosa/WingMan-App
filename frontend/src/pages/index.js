@@ -14,6 +14,7 @@ import Admin from "./Admin"
 import AdminApp from "./AdminApp"
 import AdminComp from "./AdminComp"
 import AdminFAQ from "./AdminFAQ"
+import AdminNA from "./AdminNA"
 
 export {
     Join,
@@ -32,4 +33,5 @@ export {
     AdminApp,
     AdminComp,
     AdminFAQ,
+    AdminNA,
 }

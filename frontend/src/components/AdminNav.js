@@ -10,6 +10,10 @@ const AdminNav = () => {
         navigate("/admin/dashboard", { replace: true })
     }
 
+    const adminNA = () => {
+        navigate("/admin/news-and-announcements", { replace: true })
+    }
+
     const adminFAQ = () => {
         navigate("/admin/faqs", { replace: true })
     }
@@ -34,6 +38,13 @@ const AdminNav = () => {
                             onClick={adminDash}
                             style={window.location.pathname === "/admin/dashboard" ? { color: "#FC5F1C", borderBottom: "solid 3px #FC5F1C" } : { color: "#F9F9F9" }}>
                             <p className="h-full cursor-pointer hover:text-orng">Dashboard</p>
+                        </div>
+
+                        <div
+                            className='h-full py-3 px-3'
+                            onClick={adminNA}
+                            style={window.location.pathname === "/admin/news-and-announcements" ? { color: "#FC5F1C", borderBottom: "solid 3px #FC5F1C" } : { color: "#F9F9F9" }}>
+                            <p className="h-full cursor-pointer hover:text-orng">N&A</p>
                         </div>
 
                         <div

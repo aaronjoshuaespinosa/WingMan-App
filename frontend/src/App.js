@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes, Navigate } from 'react-router-dom'
-import { Join, Login, Dashboard, Marketplace, Appointments, News, Complaints, FAQ, ErrorPage, Profile, Hero, Devs, Admin, AdminComp, AdminApp, AdminFAQ } from './pages'
+import { Join, Login, Dashboard, Marketplace, Appointments, News, Complaints, FAQ, ErrorPage, Profile, Hero, Devs, Admin, AdminComp, AdminApp, AdminFAQ, AdminNA } from './pages'
 import { NavBar, ScrollToTop } from './components'
 import { setToggle } from './features/navSlice'
 import './index.css'
@@ -64,6 +64,7 @@ function App() {
 						<Route path="/faqs" element={user ? <FAQ /> : <Navigate to="/" />}></Route>
 						<Route path="/devs" element={!user ? <Devs /> : <Navigate to="/" />}></Route>
 						<Route path="/admin/dashboard" element={<Admin />}></Route>
+						<Route path="/admin/news-and-announcements" element={<AdminNA />}></Route>
 						<Route path="/admin/faqs" element={<AdminFAQ />}></Route>
 						<Route path="/admin/appointments" element={<AdminApp />}></Route>
 						<Route path="/admin/complaints" element={<AdminComp />}></Route>
