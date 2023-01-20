@@ -1,9 +1,16 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useLogout } from '../hooks/useLogout'
 
 const AdminNav = () => {
 
     const navigate = useNavigate()
+
+    const { logout } = useLogout()
+
+    const signoutClick = () => {
+        logout()
+    }
 
     const adminDash = () => {
         navigate("/admin/dashboard", { replace: true })
@@ -68,7 +75,7 @@ const AdminNav = () => {
                         </div>
                     </div>
 
-                    <p className='text-orng cursor-pointer'>Sign out</p>
+                    <p className='text-orng cursor-pointer' onClick={signoutClick}>Sign out</p>
                 </nav>
             </div>
         </>

@@ -193,27 +193,29 @@ const Join = () => {
 
     return (
         <>
-            <motion.div
+            <div
                 className='parent-wrapper w-full h-screen relative font-space'>
                 <img src="https://ik.imagekit.io/efpqj5mis/gradient_1_Cu7n0Rq7PR.png?ik-sdk-version=javascript-1.4.3&updatedAt=1671371950247" alt="" className='w-full h-full absolute pointer-events-none select-none top-0 right-0'></img>
                 <div className='absolute top-0 w-full z-20'><HeroNav /></div>
-                <div className=' h-full mx-auto flex px-5 lg:px-56'>
+                <div className='h-full mx-auto flex px-5 lg:px-56'>
 
                     <div className='flex justify-center items-center lg:h-full lg:w-full'>
                         <LoginHero />
                     </div>
 
                     <div className='w-full relative'>
-
-                        {/* <LoginNav isActive="join" /> */}
                         <div className='h-[100%] flex items-center justify-center lg:justify-end'>
 
                             <div
                                 className='mainForm w-[80%] max-w-[300px] font-space'>
-                                <div className='py-5'>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 15 }}
+                                    animate={{ opacity: 100, y: 0 }}
+                                    transition={{ delay: 0.05 }}
+                                    className='py-5'>
                                     <p className='text-3xl text-blk font-bold'>Create an Account</p>
                                     <p className='text-sm'>Connect with your fellow CvSUeños!</p>
-                                </div>
+                                </motion.div>
                                 {/* <motion.img
                                     initial={{ opacity: 0, y: 15 }}
                                     animate={{ opacity: 100, y: 0 }}
@@ -257,7 +259,7 @@ const Join = () => {
                         </div>
                     </div>
                 </div>
-            </motion.div>
+            </div>
         </>
     )
 }
