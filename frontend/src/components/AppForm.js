@@ -106,7 +106,6 @@ const AppForm = (props) => {
                                 type="time"
                                 min="10:00"
                                 max="16:00"
-                                value="10:00"
                                 required
                                 className="w-full p-[12px] border-blk border-[2px] rounded-[3px]"></input>
                         </div>
