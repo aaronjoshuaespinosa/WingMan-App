@@ -86,7 +86,7 @@ const AppForm = (props) => {
                         </div>}
 
                     {/* APPOINTMENT TITLE */}
-                    <div className='flex flex-row gap-x-[12px]'>
+                    <div className='flex flex-col lg:flex-row gap-y-[12px] lg:gap-x-[12px]'>
                         <input
                             className="w-full p-[12px] border-blk border-[2px] rounded-[3px]"
                             placeholder="Appointment Title (Ex. Certificate of Grades)"
