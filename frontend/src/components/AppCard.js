@@ -1,42 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
-import { useAppointmentsContext } from '../hooks/useAppointmentsContext'
-import { useAuthContext } from '../hooks/useAuthContext'
 
 const AppCard = (props) => {
 
     const { appointment, index } = props
-    const { appointments, dispatch } = useAppointmentsContext()
-    const { user } = useAuthContext()
-    const [error, setError] = useState('')
-    const status = "Approved"
-
-    const handleClick = async (e) => {
-        const appointment = { status }
-        if (!user) {
-            setError('You must be logged in.')
-            return
-        }
-
-        const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/Appointments/` + appointments._id, {
-            method: 'PATCH',
-            body: JSON.stringify(appointment),
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${user.token}`
-            }
-        })
-        const json = await response.json()
-        if (!response.ok) {
-            setError(json.error)
-        }
-        if (response.ok) {
-            setError(null)
-            window.location.reload()
-            dispatch({ type: '', payload: json })
-        }
-    }
-
     return (
         <>
             <div className='flex flex-row'>
@@ -72,9 +39,7 @@ const AppCard = (props) => {
                     <div className='py-3 bg-wht p-[12px]'>
                         <p>{appointment.description}</p>
                         <p>{formatDistanceToNowStrict(new Date(appointment.createdAt), { addSuffix: true })}</p>
-                        {user.data.email === "cvsu.admin@wingman.com" && <button onClick={handleClick}>Approve</button>}
                     </div>
-
                 </div>
 
 

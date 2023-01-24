@@ -17,6 +17,20 @@ const FaqDetails = (props) => {
     const [description, setDescription] = useState('')
     const comments = [{ username, email, description }]
     const [error, setError] = useState('')
+    
+    const fetchFAQs = async () => {
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/FAQs`, {
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
+        })
+        const json = await response.json();
+
+        if (response.ok) {
+            // setFAQs(json)
+            dispatch({ type: 'SET_FAQS', payload: json })
+        }
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -44,7 +58,7 @@ const FaqDetails = (props) => {
         if (response.ok) {
             setDescription('')
             setError(null)
-            dispatch({ type: '', payload: json })
+            fetchFAQs()
         }
     }
 

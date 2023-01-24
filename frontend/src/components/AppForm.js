@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Calendar from 'react-calendar'
 import { useAppointmentsContext } from '../hooks/useAppointmentsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 
@@ -98,7 +97,6 @@ const AppForm = (props) => {
                             <input
                                 type="date"
                                 min={dateToday}
-                                value={dateToday}
                                 required
                                 className="w-full p-[12px] border-blk border-[2px] rounded-[3px]" />
 

@@ -34,13 +34,13 @@ const AdminApp = () => {
 					</div>
 
 					{/* CARDS - DITO MA-STORE YUNG DATA FROM USER */}
-					{user && <div className='flex flex-col gap-y-3'>
+					<div className='flex flex-col gap-y-3'>
 						{appointments && appointments.map((appointment, i) => (
 							<di>
-								<AppACard key={appointment.id} appointment={appointment} index={i} />
+								<AppACard  key={appointment.id} appointment={appointment} index={i} />
 							</di>
 						))}
-					</div>}
+					</div>
 
 					<Nothing />
 				</div>

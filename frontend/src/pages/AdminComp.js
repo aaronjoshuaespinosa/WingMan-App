@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { AdminNav } from '../components'
+import { AdminNav, Nothing } from '../components'
 import { useComplaintsContext } from '../hooks/useComplaintsContext'
 import ComplaintADetails from '../components/ComplaintADetails'
 import { useAuthContext } from '../hooks/useAuthContext'
@@ -33,11 +33,13 @@ const AdminComp = () => {
 					<p className='text-orng font-bold pt-3 text-lg lg:text-xl'>YOUR COMPLAINTS</p>
 					<div
 						className='flex flex-col gap-y-3'>
-						{complaints && complaints.map((complaint, i) => (
+						{user.email === "cvsu.admin@wingman.com" && <div className='flex flex-col gap-y-3'>{complaints && complaints.map((complaint, i) => (
 							<div>
 								<ComplaintADetails key={complaint.id} complaint={complaint} index={i} />
 							</div>
 						))}
+						</div>}
+						<Nothing />
 					</div>
 				</div>
 			</div>

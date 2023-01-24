@@ -6,21 +6,22 @@ import { useAuthContext } from '../hooks/useAuthContext'
 const AppACard = (props) => {
 
     const { appointment, index } = props
-    const { appointments, dispatch } = useAppointmentsContext()
     const { user } = useAuthContext()
     const [error, setError] = useState('')
-    const status = "Approved"
+    let status
+    const approve = "Approved"
+    const reject = "Rejected"
 
-    const handleClick = async (e) => {
-        const appointment = { status }
+    const approveClick = async (e) => {
+        status = approve
+        const appointments = { status }
         if (!user) {
             setError('You must be logged in.')
             return
         }
-
-        const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/Appointments/` + appointments._id, {
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/Appointments/` + appointment._id, {
             method: 'PATCH',
-            body: JSON.stringify(appointment),
+            body: JSON.stringify(appointments),
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${user.token}`
@@ -33,13 +34,39 @@ const AppACard = (props) => {
         if (response.ok) {
             setError(null)
             window.location.reload()
-            dispatch({ type: '', payload: json })
+
+        }
+    }
+    
+    const rejectClick = async (e) => {
+        status = reject
+        const appointments = { status }
+        if (!user) {
+            setError('You must be logged in.')
+            return
+        }
+
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/Appointments/` + appointment._id, {
+            method: 'PATCH',
+            body: JSON.stringify(appointments),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
+            }
+        })
+        const json = await response.json()
+        if (!response.ok) {
+            setError(json.error)
+        }
+        if (response.ok) {
+            setError(null)
+            window.location.reload()
         }
     }
 
     return (
         <>
-            <div className='flex flex-row'>
+            {user.email === "cvsu.admin@wingman.com" && <div className='flex flex-row'>
 
                 <div className='flex justify-center items-center pr-3 lg:pr-5 w-[3rem]'>
                     {/* INDEX NUNG ENTRY, KUNG PANG-ILAN NA APPOINTMENT */}
@@ -74,14 +101,15 @@ const AppACard = (props) => {
                             <p className='font-bold'>Requested by: {appointment.fullName} | {appointment.studentNumber} | {appointment.email}</p>}
                         <p>{appointment.description}</p>
                         <p>{formatDistanceToNowStrict(new Date(appointment.createdAt), { addSuffix: true })}</p>
-                        {user.data.email === "cvsu.admin@wingman.com" && <button onClick={handleClick}>Approve</button>}
+                        {user.data.email === "cvsu.admin@wingman.com" && <button onClick={approveClick}>Approve</button>}
+                        {user.data.email === "cvsu.admin@wingman.com" && <button onClick={rejectClick}>Reject</button>}
                     </div>
 
                 </div>
 
 
 
-            </div>
+            </div>}
         </>
     )
 }
