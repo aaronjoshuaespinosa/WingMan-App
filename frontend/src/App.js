@@ -70,8 +70,8 @@ function App() {
 					<Route path="/admin/faqs" element={<AdminFAQ />}></Route>
 					<Route path="/admin/appointments" element={<AdminApp />}></Route>
 					<Route path="/admin/complaints" element={<AdminComp />}></Route>
-					<Route path="/tos" element={<TermsConditions />}></Route>
-					<Route path="/privacy" element={<PrivacyPolicy />}></Route>
+					<Route path="/terms-and-conditions" element={<TermsConditions />}></Route>
+					<Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
 					<Route path="*" element={<ErrorPage />}></Route>
 				</Routes>
 			</ScrollToTop>

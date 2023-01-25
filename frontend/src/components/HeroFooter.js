@@ -25,10 +25,12 @@ const HeroFooter = () => {
       <div className=' bg-wht w-full border-t-blk border-[2px] flex flex-col-reverse lg:flex-row items-center font-bold py-8 px-5 lg:px-56 justify-center lg:justify-between text-center'>
         <p className='pt-12 lg:pt-0 pointer-events-none'>WingMan 2023</p>
 
-        <div className='flex flex-col lg:flex-row gap-x-[24px] gap-y-[12px] items-center font-bold'>
-          <p className='hover:underline cursor-pointer' onClick={signLink}>Sign in</p>
-          <p className='hover:underline cursor-pointer' onClick={joinLink}>Join us</p>
-          <p className='hover:underline cursor-pointer' onClick={devLink}>The Dev Profiles</p>
+        <div className='flex flex-col lg:flex-row gap-x-[24px] gap-y-[12px] items-center font-bold' >
+          <div className='flex flex-col lg:flex-row gap-x-[24px] gap-y-[12px]' style={window.location.pathname === "/terms-and-conditions" || window.location.pathname === "/privacy-policy" ? { display: "none" } : { display: "flex" }}>
+            <p className='hover:underline cursor-pointer' onClick={signLink}>Sign in</p>
+            <p className='hover:underline cursor-pointer' onClick={joinLink}>Join us</p>
+            <p className='hover:underline cursor-pointer' onClick={devLink}>The Dev Profiles</p>
+          </div>
 
           {/* ICONS */}
           <div className='flex flex-row gap-x-[24px]'>
