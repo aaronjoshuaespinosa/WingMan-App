@@ -23,7 +23,7 @@ const HeroFooter = () => {
       <img src="https://ik.imagekit.io/efpqj5mis/LogoWingman_c3G261ZWo.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1671375425432" alt="Logo" className='mx-auto p-20 pointer-events-none select-none hidden lg:block' />
 
       <div className=' bg-wht w-full border-t-blk border-[2px] flex flex-col-reverse lg:flex-row items-center font-bold py-8 px-5 lg:px-56 justify-center lg:justify-between text-center'>
-        <p className='pt-12 lg:pt-0 pointer-events-none'>WingMan 2023</p>
+        <p className='pt-12 lg:pt-0 pointer-events-none'>© WINGMAN 2023</p>
 
         <div className='flex flex-col lg:flex-row gap-x-[24px] gap-y-[12px] items-center font-bold' >
           <div className='flex flex-col lg:flex-row gap-x-[24px] gap-y-[12px]' style={window.location.pathname === "/terms-and-conditions" || window.location.pathname === "/privacy-policy" ? { display: "none" } : { display: "flex" }}>

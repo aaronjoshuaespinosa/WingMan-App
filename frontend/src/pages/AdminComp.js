@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { AdminNav, Nothing } from '../components'
+import { AdminNav, AdminFooter, Nothing } from '../components'
 import { useComplaintsContext } from '../hooks/useComplaintsContext'
 import ComplaintADetails from '../components/ComplaintADetails'
 import { useAuthContext } from '../hooks/useAuthContext'
@@ -43,6 +43,7 @@ const AdminComp = () => {
 					</div>
 				</div>
 			</div>
+			<AdminFooter />
 		</div>
 	)
 }

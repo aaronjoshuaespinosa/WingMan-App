@@ -1,5 +1,5 @@
 import React from 'react'
-import { AdminNav } from '../components'
+import { AdminNav, AdminFooter } from '../components'
 
 const AdminNA = () => {
     return (
@@ -8,6 +8,7 @@ const AdminNA = () => {
             <div className='pt-12 px-96'>
                 NEWS
             </div>
+            <AdminFooter />
         </div>
     )
 }

@@ -106,8 +106,6 @@ const AppACard = (props) => {
 
                 </div>
 
-
-
             </div>}
         </>
     )

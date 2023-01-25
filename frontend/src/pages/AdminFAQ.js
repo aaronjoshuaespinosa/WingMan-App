@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { AdminNav } from '../components'
+import { AdminNav, AdminFooter } from '../components'
 import { FaqDetails, Nothing } from '../components'
 import { useFaqsContext } from '../hooks/useFaqsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
@@ -51,6 +51,7 @@ const AdminFAQ = () => {
 					</div>
 				</div>
 			</div>
+			<AdminFooter />
 		</div>
 	)
 }

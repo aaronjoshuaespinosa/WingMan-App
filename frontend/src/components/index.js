@@ -23,6 +23,7 @@ import AdminNav from "./AdminNav"
 import FeatureCard from "./FeatureCard"
 import FeatureCardRev from "./FeatureCardRev"
 import Greeting from "./Greeting"
+import AdminFooter from "./AdminFooter"
 
 export {
     FAQCard,
@@ -50,4 +51,5 @@ export {
     FeatureCardRev,
     AppACard,
     Greeting,
+    AdminFooter,
 }

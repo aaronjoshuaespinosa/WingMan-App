@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { AppACard, Nothing } from '../components'
 import { useAppointmentsContext } from '../hooks/useAppointmentsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
-import { AdminNav } from '../components'
+import { AdminNav, AdminFooter } from '../components'
 
 const AdminApp = () => {
 
@@ -37,7 +37,7 @@ const AdminApp = () => {
 					<div className='flex flex-col gap-y-3'>
 						{appointments && appointments.map((appointment, i) => (
 							<di>
-								<AppACard  key={appointment.id} appointment={appointment} index={i} />
+								<AppACard key={appointment.id} appointment={appointment} index={i} />
 							</di>
 						))}
 					</div>
@@ -45,6 +45,7 @@ const AdminApp = () => {
 					<Nothing />
 				</div>
 			</div>
+			<AdminFooter />
 		</div>
 	)
 }
