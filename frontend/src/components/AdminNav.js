@@ -10,6 +10,7 @@ const AdminNav = () => {
 
     const signoutClick = () => {
         logout()
+        navigate("/")
     }
 
     const adminDash = () => {

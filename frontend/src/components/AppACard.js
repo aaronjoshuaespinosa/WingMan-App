@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
-import { useAppointmentsContext } from '../hooks/useAppointmentsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 
 const AppACard = (props) => {
@@ -9,11 +8,9 @@ const AppACard = (props) => {
     const { user } = useAuthContext()
     const [error, setError] = useState('')
     let status
-    const approve = "Approved"
-    const reject = "Rejected"
 
     const approveClick = async (e) => {
-        status = approve
+        status = "Approved"
         const appointments = { status }
         if (!user) {
             setError('You must be logged in.')
@@ -34,12 +31,11 @@ const AppACard = (props) => {
         if (response.ok) {
             setError(null)
             window.location.reload()
-
         }
     }
     
     const rejectClick = async (e) => {
-        status = reject
+        status = "Rejected"
         const appointments = { status }
         if (!user) {
             setError('You must be logged in.')

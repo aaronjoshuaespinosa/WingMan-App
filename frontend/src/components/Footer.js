@@ -22,8 +22,8 @@ const Footer = () => {
                     <p className='font-bold text-center lg:hidden'>Complaint System</p>
                 </div>
                 <div className='flex flex-col items-center lg:flex-row gap-x-5 pt-5 pb-10 lg:py-0'>
-                    <p className='cursor-pointer hover:text-light-gry'>Terms and Conditions</p>
-                    <p className='cursor-pointer hover:text-light-gry'>Privacy Policy</p>
+                    <a href="/tos" target="_blank" className='cursor-pointer hover:text-light-gry'>Terms and Conditions</a>
+                    <a href="/privacy" target="_blank" className='cursor-pointer hover:text-light-gry'>Privacy Policy</a>
                     <p className='cursor-pointer hover:text-light-gry lg:hidden font-bold pt-5'>WINGMAN 2023</p>
                 </div>
             </footer>

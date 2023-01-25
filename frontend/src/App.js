@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes, Navigate } from 'react-router-dom'
 import { Join, Login, Dashboard, Marketplace, Appointments, News, Complaints, FAQ, ErrorPage, Profile, Hero, Devs, Admin, AdminComp, AdminApp, AdminFAQ, AdminNA } from './pages'
+import TermsConditions from './pages/TermsConditions'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 import { NavBar, ScrollToTop } from './components'
 import { setToggle } from './features/navSlice'
 import './index.css'
@@ -68,6 +70,8 @@ function App() {
 					<Route path="/admin/faqs" element={<AdminFAQ />}></Route>
 					<Route path="/admin/appointments" element={<AdminApp />}></Route>
 					<Route path="/admin/complaints" element={<AdminComp />}></Route>
+					<Route path="/tos" element={<TermsConditions />}></Route>
+					<Route path="/privacy" element={<PrivacyPolicy />}></Route>
 					<Route path="*" element={<ErrorPage />}></Route>
 				</Routes>
 			</ScrollToTop>
