@@ -21,7 +21,7 @@ const Greeting = () => {
 
                         )
                     })}
-                    <div className='flex justify-end items-center h-full w-full'>
+                    <div className='flex justify-end items-center h-full w-full' style={window.location.pathname === "/marketplace" ? { display: "flex" } : { display: "none" }}>
                         <input type='text' placeholder='Search the market...' className='py-2 px-3 w-64 md:w-72 lg:w-80 xl:w-96 text-base border-blk border-[2px] rounded-[3px]'></input>
                     </div>
                 </div>
