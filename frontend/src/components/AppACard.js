@@ -33,7 +33,7 @@ const AppACard = (props) => {
             window.location.reload()
         }
     }
-    
+
     const rejectClick = async (e) => {
         status = "Rejected"
         const appointments = { status }
@@ -69,7 +69,7 @@ const AppACard = (props) => {
                     <p className='text-orng font-bold text-3xl'>0{index + 1}</p>
                 </div>
 
-                <div className='flex flex-col lg:flex-col bg-light-lgry border-r-blk border-r-[2px] border-l-orng border-l-[5px] border-t-blk border-t-[2px] border-b-blk border-b-[2px] w-full cursor-pointer'>
+                <div className='flex flex-col lg:flex-col bg-light-lgry border-r-blk border-r-[2px] border-l-orng border-l-[5px] border-t-blk border-t-[2px] border-b-blk border-b-[2px] w-full'>
 
                     <div className='flex justify-between items-center w-full p-[12px]'>
 
@@ -94,11 +94,14 @@ const AppACard = (props) => {
                     {/* DESCRIPTION */}
                     <div className='py-3 bg-wht p-[12px]'>
                         {user.data.email === "cvsu.admin@wingman.com" &&
-                            <p className='font-bold'>Requested by: {appointment.fullName} | {appointment.studentNumber} | {appointment.email}</p>}
-                        <p>{appointment.description}</p>
-                        <p>{formatDistanceToNowStrict(new Date(appointment.createdAt), { addSuffix: true })}</p>
-                        {user.data.email === "cvsu.admin@wingman.com" && <button onClick={approveClick}>Approve</button>}
-                        {user.data.email === "cvsu.admin@wingman.com" && <button onClick={rejectClick}>Reject</button>}
+                            <p className='font-bold'>REQUESTED BY<br />{appointment.fullName} - {appointment.studentNumber}<br />{appointment.email}</p>}
+                        <p><br />{appointment.description}</p>
+                        <p className='text-sm'>{formatDistanceToNowStrict(new Date(appointment.createdAt), { addSuffix: true })}</p>
+                        <hr className='my-3 h-[0.15rem] bg-light-lgry' />
+                        <div className='flex justify-end gap-x-5 text-orng font-bold'>
+                            {user.data.email === "cvsu.admin@wingman.com" && <button onClick={approveClick} className="hover:underline">Approve</button>}
+                            {user.data.email === "cvsu.admin@wingman.com" && <button onClick={rejectClick} className="hover:underline">Reject</button>}
+                        </div>
                     </div>
 
                 </div>

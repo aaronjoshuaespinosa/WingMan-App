@@ -26,7 +26,7 @@ const AdminApp = () => {
 	return (
 		<div className='w-full h-auto font-space text-blk'>
 			<AdminNav />
-			<div className='pt-12 px-40'>
+			<div className='pt-12 px-96'>
 				<div className='flex flex-col gap-y-4'>
 					{/* TITLE */}
 					<div className='flex flex-row items-center w-full'>

@@ -5,7 +5,7 @@ const AdminNA = () => {
     return (
         <div className='w-full h-auto font-space text-blk'>
             <AdminNav />
-            <div className='pt-12 px-40'>
+            <div className='pt-12 px-96'>
                 NEWS
             </div>
         </div>

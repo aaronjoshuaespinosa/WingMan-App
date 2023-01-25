@@ -27,7 +27,7 @@ const AdminComp = () => {
 	return (
 		<div className='w-full h-auto font-space text-blk'>
 			<AdminNav />
-			<div className='pt-12 px-40'>
+			<div className='pt-12 px-96'>
 				<div className='flex flex-col gap-y-4'>
 					{/* DISPLAY COMPLAINTS SUBMITTED BY USER*/}
 					<p className='text-orng font-bold pt-3 text-lg lg:text-xl'>YOUR COMPLAINTS</p>
