@@ -84,6 +84,8 @@ const AppForm = (props) => {
                             <p className='text-sm truncate'> CvSU Email: {user.email}</p>
                         </div>}
 
+                    <p className='text-sm italic'>DISCLAIMER: Any information in this form will only be available for preview for the Cavite State University Admins that will handle your appointment requests.</p>
+
                     {/* APPOINTMENT TITLE */}
                     <div className='flex flex-col lg:flex-row gap-y-[12px] lg:gap-x-[12px]'>
                         <input

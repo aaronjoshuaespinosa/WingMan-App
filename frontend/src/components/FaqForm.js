@@ -56,7 +56,7 @@ const FaqForm = () => {
     return (
         <div className="w-full border-[2px] border-blk text-blk rounded-[3px] p-[24px] mb-[12px] bg-light-lgry">
             <h3 className='font-bold text-2xl pb-2'>Create Question</h3>
-
+            <p className='text-sm italic pb-2'>NOTE: Any information in this form will be available for preview for all students and admins that can access FAQs.</p>
             {/* FORM INPUTS */}
             <div className='flex flex-col gap-y-[12px]'>
                 <input

@@ -51,9 +51,10 @@ const MarketForm = (props) => {
             <form onSubmit={(handleSubmit)} className="flex flex-col gap-y-[12px] w-full">
 
                 <div className='flex justify-between items-center'>
-                    <p className='font-bold text-2xl pb-2'>Create Transaction</p>
+                    <p className='font-bold text-2xl'>Create Transaction</p>
                     <p className='py-1 px-3 bg-orng border-blk border-[2px] rounded-[3px] font-bold cursor-pointer hover:drop-shadow-hoverShadow transition-all ease-in-out duration-[0.1s]' onClick={onClick}>X</p>
                 </div>
+                <p className='italic text-sm'>NOTE: Any formation in this form will be used in the marketplace page to provide other users information about your product and ways to contact you, the seller.</p>
 
                 <input
                     type="text"
@@ -135,8 +136,8 @@ const MarketForm = (props) => {
                 </div>
 
                 {/* BUTTON & ERROR MSSG */}
-                <div className='flex w-full justify-center items-center lg:justify-end'>
-                    {error && <div className="error">{error}</div>}
+                <div className='flex w-full justify-center items-center lg:justify-end gap-x-5'>
+                    {error && <div className="error justify-self-start w-full">{error}</div>}
                     <button
                         className='px-5 py-2 font-bold bg-orng border-[2px] border-blk text-blk rounded-[3px] transition-all ease-in-out duration-[0.1s] hover:drop-shadow-hoverShadow w-full lg:w-auto'>Submit</button>
                 </div>

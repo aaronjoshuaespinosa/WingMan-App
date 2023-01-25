@@ -52,6 +52,7 @@ const ComplaintForm = () => {
     return (
         <div className='bg-light-lgry flex flex-col p-5 border-blk border-[2px] rounded-[3px]'>
             <h3 className='font-bold text-2xl pb-2'>Create Complaint</h3>
+            <p className='text-sm italic pb-2'>DISCLAIMER: Any information in this form will only be available for preview for the Cavite State University Admins that will handle your complaints.</p>
             <div>
                 <form onSubmit={(handleSubmit)} className="flex flex-col gap-y-[12px] w-full">
                     <div className='flex w-full gap-x-[12px]'>
