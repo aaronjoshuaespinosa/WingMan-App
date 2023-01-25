@@ -121,32 +121,6 @@ const NavBar = ({ onChange }) => {
 								<GiHamburgerMenu className='text-3xl' />
 							</div>
 						</div>
-
-						{/* GREETING */}
-						<div className='flex gap-x-[0.05rem] lg:gap-x-[0.15rem] my-auto px-3 lg:px-[1.5rem] xl:px-10 text-2xl lg:text-5xl text-blk font-bold select-none w-[100vw] relative z-0'>
-							{navHeader.map(labels => {
-								return (
-									<motion.div
-										{...labels}
-										key={labels.id}
-										initial={{ opacity: 0 }}
-										animate={{ opacity: 1 }}
-									>
-										<p>{window.location.pathname === labels.link ? labels.name : null}</p>
-										<p className='text-sm lg:text-base truncate'>{window.location.pathname === labels.link ? labels.desc : null}</p>
-									</motion.div>
-
-								)
-							})}
-							<motion.div
-								initial={{ opacity: 0 }}
-								animate={{ opacity: 1 }}>
-								{user.data && <p>{window.location.pathname === "/dashboard" ? `${user.data.firstName}!` : null}</p>}
-							</motion.div>
-							<div>
-								<input type='text' placeholder='Search the market...' className='absolute right-0 mr-3 lg:mr-[1.5rem] xl:mr-10 py-2 px-3 w-64 md:w-72 lg:w-80 xl:w-96 text-base border-blk border-[2px] rounded-[3px] translate-y-[-100%] hidden'></input>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>

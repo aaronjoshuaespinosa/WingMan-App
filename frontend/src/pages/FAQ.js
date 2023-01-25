@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { Footer, FaqDetails, FaqForm, NACard, Nothing } from '../components'
+import { Footer, FaqDetails, FaqForm, NACard, Nothing, Greeting } from '../components'
 import { useFaqsContext } from '../hooks/useFaqsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { motion } from 'framer-motion'
@@ -69,7 +69,7 @@ const FAQ = () => {
 	return (
 		<>
 			<div className='bg-wht absolute top-0 w-full font-space'>
-
+				<Greeting />
 				{/* CONFIRM DELETE MODAL */}
 				<div className='absolute z-20 w-full h-full bg-blk/90' style={delFAQ ? { display: "block" } : { display: "none" }}>
 

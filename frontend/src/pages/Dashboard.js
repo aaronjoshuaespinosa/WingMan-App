@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { NACard, FAQCard, Footer } from '../components'
+import { NACard, FAQCard, Footer, Greeting } from '../components'
 import { motion } from 'framer-motion'
 import { firstAnnouncements, firstNews } from '../constants'
 
@@ -16,6 +16,7 @@ const Dashboard = () => {
 	return (
 		<>
 			<div className='bg-wht absolute top-0 w-full font-space'>
+				<Greeting />
 				<div className='px-[1.25rem] pt-20 pb-10 lg:pl-[21.5rem] lg:pr-[1.5rem] xl:pl-[22.5rem] xl:pr-[2.5rem] lg:pt-32 lg:pb-24 z-10'>
 					<motion.div
 						initial={{ opacity: 0, y: 15 }}
@@ -88,7 +89,7 @@ const Dashboard = () => {
 						transition={{ delay: 6 * 0.1 }}
 						className='w-full h-full flex flex-col items-start lg:flex-row gap-x-3 px-1'>
 						<FAQCard user={"beth.harmon"} time={"1 week ago"} title={"Thesis Help!"} content={"How did you choose your thesis topic? What would be possible titles for the first three PhD thesis projects in your research group?"} />
-						<FAQCard user={"james.mcavoy"} time={"1 week ago"} title={"Academic advise"} content={"If you start having difficulty juggling the combination of research, teaching, advising, and proposal-writing, what would you do to fix the problem?"}/>
+						<FAQCard user={"james.mcavoy"} time={"1 week ago"} title={"Academic advise"} content={"If you start having difficulty juggling the combination of research, teaching, advising, and proposal-writing, what would you do to fix the problem?"} />
 					</motion.div>
 				</div>
 

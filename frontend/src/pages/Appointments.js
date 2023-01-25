@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { AppCard, AppForm, AppSelect, Footer, Nothing } from '../components'
+import { AppCard, AppForm, AppSelect, Footer, Greeting, Nothing } from '../components'
 import { useAppointmentsContext } from '../hooks/useAppointmentsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { GiFoldedPaper, GiClothes } from "react-icons/gi";
@@ -54,6 +54,7 @@ const Appointments = () => {
 	return (
 		<>
 			<div className='bg-wht absolute top-0 w-full font-space'>
+				<Greeting />
 			<div className='px-[1.25rem] pt-20 pb-10 lg:pt-32 lg:pb-24 lg:pl-[22.5rem] lg:pr-[2.5rem] z-10'>
 
 					<div className='w-full'>

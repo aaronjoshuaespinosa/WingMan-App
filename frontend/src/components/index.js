@@ -22,6 +22,7 @@ import ScrollToTop from "./ScrollToTop"
 import AdminNav from "./AdminNav"
 import FeatureCard from "./FeatureCard"
 import FeatureCardRev from "./FeatureCardRev"
+import Greeting from "./Greeting"
 
 export {
     FAQCard,
@@ -48,4 +49,5 @@ export {
     FeatureCard,
     FeatureCardRev,
     AppACard,
+    Greeting,
 }

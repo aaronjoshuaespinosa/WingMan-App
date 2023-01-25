@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useComplaintsContext } from '../hooks/useComplaintsContext'
 import ComplaintDetails from '../components/ComplaintDetails'
 import ComplaintForm from '../components/ComplaintForm'
-import { Footer, Nothing } from '../components'
+import { Footer, Greeting, Nothing } from '../components'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { motion } from 'framer-motion'
 
@@ -38,6 +38,7 @@ const Complaints = () => {
 	return (
 		<>
 			<div className='bg-wht absolute top-0 w-full font-space'>
+				<Greeting />
 				<div className='px-[1.25rem] pt-20 pb-10 lg:pt-32 lg:pb-24 lg:pl-[22.5rem] lg:pr-[2.5rem] z-10'>
 
 					<motion.p

@@ -125,9 +125,9 @@ export const navLinks = [
 export const navHeader = [
     {
         id: 0,
-        name: 'Good day, ',
+        name: 'Dashboard',
         link: "/dashboard",
-        desc: "",
+        desc: "An overview of your activity in WingMan.",
     },
     {
         id: 1,

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { Footer, Nothing } from '../components'
+import { Footer, Greeting, Nothing } from '../components'
 import MPService from '../components/MPService'
 import { motion } from 'framer-motion'
 import MarketForm from '../components/MarketForm'
@@ -65,7 +65,7 @@ const Profile = () => {
                         </div>
                     </div>
                 </motion.div>
-
+                <Greeting />
                 <div className='px-[1.25rem] pt-20 pb-10 lg:pl-[21.5rem] lg:pr-[1.5rem] xl:pl-[22.5rem] xl:pr-[2.5rem] lg:pt-32 lg:pb-24 w-full z-10'>
 
                     {/* CATEGORIES - TEMPORARILY REPLACED */}
