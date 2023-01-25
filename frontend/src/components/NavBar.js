@@ -133,6 +133,7 @@ const NavBar = ({ onChange }) => {
 										animate={{ opacity: 1 }}
 									>
 										<p>{window.location.pathname === labels.link ? labels.name : null}</p>
+										<p className='text-sm lg:text-base truncate'>{window.location.pathname === labels.link ? labels.desc : null}</p>
 									</motion.div>
 
 								)

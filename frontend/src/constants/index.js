@@ -126,32 +126,38 @@ export const navHeader = [
     {
         id: 0,
         name: 'Good day, ',
-        link: "/dashboard"
+        link: "/dashboard",
+        desc: "",
     },
     {
         id: 1,
         name: "Marketplace",
-        link: "/marketplace"
+        link: "/marketplace",
+        desc: "In need or looking for something? You may find it here!",
     },
     {
         id: 2,
         name: "Appointments",
-        link: "/appointments"
+        link: "/appointments",
+        desc: "Schedule appointments if you need documents or even uniform.",
     },
     {
         id: 3,
         name: "News & Announcements",
-        link: "/news-and-announcements"
+        link: "/news-and-announcements",
+        desc: "New and updated news and announcements from inside the campus.",
     },
     {
         id: 4,
         name: "Complaint System",
-        link: "/complaint-system"
+        link: "/complaint-system",
+        desc: "Inconvenience? Send it here to be the voice for others.",
     },
     {
         id: 5,
         name: "FAQs",
-        link: "/faqs"
+        link: "/faqs",
+        desc: "Looking for answers? Post an FAQ and find out!",
     },
 ]
 

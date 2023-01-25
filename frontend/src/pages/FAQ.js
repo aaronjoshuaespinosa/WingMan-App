@@ -129,7 +129,7 @@ const FAQ = () => {
 							<motion.p
 								initial={{ opacity: 0, y: 15 }}
 								animate={{ opacity: 100, y: 0 }}
-								className='mb-[12px] w-full bg-orng p-[12px] border-blk border-[2px] rounded-[3px] text-wht text-center font-bold'>SUGGESTED N&A
+								className='mb-[12px] w-full bg-orng p-[12px] border-blk border-[2px] rounded-[3px] text-wht text-center font-bold'>DISCOVER NOW!
 							</motion.p>
 
 							<div className='flex w-full'>
