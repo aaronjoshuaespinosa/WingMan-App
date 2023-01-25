@@ -68,7 +68,7 @@ const FAQ = () => {
 
 	return (
 		<>
-			<div className='bg-wht absolute top-0 w-full font-space'>
+			<div className='bg-wht absolute top-0 w-full font-space z-10'>
 				<Greeting />
 				{/* CONFIRM DELETE MODAL */}
 				<div className='absolute z-20 w-full h-full bg-blk/90' style={delFAQ ? { display: "block" } : { display: "none" }}>

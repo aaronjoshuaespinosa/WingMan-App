@@ -37,7 +37,7 @@ const Complaints = () => {
 	}, [dsptch, user])
 	return (
 		<>
-			<div className='bg-wht absolute top-0 w-full font-space'>
+			<div className='bg-wht absolute top-0 w-full font-space z-10'>
 				<Greeting />
 				<div className='px-[1.25rem] pt-20 pb-10 lg:pt-32 lg:pb-24 lg:pl-[22.5rem] lg:pr-[2.5rem] z-10'>
 

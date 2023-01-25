@@ -15,7 +15,7 @@ const News = () => {
 	}, [])
 	return (
 		<>
-			<div className='bg-wht absolute top-0 w-full font-space'>
+			<div className='bg-wht absolute top-0 w-full font-space z-10'>
 				<Greeting />
 				<div className='px-[1.25rem] pt-20 pb-10 lg:pl-[21.5rem] lg:pr-[1.5rem] xl:pl-[22.5rem] xl:pr-[2.5rem] lg:pt-32 lg:pb-24 z-10'>
 

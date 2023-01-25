@@ -6,6 +6,7 @@ import MPService from '../components/MPService'
 import { motion } from 'framer-motion'
 import MarketForm from '../components/MarketForm'
 import { useMarketsContext } from '../hooks/useMarketsContext'
+import { FaSearch } from "react-icons/fa";
 
 const Profile = () => {
     const dispatch = useDispatch()
@@ -47,7 +48,7 @@ const Profile = () => {
 
     return (
         <>
-            <div className='bg-wht absolute top-0 w-full font-space'>
+            <div className='bg-wht absolute top-0 w-full font-space z-10'>
 
                 {/* MARKETPLACE FORM MODAL */}
                 <motion.div
@@ -82,6 +83,13 @@ const Profile = () => {
                             )
                         })}
                     </div> */}
+
+                    <div className='flex flex-row justify-end items-center h-14 w-full pb-[12px] lg:hidden'>
+                        <input type='text' placeholder='Search the market...' className='mx-1 py-2 px-3 w-full h-full xl:w-96 text-base border-blk border-[2px] rounded-[3px]' />
+                        <div className='bg-orng text-wht text-base h-full py-2 px-3 border-blk border-[2px] rounded-[3px] flex items-center cursor-pointer'>
+                            <FaSearch />
+                        </div>
+                    </div>
 
                     <div className='px-1'>
                         <motion.div
