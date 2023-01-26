@@ -66,7 +66,7 @@ const AdminApp = () => {
 					</div>
 
 					{/* CARDS - DITO MA-STORE YUNG DATA FROM USER */}
-					<div className='flex flex-col gap-y-3'>
+					<div className='flex flex-col'>
 						{appointments && appointments.map((appointment, i) => (
 							<di>
 								<AppACard key={appointment.id} appointment={appointment} index={i} visible={sort} />

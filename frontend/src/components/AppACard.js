@@ -62,7 +62,7 @@ const AppACard = (props) => {
 
     return (
         <>
-            {user.email === "cvsu.admin@wingman.com" && <div className='flex flex-row' style={visible === appointment.status ? {display: "flex"} : visible === "All" ? {display: "flex"} : {display: "none"}}>
+            {user.email === "cvsu.admin@wingman.com" && <div className='flex flex-row pb-3' style={visible === appointment.status ? {display: "flex"} : visible === "All" ? {display: "flex"} : {display: "none", height: 0, width: 0, margin: 0, padding: 0}}>
 
                 <div className='flex justify-center items-center pr-3 lg:pr-5 w-[3rem]'>
                     {/* INDEX NUNG ENTRY, KUNG PANG-ILAN NA APPOINTMENT */}
