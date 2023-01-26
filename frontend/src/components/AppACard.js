@@ -4,7 +4,7 @@ import { useAuthContext } from '../hooks/useAuthContext'
 
 const AppACard = (props) => {
 
-    const { appointment, index } = props
+    const { appointment, index, visible } = props
     const { user } = useAuthContext()
     const [error, setError] = useState('')
     let status
@@ -62,7 +62,7 @@ const AppACard = (props) => {
 
     return (
         <>
-            {user.email === "cvsu.admin@wingman.com" && <div className='flex flex-row'>
+            {user.email === "cvsu.admin@wingman.com" && <div className='flex flex-row' style={visible === appointment.status ? {display: "flex"} : visible === "All" ? {display: "flex"} : {display: "none"}}>
 
                 <div className='flex justify-center items-center pr-3 lg:pr-5 w-[3rem]'>
                     {/* INDEX NUNG ENTRY, KUNG PANG-ILAN NA APPOINTMENT */}
