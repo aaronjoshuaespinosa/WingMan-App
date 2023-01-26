@@ -103,7 +103,7 @@ const FaqDetails = (props) => {
                         {/* <ImArrowUp />
                         <p className='text-sm'>{user && faq.upvote}</p> */}
 
-                        {user.data.email !== "cvsu.admin@wingman.com" && <form onSubmit={(handleSubmit)} className="w-full">
+                        {user && <form onSubmit={(handleSubmit)} className="w-full">
                             <div className='flex w-full'>
                                 <input
                                     type="text"

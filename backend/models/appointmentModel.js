@@ -37,7 +37,12 @@ const appointmentSchema = new Schema({
     user_id: {
         type: String,
         required: true
-    }
+    },
+    messages: [{
+        username: String,
+        email: String,
+        content: String
+    }]
 }, { timestamps: true});
 
 module.exports = mongoose.model('Appointments', appointmentSchema);

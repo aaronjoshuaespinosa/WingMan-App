@@ -1,9 +1,62 @@
-import React from 'react'
+import React, { useState } from 'react'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
+import { MdSend } from "react-icons/md";
+import { useAuthContext } from '../hooks/useAuthContext'
+import { useAppointmentsContext } from '../hooks/useAppointmentsContext'
 
 const AppCard = (props) => {
 
     const { appointment, index } = props
+    const { dispatch } = useAppointmentsContext()
+
+    const { user } = useAuthContext()
+    const email = `${user.email}`
+    const username = `${user.data.username}`
+    const [content, setContent] = useState('')
+    const messages = [{ username, email, content }]
+    const [error, setError] = useState('')
+
+    const fetchAppointments = async () => {
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/appointments`, {
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
+        })
+        const json = await response.json()
+        if (response.ok) {
+            dispatch({ type: 'SET_APPOINTMENTS', payload: json })
+        }
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const apps = { messages }
+
+        if (!user) {
+            setError('You must be logged in.')
+            return
+        }
+
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/Appointments/` + appointment._id, {
+            method: 'PATCH',
+            body: JSON.stringify(apps),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
+            }
+        })
+
+        const json = await response.json();
+
+        if (!response.ok) {
+            setError('Please fill the empty fields.')
+        }
+        if (response.ok) {
+            setContent('')
+            setError(null)
+            fetchAppointments()
+        }
+    }
     return (
         <>
             <div className='flex flex-row'>
@@ -39,6 +92,31 @@ const AppCard = (props) => {
                     <div className='py-3 bg-wht p-[12px]'>
                         <p>{appointment.description}</p>
                         <p>{formatDistanceToNowStrict(new Date(appointment.createdAt), { addSuffix: true })}</p>
+                        <p>Send a message to admin</p>
+                        {user && <form onSubmit={(handleSubmit)} className="w-full">
+                            <div className='flex w-full'>
+                                <input
+                                    type="text"
+                                    placeholder="Add a comment"
+                                    onChange={(e) => setContent(e.target.value)}
+                                    required
+                                    value={content}
+                                    className="p-[6px] border-blk border-[2px] rounded-l-[3px] w-full"
+                                />
+                                <button className='bg-orng border-blk border-y-[2px] border-r-[2px] rounded-r-[3px] px-4'><MdSend className='text-xl' /></button>
+                            </div>
+                        </form>}
+                        {error && <div>{error}</div>}
+                    </div>
+                    {/*MESSAGE SECTION*/}
+                    <div className='px-[24px] py-[12px] bg-light-lgry border-t-light-gry border-t-[1px]'>
+                        <p className='font-bold text-sm'>Messages</p>
+                        <hr className='h-[2px] bg-light-gry my-2' />
+                        <div>
+                            {appointment.messages.map(({ username, content }) => (
+                                <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username}:</span>&nbsp;&nbsp;{content}</p>
+                            ))}
+                        </div>
                     </div>
                 </div>
 

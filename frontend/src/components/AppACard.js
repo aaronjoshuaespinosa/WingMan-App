@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 import { useAuthContext } from '../hooks/useAuthContext'
+import { MdSend } from "react-icons/md";
+import { useAppointmentsContext } from '../hooks/useAppointmentsContext'
 
 const AppACard = (props) => {
 
     const { appointment, index, visible } = props
+    const { dispatch } = useAppointmentsContext()
     const { user } = useAuthContext()
     const [error, setError] = useState('')
     let status
@@ -60,6 +63,78 @@ const AppACard = (props) => {
         }
     }
 
+    const completeClick = async (e) => {
+        status = "Completed"
+        const appointments = { status }
+        if (!user) {
+            setError('You must be logged in.')
+            return
+        }
+
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/Appointments/` + appointment._id, {
+            method: 'PATCH',
+            body: JSON.stringify(appointments),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
+            }
+        })
+        const json = await response.json()
+        if (!response.ok) {
+            setError(json.error)
+        }
+        if (response.ok) {
+            setError(null)
+            window.location.reload()
+        }
+    }
+    const email = `${user.email}`
+    const username = `${user.data.username}`
+    const [content, setContent] = useState('')
+    const messages = [{ username, email, content }]
+
+    const fetchAppointments = async () => {
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/appointments`, {
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
+        })
+        const json = await response.json()
+        if (response.ok) {
+            dispatch({ type: 'SET_APPOINTMENTS', payload: json })
+        }
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const apps = { messages }
+
+        if (!user) {
+            setError('You must be logged in.')
+            return
+        }
+
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/Appointments/` + appointment._id, {
+            method: 'PATCH',
+            body: JSON.stringify(apps),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
+            }
+        })
+
+        const json = await response.json();
+
+        if (!response.ok) {
+            setError('Please fill the empty fields.')
+        }
+        if (response.ok) {
+            setContent('')
+            setError(null)
+            fetchAppointments()
+        }
+    }
+
     return (
         <>
             {user.email === "cvsu.admin@wingman.com" && <div className='flex flex-row pb-3' style={visible === appointment.status ? {display: "flex"} : visible === "All" ? {display: "flex"} : {display: "none", height: 0, width: 0, margin: 0, padding: 0}}>
@@ -101,9 +176,34 @@ const AppACard = (props) => {
                         <div className='flex justify-end gap-x-5 text-orng font-bold'>
                             {user.data.email === "cvsu.admin@wingman.com" && <button onClick={approveClick} className="hover:underline">Approve</button>}
                             {user.data.email === "cvsu.admin@wingman.com" && <button onClick={rejectClick} className="hover:underline">Reject</button>}
+                            {user.data.email === "cvsu.admin@wingman.com" && <button onClick={completeClick} className="hover:underline">Mark as Completed</button>}
                         </div>
                     </div>
 
+                    {/*MESSAGE SECTION*/}
+                    {user && <form onSubmit={(handleSubmit)} className="w-full">
+                            <div className='flex w-full'>
+                                <input
+                                    type="text"
+                                    placeholder="Respond"
+                                    onChange={(e) => setContent(e.target.value)}
+                                    required
+                                    value={content}
+                                    className="p-[6px] border-blk border-[2px] rounded-l-[3px] w-full"
+                                />
+                                <button className='bg-orng border-blk border-y-[2px] border-r-[2px] rounded-r-[3px] px-4'><MdSend className='text-xl' /></button>
+                            </div>
+                        </form>}
+                    <div className='px-[24px] py-[12px] bg-light-lgry border-t-light-gry border-t-[1px]'>
+                        <p className='font-bold text-sm'>Messages</p>
+                        <hr className='h-[2px] bg-light-gry my-2' />
+                        <div>
+                            {appointment.messages.map(({ username, content }) => (
+                                <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username}:</span>&nbsp;&nbsp;{content}</p>
+                            ))}
+                        {error && <div>{error}</div>}
+                        </div>
+                    </div>
                 </div>
 
             </div>}

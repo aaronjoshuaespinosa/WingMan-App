@@ -155,9 +155,9 @@ export const navHeader = [
     },
     {
         id: 5,
-        name: "FAQs",
+        name: "Frequently Asked Questions",
         link: "/faqs",
-        desc: "Looking for answers? Post an FAQ and find out!",
+        desc: "Looking for answers? Post a FAQ and find out!",
     },
 ]
 
