@@ -37,7 +37,12 @@ const complaintSchema = new Schema({
     email: {
         type: String,
         required: true
-    }
+    },
+    messages: [{
+        username: String,
+        email: String,
+        content: String
+    }]
 }, { timestamps: true });
 
 module.exports = mongoose.model('Complaints', complaintSchema);

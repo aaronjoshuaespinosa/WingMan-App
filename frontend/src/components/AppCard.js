@@ -97,7 +97,7 @@ const AppCard = (props) => {
                             <div className='flex w-full'>
                                 <input
                                     type="text"
-                                    placeholder="Add a comment"
+                                    placeholder="Respond"
                                     onChange={(e) => setContent(e.target.value)}
                                     required
                                     value={content}
@@ -108,13 +108,14 @@ const AppCard = (props) => {
                         </form>}
                         {error && <div>{error}</div>}
                     </div>
+                    
                     {/*MESSAGE SECTION*/}
                     <div className='px-[24px] py-[12px] bg-light-lgry border-t-light-gry border-t-[1px]'>
                         <p className='font-bold text-sm'>Messages</p>
                         <hr className='h-[2px] bg-light-gry my-2' />
                         <div>
-                            {appointment.messages.map(({ username, content }) => (
-                                <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username}:</span>&nbsp;&nbsp;{content}</p>
+                            {appointment.messages.map(({ email, content }) => (
+                                <p key={email} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{email}:</span>&nbsp;&nbsp;{content}</p>
                             ))}
                         </div>
                     </div>

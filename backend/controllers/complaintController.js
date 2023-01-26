@@ -64,13 +64,14 @@ const deleteComplaint = async (req, res) => {
 //UPDATE a complaint
 const updateComplaint = async (req, res) => {
     const { id } = req.params;
+    const { messages } = req.body;
     //if requested id is not valid
     if(!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: 'No such complaint.'});
     }
 
     const complaint = await Complaint.findOneAndUpdate({_id: id}, {
-        ...req.body
+        $push: {messages: messages}
     });
     
     if (!complaint) {
