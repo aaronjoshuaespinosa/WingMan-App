@@ -110,7 +110,7 @@ const AppCard = (props) => {
                     </div>
                     
                     {/*MESSAGE SECTION*/}
-                    <div className='px-[24px] py-[12px] bg-light-lgry border-t-light-gry border-t-[1px]'>
+                    <div className='p-[12px] bg-light-lgry border-t-light-gry border-t-[1px]'>
                         <p className='font-bold text-sm'>Messages</p>
                         <hr className='h-[2px] bg-light-gry my-2' />
                         <div>

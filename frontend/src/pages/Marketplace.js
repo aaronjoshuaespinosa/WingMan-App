@@ -48,14 +48,14 @@ const Profile = () => {
 
     return (
         <>
-            <div className='bg-wht absolute top-0 w-full font-space z-10'>
+            <div className='bg-wht absolute top-0 w-full font-space'>
 
                 {/* MARKETPLACE FORM MODAL */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     className='absolute z-20 w-full h-full bg-blk/90' style={market ? { display: "block" } : { display: "none" }}>
-                    <div className='fixed w-full h-full'>
+                    <div className='fixed w-full h-full z-90'>
                         <div className='flex justify-center items-center h-full'>
                             <motion.div
                                 initial={{ scale: 0 }}

@@ -6,7 +6,7 @@ import { FaSearch } from "react-icons/fa";
 const Greeting = () => {
     return (
         <>
-            <div className='pl-16 lg:pl-80 fixed w-full z-20 bg-wht'>
+            <div className='pl-16 lg:pl-80 fixed w-full z-10 bg-wht'>
                 <div className='flex items-center px-3 lg:px-[1.5rem] xl:px-10 text-2xl lg:text-5xl text-blk font-bold border-b-blk border-b-[2px] select-none w-full h-16 lg:h-28'>
                     {navHeader.map(labels => {
                         return (
