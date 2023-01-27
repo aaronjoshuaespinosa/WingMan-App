@@ -9,7 +9,7 @@ const AdminApp = () => {
 	const { appointments, dispatch: dsptch } = useAppointmentsContext()
 	const { user } = useAuthContext()
 
-	const [sort, setSort] = useState("ALL")
+	const [sort, setSort] = useState("All")
 
 	const allClick = () => {
 		setSort("All")

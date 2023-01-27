@@ -139,7 +139,7 @@ const AppACard = (props) => {
         <>
             {user.email === "cvsu.admin@wingman.com" && <div className='flex flex-row pb-3' style={visible === appointment.status ? {display: "flex"} : visible === "All" ? {display: "flex"} : {display: "none", height: 0, width: 0, margin: 0, padding: 0}}>
 
-                <div className='flex justify-center items-center pr-3 lg:pr-5 w-[3rem]'>
+                <div className='flex justify-center items-start pr-3 lg:pr-5 w-[3rem]'>
                     {/* INDEX NUNG ENTRY, KUNG PANG-ILAN NA APPOINTMENT */}
                     <p className='text-orng font-bold text-3xl'>0{index + 1}</p>
                 </div>
@@ -182,10 +182,10 @@ const AppACard = (props) => {
 
                     {/*MESSAGE SECTION*/}
                     {user && <form onSubmit={(handleSubmit)} className="w-full">
-                            <div className='flex w-full'>
+                            <div className='flex w-full p-[12px]'>
                                 <input
                                     type="text"
-                                    placeholder="Respond"
+                                    placeholder="Respond..."
                                     onChange={(e) => setContent(e.target.value)}
                                     required
                                     value={content}
@@ -194,7 +194,7 @@ const AppACard = (props) => {
                                 <button className='bg-orng border-blk border-y-[2px] border-r-[2px] rounded-r-[3px] px-4'><MdSend className='text-xl' /></button>
                             </div>
                         </form>}
-                    <div className='px-[24px] py-[12px] bg-light-lgry border-t-light-gry border-t-[1px]'>
+                    <div className='px-[12px] py-[12px] bg-light-lgry border-t-light-gry border-t-[1px]'>
                         <p className='font-bold text-sm'>Messages</p>
                         <hr className='h-[2px] bg-light-gry my-2' />
                         <div>
