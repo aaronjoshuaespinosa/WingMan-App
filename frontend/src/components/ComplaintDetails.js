@@ -93,9 +93,9 @@ const ComplaintDetails = (props) => {
                     </div>
 
 
-                    <p>Send a message to admin</p>
+                    <p className='px-[12px] pt-[12px]'>Send a message to admin</p>
                     {user && <form onSubmit={(handleSubmit)} className="w-full">
-                        <div className='flex w-full'>
+                        <div className='flex w-full p-[12px]'>
                             <input
                                 type="text"
                                 placeholder="Respond"
@@ -110,7 +110,7 @@ const ComplaintDetails = (props) => {
                     {error && <div>{error}</div>}
 
                     {/*MESSAGE SECTION*/}
-                    <div className='px-[24px] py-[12px] bg-light-lgry border-t-light-gry border-t-[1px]'>
+                    <div className='p-[12px] bg-light-lgry border-t-light-gry border-t-[1px]'>
                         <p className='font-bold text-sm'>Messages</p>
                         <hr className='h-[2px] bg-light-gry my-2' />
                         <div>
