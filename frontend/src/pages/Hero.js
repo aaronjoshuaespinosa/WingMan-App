@@ -65,7 +65,7 @@ const Hero = () => {
                 <HeroNav />
 
                 <div className='p-5 lg:py-10 lg:px-56 w-full'>
-                    <div className='flex flex-row gap-x-2'>
+                    <div className='flex flex-row gap-x-2 z-0'>
 
                         <motion.div
                             animate={{ x: [0, 32, 0] }}

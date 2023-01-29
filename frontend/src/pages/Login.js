@@ -114,7 +114,7 @@ const Login = () => {
                                     animate={{ opacity: 100, y: 0 }}
                                     transition={{ delay: 0.05 }}
                                     className='py-5'>
-                                    <p className='text-3xl text-blk font-bold'>Login to WingMan</p>
+                                    <p className='text-2xl text-blk font-bold'>Login to WingMan</p>
                                     <p className='text-sm'>Connect with your fellow CvSUeños!</p>
                                 </motion.div>
                                 {/* <motion.img
