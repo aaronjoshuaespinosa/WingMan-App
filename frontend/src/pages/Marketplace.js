@@ -112,14 +112,14 @@ const Profile = () => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1 * 0.1 }}
-                        className='text-orng font-bold px-1 pt-3 text-lg lg:text-xl'>TRANSACTIONS IN THE MARKET</motion.p>
+                        className='text-orng font-bold px-1 pt-3 text-lg lg:text-xl'>NOW ACTIVE IN THE MARKET</motion.p>
 
                     <div className='flex w-full'>
                         <motion.div
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 2 * 0.1 }}
-                            className='lg:gap-x-0 pt-5 flex flex-col lg:flex-row lg:flex-wrap w-full'>
+                            className='lg:gap-x-0 pt-0 flex flex-col lg:flex-row lg:flex-wrap w-full'>
                         
                         <List input={inputText}/>
 
