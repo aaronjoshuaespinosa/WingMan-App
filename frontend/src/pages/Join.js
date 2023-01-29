@@ -189,6 +189,9 @@ const Join = () => {
     //POST FORM INPUT
     const handleClick = async (e) => {
         await signup(values.fName, values.lName, values.studentNum, values.email, values.username, values.password)
+        if (values.email.includes("@wingman.com")) {
+            navigate("/admin/dashboard", { replace: true })
+        }
     }
 
     return (

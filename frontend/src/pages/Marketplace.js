@@ -6,7 +6,8 @@ import MPService from '../components/MPService'
 import { motion } from 'framer-motion'
 import MarketForm from '../components/MarketForm'
 import { useMarketsContext } from '../hooks/useMarketsContext'
-import { FaSearch } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa"
+import List from '../components/List'
 
 const Profile = () => {
     const dispatch = useDispatch()
@@ -15,6 +16,12 @@ const Profile = () => {
 
     const clickMarket = () => {
         setMarket(current => !current)
+    }
+
+    const [inputText, setInputText] = useState("")
+    let inputHandler = (e) => {
+      var lowerCase = e.target.value.toLowerCase()
+      setInputText(lowerCase)
     }
 
     const { markets, dispatch: dsptch } = useMarketsContext()
@@ -85,7 +92,7 @@ const Profile = () => {
                     </div> */}
 
                     <div className='flex flex-row justify-end items-center h-14 w-full pb-[12px] lg:hidden'>
-                        <input type='text' placeholder='Search the market...' className='mx-1 py-2 px-3 w-full h-full xl:w-96 text-base border-blk border-[2px] rounded-[3px]' />
+                        <input type='text' placeholder='Search the market...' className='mx-1 py-2 px-3 w-full h-full xl:w-96 text-base border-blk border-[2px] rounded-[3px]' onChange={inputHandler}/>
                         <div className='bg-orng text-wht text-base h-full py-2 px-3 border-blk border-[2px] rounded-[3px] flex items-center cursor-pointer'>
                             <FaSearch />
                         </div>
@@ -113,8 +120,10 @@ const Profile = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 2 * 0.1 }}
                             className='lg:gap-x-0 pt-5 flex flex-col lg:flex-row lg:flex-wrap w-full'>
+                        
+                        <List input={inputText}/>
 
-                            {markets && markets.map((market, i) => (
+                            {/*{markets && markets.map((market, i) => (
                                 <motion.div
                                     initial={{ opacity: 0, y: 15 }}
                                     animate={{ opacity: 100, y: 0 }}
@@ -122,7 +131,7 @@ const Profile = () => {
                                     className='basis-1/3 p-1'>
                                     <MPService key={market.id} market={market} />
                                 </motion.div>
-                            ))}
+                            ))}*/}
                         </motion.div>
                     </div>
 

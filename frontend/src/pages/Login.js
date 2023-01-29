@@ -58,6 +58,9 @@ const Login = () => {
 
         e.preventDefault()
         await login(values.email, values.password)
+        if (values.email.includes("@wingman.com")) {
+            navigate("/admin/dashboard", { replace: true })
+        }
     };
 
     const handleChange = (e) => {

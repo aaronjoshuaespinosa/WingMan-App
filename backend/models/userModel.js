@@ -95,7 +95,7 @@ userSchema.statics.login = async function (email, password) {
     //if the user logging in exists but email is incorrect
     const user = await this.findOne({ email });
     if (!user) {
-        throw Error('Incorrect email.');
+        throw Error('Email does not exist.');
     }
 
     //from bcrypt
