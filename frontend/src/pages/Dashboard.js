@@ -27,8 +27,6 @@ const Dashboard = () => {
         navigate("/complaint-system")
 	}
 
-	
-
 	const toggle = useSelector((state) => state.Toggle.toggle.value)
 
 	const { user } = useAuthContext()

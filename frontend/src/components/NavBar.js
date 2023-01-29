@@ -4,16 +4,30 @@ import { AiOutlineClose } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import NavLinks from './NavLinks';
-import { navHeader, navMenu } from '../constants'
 import { useLogout } from '../hooks/useLogout'
 import { useAuthContext } from '../hooks/useAuthContext';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom'
 
 
 
 const NavBar = ({ onChange }) => {
 	const [navActive, setNavActive] = useState(false)
 	const [menuActive, setMenuActive] = useState(false)
+
+	const navigate = useNavigate()
+
+	const appointmentsLink = () => {
+		navigate("/appointments")
+	}
+
+	const faqsLink = () => {
+		navigate("/faqs")
+	}
+
+	const complaintLink = () => {
+		navigate("/complaint-system")
+	}
 
 	const ref = useRef(null)
 
@@ -100,11 +114,9 @@ const NavBar = ({ onChange }) => {
 							whileInView={{ scale: 1, y: 0 }}
 							className='bg-wht absolute text-blk font-medium text-sm p-3 flex rounded-[2px] border-blk border-[2px] right-2 lg:right-[-3.9rem] top-[-6.5rem]' ref={ref} style={menuActive ? { display: "block" } : { display: "none" }}>
 							<div className='h-fit w-fit'>
-								{navMenu.map(menuLinks => {
-									return (
-										<p {...menuLinks} key={menuLinks.id} className='py-1 pr-5 cursor-pointer select-none hover:text-light-gry' onClick={menuClick}>{menuLinks.name}</p>
-									)
-								})}
+								<p className='py-1 pr-5 cursor-pointer select-none hover:text-light-gry' onClick={faqsLink}>Your Questions</p>
+								<p className='py-1 pr-5 cursor-pointer select-none hover:text-light-gry' onClick={appointmentsLink}>Your Appointments</p>
+								<p className='py-1 pr-5 cursor-pointer select-none hover:text-light-gry' onClick={complaintLink}>Your Complaints</p>
 								<hr className='my-2 border-light-gry' />
 								<button className='text-orng cursor-pointer select-none hover:text-light-orng' onClick={signoutClick}><a href="/sign-in" target="_self">Sign out</a></button>
 							</div>
