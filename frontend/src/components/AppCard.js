@@ -82,13 +82,19 @@ const AppCard = (props) => {
                             {/* LINE */}
                             <p className='hidden lg:block'>|</p>
 
-                            {/* APPOINTMENT TIME */}
-                            <p>Schedule: {appointment.schedule}</p>
+                            {/* APPOINTMENT DATE */}
+                            <p>Date: {appointment.date}</p>
 
                             {/* LINE */}
                             <p className='hidden lg:block'>|</p>
 
-                            {/* APPOINTMENT TIME - PLACEHOLDER MUNA */}
+                            {/* APPOINTMENT TIME */}
+                            <p>Time: {appointment.time}</p>
+
+                            {/* LINE */}
+                            <p className='hidden lg:block'>|</p>
+
+                            {/* APPOINTMENT STAUS */}
                             <p>Status: {appointment.status}</p>
                         </div>
 

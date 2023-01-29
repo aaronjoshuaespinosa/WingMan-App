@@ -30,9 +30,8 @@ const AppForm = (props) => {
     }
 
     let dateToday = yyyy + '-' + mm + '-' + dd
-    const [appDate, setAppDate] = useState('')
-    const [appTime, setAppTime] = useState('')
-    let schedule = appDate + ' ' + appTime
+    const [date, setDate] = useState('')
+    const [time, setTime] = useState('')
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -42,7 +41,7 @@ const AppForm = (props) => {
             return
         }
 
-        const appointment = { title, description, status, type, email, fullName, username, studentNumber, schedule }
+        const appointment = { title, description, status, type, email, fullName, username, studentNumber, date, time }
         const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/appointments`, {
             method: 'POST',
             body: JSON.stringify(appointment),
@@ -104,8 +103,8 @@ const AppForm = (props) => {
                                 min={dateToday}
                                 required
                                 className="w-full p-[12px] border-blk border-[2px] rounded-[3px]" 
-                                onChange={(e) => setAppDate(e.target.value)}
-                                value={appDate}
+                                onChange={(e) => setDate(e.target.value)}
+                                value={date}
                                 />
 
                             <input
@@ -114,8 +113,8 @@ const AppForm = (props) => {
                                 max="16:00"
                                 required
                                 className="w-full p-[12px] border-blk border-[2px] rounded-[3px]"
-                                onChange={(e) => setAppTime(e.target.value)}
-                                value={appTime}></input>
+                                onChange={(e) => setTime(e.target.value)}
+                                value={time}></input>
                         </div>
                     </div>
 
