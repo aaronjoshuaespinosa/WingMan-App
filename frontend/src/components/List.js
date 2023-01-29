@@ -5,7 +5,6 @@ import MPService from './MPService'
 
 function List(props) {
     const { markets } = useMarketsContext()
-
     return (
         <div className='flex w-full'>
             <motion.div
