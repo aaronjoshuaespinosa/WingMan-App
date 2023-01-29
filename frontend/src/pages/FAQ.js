@@ -78,9 +78,9 @@ const FAQ = () => {
 						whileInView={{ scale: 1 }}
 						className='fixed w-full'>
 						<div className='flex justify-center items-center h-[100vh] w-full'>
-							<div className='flex flex-col bg-wht p-[24px] rounded-[5px] border-blk border-[2px] justify-center items-center'>
+							<div className='flex flex-col w-[90vw] lg:w-[30%] bg-wht p-[24px] rounded-[5px] border-blk border-[2px] justify-center items-center'>
 								<p className='font-bold text-3xl mb-5'>Delete FAQ</p>
-								<p>Do you really want to delete this FAQ?</p>
+								<p className='text-center'>This cannot be undone and it will be removed from WingMan FAQs. Do you really want to delete this FAQ?</p>
 
 								{/* MODAL BUTTONS */}
 								<div className='flex gap-x-[12px] mt-5'>
@@ -93,7 +93,7 @@ const FAQ = () => {
 
 				</div>
 
-				<div className='relative px-[1.25rem] pt-20 pb-10 lg:pl-[21.5rem] lg:pr-[1.5rem] xl:pl-[22.5rem] xl:pr-[3rem] lg:pt-36 lg:pb-10 z-10'>
+				<div className='relative px-[1.25rem] pt-20 pb-10 lg:pl-[21.5rem] lg:pr-[1.5rem] xl:pl-[22.5rem] xl:pr-[3rem] lg:pt-36 lg:pb-10 z-0'>
 					<div className='flex flex-row gap-x-0 lg:gap-x-[12px]'>
 						<div className='w-full lg:w-5/6'>
 

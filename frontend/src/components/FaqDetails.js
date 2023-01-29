@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 import { AiTwotoneDelete } from "react-icons/ai";
-import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import { MdSend } from "react-icons/md";
 import { useFaqsContext } from '../hooks/useFaqsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
@@ -17,7 +16,7 @@ const FaqDetails = (props) => {
     const [description, setDescription] = useState('')
     const comments = [{ username, email, description }]
     const [error, setError] = useState('')
-    
+
     const fetchFAQs = async () => {
         const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/FAQs`, {
             headers: {
@@ -86,7 +85,7 @@ const FaqDetails = (props) => {
             <div className='topFAQ flex flex-col justify-between h-full w-full'>
                 <div className='leftCard flex flex-col p-[24px]'>
                     <div className='nameAndDate flex flex-row gap-2 align-center'>
-                        <p className='text-blk text-sm hover:underline cursor-pointer'>{faq.username}</p>
+                        <p className='text-blk text-sm'>Posted by <span className='hover:underline cursor-pointer'>{faq.username}</span></p>
                         <p className='text-light-gry text-sm'>•</p>
                         <p className='text-light-gry text-xs place-self-center'>{formatDistanceToNowStrict(new Date(faq.createdAt), { addSuffix: true })}</p>
                     </div>
@@ -102,7 +101,6 @@ const FaqDetails = (props) => {
 
                         {/* <ImArrowUp />
                         <p className='text-sm'>{user && faq.upvote}</p> */}
-
                         {user && <form onSubmit={(handleSubmit)} className="w-full">
                             <div className='flex w-full'>
                                 <input
@@ -117,6 +115,7 @@ const FaqDetails = (props) => {
                             </div>
                         </form>}
                         {error && <div>{error}</div>}
+
                     </div>
 
                     {/* BASURAHAN */}
@@ -129,9 +128,12 @@ const FaqDetails = (props) => {
                     <p className='font-bold text-sm'>COMMENTS</p>
                     <hr className='h-[2px] bg-light-gry my-2' />
                     <div>
-                        {faq.comments.map(({ username, description }) => (
-                            <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username}:</span>&nbsp;&nbsp;{description}</p>
-                        ))}
+                        {faq.comments.map(({ username, description }) => {
+                            console.log(faq.comments.length)
+                            return (faq.comments.length !== 0
+                                ? <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username}:</span>&nbsp;&nbsp;{description}</p>
+                                : <p>no comments</p>)
+                        })}
                     </div>
                 </div>
 
