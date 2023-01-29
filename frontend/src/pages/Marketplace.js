@@ -39,11 +39,11 @@ const Profile = () => {
             }
         }
         fetchMarkets()
-    }, [dsptch])
+    }, [itemData])
 
     // PAGINATION VARIABLES
     const [currentPage, setCurrentPage] = useState(1)
-    const [itemsPerPage, setItemsPerPage] = useState(6)
+    const [itemsPerPage, setItemsPerPage] = useState(9)
     const lastItemIndex = currentPage * itemsPerPage
     const firstItemIndex = lastItemIndex - itemsPerPage
     const currentItems = itemData.slice(firstItemIndex, lastItemIndex)
