@@ -90,7 +90,7 @@ const ComplaintDetails = (props) => {
                     {/* CONTENT */}
                     <div className='bg-wht p-[12px]'>
                         {user && <p>{complaint.content}</p>}
-                        {user && <p>{formatDistanceToNowStrict(new Date(complaint.createdAt), { addSuffix: true })}</p>}
+                        {user && <p className='text-sm text-light-gry'>{formatDistanceToNowStrict(new Date(complaint.createdAt), { addSuffix: true })}</p>}
                     </div>
 
                     {/*MESSAGE SECTION*/}

@@ -103,7 +103,7 @@ const AppCard = (props) => {
                     {/* DESCRIPTION */}
                     <div className='py-3 bg-wht p-[12px]'>
                         <p>{appointment.description}</p>
-                        <p>{formatDistanceToNowStrict(new Date(appointment.createdAt), { addSuffix: true })}</p>
+                        <p className='text-sm text-light-gry'>{formatDistanceToNowStrict(new Date(appointment.createdAt), { addSuffix: true })}</p>
                     </div>
 
                     {/*MESSAGE SECTION*/}
