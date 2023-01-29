@@ -37,21 +37,14 @@ const AdminNav = () => {
         <>
             <div className='w-full h-auto bg-blk font-space text-wht fixed z-50'>
                 <nav className='flex flex-row w-full justify-between items-center px-96 font-bold'>
-                    <p className="cursor-pointer hover:text-orng text-xl py-3" onClick={adminDash}>WINGMAN ADMIN</p>
+                    <p className="cursor-pointer hover:text-orng text-lg py-3" onClick={adminDash}>WINGMAN ADMIN</p>
 
-                    <div className='flex flex-row gap-x-1'>
+                    <div className='flex flex-row gap-x-1 text-sm'>
                         <div
-                            className='h-full py-3 px-3'
+                            className='h-full py-3 px-1'
                             onClick={adminDash}
                             style={window.location.pathname === "/admin/dashboard" ? { color: "#FC5F1C", borderBottom: "solid 3px #FC5F1C" } : { color: "#F9F9F9" }}>
                             <p className="h-full cursor-pointer hover:text-orng">Dashboard</p>
-                        </div>
-
-                        <div
-                            className='h-full py-3 px-3'
-                            onClick={adminNA}
-                            style={window.location.pathname === "/admin/news-and-announcements" ? { color: "#FC5F1C", borderBottom: "solid 3px #FC5F1C" } : { color: "#F9F9F9" }}>
-                            <p className="h-full cursor-pointer hover:text-orng">N&A</p>
                         </div>
 
                         <div
@@ -76,7 +69,7 @@ const AdminNav = () => {
                         </div>
                     </div>
 
-                    <p className='text-orng cursor-pointer' onClick={signoutClick}>Sign out</p>
+                    <p className='text-orng cursor-pointer text-sm' onClick={signoutClick}>Sign out</p>
                 </nav>
             </div>
         </>
