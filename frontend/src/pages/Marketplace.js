@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { setToggle } from '../features/navSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { Footer, Greeting, Nothing } from '../components'
-import MPService from '../components/MPService'
+import { Footer, Greeting, Nothing, MPService } from '../components'
 import { motion } from 'framer-motion'
 import MarketForm from '../components/MarketForm'
 import { useMarketsContext } from '../hooks/useMarketsContext'
 import { FaSearch } from "react-icons/fa"
-import List from '../components/List'
+import Pagination from '../components/Pagination'
 
 const Profile = () => {
     const dispatch = useDispatch()
@@ -18,11 +17,13 @@ const Profile = () => {
         setMarket(current => !current)
     }
 
-    const [inputText, setInputText] = useState("")
+    const [inputText, setInputText] = useState([])
     let inputHandler = (e) => {
-      var lowerCase = e.target.value.toLowerCase()
-      setInputText(lowerCase)
+        var lowerCase = e.target.value.toLowerCase()
+        setInputText(lowerCase)
     }
+
+    const [itemData, setItemData] = useState([])
 
     const { markets, dispatch: dsptch } = useMarketsContext()
     const toggle = useSelector((state) => state.Toggle.toggle.value)
@@ -34,10 +35,18 @@ const Profile = () => {
             const json = await response.json()
             if (response.ok) {
                 dsptch({ type: 'SET_OFFERS', payload: json })
+                setItemData(json)
             }
         }
         fetchMarkets()
     }, [dsptch])
+
+    // PAGINATION VARIABLES
+    const [currentPage, setCurrentPage] = useState(1)
+    const [itemsPerPage, setItemsPerPage] = useState(6)
+    const lastItemIndex = currentPage * itemsPerPage
+    const firstItemIndex = lastItemIndex - itemsPerPage
+    const currentItems = itemData.slice(firstItemIndex, lastItemIndex)
 
     // const mpCategory = [
     //     { id: '0', name: 'All' },
@@ -92,7 +101,7 @@ const Profile = () => {
                     </div> */}
 
                     <div className='flex flex-row justify-end items-center h-14 w-full pb-[12px] lg:hidden'>
-                        <input type='text' placeholder='Search the market...' className='mx-1 py-2 px-3 w-full h-full xl:w-96 text-base border-blk border-[2px] rounded-[3px]' onChange={inputHandler}/>
+                        <input type='text' placeholder='Search the market...' className='mx-1 py-2 px-3 w-full h-full xl:w-96 text-base border-blk border-[2px] rounded-[3px]' onChange={inputHandler} />
                         <div className='bg-orng text-wht text-base h-full py-2 px-3 border-blk border-[2px] rounded-[3px] flex items-center cursor-pointer'>
                             <FaSearch />
                         </div>
@@ -120,56 +129,33 @@ const Profile = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 2 * 0.1 }}
                             className='lg:gap-x-0 pt-0 flex flex-col lg:flex-row lg:flex-wrap w-full'>
-                        
-                        <List input={inputText}/>
 
-                            {/*{markets && markets.map((market, i) => (
+                            <div className='flex w-full'>
                                 <motion.div
-                                    initial={{ opacity: 0, y: 15 }}
-                                    animate={{ opacity: 100, y: 0 }}
-                                    transition={{ delay: i * 0.1 }}
-                                    className='basis-1/3 p-1'>
-                                    <MPService key={market.id} market={market} />
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 2 * 0.1 }}
+                                    className='lg:gap-x-0 pt-5 flex flex-col lg:flex-row lg:flex-wrap w-full'>
+
+                                    {currentItems.map((market, i) => (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 15 }}
+                                            animate={{ opacity: 100, y: 0 }}
+                                            transition={{ delay: i * 0.1 }}
+                                            className='basis-1/3 p-1'>
+                                            <MPService key={market.id} market={market} />
+                                        </motion.div>
+                                    ))}
                                 </motion.div>
-                            ))}*/}
+                            </div>
+
+                            <hr className='bg-blk py-[0.02rem] z-50 w-full mt-[24px]' />
+
+                            <div className='flex w-full items-center justify-center'>
+                                <Pagination totalItems={itemData.length} itemsPerPage={itemsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
+                            </div>
                         </motion.div>
                     </div>
-
-                    <div className='py-20'>
-                        <Nothing />
-                    </div>
-
-                    {/* Ginawa ko munang comments, di gumagana pag ginagamit ulit yung MPService kailangan naka-map na katulad sa taas
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 2 * 0.1 }}
-                        className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-5'>
-                        <MPService />
-                        <MPService />
-                        <MPService />
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 3 * 0.1 }}
-                        className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-5'>
-                        <MPService />
-                        <MPService />
-                        <MPService />
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 4 * 0.1 }}
-                        className='flex flex-col lg:flex-row gap-y-3 lg:gap-x-3 pt-5'>
-                        <MPService />
-                        <MPService />
-                        <MPService />
-                    </motion.div>
-                    */}
                 </div>
 
                 <Footer />
