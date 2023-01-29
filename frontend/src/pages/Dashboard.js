@@ -9,9 +9,25 @@ import { useAuthContext } from '../hooks/useAuthContext'
 import { useAppointmentsContext } from '../hooks/useAppointmentsContext'
 import { useComplaintsContext } from '../hooks/useComplaintsContext'
 import { FaUser, FaEnvelope, FaInfoCircle } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
 	const dispatch = useDispatch()
+	const navigate = useNavigate()
+
+	const appointmentsLink = () => {
+        navigate("/appointments")
+    }
+
+    const faqsLink = () => {
+        navigate("/faqs")
+    }
+
+    const complaintLink = () => {
+        navigate("/complaint-system")
+	}
+
+	
 
 	const toggle = useSelector((state) => state.Toggle.toggle.value)
 
@@ -139,6 +155,27 @@ const Dashboard = () => {
 					</div>
 
 					<div className='w-2/6 hidden lg:block'>
+						<p className='font-bold text-lg text-orng pb-[12px]'>SHORTCUTS</p>
+
+						<div className='flex flex-col gap-y-[12px] pb-[24px]'>
+							<div className='flex flex-row justify-between items-center bg-wht border-blk border-[2px] rounded-[3px] font-bold text-xl p-[12px] cursor-pointer hover:bg-light-lgry transition-bg duration-[0.2s] ease-in-out' onClick={faqsLink}>
+								<p>Create FAQ</p>
+								<p className='text-2xl'>→</p>
+							</div>
+
+							<div className='flex flex-row justify-between items-center bg-wht border-blk border-[2px] rounded-[3px] font-bold text-xl p-[12px] cursor-pointer hover:bg-light-lgry transition-bg duration-[0.2s] ease-in-out' onClick={appointmentsLink}>
+								<p>Add Appointment</p>
+								<p className='text-2xl'>→</p>
+							</div>
+
+							<div className='flex flex-row justify-between items-center bg-wht border-blk border-[2px] rounded-[3px] font-bold text-xl p-[12px] cursor-pointer hover:bg-light-lgry transition-bg duration-[0.2s] ease-in-out' onClick={complaintLink}>
+								<p>Send Complaint</p>
+								<p className='text-2xl'>→</p>
+							</div>
+						</div>
+
+						<hr className='bg-blk py-[0.02rem] mb-[24px]' />
+
 						<motion.p
 							initial={{ opacity: 0, y: 15 }}
 							animate={{ opacity: 100, y: 0 }}

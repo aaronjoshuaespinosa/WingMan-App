@@ -120,8 +120,8 @@ const AppCard = (props) => {
                         <p className='font-bold text-sm'>Messages</p>
                         <hr className='h-[2px] bg-light-gry my-2' />
                         <div>
-                            {appointment.messages.map(({ email, content }) => (
-                                <p key={email} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{email}:</span>&nbsp;&nbsp;{content}</p>
+                            {appointment.messages.map(({ username, content }) => (
+                                <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username}:</span>&nbsp;&nbsp;{content}</p>
                             ))}
                         </div>
                     </div>
