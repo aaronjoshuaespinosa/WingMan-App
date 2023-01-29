@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 //GET all appointments
 const getAppointments = async (req, res) => {
     const user_id = req.user._id;
-    const appointments = await Appointment.find({ user_id }).sort({createdAt: 1});
+    const appointments = await Appointment.find({ user_id }).sort({createdAt: -1});
     res.status(200).json(appointments);
 };
 

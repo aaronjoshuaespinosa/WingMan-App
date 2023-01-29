@@ -61,7 +61,7 @@ const AppCard = (props) => {
         <>
             <div className='flex flex-row'>
 
-                <div className='flex justify-center items-center pr-3 lg:pr-5 w-[3rem]'>
+                <div className='flex justify-center items-center pr-3 lg:pr-5 w-[3rem]' style={window.location.pathname === "/dashboard" ? { display: "none" } : { display: "flex" }}>
                     {/* INDEX NUNG ENTRY, KUNG PANG-ILAN NA APPOINTMENT */}
                     <p className='text-orng font-bold text-3xl'>0{index + 1}</p>
                 </div>
@@ -78,7 +78,7 @@ const AppCard = (props) => {
 
                             {/* APPOINTMENT TYPE */}
                             <p>Type: {appointment.type}</p>
-                            
+
                             {/* LINE */}
                             <p className='hidden lg:block'>|</p>
 

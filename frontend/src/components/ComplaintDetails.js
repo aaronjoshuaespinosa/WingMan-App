@@ -61,7 +61,7 @@ const ComplaintDetails = (props) => {
             <div className='flex flex-row'>
 
                 {/* ENTRY INDEX */}
-                <div className='flex justify-center items-center pr-3 lg:pr-5 w-[3rem]'>
+                <div className='flex justify-center items-center pr-3 lg:pr-5 w-[3rem]' style={window.location.pathname === "/dashboard" ? { display: "none" } : { display: "flex" }}>
                     <p className='text-orng font-bold text-3xl'>0{index + 1}</p>
                 </div>
 
