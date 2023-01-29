@@ -10,21 +10,22 @@ import { useAppointmentsContext } from '../hooks/useAppointmentsContext'
 import { useComplaintsContext } from '../hooks/useComplaintsContext'
 import { FaUser, FaEnvelope, FaInfoCircle } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom'
+import { IoIosAlert } from "react-icons/io";
 
 const Dashboard = () => {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 
 	const appointmentsLink = () => {
-        navigate("/appointments")
-    }
+		navigate("/appointments")
+	}
 
-    const faqsLink = () => {
-        navigate("/faqs")
-    }
+	const faqsLink = () => {
+		navigate("/faqs")
+	}
 
-    const complaintLink = () => {
-        navigate("/complaint-system")
+	const complaintLink = () => {
+		navigate("/complaint-system")
 	}
 
 	const toggle = useSelector((state) => state.Toggle.toggle.value)
@@ -115,7 +116,8 @@ const Dashboard = () => {
 
 						{/* LATEST APPOINTMENT */}
 						<div className='flex flex-col'>
-							<p className='font-bold text-lg text-orng pb-3'>LATEST APPOINTMENT</p>
+							<p className='font-bold text-lg text-orng'>LATEST APPOINTMENT</p>
+							<hr className='bg-blk py-[0.02rem]' />
 							<div>
 								{appointments && appointments.map((appointment, i) => {
 									return (i === 0
@@ -127,14 +129,21 @@ const Dashboard = () => {
 											<AppCard key={appointment.id} appointment={appointment} index={i} />
 										</motion.div>
 										: null)
-
 								})}
+								{appointments?.length > 0
+									? null
+									: <div className='flex flex-col w-full items-center justify-center py-3'>
+										<IoIosAlert className='text-8xl text-light-gry' />
+										<p className='font-bold'>You don't have any appointments yet.</p>
+										<p>Add an appointment? <span className='hover:underline hover:text-orng cursor-pointer'>Click here</span></p>
+									</div>}
 							</div>
 						</div>
 
 						{/* LATEST COMPLAINT */}
 						<div className='flex flex-col'>
-							<p className='font-bold text-lg text-orng pb-3'>LATEST COMPLAINT</p>
+							<p className='font-bold text-lg text-orng'>LATEST COMPLAINT</p>
+							<hr className='bg-blk py-[0.02rem]' />
 							<div>
 								{complaints && complaints.map((complaint, i) => {
 									return (i === 0
@@ -146,8 +155,14 @@ const Dashboard = () => {
 											<ComplaintDetails key={complaint.id} complaint={complaint} index={i} />
 										</motion.div>
 										: null)
-
 								})}
+								{complaints?.length > 0
+									? null
+									: <div className='flex flex-col w-full items-center justify-center py-3'>
+										<IoIosAlert className='text-8xl text-light-gry' />
+										<p className='font-bold'>You don't have any complaints yet.</p>
+										<p>Send a complaint? <span className='hover:underline hover:text-orng cursor-pointer'>Click here</span></p>
+									</div>}
 							</div>
 						</div>
 					</div>

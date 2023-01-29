@@ -130,7 +130,7 @@ const FaqDetails = (props) => {
                     <div>
                         {faq.comments.map(({ username, description }) => {
                             return (
-                                <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username}:</span>&nbsp;&nbsp;{description}</p>)
+                                <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username === `${user.data.username}` ? "You" : `${username}`}:</span>&nbsp;&nbsp;{description}</p>)
                         })}
                         {faq.comments.length > 0 ? null : <p className='text-light-gry'>No comments yet</p>}
                     </div>

@@ -70,14 +70,14 @@ const ComplaintDetails = (props) => {
 
                         {/* TITLE */}
                         <div className='w-[50%] lg:w-auto underline font-bold cursor-pointer hover:text-orng transition-all ease-in-out duration-[0.2s] flex flex-row px-1'>
-                            {user && <p><span className='uppercase'>{complaint.recipient}</span>: {complaint.subject}</p>}
+                            {user && <p className='uppercase'>{complaint.subject}</p>}
                         </div>
 
                         {/* OTHER DETAILS */}
                         <div className='w-[50%] lg:w-auto flex flex-col lg:flex-row gap-x-2 font-bold select-none text-right lg:text-auto'>
 
-                            {/* TIME ELAPSED */}
-                            {user && <p>{formatDistanceToNowStrict(new Date(complaint.createdAt), { addSuffix: true })}</p>}
+                            {/* RECIPIENT */}
+                            {user && <p>Recipient: <span className='uppercase'>{complaint.recipient}</span></p>}
 
                             {/* LINE */}
                             <p className='hidden lg:block'>|</p>
@@ -90,34 +90,35 @@ const ComplaintDetails = (props) => {
                     {/* CONTENT */}
                     <div className='bg-wht p-[12px]'>
                         {user && <p>{complaint.content}</p>}
+                        {user && <p>{formatDistanceToNowStrict(new Date(complaint.createdAt), { addSuffix: true })}</p>}
                     </div>
-
-
-                    <p className='px-[12px] pt-[12px]'>Send a message to admin</p>
-                    {user && <form onSubmit={(handleSubmit)} className="w-full">
-                        <div className='flex w-full p-[12px]'>
-                            <input
-                                type="text"
-                                placeholder="Respond"
-                                onChange={(e) => setContent(e.target.value)}
-                                required
-                                value={content}
-                                className="p-[6px] border-blk border-[2px] rounded-l-[3px] w-full"
-                            />
-                            <button className='bg-orng border-blk border-y-[2px] border-r-[2px] rounded-r-[3px] px-4'><MdSend className='text-xl' /></button>
-                        </div>
-                    </form>}
-                    {error && <div>{error}</div>}
 
                     {/*MESSAGE SECTION*/}
                     <div className='p-[12px] bg-light-lgry border-t-light-gry border-t-[1px]'>
                         <p className='font-bold text-sm'>Messages</p>
                         <hr className='h-[2px] bg-light-gry my-2' />
+                        
                         <div>
-                            {complaint.messages.map(({ email, content }) => (
-                                <p key={email} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{email}:</span>&nbsp;&nbsp;{content}</p>
+                            {complaint.messages.map(({ username, content }) => (
+                                <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username === `${user.data.username}` ? "You" : `${username}`}:</span>&nbsp;&nbsp;{content}</p>
                             ))}
+                            {complaint.messages.length > 0 ? null : <p className='text-light-gry'>No messages yet</p>}
                         </div>
+
+                        {user && <form onSubmit={(handleSubmit)} className="w-full">
+                            <div className='flex w-full pt-[12px]'>
+                                <input
+                                    type="text"
+                                    placeholder="Send a message to CvSU Admin..."
+                                    onChange={(e) => setContent(e.target.value)}
+                                    required
+                                    value={content}
+                                    className="p-[6px] border-blk border-[2px] rounded-l-[3px] w-full"
+                                />
+                                <button className='bg-orng border-blk border-y-[2px] border-r-[2px] rounded-r-[3px] px-4'><MdSend className='text-xl' /></button>
+                            </div>
+                        </form>}
+                        {error && <div>{error}</div>}
                     </div>
                 </div>
             </div>

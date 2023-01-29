@@ -104,12 +104,24 @@ const AppCard = (props) => {
                     <div className='py-3 bg-wht p-[12px]'>
                         <p>{appointment.description}</p>
                         <p>{formatDistanceToNowStrict(new Date(appointment.createdAt), { addSuffix: true })}</p>
-                        <p>Send a message to admin</p>
+                    </div>
+
+                    {/*MESSAGE SECTION*/}
+                    <div className='p-[12px] bg-light-lgry border-t-light-gry border-t-[1px]'>
+                        <p className='font-bold text-sm'>Messages</p>
+                        <hr className='h-[2px] bg-light-gry my-2' />
+                        <div>
+                            {appointment.messages.map(({ username, content }) => (
+                                <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username === `${user.data.username}` ? "You" : `${username}`}:</span>&nbsp;&nbsp;{content}</p>
+                            ))}
+                            {appointment.messages.length > 0 ? null : <p className='text-light-gry'>No messages yet</p>}
+                        </div>
+
                         {user && <form onSubmit={(handleSubmit)} className="w-full">
-                            <div className='flex w-full'>
+                            <div className='flex w-full pt-[12px]'>
                                 <input
                                     type="text"
-                                    placeholder="Respond"
+                                    placeholder="Send a message to CvSU Admin..."
                                     onChange={(e) => setContent(e.target.value)}
                                     required
                                     value={content}
@@ -119,17 +131,6 @@ const AppCard = (props) => {
                             </div>
                         </form>}
                         {error && <div>{error}</div>}
-                    </div>
-
-                    {/*MESSAGE SECTION*/}
-                    <div className='p-[12px] bg-light-lgry border-t-light-gry border-t-[1px]'>
-                        <p className='font-bold text-sm'>Messages</p>
-                        <hr className='h-[2px] bg-light-gry my-2' />
-                        <div>
-                            {appointment.messages.map(({ username, content }) => (
-                                <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username}:</span>&nbsp;&nbsp;{content}</p>
-                            ))}
-                        </div>
                     </div>
                 </div>
 
