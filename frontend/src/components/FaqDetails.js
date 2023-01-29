@@ -129,10 +129,8 @@ const FaqDetails = (props) => {
                     <hr className='h-[2px] bg-light-gry my-2' />
                     <div>
                         {faq.comments.map(({ username, description }) => {
-                            console.log(faq.comments.length)
-                            return (faq.comments.length !== 0
-                                ? <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username}:</span>&nbsp;&nbsp;{description}</p>
-                                : <p>no comments</p>)
+                            return (
+                                <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username}:</span>&nbsp;&nbsp;{description}</p>)
                         })}
                     </div>
                 </div>
