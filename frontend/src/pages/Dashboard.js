@@ -144,11 +144,15 @@ const Dashboard = () => {
 								})}
 								{appointments?.length > 0
 									? null
-									: <div className='flex flex-col w-full items-center justify-center py-3'>
+									: <motion.div
+										initial={{ opacity: 0, y: 15 }}
+										transition={{ delay: 3 * 0.1 }}
+										whileInView={{ opacity: 100, y: 0 }}
+										className='flex flex-col w-full items-center justify-center py-3'>
 										<IoIosAlert className='text-8xl text-light-gry' />
 										<p className='font-bold'>You don't have any appointments yet.</p>
 										<p>Add an appointment? <span className='hover:underline hover:text-orng cursor-pointer'>Click here</span></p>
-									</div>}
+									</motion.div>}
 							</div>
 						</div>
 
@@ -178,11 +182,15 @@ const Dashboard = () => {
 								})}
 								{complaints?.length > 0
 									? null
-									: <div className='flex flex-col w-full items-center justify-center py-3'>
+									: <motion.div
+										initial={{ opacity: 0, y: 15 }}
+										animate={{ opacity: 100, y: 0 }}
+										transition={{ delay: 6 * 0.1 }}
+										className='flex flex-col w-full items-center justify-center py-3'>
 										<IoIosAlert className='text-8xl text-light-gry' />
 										<p className='font-bold'>You don't have any complaints yet.</p>
 										<p>Send a complaint? <span className='hover:underline hover:text-orng cursor-pointer'>Click here</span></p>
-									</div>}
+									</motion.div>}
 							</div>
 						</div>
 					</div>

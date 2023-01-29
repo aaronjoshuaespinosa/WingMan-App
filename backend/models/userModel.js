@@ -51,7 +51,7 @@ userSchema.statics.signup = async function (firstName, lastName, studentNumber, 
     }
 
     //if email is not valid
-    if (!(/@cvsu.edu.ph\s*$/.test(email)) || !(/@wingman.com\s*$/.test(email))) {
+    if (!(/@cvsu.edu.ph\s*$/.test(email))) {
         throw Error('Email is not valid, must contain "@cvsu.edu.ph" at the end. (no spaces)');
     }
 

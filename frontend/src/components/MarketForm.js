@@ -133,10 +133,6 @@ const MarketForm = (props) => {
                         </div>
                     </div>
 
-                    <div>
-                        <input type="file"></input>
-                    </div>
-
                 </div>
 
                 {/* BUTTON & ERROR MSSG */}
