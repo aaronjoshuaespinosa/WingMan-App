@@ -76,8 +76,14 @@ const AppCard = (props) => {
                         {/* STATUS */}
                         <div className='w-[50%] lg:w-auto flex flex-col lg:flex-row gap-x-2 font-bold select-none text-right lg:text-auto'>
 
-                            {/* APPOINTMENT DATE - PLACEHOLDER MUNA */}
+                            {/* APPOINTMENT TYPE */}
                             <p>Type: {appointment.type}</p>
+                            
+                            {/* LINE */}
+                            <p className='hidden lg:block'>|</p>
+
+                            {/* APPOINTMENT TIME */}
+                            <p>Schedule: {appointment.schedule}</p>
 
                             {/* LINE */}
                             <p className='hidden lg:block'>|</p>
@@ -108,7 +114,7 @@ const AppCard = (props) => {
                         </form>}
                         {error && <div>{error}</div>}
                     </div>
-                    
+
                     {/*MESSAGE SECTION*/}
                     <div className='p-[12px] bg-light-lgry border-t-light-gry border-t-[1px]'>
                         <p className='font-bold text-sm'>Messages</p>

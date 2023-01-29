@@ -27,10 +27,10 @@ const getAppointment = async (req, res) => {
 
 //POST a new appointment
 const createAppointment = async (req, res) => {
-    const {title, description, type, status, email, fullName, username, studentNumber} = req.body;
+    const {title, description, type, status, email, fullName, username, studentNumber, schedule} = req.body;
     try {
         const user_id = req.user._id;
-        const appointment = await Appointment.create({title, description, type, status, user_id, email, fullName, username, studentNumber});
+        const appointment = await Appointment.create({title, description, type, status, user_id, email, fullName, username, studentNumber, schedule});
         res.status(200).json(appointment);
     }
     catch (error) {

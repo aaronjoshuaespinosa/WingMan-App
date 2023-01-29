@@ -38,6 +38,10 @@ const appointmentSchema = new Schema({
         type: String,
         required: true
     },
+    schedule: {
+        type: String,
+        required: true
+    },
     messages: [{
         username: String,
         email: String,
