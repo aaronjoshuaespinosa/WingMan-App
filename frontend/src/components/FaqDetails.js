@@ -132,6 +132,7 @@ const FaqDetails = (props) => {
                             return (
                                 <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username}:</span>&nbsp;&nbsp;{description}</p>)
                         })}
+                        {faq.comments.length > 0 ? null : <p className='text-light-gry'>No comments yet</p>}
                     </div>
                 </div>
 
