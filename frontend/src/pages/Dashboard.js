@@ -77,7 +77,7 @@ const Dashboard = () => {
 						</div>
 
 						{/* USER ACTIVITY */}
-						<div className='flex flex-col'>
+						{/* <div className='flex flex-col'>
 							<p className='font-bold text-lg text-orng pb-3'>YOUR ACTIVITY</p>
 							<div className='flex bg-wht border-blk border-[2px] rounded-[3px] p-10'>
 								<div className='flex flex-row items-center justify-center w-full gap-x-40'>
@@ -97,7 +97,7 @@ const Dashboard = () => {
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> */}
 
 						{/* LATEST APPOINTMENT */}
 						<div className='flex flex-col'>
