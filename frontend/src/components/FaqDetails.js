@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 import { AiTwotoneDelete } from "react-icons/ai";
+import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import { MdSend } from "react-icons/md";
 import { useFaqsContext } from '../hooks/useFaqsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
@@ -61,24 +62,26 @@ const FaqDetails = (props) => {
         }
     }
 
-    /*let upvote = `${faq.upvote}`
-    
-        const upClick = async() => {
-            upvote += 1
-            const faq = { upvote }
-            const response = await fetch('/api/FAQs/' + faq._id, {
-                method: 'PATCH',
-                body: JSON.stringify(faq),
-                headers: {
-                    'Authorization': `Bearer ${user.token}`
-                }
-            })
-    
-            const json = await response.json();
-            if (response.ok) {
-                dispatch({ type: 'SET_FAQS', payload: json })
+    //UPVOTES
+    let upvote = [{ email }]
+
+    const upClick = async (e) => {
+        e.preventDefault()
+        let ups = { upvote }
+        const response = await fetch(`${process.env.REACT_APP_BASEURL}/api/FAQs/` + faq._id, {
+            method: 'PATCH',
+            body: JSON.stringify(ups),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
-        } */
+        })
+
+        const json = await response.json();
+        if (response.ok) {
+            fetchFAQs()
+        }
+    }
 
     return (
         <div className="FAQ-details w-full bg-light-wht border-blk border-[2px] rounded-[3px] my-[12px] flex flex-row">
@@ -88,6 +91,7 @@ const FaqDetails = (props) => {
                         <p className='text-blk text-sm'>Posted by <span className='hover:underline cursor-pointer'>{faq.username}</span></p>
                         <p className='text-light-gry text-sm'>•</p>
                         <p className='text-light-gry text-xs place-self-center'>{formatDistanceToNowStrict(new Date(faq.createdAt), { addSuffix: true })}</p>
+                        <button onClick={upClick}><ImArrowUp /></button> <ImArrowDown />
                     </div>
 
                     <div className='titleAndContent pt-1 pb-1'>
@@ -98,9 +102,9 @@ const FaqDetails = (props) => {
 
                 <div className='botMenus flex flex-row justify-between gap-x-7 bg-light-lgry px-[24px] py-3 border-t-[2px] border-blk w-full'>
                     <div className='flex w-full'>
-
-                        {/* <ImArrowUp />
-                        <p className='text-sm'>{user && faq.upvote}</p> */}
+                        
+                        {faq.upvote.length}
+                        <ImArrowUp />
                         {user && <form onSubmit={(handleSubmit)} className="w-full">
                             <div className='flex w-full'>
                                 <input

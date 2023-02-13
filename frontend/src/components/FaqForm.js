@@ -6,7 +6,7 @@ const FaqForm = () => {
     const { dispatch } = useFaqsContext();
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
-    const upvote = 0
+    let upvote = []
     const [error, setError] = useState('')
 
     const { user } = useAuthContext()

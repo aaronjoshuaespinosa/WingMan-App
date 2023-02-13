@@ -63,7 +63,7 @@ const deleteFAQ = async (req, res) => {
 //Update (PATCH) a FAQ
 const updateFAQ = async (req, res) => {
     const { id } = req.params;
-    const { comments } = req.body;
+    const { comments, upvote } = req.body;
     /*const { upvote } = req.body;
     try {
         const faq = await FAQ.findOneAndUpdate({upvote});
@@ -78,7 +78,7 @@ const updateFAQ = async (req, res) => {
     }
 
     const faq = await FAQ.findOneAndUpdate({_id: id}, {
-        $push: {comments: comments}
+        $push: {comments: comments, upvote: upvote}
     });
 
     //if requested id does not exist

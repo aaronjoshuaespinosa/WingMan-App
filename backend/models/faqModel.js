@@ -11,10 +11,9 @@ const faqSchema = new Schema({
         type: String,
         required: true
     },
-    upvote: {
-        type: Number,
-        required: true
-    },
+    upvote: [{
+        email: String,
+    }],
     email: {
         type: String,
         required: true
