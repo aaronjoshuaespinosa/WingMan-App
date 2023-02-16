@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 import { AiTwotoneDelete } from "react-icons/ai";
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
+import { FaCommentAlt } from "react-icons/fa";
 import { MdSend } from "react-icons/md";
 import { useFaqsContext } from '../hooks/useFaqsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
@@ -87,11 +88,17 @@ const FaqDetails = (props) => {
         <div className="FAQ-details w-full bg-light-wht border-blk border-[2px] rounded-[3px] my-[12px] flex flex-row">
             <div className='topFAQ flex flex-col justify-between h-full w-full'>
                 <div className='leftCard flex flex-col p-[24px]'>
-                    <div className='nameAndDate flex flex-row gap-2 align-center'>
-                        <p className='text-blk text-sm'>Posted by <span className='hover:underline cursor-pointer'>{faq.username}</span></p>
-                        <p className='text-light-gry text-sm'>•</p>
-                        <p className='text-light-gry text-xs place-self-center'>{formatDistanceToNowStrict(new Date(faq.createdAt), { addSuffix: true })}</p>
-                        <button onClick={upClick}><ImArrowUp /></button> <ImArrowDown />
+                    <div className='nameAndDate flex flex-row align-center justify-between'>
+                        <div className='flex flex-row gap-2'>
+                            <p className='text-blk text-sm'>Posted by <span className='hover:underline cursor-pointer'>{faq.username}</span></p>
+                            <p className='text-light-gry text-sm'>•</p>
+                            <p className='text-light-gry text-xs place-self-center'>{formatDistanceToNowStrict(new Date(faq.createdAt), { addSuffix: true })}</p>
+                        </div>
+
+                        <div className='flex flex-row gap-x-2 items-center justify-center'>
+                            <button onClick={upClick}><ImArrowUp />
+                            </button> <ImArrowDown />
+                        </div>
                     </div>
 
                     <div className='titleAndContent pt-1 pb-1'>
@@ -100,11 +107,35 @@ const FaqDetails = (props) => {
                     </div>
                 </div>
 
-                <div className='botMenus flex flex-row justify-between gap-x-7 bg-light-lgry px-[24px] py-3 border-t-[2px] border-blk w-full'>
-                    <div className='flex w-full'>
-                        
-                        {faq.upvote.length}
-                        <ImArrowUp />
+                <div className='botMenus flex flex-row justify-between gap-x-7 bg-wht px-[24px] py-3 border-t-[2px] border-t-light-lgry w-full'>
+                    <div className='flex w-full gap-x-4'>
+                        <div className='flex flex-row h-full justify-center items-center gap-x-1'>
+                            <ImArrowUp />
+                            <p>{faq.upvote.length}</p>
+                        </div>
+
+                        <div className='flex flex-row h-full justify-center items-center gap-x-1'>
+                            <FaCommentAlt />
+                            <p>{faq.comments.length}</p>
+                        </div>
+                    </div>
+
+                    {/* BASURAHAN */}
+                    {faq.username === user.data.username && <button onClick={() => { onClick(faq._id) }}><AiTwotoneDelete className='hover:text-red transition-all ease-in-out duration-[0.2s] text-xl' /></button>}
+
+                </div>
+
+                {/*COMMENT SECTION*/}
+                <div className='px-[24px] py-[12px] bg-light-lgry border-t-blk border-t-[2px]'>
+                    <p className='font-bold text-sm'>COMMENTS</p>
+                    <hr className='h-[2px] bg-light-gry my-2' />
+                    <div className='flex flex-col gap-y-2'>
+                        {faq.comments.map(({ username, description }) => {
+                            return (
+                                <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username === `${user.data.username}` ? "You" : `${username}`}:</span>&nbsp;&nbsp;{description}</p>)
+                        })}
+                        {faq.comments.length > 0 ? null : <p className='text-light-gry'>No comments yet</p>}
+
                         {user && <form onSubmit={(handleSubmit)} className="w-full">
                             <div className='flex w-full'>
                                 <input
@@ -119,24 +150,6 @@ const FaqDetails = (props) => {
                             </div>
                         </form>}
                         {error && <div>{error}</div>}
-
-                    </div>
-
-                    {/* BASURAHAN */}
-                    {faq.username === user.data.username && <button onClick={() => { onClick(faq._id) }}><AiTwotoneDelete className='hover:text-red transition-all ease-in-out duration-[0.2s] text-xl' /></button>}
-
-                </div>
-
-                {/*COMMENT SECTION*/}
-                <div className='px-[24px] py-[12px] bg-light-lgry border-t-light-gry border-t-[1px]'>
-                    <p className='font-bold text-sm'>COMMENTS</p>
-                    <hr className='h-[2px] bg-light-gry my-2' />
-                    <div>
-                        {faq.comments.map(({ username, description }) => {
-                            return (
-                                <p key={username} className="text-blk cursor-default"><span className='font-bold cursor-default hover:underline'>{username === `${user.data.username}` ? "You" : `${username}`}:</span>&nbsp;&nbsp;{description}</p>)
-                        })}
-                        {faq.comments.length > 0 ? null : <p className='text-light-gry'>No comments yet</p>}
                     </div>
                 </div>
 
